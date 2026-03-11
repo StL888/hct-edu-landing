@@ -1,0 +1,2296 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Holistic Coin Trainer — Alle reden über Krypto. Niemand versteht es. Bis jetzt.</title>
+  <meta name="description" content="Interaktives Krypto-Lernterminal für macOS. KI-gestützt · 3 Lern-Level · immersive Lernszenarien. 2 Lerneinheiten kostenlos. Kein Abo. Läuft lokal.">
+  <meta name="keywords" content="Krypto lernen, Krypto Bildung macOS, Wyckoff verstehen, interaktives Krypto-Lernen, Holistic Coin Trainer, Coin Analyse lernen">
+  <meta name="author" content="Holistic Coin Trainer">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://holisticcointrainer.com/">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://holisticcointrainer.com/">
+  <meta property="og:title" content="Holistic Coin Trainer — Alle reden über Krypto. Niemand versteht es. Bis jetzt.">
+  <meta property="og:description" content="Interaktives Krypto-Lernterminal für macOS. 2 Lerneinheiten kostenlos. Kein Abo.">
+  <meta property="og:image" content="https://holisticcointrainer.com/hero.jpeg">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Holistic Coin Trainer — Alle reden über Krypto. Niemand versteht es. Bis jetzt.">
+  <meta name="twitter:description" content="Interaktives Krypto-Lernterminal für macOS. 2 Lerneinheiten kostenlos testen.">
+  <meta name="twitter:image" content="https://holisticcointrainer.com/hero.jpeg">
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"SoftwareApplication","name":"Holistic Coin Trainer","operatingSystem":"macOS 12+","applicationCategory":"EducationalApplication","description":"Interaktives Krypto-Lernterminal für macOS. KI-gestütztes Lernframework mit Wyckoff-Analyse und DCA-Lernszenarien.","url":"https://holisticcointrainer.com/","offers":{"@type":"Offer","price":"599","priceCurrency":"EUR"},"publisher":{"@type":"Organization","name":"Holistic Coin Trainer","url":"https://holisticcointrainer.com"}}
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+    /* ── VARIABLES ─────────────────────────────────────────── */
+    :root {
+      --bg:         #080b0f;
+      --bg2:        #0d1117;
+      --gold:       #ffd700;
+      --gold-dim:   #b8860b;
+      --green:      #00ff41;
+      --green-mid:  #39d353;
+      --green-dim:  #1a7431;
+      --amber:      #ffa500;
+      --text:       #c8d0d8;
+      --gray:       #3a4555;
+      --gray-light: #556070;
+      --font:       'Space Mono', 'Courier New', monospace;
+    }
+
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 14px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* CRT scanlines overlay */
+    body::after {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background: repeating-linear-gradient(
+        0deg,
+        transparent 0px,
+        transparent 3px,
+        rgba(0,0,0,0.07) 3px,
+        rgba(0,0,0,0.07) 4px
+      );
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── TOP BAR ───────────────────────────────────────────── */
+    .topbar {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      padding: 18px 48px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 100;
+      background: linear-gradient(to bottom, rgba(8,11,15,0.95) 0%, transparent 100%);
+    }
+
+    .logo {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--gold-dim);
+    }
+    .logo span { color: var(--gold); }
+
+    .nav-cta {
+      font-size: 11px;
+      font-family: var(--font);
+      color: var(--green);
+      text-decoration: none;
+      border: 1px solid var(--green-dim);
+      padding: 7px 18px;
+      letter-spacing: 0.12em;
+      transition: all 0.2s;
+    }
+    .nav-cta:hover {
+      background: var(--green);
+      color: var(--bg);
+    }
+
+    /* ── LANG SWITCHER ─────────────────────────────────────── */
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+      align-items: center;
+    }
+    .lang-btn {
+      font-family: var(--font);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gray-light);
+      background: transparent;
+      border: 1px solid transparent;
+      padding: 5px 8px;
+      cursor: pointer;
+      transition: all 0.18s;
+      line-height: 1;
+    }
+    .lang-btn:hover {
+      color: var(--gold-dim);
+      border-color: var(--gray);
+    }
+    .lang-btn.active {
+      color: var(--gold);
+      border-color: var(--gold-dim);
+      background: rgba(255,215,0,0.06);
+    }
+
+    /* ── HERO ──────────────────────────────────────────────── */
+    .hero {
+      position: relative;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 140px 24px 100px;
+      overflow: hidden;
+    }
+
+    /*
+    ═══════════════════════════════════════════════════════════════
+      HERO PHOTO — GROK PORTRAIT IMAGE:
+      1. hero.jpg (hochkant/portrait) in denselben Ordner legen
+      2. Fertig — CSS übernimmt den Rest automatisch:
+         - Bild wird auf volle Viewport-Höhe skaliert, zentriert
+         - Schwarze Fades links + rechts neben dem Bild
+         - Dunkler Schleier unten für Lesbarkeit des Texts
+         - Ohne Bild: atmosphärisches Ambient-Light-Placeholder
+    ═══════════════════════════════════════════════════════════════
+    */
+
+    /* Layer 0 — the photo itself */
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+      background-color: var(--bg);
+      background-image: url('hero.jpeg');
+      background-size: auto 100%;      /* portrait: fills height, natural width */
+      background-position: center top;
+      background-repeat: no-repeat;
+    }
+
+    /* Layer 1 — horizontal side fades + bottom vignette */
+    .hero-bg::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background:
+        /* Left fade: black → transparent */
+        linear-gradient(
+          to right,
+          rgba(8,11,15,1)   0%,
+          rgba(8,11,15,0.9) 8%,
+          rgba(8,11,15,0.4) 18%,
+          transparent       30%,
+          transparent       70%,
+          rgba(8,11,15,0.4) 82%,
+          rgba(8,11,15,0.9) 92%,
+          rgba(8,11,15,1)   100%
+        ),
+        /* Bottom vignette for text readability */
+        linear-gradient(
+          to top,
+          rgba(8,11,15,1)    0%,
+          rgba(8,11,15,0.85) 12%,
+          rgba(8,11,15,0.4)  28%,
+          transparent        50%
+        ),
+        /* Top bar fade */
+        linear-gradient(
+          to bottom,
+          rgba(8,11,15,0.7) 0%,
+          transparent 22%
+        );
+    }
+
+    /* Fallback ambient light when no hero.jpg present */
+    .hero-bg:not([data-photo])::after,
+    .hero-bg-placeholder::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background:
+        radial-gradient(ellipse 42% 55% at 50% 36%,
+          rgba(0,80,25,0.14) 0%,
+          rgba(0,40,12,0.06) 50%,
+          transparent 70%
+        );
+    }
+
+    /* Subtle grid overlay */
+    .hero-grid {
+      position: absolute;
+      inset: 0;
+      z-index: 1;
+      background-image:
+        linear-gradient(rgba(0,255,65,0.022) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0,255,65,0.022) 1px, transparent 1px);
+      background-size: 48px 48px;
+      pointer-events: none;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 3;
+      max-width: 820px;
+    }
+
+    .hero-boot {
+      font-size: 10px;
+      color: var(--green-dim);
+      letter-spacing: 0.25em;
+      margin-bottom: 52px;
+      opacity: 0.65;
+    }
+
+    .hero-h1 {
+      font-size: clamp(26px, 4.5vw, 50px);
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 12px;
+    }
+
+    .hero-h2 {
+      font-size: clamp(26px, 4.5vw, 50px);
+      font-weight: 700;
+      color: var(--green);
+      text-shadow:
+        0 0 25px rgba(0,255,65,0.55),
+        0 0 55px rgba(0,255,65,0.2);
+      letter-spacing: -0.01em;
+      line-height: 1.15;
+      margin-bottom: 52px;
+    }
+
+    /* Blinking cursor */
+    .cursor {
+      display: inline-block;
+      width: 0.55em;
+      height: 0.85em;
+      background: var(--green);
+      margin-left: 5px;
+      vertical-align: baseline;
+      box-shadow: 0 0 8px rgba(0,255,65,0.8);
+      animation: blink 1.1s step-end infinite;
+    }
+    @keyframes blink {
+      0%, 100% { opacity: 1; }
+      50%       { opacity: 0; }
+    }
+
+    /* Terminal block */
+    .hero-terminal {
+      display: inline-block;
+      text-align: left;
+      background: rgba(0,0,0,0.45);
+      border: 1px solid var(--gray);
+      border-left: 3px solid var(--green-dim);
+      padding: 18px 28px;
+      margin-bottom: 52px;
+      font-size: 12px;
+      line-height: 2.1;
+      backdrop-filter: blur(4px);
+    }
+    .t-line { color: var(--green-dim); }
+    .t-line span { color: var(--gold-dim); }
+    .t-prompt { color: var(--gray); }
+
+    .hero-cta {
+      display: inline-block;
+      color: var(--gold);
+      border: 2px solid var(--gold-dim);
+      padding: 15px 40px;
+      font-family: var(--font);
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.25s;
+    }
+    .hero-cta:hover {
+      background: var(--gold);
+      color: var(--bg);
+      box-shadow: 0 0 35px rgba(255,215,0,0.3);
+    }
+
+    .scroll-hint {
+      position: absolute;
+      bottom: 36px;
+      left: 50%;
+      z-index: 3;
+      transform: translateX(-50%);
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--gray);
+      animation: pulse 2.2s ease-in-out infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 0.25; }
+      50%       { opacity: 0.7;  }
+    }
+
+    /* ── SECTION BASE ──────────────────────────────────────── */
+    .section-wrap {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 100px 40px;
+      border-top: 1px solid var(--gray);
+    }
+
+    .section-label {
+      font-size: 10px;
+      letter-spacing: 0.3em;
+      color: var(--green-dim);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+    }
+
+    .section-title {
+      font-size: clamp(18px, 2.8vw, 26px);
+      font-weight: 700;
+      color: var(--gold);
+      margin-bottom: 52px;
+    }
+
+    /* ── HOW IT WORKS ──────────────────────────────────────── */
+    .steps {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--gray);
+    }
+
+    .step {
+      background: var(--bg2);
+      padding: 36px 28px;
+      transition: background 0.2s;
+    }
+    .step:hover { background: #111820; }
+
+    .step-num {
+      font-size: 36px;
+      font-weight: 700;
+      color: var(--gray);
+      line-height: 1;
+      margin-bottom: 16px;
+    }
+
+    .step-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-dim);
+      letter-spacing: 0.08em;
+      margin-bottom: 10px;
+    }
+
+    .step-text {
+      font-size: 11px;
+      color: var(--text);
+      opacity: 0.75;
+      line-height: 1.8;
+    }
+
+    /* ── FEATURES ──────────────────────────────────────────── */
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--gray);
+    }
+
+    .feature {
+      background: var(--bg2);
+      padding: 32px 28px;
+      transition: background 0.2s;
+    }
+    .feature:hover { background: #111820; }
+
+    .feature-id {
+      font-size: 10px;
+      color: var(--green-dim);
+      letter-spacing: 0.2em;
+      margin-bottom: 14px;
+    }
+
+    .feature-title {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--gold-dim);
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+
+    .feature-text {
+      font-size: 11px;
+      color: var(--text);
+      opacity: 0.78;
+      line-height: 1.8;
+    }
+
+    /* ── PRICING ───────────────────────────────────────────── */
+    .pricing-intro {
+      font-size: 12px;
+      color: var(--gray-light);
+      margin-bottom: 52px;
+      max-width: 580px;
+      line-height: 1.8;
+    }
+
+    .pricing-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 1px;
+      background: var(--gray);
+      margin-bottom: 1px;
+    }
+
+    .price-card {
+      background: var(--bg2);
+      padding: 44px 32px;
+      display: flex;
+      flex-direction: column;
+      position: relative;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .price-card:hover {
+      background: #111820;
+      transform: translateY(-3px);
+    }
+
+    .price-card.featured {
+      background: #0d1a0f;
+    }
+    .price-card.featured::before {
+      content: '// BEST VALUE';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      background: var(--gold-dim);
+      color: var(--bg);
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      padding: 5px 0;
+      text-align: center;
+    }
+
+    .card-tier {
+      font-size: 10px;
+      letter-spacing: 0.28em;
+      color: var(--green-dim);
+      margin-bottom: 20px;
+      margin-top: 12px;
+    }
+    .price-card:not(.featured) .card-tier { margin-top: 0; }
+
+    .card-price {
+      font-size: clamp(36px, 4vw, 48px);
+      font-weight: 700;
+      color: var(--gold);
+      line-height: 1;
+      margin-bottom: 4px;
+      letter-spacing: -0.02em;
+    }
+    .card-price sup {
+      font-size: 18px;
+      vertical-align: top;
+      margin-top: 8px;
+      color: var(--gold-dim);
+    }
+
+    .card-period {
+      font-size: 11px;
+      color: var(--gray-light);
+      margin-bottom: 8px;
+    }
+
+    .card-saving {
+      font-size: 10px;
+      color: var(--green-dim);
+      letter-spacing: 0.1em;
+      margin-bottom: 28px;
+      min-height: 16px;
+    }
+
+    .card-features {
+      list-style: none;
+      margin-bottom: 40px;
+      flex: 1;
+    }
+    .card-features li {
+      font-size: 11px;
+      padding: 9px 0;
+      border-bottom: 1px solid rgba(58,69,85,0.35);
+      color: var(--text);
+      opacity: 0.85;
+    }
+    .card-features li::before {
+      content: '> ';
+      color: var(--green-dim);
+    }
+    .card-features li.na {
+      opacity: 0.3;
+    }
+    .card-features li.na::before {
+      content: '- ';
+      color: var(--gray);
+    }
+
+    .card-btn {
+      display: block;
+      text-align: center;
+      padding: 15px;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.25s;
+      cursor: pointer;
+    }
+
+    .btn-outline {
+      border: 1px solid var(--gold-dim);
+      color: var(--gold-dim);
+    }
+    .btn-outline:hover {
+      background: var(--gold-dim);
+      color: var(--bg);
+    }
+
+    .btn-solid {
+      background: var(--gold-dim);
+      color: var(--bg);
+      border: 1px solid var(--gold);
+    }
+    .btn-solid:hover {
+      background: var(--gold);
+      box-shadow: 0 0 25px rgba(255,215,0,0.35);
+    }
+
+    /* API key notice */
+    .api-note {
+      background: var(--bg2);
+      border: 1px solid var(--gray);
+      border-left: 3px solid var(--amber);
+      padding: 22px 28px;
+      font-size: 11px;
+      line-height: 1.9;
+      color: var(--gray-light);
+      margin-top: 36px;
+    }
+    .api-note strong {
+      color: var(--amber);
+      letter-spacing: 0.08em;
+    }
+    .api-note code {
+      background: rgba(255,165,0,0.1);
+      color: var(--amber);
+      padding: 1px 6px;
+      font-family: var(--font);
+      font-size: 10px;
+    }
+
+    /* ── TRIAL BANNER ──────────────────────────────────────── */
+    .trial-banner {
+      border: 1px solid var(--green-dim);
+      background: rgba(0,255,65,0.03);
+      padding: 40px 40px;
+      margin-bottom: 52px;
+      display: grid;
+      grid-template-columns: 1fr auto;
+      gap: 32px;
+      align-items: center;
+    }
+
+    .trial-badge {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 0.3em;
+      color: var(--bg);
+      background: var(--green-dim);
+      padding: 4px 12px;
+      margin-bottom: 16px;
+      font-weight: 700;
+    }
+
+    .trial-title {
+      font-size: clamp(16px, 2.2vw, 22px);
+      font-weight: 700;
+      color: var(--green);
+      letter-spacing: -0.01em;
+      margin-bottom: 12px;
+      text-shadow: 0 0 20px rgba(0,255,65,0.3);
+    }
+
+    .trial-text {
+      font-size: 12px;
+      color: var(--gray-light);
+      line-height: 1.85;
+      max-width: 580px;
+    }
+    .trial-text strong { color: var(--text); }
+
+    .trial-cta {
+      display: inline-block;
+      white-space: nowrap;
+      color: var(--bg);
+      background: var(--green-dim);
+      border: 1px solid var(--green);
+      padding: 16px 32px;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: all 0.25s;
+    }
+    .trial-cta:hover {
+      background: var(--green);
+      box-shadow: 0 0 30px rgba(0,255,65,0.25);
+    }
+
+    .trial-sub {
+      font-size: 10px;
+      color: var(--gray);
+      letter-spacing: 0.08em;
+      text-align: center;
+      margin-top: 10px;
+    }
+
+    .trial-cta-wrap {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    @media (max-width: 640px) {
+      .trial-banner { grid-template-columns: 1fr; }
+      .trial-cta-wrap { align-items: flex-start; }
+    }
+
+    /* ── DISCLAIMER ────────────────────────────────────────── */
+    .disclaimer {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 40px 60px;
+      font-size: 10px;
+      color: var(--gray);
+      line-height: 1.9;
+      border-top: 1px solid rgba(58,69,85,0.3);
+      padding-top: 32px;
+    }
+
+    /* ── FOOTER ────────────────────────────────────────────── */
+    footer {
+      border-top: 1px solid var(--gray);
+      padding: 40px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: 10px;
+      color: var(--gray);
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .footer-brand {
+      color: var(--gold-dim);
+      font-weight: 700;
+      letter-spacing: 0.15em;
+    }
+
+    .footer-links { display: flex; gap: 24px; }
+    .footer-links a {
+      color: var(--gray);
+      text-decoration: none;
+      letter-spacing: 0.1em;
+      transition: color 0.2s;
+    }
+    .footer-links a:hover { color: var(--green-dim); }
+
+    .footer-version {
+      opacity: 0.35;
+      font-size: 9px;
+      letter-spacing: 0.15em;
+    }
+
+    /* ── TRAINING SYSTEM ───────────────────────────────────── */
+    .learn-intro {
+      font-size: 13px;
+      color: var(--text);
+      opacity: 0.82;
+      max-width: 680px;
+      line-height: 2;
+      margin-bottom: 56px;
+    }
+    .learn-intro em {
+      font-style: normal;
+      color: var(--green);
+    }
+
+    .levels-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1px;
+      background: var(--gray);
+      margin-bottom: 56px;
+    }
+
+    .level-card {
+      background: var(--bg2);
+      padding: 36px 28px;
+      transition: background 0.2s;
+    }
+    .level-card:hover { background: #111820; }
+
+    .level-card-mid {
+      background: #0a120a;
+      border-top: 2px solid var(--green-dim);
+    }
+    .level-card-mid:hover { background: #0d1a0d; }
+
+    .level-badge {
+      display: inline-block;
+      font-size: 9px;
+      font-weight: 700;
+      letter-spacing: 0.25em;
+      padding: 3px 10px;
+      margin-bottom: 16px;
+    }
+    .badge-beginner {
+      background: rgba(58,69,85,0.4);
+      color: var(--gray-light);
+      border: 1px solid var(--gray);
+    }
+    .badge-advanced {
+      background: rgba(0,255,65,0.08);
+      color: var(--green-mid);
+      border: 1px solid var(--green-dim);
+    }
+    .badge-pro {
+      background: rgba(255,215,0,0.06);
+      color: var(--gold-dim);
+      border: 1px solid var(--gold-dim);
+    }
+
+    .level-title {
+      font-size: 15px;
+      font-weight: 700;
+      color: var(--text);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .level-text {
+      font-size: 11px;
+      color: var(--text);
+      opacity: 0.72;
+      line-height: 1.9;
+      margin-bottom: 18px;
+    }
+    .level-cue {
+      font-size: 9px;
+      color: var(--green-dim);
+      letter-spacing: 0.15em;
+      border-top: 1px solid var(--gray);
+      padding-top: 14px;
+    }
+
+    /* 5-step learning progression bar */
+    .learn-bar {
+      display: flex;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 0;
+      background: var(--bg2);
+      border: 1px solid var(--gray);
+      padding: 32px 24px;
+      margin-bottom: 40px;
+    }
+    .bar-step {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 10px;
+      flex: 1;
+      min-width: 90px;
+      padding: 0 8px;
+    }
+    .bar-arrow {
+      color: var(--gray);
+      font-size: 14px;
+      padding: 0 4px;
+      flex-shrink: 0;
+      margin-bottom: 22px;
+    }
+    .bar-num {
+      font-size: 30px;
+      font-weight: 700;
+      color: var(--gray);
+      line-height: 1;
+    }
+    .bar-step.bar-done .bar-num  { color: var(--green-dim); }
+    .bar-step.bar-gold .bar-num  {
+      color: var(--gold);
+      text-shadow: 0 0 14px rgba(255,215,0,0.4);
+    }
+    .bar-label {
+      font-size: 8px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--gray-light);
+      text-align: center;
+      line-height: 1.5;
+    }
+    .bar-step.bar-done .bar-label { color: var(--green-mid); }
+    .bar-step.bar-gold .bar-label { color: var(--gold); }
+
+    .learn-quote {
+      border-left: 3px solid var(--green-dim);
+      padding: 18px 28px;
+      font-size: 14px;
+      font-style: italic;
+      color: var(--gray-light);
+      background: rgba(0,255,65,0.025);
+      letter-spacing: 0.02em;
+    }
+
+    /* ── ENTERPRISE SECTION ───────────────────────────────────── */
+    .enterprise-wrap { margin-top: 2px; padding: 52px 0 0; }
+    .ent-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1px;
+      background: var(--gray);
+      margin: 28px 0 0;
+    }
+    .ent-card { background: var(--bg2); padding: 32px 28px; transition: background 0.2s; }
+    .ent-card:hover { background: #111820; }
+    .ent-features {
+      list-style: none;
+      margin: 16px 0 0;
+      font-size: 11px;
+      color: var(--gray-light);
+      font-family: var(--mono, monospace);
+      line-height: 1.8;
+    }
+    .ent-features li::before { content: "// "; color: var(--green-dim); }
+    .ent-btn-wrap { margin-top: 18px; }
+    .ent-card-btn {
+      display: inline-block;
+      padding: 8px 18px;
+      font-family: var(--font);
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--green);
+      border: 1px solid var(--green-dim);
+      text-decoration: none;
+      transition: all 0.2s;
+      background: transparent;
+    }
+    .ent-card-btn:hover { background: var(--green-dim); color: var(--bg); }
+    .ent-seats {
+      font-family: var(--mono, monospace);
+      font-size: 10px;
+      letter-spacing: 0.25em;
+      color: var(--green-dim);
+      margin-bottom: 16px;
+    }
+    .ent-price {
+      font-size: clamp(28px, 3vw, 36px);
+      font-weight: 700;
+      color: var(--green);
+      line-height: 1;
+      margin-bottom: 4px;
+    }
+    .ent-price sup { font-size: 14px; color: var(--green-mid); vertical-align: top; margin-top: 6px; }
+    .ent-unit { font-size: 11px; color: var(--gray-light); font-weight: 400; font-family: var(--mono, monospace); }
+    .ent-price-req { font-size: 22px; font-weight: 700; color: var(--green); line-height: 1; margin-bottom: 4px; padding-top: 8px; font-family: var(--mono, monospace); }
+    .ent-saving {
+      font-size: 10px;
+      color: var(--green-mid);
+      letter-spacing: 0.08em;
+      margin-top: 8px;
+      font-family: var(--mono, monospace);
+    }
+    .ent-info {
+      font-size: 11px;
+      color: var(--gray-light);
+      text-align: center;
+      margin: 20px 0 28px;
+      font-family: var(--mono, monospace);
+      letter-spacing: 0.04em;
+    }
+    .ent-cta { display: flex; justify-content: center; margin-bottom: 16px; }
+
+    /* ── PUBLIC BETA BADGE ─────────────────────────────────── */
+    .beta-badge {
+      position: fixed;
+      top: 28px;
+      right: -36px;
+      z-index: 10000;
+      transform: rotate(45deg);
+      background: var(--green);
+      color: #000;
+      font-family: var(--font);
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      padding: 6px 60px;
+      box-shadow: 0 0 18px rgba(0,255,65,0.6), 0 0 4px rgba(0,255,65,0.9);
+      pointer-events: none;
+      line-height: 1.5;
+      text-align: center;
+    }
+    .beta-badge span {
+      display: block;
+      font-size: 9px;
+      letter-spacing: 0.08em;
+      opacity: 0.75;
+      margin-top: 1px;
+    }
+
+    /* ── RESPONSIVE: Landscape Phones / Tablets ─────────────── */
+    @media (max-width: 1024px) {
+      .steps { grid-template-columns: 1fr; }
+      .features-grid { grid-template-columns: 1fr; }
+      .levels-grid { grid-template-columns: 1fr; }
+      .pricing-grid { grid-template-columns: 1fr; }
+      .ent-grid { grid-template-columns: 1fr; }
+      .trial-banner { grid-template-columns: 1fr; }
+    }
+
+    /* ── RESPONSIVE: Portrait Phones ─────────────────────────── */
+    @media (max-width: 640px) {
+      .topbar { padding: 12px 16px; }
+      .logo { font-size: 9px; letter-spacing: 0.12em; }
+      .lang-btn { padding: 4px 5px; font-size: 8px; }
+      .nav-cta { padding: 6px 12px; font-size: 9px; }
+
+      .hero { padding: 100px 16px 60px; }
+      .hero-h1 { font-size: 24px; }
+      .hero-h2 { font-size: 24px; margin-bottom: 32px; }
+      .hero-boot { font-size: 9px; margin-bottom: 28px; }
+      .hero-terminal { padding: 14px 16px; font-size: 10px; margin-bottom: 32px; }
+      .hero-cta { padding: 12px 28px; font-size: 12px; }
+
+      .section-wrap { padding: 48px 16px; }
+      .section-label { font-size: 9px; }
+      .section-title { font-size: 18px; margin-bottom: 32px; }
+
+      .step { padding: 24px 16px; }
+      .feature { padding: 24px 16px; }
+      .price-card { padding: 32px 16px; }
+      .trial-cta-wrap { align-items: flex-start; }
+
+      .learn-bar { gap: 12px; justify-content: flex-start; }
+      .bar-arrow { display: none; }
+
+      .ent-card { padding: 24px 16px; }
+      .ent-info { font-size: 10px; }
+
+      .disclaimer { padding: 24px 16px 40px; }
+
+      footer { padding: 24px 16px; flex-direction: column; text-align: left; gap: 12px; }
+      .footer-links { flex-wrap: wrap; gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- PUBLIC BETA BADGE -->
+  <div class="beta-badge">PUBLIC BETA<span>stay tuned</span></div>
+
+  <!-- TOP BAR -->
+  <header class="topbar">
+    <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
+    <div class="lang-switcher" id="langSwitcher">
+      <button class="lang-btn active" data-lang="DE">DE</button>
+      <button class="lang-btn" data-lang="EN">EN</button>
+      <button class="lang-btn" data-lang="FR">FR</button>
+      <button class="lang-btn" data-lang="ES">ES</button>
+      <button class="lang-btn" data-lang="IT">IT</button>
+      <button class="lang-btn" data-lang="PT">PT</button>
+    </div>
+    <a href="#trial" class="nav-cta" data-i18n="nav_cta">KOSTENLOS TESTEN</a>
+  </header>
+
+  <!-- ── HERO ────────────────────────────────────────────────── -->
+  <section class="hero">
+    <div class="hero-bg"></div>
+    <div class="hero-grid"></div>
+
+    <div class="hero-content">
+      <div class="hero-boot" data-i18n="hero_boot">&gt; LERN-ENGINE ONLINE · KI-GESTÜTZT · IMMERSIV · INTERAKTIV</div>
+
+      <h1 class="hero-h1" data-i18n="hero_h1">Alle reden über Krypto. Niemand versteht es.</h1>
+      <h2 class="hero-h2"><span data-i18n="hero_h2">Bis jetzt.</span><span class="cursor"></span></h2>
+
+      <div class="hero-terminal">
+        <div class="t-line">&gt; SYSTEM &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span data-i18n="hero_t1">// HOLISTIC COIN TRAINER v2.3</span></div>
+        <div class="t-line">&gt; ENGINE &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span data-i18n="hero_t2">// CLAUDE AI + COINGECKO LIVE-DATEN</span></div>
+        <div class="t-line">&gt; ANALYSIS &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span data-i18n="hero_t3">// WYCKOFF · FUNDAMENTALS · LERNSZENARIEN</span></div>
+        <div class="t-line">&gt; TRIAL &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span data-i18n="hero_t4">// 2 LERNEINHEITEN KOSTENLOS INKLUSIVE</span></div>
+        <div class="t-line">&gt; SIGNING &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span data-i18n="hero_t5">// APPLE DEVELOPER ID · NOTARIZED</span></div>
+        <div class="t-prompt">&gt; _</div>
+      </div>
+
+      <a href="#trial" class="hero-cta" data-i18n="hero_cta">Kostenlos starten</a>
+    </div>
+
+    <div class="scroll-hint" data-i18n="hero_scroll">▼ · SCROLLEN</div>
+  </section>
+
+  <!-- ── HOW IT WORKS ─────────────────────────────────────────── -->
+  <div class="section-wrap">
+    <div class="section-label" data-i18n="seq_label">&gt; ABLAUF</div>
+    <div class="section-title" data-i18n="seq_title">So funktioniert das Lernterminal.</div>
+    <div class="steps">
+      <div class="step">
+        <div class="step-num">01</div>
+        <div class="step-title" data-i18n="seq_s1_title">TICKER EINGEBEN</div>
+        <div class="step-text" data-i18n="seq_s1_text">Gib ein beliebiges Coin-Symbol ein. Das System lädt Live-Daten von CoinGecko – Preis, ATH-Abstand, Volumen, Exchange-Listings, Fear &amp; Greed.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">02</div>
+        <div class="step-title" data-i18n="seq_s2_title">KI-ANALYSE</div>
+        <div class="step-text" data-i18n="seq_s2_text">Claude KI führt eine strukturierte Analyse durch — und erklärt dir jeden Schritt: Warum dieser Filter? Was bedeutet diese Phase? Du lernst die Methode, während du sie anwendest.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">03</div>
+        <div class="step-title" data-i18n="seq_s3_title">LERNSZENARIO ERHALTEN</div>
+        <div class="step-text" data-i18n="seq_s3_text">Erhalte ein interaktives DCA-Lernszenario — ein Denkwerkzeug, keine Handlungsanweisung.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">04</div>
+        <div class="step-title" data-i18n="seq_s4_title">EXPORTIEREN + ARCHIVIEREN</div>
+        <div class="step-text" data-i18n="seq_s4_text">Exportiere deine Lernanalyse als Retro-Terminal-PDF. Jeder Bericht wird im lokalen Archiv gespeichert — dein persönliches Lerntagebuch.</div>
+      </div>
+      <div class="step">
+        <div class="step-num">05</div>
+        <div class="step-title" data-i18n="seq_s5_title">PRIMER // LERNBEGLEITER</div>
+        <div class="step-text" data-i18n="seq_s5_text">Dein persönlicher KI-Gesprächspartner. Kennt deine Analysen, erinnert sich an deine Thesen, fordert dich heraus. Drei Modi: ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. Kein Chatbot. Ein Gespräch das dich weiterbringt.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FEATURES ─────────────────────────────────────────────── -->
+  <div class="section-wrap">
+    <div class="section-label" data-i18n="cap_label">&gt; FUNKTIONEN</div>
+    <div class="section-title" data-i18n="cap_title">Was das Terminal lehrt.</div>
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-id">// 01</div>
+        <div class="feature-title" data-i18n="cap_f1_title">LIVE-MARKTDATEN</div>
+        <div class="feature-text" data-i18n="cap_f1_text">Echtzeit-Daten von CoinGecko. ATH-Abstand, Marktkapitalisierung, Exchange-Verifizierung, Fear &amp; Greed – alles abgerufen und geprüft bevor die Analyse beginnt.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-id">// 02</div>
+        <div class="feature-title" data-i18n="cap_f2_title">WYCKOFF-PHASENERKENNUNG</div>
+        <div class="feature-text" data-i18n="cap_f2_text">Jede Analyse ordnet die aktuelle Kursentwicklung in Wyckoff-Phasen (A–E) ein. Du lernst Distribution, Akkumulation und Spring zu erkennen — nicht als Theorie, sondern an deinem Coin.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-id">// 03</div>
+        <div class="feature-title" data-i18n="cap_f3_title">SURVIVAL-SCORE (VETO)</div>
+        <div class="feature-text" data-i18n="cap_f3_text">Ein harter Veto-Filter prüft Team-Aktivität, GitHub-Commits, Exchange-Listings und Red Flags. Du lernst, die richtigen Fragen zu stellen, bevor du ein Projekt beurteilst.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-id">// 04</div>
+        <div class="feature-title" data-i18n="cap_f4_title">DCA-LERNSZENARIO</div>
+        <div class="feature-text" data-i18n="cap_f4_text">Ein interaktives DCA-Lernszenario. Kein Kaufplan — ein Denkwerkzeug.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-id">// 05</div>
+        <div class="feature-title" data-i18n="cap_f5_title">MEHRSPRACHIGE BERICHTE</div>
+        <div class="feature-text" data-i18n="cap_f5_text">Analyse-Output in DE, EN, FR, ES, IT, PT. Der PDF-Export passt Sprache und Disclaimer-Text automatisch an.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-id">// 06</div>
+        <div class="feature-title" data-i18n="cap_f6_title">LOKAL – KEINE CLOUD</div>
+        <div class="feature-text" data-i18n="cap_f6_text">Alles läuft auf deinem Rechner. Deine Analysen, dein Archiv, dein API-Key. Keine Daten verlassen deinen Computer – außer dem KI-Call. Zero Telemetry.</div>
+      </div>
+      <div class="feature">
+        <div class="feature-id">// 07</div>
+        <div class="feature-title" data-i18n="cap_f7_title">PRIMER: KI-LERNBEGLEITER</div>
+        <div class="feature-text" data-i18n="cap_f7_text">Ein persönlicher Gesprächspartner der deine Analysen kennt, deine Thesen hinterfragt und Querverbindungen zieht. Drei Gesprächsstile. Ein Gedächtnis. Nicht Lexikon — Gespräch.</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TRAINING SYSTEM ─────────────────────────────────────── -->
+  <div class="section-wrap" id="learn">
+    <div class="section-label" data-i18n="learn_label">&gt; TRAININGSSYSTEM</div>
+    <div class="section-title" data-i18n="learn_title">In Wochen lernen, nicht in Jahren.</div>
+
+    <p class="learn-intro" data-i18n-html="learn_intro">Die meisten Crypto-Tools liefern Daten. HCT liefert <em>Verständnis</em>.<br>Jede Analyse ist eine interaktive Lerneinheit. Die KI passt sich an dein Level an — erklärt, wenn du Erklärung brauchst, fordert dich heraus, wenn du bereit bist. Du wirst aufgefordert mitzudenken, bevor du die Einschätzung siehst. So wächst echtes Urteilsvermögen — nicht Abhängigkeit.</p>
+
+    <div class="levels-grid">
+
+      <div class="level-card">
+        <div class="level-badge badge-beginner" data-i18n="learn_l1_badge">EINSTEIGER</div>
+        <div class="level-title" data-i18n="learn_l1_title">Erster Kontakt.</div>
+        <p class="level-text" data-i18n="learn_l1_text">Jeder Fachbegriff wird direkt im Bericht in einfacher Sprache erklärt. Die Analyse führt dich Schritt für Schritt — erklärt das Konzept, wendet es auf deinen Coin an, und lässt dich dann selbst nachdenken. Du weißt nach dem Lesen nicht nur was, sondern warum.</p>
+        <div class="level-cue" data-i18n="learn_l1_cue">// vereinfachte Sprache · Konzepte inline erklärt</div>
+      </div>
+
+      <div class="level-card level-card-mid">
+        <div class="level-badge badge-advanced" data-i18n="learn_l2_badge">FORTGESCHRITTEN</div>
+        <div class="level-title" data-i18n="learn_l2_title">Mustererkennung.</div>
+        <p class="level-text" data-i18n="learn_l2_text">Voller Framework-Output. Tri-Filter-Kaskade, Survival-Score, DCA-Lernszenario, Wyckoff-Phasenklassifizierung. Du wirst herausgefordert, deine eigene These zu formulieren, bevor du die Einschätzung siehst. Kein Einsteiger-Gerüst — maximale Lerndichte.</p>
+        <div class="level-cue" data-i18n="learn_l2_cue">// Standard-Output · volles Framework · keine Vereinfachung</div>
+      </div>
+
+      <div class="level-card">
+        <div class="level-badge badge-pro" data-i18n="learn_l3_badge">EXPERTE</div>
+        <div class="level-title" data-i18n="learn_l3_title">Das vollständige Bild.</div>
+        <p class="level-text" data-i18n="learn_l3_text">Alle Daten. Alle Filter. Alle Flags. Bias-Checks, Exchange-Liquiditätsanalyse, Einschätzungsbandbreiten, bekannte Datenlücken. Hier trainierst du wie ein Analyst — dicht, präzise, ohne Handhalten. Die KI ist dein Sparringpartner, nicht dein Berater.</p>
+        <div class="level-cue" data-i18n="learn_l3_cue">// maximale Lerndichte · volles technisches Vokabular</div>
+      </div>
+
+    </div>
+
+    <!-- Learning progression timeline -->
+    <div class="learn-bar">
+      <div class="bar-step bar-done">
+        <span class="bar-num">01</span>
+        <span class="bar-label" data-i18n-html="learn_b1">ERSTEN BERICHT<br>LESEN</span>
+      </div>
+      <div class="bar-arrow">&gt;</div>
+      <div class="bar-step bar-done">
+        <span class="bar-num">02</span>
+        <span class="bar-label" data-i18n-html="learn_b2">MUSTER<br>ERKENNEN</span>
+      </div>
+      <div class="bar-arrow">&gt;</div>
+      <div class="bar-step">
+        <span class="bar-num">03</span>
+        <span class="bar-label" data-i18n-html="learn_b3">EIGENE THESE<br>ENTWICKELN</span>
+      </div>
+      <div class="bar-arrow">&gt;</div>
+      <div class="bar-step">
+        <span class="bar-num">04</span>
+        <span class="bar-label" data-i18n-html="learn_b4">DAS TOOL<br>HINTERFRAGEN</span>
+      </div>
+      <div class="bar-arrow">&gt;</div>
+      <div class="bar-step bar-gold">
+        <span class="bar-num">05</span>
+        <span class="bar-label" data-i18n-html="learn_b5">DU BIST<br>DER ANALYST</span>
+      </div>
+    </div>
+
+    <blockquote class="learn-quote" data-i18n="learn_quote">
+      „Das Tool wird dein Sparringpartner. Irgendwann denkst du schneller als es schreibt."
+    </blockquote>
+
+    <!-- Psychology warning -->
+    <div style="margin-top:32px; border: 1px solid var(--amber); padding:24px 28px; background:rgba(255,165,0,0.04);">
+      <div style="font-family:var(--font); font-size:10px; letter-spacing:0.2em; color:var(--amber); font-weight:700; margin-bottom:12px;" data-i18n="psych_label">&gt; WARNUNG // DAS GRÖSSTE RISIKO IM KRYPTO: DU SELBST</div>
+      <p style="font-family:var(--font); font-size:13px; color:var(--gray-light); line-height:1.75;" data-i18n="psych_text">FOMO. Emotionale Fehlentscheidungen. Impulsives Handeln. Emotionale Entscheidungen sind das größte Risiko im Krypto-Markt. HCT trainiert strukturiertes Denken, kritisches Hinterfragen und Impulskontrolle. Kein Bauchgefühl. Kein Hype. Nur Lernprozess.</p>
+    </div>
+  </div>
+
+  <!-- ── TRIAL ────────────────────────────────────────────────── -->
+  <div class="section-wrap" id="trial">
+    <div class="section-label" data-i18n="trial_label">&gt; KOSTENLOS TESTEN</div>
+    <div class="section-title" data-i18n="trial_title">Lern nicht blind.</div>
+
+    <div class="trial-banner">
+      <div>
+        <div class="trial-badge" data-i18n="trial_badge">// 2 LERNEINHEITEN KOSTENLOS INKLUSIVE</div>
+        <div class="trial-title" data-i18n="trial_h">Erlebe es, bevor du dich entscheidest.</div>
+        <p class="trial-text" data-i18n-html="trial_text">Jeder Download von HCT enthält <strong>2 vollständige Lerneinheiten — voll freigeschaltet, ohne Lizenz.</strong> Lerne anhand eines echten Coins. Sieh die Wyckoff-Phasenerkennung, den Survival-Score, das DCA-Lernszenario. Exportiere das PDF. Prüfe das Archiv. Dann entscheide.<br><br>Bei €599/Jahr verdienst du es zu wissen, was du bekommst.</p>
+      </div>
+      <div class="trial-cta-wrap">
+        <a href="/download" class="trial-cta" data-i18n="trial_cta">Kostenlos herunterladen</a>
+        <div class="trial-sub" data-i18n="trial_sub">macOS · kein Konto · keine Kreditkarte</div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── PRICING ───────────────────────────────────────────────── -->
+  <div class="section-wrap" id="pricing">
+    <div class="section-label" data-i18n="price_label">&gt; ZUGANGSSTUFEN</div>
+    <div class="section-title" data-i18n="price_title">Wähle deine Stufe.</div>
+    <p class="pricing-intro" data-i18n-html="price_intro">Einmalig oder jährliche Lizenz. Keine Abo-Fallen, keine automatische Verlängerung ohne Hinweis.<br>Alle Stufen beinhalten die vollständige Lern-Engine, unbegrenzte Lerneinheiten, Live-Daten und PDF-Export.<br>Du bringst deinen eigenen Anthropic API-Key – deine Daten bleiben auf deinem Rechner.</p>
+
+    <div class="pricing-grid">
+
+      <!-- ANNUAL -->
+      <div class="price-card">
+        <div class="card-tier" data-i18n="price_a_tier">// JAHRES-LIZENZ</div>
+        <div class="card-price"><sup>€</sup>599</div>
+        <div class="card-period" data-i18n="price_a_period">pro Jahr · jährliche Verlängerung</div>
+        <div class="card-saving">&nbsp;</div>
+        <ul class="card-features">
+          <li data-i18n="feat_unlimited">Unbegrenzte Lerneinheiten</li>
+          <li data-i18n="feat_coingecko">Live CoinGecko-Daten</li>
+          <li data-i18n="feat_wyckoff">Wyckoff + DCA-Lernszenario</li>
+          <li data-i18n="feat_pdf">PDF-Export (Retro-Terminal)</li>
+          <li data-i18n="feat_local">Lokales Archiv – keine Cloud</li>
+          <li data-i18n="feat_claude">Claude Opus Pro KI-Modell</li>
+          <li data-i18n="feat_multilang">Mehrsprachiger Output (6 Sprachen)</li>
+          <li data-i18n="feat_a_upd">Alle Updates im Lizenzzeitraum</li>
+          <li data-i18n="feat_a_seats">2 Installationen</li>
+        </ul>
+        <a href="https://holisticcointrainer.lemonsqueezy.com/buy/1356826"
+           class="card-btn btn-outline" data-i18n="price_a_btn">Zugang holen</a>
+      </div>
+
+      <!-- 3-YEAR (FEATURED) -->
+      <div class="price-card featured">
+        <div class="card-tier" data-i18n="price_3_tier">// 3-JAHRES-LIZENZ</div>
+        <div class="card-price"><sup>€</sup>1.399</div>
+        <div class="card-period" data-i18n="price_3_period">einmalig · 3 Jahre gültig</div>
+        <div class="card-saving" data-i18n="price_3_save">&gt; SPARE €398 ggü. Jahres-Lizenz</div>
+        <ul class="card-features">
+          <li data-i18n="feat_unlimited">Unbegrenzte Lerneinheiten</li>
+          <li data-i18n="feat_coingecko">Live CoinGecko-Daten</li>
+          <li data-i18n="feat_wyckoff">Wyckoff + DCA-Lernszenario</li>
+          <li data-i18n="feat_pdf">PDF-Export (Retro-Terminal)</li>
+          <li data-i18n="feat_local">Lokales Archiv – keine Cloud</li>
+          <li data-i18n="feat_claude">Claude Opus Pro KI-Modell</li>
+          <li data-i18n="feat_multilang">Mehrsprachiger Output (6 Sprachen)</li>
+          <li data-i18n="feat_3_upd">Alle Updates für 3 Jahre</li>
+          <li data-i18n="feat_3_seats">2 Installationen</li>
+        </ul>
+        <a href="https://holisticcointrainer.lemonsqueezy.com/buy/1356865"
+           class="card-btn btn-solid" data-i18n="price_3_btn">Jetzt starten</a>
+      </div>
+
+      <!-- LIFETIME -->
+      <div class="price-card">
+        <div class="card-tier" data-i18n="price_l_tier">// LIFETIME-LIZENZ</div>
+        <div class="card-price"><sup>€</sup>1.999</div>
+        <div class="card-period" data-i18n="price_l_period">einmalig · alle zukünftigen Updates</div>
+        <div class="card-saving" data-i18n="price_l_save">&gt; EINMAL ZAHLEN. FÜR IMMER BESITZEN.</div>
+        <ul class="card-features">
+          <li data-i18n="feat_unlimited">Unbegrenzte Lerneinheiten</li>
+          <li data-i18n="feat_coingecko">Live CoinGecko-Daten</li>
+          <li data-i18n="feat_wyckoff">Wyckoff + DCA-Lernszenario</li>
+          <li data-i18n="feat_pdf">PDF-Export (Retro-Terminal)</li>
+          <li data-i18n="feat_local">Lokales Archiv – keine Cloud</li>
+          <li data-i18n="feat_claude">Claude Opus Pro KI-Modell</li>
+          <li data-i18n="feat_multilang">Mehrsprachiger Output (6 Sprachen)</li>
+          <li data-i18n="feat_l_upd">Alle zukünftigen Updates · für immer</li>
+          <li data-i18n="feat_l_seats">1 Installation</li>
+        </ul>
+        <a href="https://holisticcointrainer.lemonsqueezy.com/buy/1356866"
+           class="card-btn btn-outline" data-i18n="price_l_btn">Für immer</a>
+      </div>
+
+    </div>
+
+    <p style="text-align:center; font-size:11px; color:var(--gray); margin-top:-28px; margin-bottom:48px; opacity:0.7;" data-i18n-html="legal_note">Mit dem Kauf akzeptierst du die <a href="legal/agb.html" style="color:var(--gold-dim);">AGB</a> und die <a href="legal/eula.html" style="color:var(--gold-dim);">EULA</a>. <a href="legal/widerruf.html" style="color:var(--gold-dim);">Widerrufsbelehrung</a>.</p>
+
+    <!-- ── ENTERPRISE ──────────────────────────────────────────────── -->
+    <div class="enterprise-wrap" id="enterprise">
+      <div class="section-label" data-i18n="price_e_label">&gt; ENTERPRISE</div>
+      <div class="section-title" data-i18n="price_e_title">Für Teams, Bildungseinrichtungen und Unternehmen.</div>
+
+      <div class="ent-grid">
+
+        <div class="ent-card">
+          <div class="ent-seats" data-i18n="ent_seats_1">3–5 SEATS</div>
+          <div class="ent-price"><sup>€</sup>499<br><span class="ent-unit" data-i18n="ent_per_seat">/Seat/Jahr</span></div>
+          <div class="ent-saving" data-i18n="ent_save_1">–€100 · 17% RABATT</div>
+          <ul class="ent-features">
+            <li data-i18n="ent_f1">Individuelle API-Keys pro Nutzer</li>
+            <li data-i18n="ent_f2">Eigener CoinGecko API-Key</li>
+            <li data-i18n="ent_f3">Sonnet &amp; Opus Pro Lerneinheiten</li>
+            <li data-i18n="ent_f4">Zentrales Lizenz-Management</li>
+          </ul>
+          <div class="ent-btn-wrap">
+            <a href="mailto:hello@holisticcointrainer.com?subject=Enterprise%203-5%20Seats" class="ent-card-btn" data-i18n="ent_card_btn">Angebot anfragen</a>
+          </div>
+        </div>
+
+        <div class="ent-card">
+          <div class="ent-seats" data-i18n="ent_seats_2">6–20 SEATS</div>
+          <div class="ent-price"><sup>€</sup>399<br><span class="ent-unit" data-i18n="ent_per_seat">/Seat/Jahr</span></div>
+          <div class="ent-saving" data-i18n="ent_save_2">–€200 · 33% RABATT</div>
+          <ul class="ent-features">
+            <li data-i18n="ent_f1">Individuelle API-Keys pro Nutzer</li>
+            <li data-i18n="ent_f2">Eigener CoinGecko API-Key</li>
+            <li data-i18n="ent_f3">Sonnet &amp; Opus Pro Lerneinheiten</li>
+            <li data-i18n="ent_f4">Zentrales Lizenz-Management</li>
+          </ul>
+          <div class="ent-btn-wrap">
+            <a href="mailto:hello@holisticcointrainer.com?subject=Enterprise%206-20%20Seats" class="ent-card-btn" data-i18n="ent_card_btn">Angebot anfragen</a>
+          </div>
+        </div>
+
+        <div class="ent-card">
+          <div class="ent-seats" data-i18n="ent_seats_3">21–50 SEATS</div>
+          <div class="ent-price"><sup>€</sup>299<br><span class="ent-unit" data-i18n="ent_per_seat">/Seat/Jahr</span></div>
+          <div class="ent-saving" data-i18n="ent_save_3">–€300 · 50% RABATT</div>
+          <ul class="ent-features">
+            <li data-i18n="ent_f1">Individuelle API-Keys pro Nutzer</li>
+            <li data-i18n="ent_f2">Eigener CoinGecko API-Key</li>
+            <li data-i18n="ent_f3">Sonnet &amp; Opus Pro Lerneinheiten</li>
+            <li data-i18n="ent_f4">Zentrales Lizenz-Management</li>
+          </ul>
+          <div class="ent-btn-wrap">
+            <a href="mailto:hello@holisticcointrainer.com?subject=Enterprise%2021-50%20Seats" class="ent-card-btn" data-i18n="ent_card_btn">Angebot anfragen</a>
+          </div>
+        </div>
+
+        <div class="ent-card">
+          <div class="ent-seats" data-i18n="ent_seats_4">50+ SEATS</div>
+          <div class="ent-price-req" data-i18n="ent_price_req">AUF ANFRAGE</div>
+          <div class="ent-saving" data-i18n="ent_save_4">INDIVIDUELLE KONDITIONEN</div>
+          <ul class="ent-features">
+            <li data-i18n="ent_f1">Individuelle API-Keys pro Nutzer</li>
+            <li data-i18n="ent_f2">Eigener CoinGecko API-Key</li>
+            <li data-i18n="ent_f3">Sonnet &amp; Opus Pro Lerneinheiten</li>
+            <li data-i18n="ent_f5">Dedizierter Support</li>
+            <li data-i18n="ent_f6">Individuelle Konditionen</li>
+          </ul>
+          <div class="ent-btn-wrap">
+            <a href="mailto:hello@holisticcointrainer.com?subject=Enterprise%2050%2B%20Seats" class="ent-card-btn" data-i18n="ent_card_btn">Angebot anfragen</a>
+          </div>
+        </div>
+
+      </div>
+
+      <p class="ent-info" data-i18n="ent_info">// 1 SEAT = 1 MAC · NUR JAHRES-LIZENZ · LERNGRUPPEN · BILDUNGSEINRICHTUNGEN · FORSCHUNGSTEAMS · UNTERNEHMEN</p>
+      <p class="ent-info" style="margin-top:8px; font-style:italic;" data-i18n="ent_edu_note">HCT bleibt auch im Team- und Enterprise-Kontext ein Bildungstool.</p>
+      <div class="ent-cta">
+        <a href="mailto:hello@holisticcointrainer.com"
+           class="card-btn btn-outline" data-i18n="price_e_btn">ZUGANG VERHANDELN</a>
+      </div>
+    </div>
+
+    <!-- API KEY NOTE -->
+    <div class="api-note" data-i18n-html="api_note"><strong>&gt; WICHTIG — API-KEY &amp; NUTZUNGSKOSTEN</strong><br>HCT benötigt deinen eigenen <strong>Anthropic API-Key</strong> für KI-gestützte Lerneinheiten. Der Key wird einmalig in der App eingegeben und verlässt nie deinen Rechner. Die API-Nutzung wird direkt von Anthropic abgerechnet – getrennt von deiner HCT-Lizenz. Eine typische Lerneinheit kostet etwa <code>~$0,80 mit Claude Sonnet · ~$6,00 mit Claude Opus Pro</code>. Du hast jederzeit die volle Kontrolle über deine API-Ausgaben. Ein Anthropic-Konto kann unter <code>console.anthropic.com</code> erstellt werden.</div>
+
+    <!-- SYSTEM REQUIREMENTS -->
+    <div class="api-note" style="margin-top:16px; border-left-color: var(--green-dim);">
+      <div style="font-size:10px; letter-spacing:0.18em; color:var(--green-dim); font-weight:700; margin-bottom:12px;" data-i18n="sysreq_title">&gt; SYSTEMANFORDERUNGEN</div>
+      <div style="display:flex; flex-direction:column; gap:8px;">
+        <div style="display:flex; gap:12px; font-size:12px; align-items:flex-start;">
+          <span style="color:var(--green-mid); min-width:16px;">✓</span>
+          <span data-i18n-html="sysreq_os"><strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; align-items:flex-start;">
+          <span style="color:var(--green-mid); min-width:16px;">✓</span>
+          <span data-i18n-html="sysreq_chip"><strong>Apple Silicon</strong> nativ · Intel Mac via Rosetta 2</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; align-items:flex-start;">
+          <span style="color:var(--green-mid); min-width:16px;">✓</span>
+          <span data-i18n-html="sysreq_ram"><strong>4 GB RAM</strong> Minimum · 8 GB empfohlen</span>
+        </div>
+        <div style="display:flex; gap:12px; font-size:12px; align-items:flex-start;">
+          <span style="color:var(--green-mid); min-width:16px;">✓</span>
+          <span data-i18n-html="sysreq_net"><strong>Internetverbindung</strong> erforderlich (API-Anfragen)</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── DISCLAIMER ────────────────────────────────────────────── -->
+  <div class="disclaimer" data-i18n-html="disclaimer"><strong style="color:var(--gray-light);">KEINE ANLAGEBERATUNG.</strong> Holistic Coin Trainer ist ausschließlich ein Bildungs- und Lerntool. Alle Analyse-Outputs werden von KI generiert und stellen keine Anlageberatung, Finanzberatung oder Empfehlung zum Kauf oder Verkauf von Vermögenswerten dar. Krypto-Assets sind hochvolatil. Vergangene Performance ist kein Indikator für zukünftige Ergebnisse. Dieses Tool stellt keine Finanz-, Anlage- oder Steuerberatung dar.</div>
+
+  <!-- ── FOOTER ────────────────────────────────────────────────── -->
+  <footer>
+    <div class="footer-brand">HCT // HOLISTIC COIN TRAINER</div>
+    <div class="footer-links">
+      <a href="legal/impressum.html">Impressum</a>
+      <a href="legal/datenschutz.html">Datenschutz</a>
+      <a href="legal/agb.html" data-i18n="footer_agb">AGB</a>
+      <a href="legal/eula.html">EULA</a>
+      <a href="legal/widerruf.html" data-i18n="footer_widerruf">Widerruf</a>
+      <a href="mailto:hello@holisticcointrainer.com" data-i18n="footer_contact">Kontakt</a>
+      <a href="#" id="footer-support-link" data-i18n="footer_support" style="display:none">Support</a>
+      <a href="https://www.facebook.com/HolisticCoinTrainer" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="currentColor" style="flex-shrink:0;"><path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/></svg>Facebook</a>
+      <a href="https://www.instagram.com/holisticcointrainer" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:5px;"><svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0;"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>Instagram</a>
+    </div>
+    <div class="footer-version">&gt; holisticcointrainer.com &nbsp;//&nbsp; v2.3 &nbsp;//&nbsp; 2026</div>
+  </footer>
+
+
+<script>
+// ── Support URL — Tally-Formular eintragen wenn verfügbar ─────────────────────
+const SUPPORT_URL = 'https://tally.so/r/aQxKEq';
+// ─────────────────────────────────────────────────────────────────────────────
+
+const T = {
+  DE: {
+    nav_cta: "KOSTENLOS TESTEN",
+    hero_boot: "> LERN-ENGINE ONLINE · KI-GESTÜTZT · IMMERSIV · INTERAKTIV",
+    hero_h1: "Alle reden über Krypto. Niemand versteht es.",
+    hero_h2: "Bis jetzt.",
+    hero_t1: "// HOLISTIC COIN TRAINER v2.3",
+    hero_t2: "// CLAUDE AI + COINGECKO LIVE-DATEN",
+    hero_t3: "// WYCKOFF · FUNDAMENTALS · LERNSZENARIEN",
+    hero_t4: "// 2 LERNEINHEITEN KOSTENLOS INKLUSIVE",
+    hero_cta: "Kostenlos starten",
+    hero_scroll: "▼ · SCROLLEN",
+    seq_label: "> ABLAUF",
+    seq_title: "So funktioniert das Lernterminal.",
+    seq_s1_title: "TICKER EINGEBEN",
+    seq_s1_text: "Gib ein beliebiges Coin-Symbol ein. Das System lädt Live-Daten von CoinGecko – Preis, ATH-Abstand, Volumen, Exchange-Listings, Fear & Greed.",
+    seq_s2_title: "KI-ANALYSE",
+    seq_s2_text: "Claude KI führt eine strukturierte Analyse durch — und erklärt dir jeden Schritt: Warum dieser Filter? Was bedeutet diese Phase? Du lernst die Methode, während du sie anwendest.",
+    seq_s3_title: "LERNSZENARIO ERHALTEN",
+    seq_s3_text: "Erhalte ein interaktives DCA-Lernszenario — ein Denkwerkzeug, keine Handlungsanweisung.",
+    seq_s4_title: "EXPORTIEREN + ARCHIVIEREN",
+    seq_s4_text: "Exportiere deine Lernanalyse als Retro-Terminal-PDF. Jeder Bericht wird im lokalen Archiv gespeichert — dein persönliches Lerntagebuch.",
+    seq_s5_title: "PRIMER // LERNBEGLEITER",
+    seq_s5_text: "Dein persönlicher KI-Gesprächspartner. Kennt deine Analysen, erinnert sich an deine Thesen, fordert dich heraus. Drei Modi: ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. Kein Chatbot. Ein Gespräch das dich weiterbringt.",
+    cap_label: "> FUNKTIONEN",
+    cap_title: "Was das Terminal lehrt.",
+    cap_f1_title: "LIVE-MARKTDATEN",
+    cap_f1_text: "Echtzeit-Daten von CoinGecko. ATH-Abstand, Marktkapitalisierung, Exchange-Verifizierung, Fear & Greed – alles abgerufen und geprüft bevor die Analyse beginnt.",
+    cap_f2_title: "WYCKOFF-PHASENERKENNUNG",
+    cap_f2_text: "Jede Analyse ordnet die aktuelle Kursentwicklung in Wyckoff-Phasen (A–E) ein. Du lernst Distribution, Akkumulation und Spring zu erkennen — nicht als Theorie, sondern an deinem Coin.",
+    cap_f3_title: "SURVIVAL-SCORE (VETO)",
+    cap_f3_text: "Ein harter Veto-Filter prüft Team-Aktivität, GitHub-Commits, Exchange-Listings und Red Flags. Du lernst, die richtigen Fragen zu stellen, bevor du ein Projekt beurteilst.",
+    cap_f4_title: "DCA-LERNSZENARIO",
+    cap_f4_text: "Ein interaktives DCA-Lernszenario. Kein Kaufplan — ein Denkwerkzeug.",
+    cap_f5_title: "MEHRSPRACHIGE BERICHTE",
+    cap_f5_text: "Analyse-Output in DE, EN, FR, ES, IT, PT. Der PDF-Export passt Sprache und Disclaimer-Text automatisch an.",
+    cap_f6_title: "LOKAL – KEINE CLOUD",
+    cap_f6_text: "Alles läuft auf deinem Rechner. Deine Analysen, dein Archiv, dein API-Key. Keine Daten verlassen deinen Computer – außer dem KI-Call. Zero Telemetry.",
+    cap_f7_title: "PRIMER: KI-LERNBEGLEITER",
+    cap_f7_text: "Ein persönlicher Gesprächspartner der deine Analysen kennt, deine Thesen hinterfragt und Querverbindungen zieht. Drei Gesprächsstile. Ein Gedächtnis. Nicht Lexikon — Gespräch.",
+    learn_label: "> TRAININGSSYSTEM",
+    learn_title: "In Wochen lernen, nicht in Jahren.",
+    learn_intro: "Die meisten Crypto-Tools liefern Daten. HCT liefert <em>Verständnis</em>.<br>Jede Analyse ist eine interaktive Lerneinheit. Die KI passt sich an dein Level an — erklärt, wenn du Erklärung brauchst, fordert dich heraus, wenn du bereit bist. Du wirst aufgefordert mitzudenken, bevor du die Einschätzung siehst. So wächst echtes Urteilsvermögen — nicht Abhängigkeit.",
+    learn_l1_badge: "EINSTEIGER",
+    learn_l1_title: "Erster Kontakt.",
+    learn_l1_text: "Jeder Fachbegriff wird direkt im Bericht in einfacher Sprache erklärt. Die Analyse führt dich Schritt für Schritt — erklärt das Konzept, wendet es auf deinen Coin an, und lässt dich dann selbst nachdenken. Du weißt nach dem Lesen nicht nur was, sondern warum.",
+    learn_l1_cue: "// vereinfachte Sprache · Konzepte inline erklärt",
+    learn_l2_badge: "FORTGESCHRITTEN",
+    learn_l2_title: "Mustererkennung.",
+    learn_l2_text: "Voller Framework-Output. Tri-Filter-Kaskade, Survival-Score, DCA-Lernszenario, Wyckoff-Phasenklassifizierung. Du wirst herausgefordert, deine eigene These zu formulieren, bevor du die Einschätzung siehst. Kein Einsteiger-Gerüst — maximale Lerndichte.",
+    learn_l2_cue: "// Standard-Output · volles Framework · keine Vereinfachung",
+    learn_l3_badge: "EXPERTE",
+    learn_l3_title: "Das vollständige Bild.",
+    learn_l3_text: "Alle Daten. Alle Filter. Alle Flags. Bias-Checks, Exchange-Liquiditätsanalyse, Einschätzungsbandbreiten, bekannte Datenlücken. Hier trainierst du wie ein Analyst — dicht, präzise, ohne Handhalten. Die KI ist dein Sparringpartner, nicht dein Berater.",
+    learn_l3_cue: "// maximale Lerndichte · volles technisches Vokabular",
+    learn_b1: "ERSTEN BERICHT<br>LESEN",
+    learn_b2: "MUSTER<br>ERKENNEN",
+    learn_b3: "EIGENE THESE<br>ENTWICKELN",
+    learn_b4: "DAS TOOL<br>HINTERFRAGEN",
+    learn_b5: "DU BIST<br>DER ANALYST",
+    learn_quote: '„Das Tool wird dein Sparringpartner. Irgendwann denkst du schneller als es schreibt."',
+    trial_label: "> KOSTENLOS TESTEN",
+    trial_title: "Lern nicht blind.",
+    trial_badge: "// 2 LERNEINHEITEN KOSTENLOS INKLUSIVE",
+    trial_h: "Erlebe es, bevor du dich entscheidest.",
+    trial_text: "Jeder Download von HCT enthält <strong>2 vollständige Lerneinheiten — voll freigeschaltet, ohne Lizenz.</strong> Lerne anhand eines echten Coins. Sieh die Wyckoff-Phasenerkennung, den Survival-Score, das DCA-Lernszenario. Exportiere das PDF. Prüfe das Archiv. Dann entscheide.<br><br>Bei €599/Jahr verdienst du es zu wissen, was du bekommst.",
+    trial_cta: "Kostenlos herunterladen",
+    trial_sub: "macOS · kein Konto · keine Kreditkarte",
+    price_label: "> ZUGANGSSTUFEN",
+    price_title: "Wähle deine Stufe.",
+    price_intro: "Einmalig oder jährliche Lizenz. Keine Abo-Fallen, keine automatische Verlängerung ohne Hinweis.<br>Alle Stufen beinhalten die vollständige Lern-Engine, unbegrenzte Lerneinheiten, Live-Daten und PDF-Export.<br>Du bringst deinen eigenen Anthropic API-Key – deine Daten bleiben auf deinem Rechner.",
+    price_a_tier: "// JAHRES-LIZENZ",
+    price_a_period: "pro Jahr · jährliche Verlängerung",
+    price_a_btn: "Zugang holen",
+    price_3_tier: "// 3-JAHRES-LIZENZ",
+    price_3_period: "einmalig · 3 Jahre gültig",
+    price_3_save: "> SPARE €398 ggü. Jahres-Lizenz",
+    price_3_btn: "Jetzt starten",
+    price_l_tier: "// LIFETIME-LIZENZ",
+    price_l_period: "einmalig · alle zukünftigen Updates",
+    price_l_save: "> EINMAL ZAHLEN. FÜR IMMER BESITZEN.",
+    price_l_btn: "Für immer",
+    feat_unlimited: "Unbegrenzte Lerneinheiten",
+    feat_coingecko: "Live CoinGecko-Daten",
+    feat_wyckoff: "Wyckoff + DCA-Lernszenario",
+    feat_pdf: "PDF-Export (Retro-Terminal)",
+    feat_local: "Lokales Archiv – keine Cloud",
+    feat_claude: "Claude Opus Pro KI-Modell",
+    feat_multilang: "Mehrsprachiger Output (6 Sprachen)",
+    feat_a_upd: "Alle Updates im Lizenzzeitraum",
+    feat_3_upd: "Alle Updates für 3 Jahre",
+    feat_l_upd: "Alle zukünftigen Updates · für immer",
+    feat_a_seats: "2 Installationen",
+    feat_3_seats: "2 Installationen",
+    feat_l_seats: "1 Installation",
+    page_title: "Holistic Coin Trainer — Alle reden über Krypto. Niemand versteht es. Bis jetzt.",
+    hero_t5: "// APPLE DEVELOPER ID · NOTARIZED",
+    psych_label: "> WARNUNG // DAS GRÖSSTE RISIKO IM KRYPTO: DU SELBST",
+    psych_text: "FOMO. Emotionale Fehlentscheidungen. Impulsives Handeln. Emotionale Entscheidungen sind das größte Risiko im Krypto-Markt. HCT trainiert strukturiertes Denken, kritisches Hinterfragen und Impulskontrolle. Kein Bauchgefühl. Kein Hype. Nur Lernprozess.",
+    price_e_label: "> ENTERPRISE",
+    price_e_title: "Für Teams, Bildungseinrichtungen und Unternehmen.",
+    ent_seats_1: "3–5 SEATS",
+    ent_seats_2: "6–20 SEATS",
+    ent_seats_3: "21–50 SEATS",
+    ent_seats_4: "50+ SEATS",
+    ent_per_seat: "/Seat/Jahr",
+    ent_save_1: "–€100 · 17% RABATT",
+    ent_save_2: "–€200 · 33% RABATT",
+    ent_save_3: "–€300 · 50% RABATT",
+    ent_price_req: "AUF ANFRAGE",
+    ent_save_4: "INDIVIDUELLE KONDITIONEN",
+    ent_f1: "Individuelle API-Keys pro Nutzer",
+    ent_f2: "Eigener CoinGecko API-Key",
+    ent_f3: "Sonnet & Opus Pro Lerneinheiten",
+    ent_f4: "Zentrales Lizenz-Management",
+    ent_f5: "Dedizierter Support",
+    ent_f6: "Individuelle Konditionen",
+    ent_card_btn: "Angebot anfragen",
+    ent_info: "// 1 SEAT = 1 MAC · NUR JAHRES-LIZENZ · LERNGRUPPEN · BILDUNGSEINRICHTUNGEN · FORSCHUNGSTEAMS · UNTERNEHMEN",
+    ent_edu_note: "HCT bleibt auch im Team- und Enterprise-Kontext ein Bildungstool.",
+    price_e_btn: "ZUGANG VERHANDELN",
+    sysreq_title: "> SYSTEMANFORDERUNGEN",
+    sysreq_os: "<strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia",
+    sysreq_chip: "<strong>Apple Silicon</strong> nativ · Intel Mac via Rosetta 2",
+    sysreq_ram: "<strong>4 GB RAM</strong> Minimum · 8 GB empfohlen",
+    sysreq_net: "<strong>Internetverbindung</strong> erforderlich (API-Anfragen)",
+    api_note: "<strong>&gt; WICHTIG — API-KEY &amp; NUTZUNGSKOSTEN</strong><br>HCT benötigt deinen eigenen <strong>Anthropic API-Key</strong> für KI-gestützte Lerneinheiten. Der Key wird einmalig in der App eingegeben und verlässt nie deinen Rechner. Die API-Nutzung wird direkt von Anthropic abgerechnet – getrennt von deiner HCT-Lizenz. Eine typische Lerneinheit kostet etwa <code>~$0,80 mit Claude Sonnet · ~$6,00 mit Claude Opus Pro</code>. Du hast jederzeit die volle Kontrolle über deine API-Ausgaben. Ein Anthropic-Konto kann unter <code>console.anthropic.com</code> erstellt werden.",
+    disclaimer: "<strong style=\"color:var(--gray-light);\">KEINE ANLAGEBERATUNG.</strong> Holistic Coin Trainer ist ausschließlich ein Bildungs- und Lerntool. Alle Analyse-Outputs werden von KI generiert und stellen keine Anlageberatung, Finanzberatung oder Empfehlung zum Kauf oder Verkauf von Vermögenswerten dar. Krypto-Assets sind hochvolatil. Vergangene Performance ist kein Indikator für zukünftige Ergebnisse. Dieses Tool stellt keine Finanz-, Anlage- oder Steuerberatung dar.",
+    legal_note: "Mit dem Kauf akzeptierst du die <a href=\"legal/agb.html\" style=\"color:var(--gold-dim);\">AGB</a> und die <a href=\"legal/eula.html\" style=\"color:var(--gold-dim);\">EULA</a>. <a href=\"legal/widerruf.html\" style=\"color:var(--gold-dim);\">Widerrufsbelehrung</a>.",
+    footer_agb: "AGB",
+    footer_widerruf: "Widerruf",
+    footer_contact: "Kontakt",
+    footer_support: "Support",
+    footer_facebook: "Facebook",
+    footer_instagram: "Instagram"
+  },
+
+  EN: {
+    nav_cta: "TRY FREE",
+    hero_boot: "> LEARNING ENGINE ONLINE · AI-POWERED · IMMERSIVE · INTERACTIVE",
+    hero_h1: "Everyone talks about crypto. No one understands it.",
+    hero_h2: "Until now.",
+    hero_t1: "// HOLISTIC COIN TRAINER v2.3",
+    hero_t2: "// CLAUDE AI + COINGECKO LIVE DATA",
+    hero_t3: "// WYCKOFF · FUNDAMENTALS · LEARNING SCENARIOS",
+    hero_t4: "// 2 LEARNING SESSIONS INCLUDED FREE",
+    hero_cta: "Start Free Trial",
+    hero_scroll: "▼ · SCROLL",
+    seq_label: "> SEQUENCE",
+    seq_title: "How the learning terminal works.",
+    seq_s1_title: "ENTER TICKER",
+    seq_s1_text: "Type any coin symbol. The system pulls live data from CoinGecko — price, ATH distance, volume, exchange listings, Fear & Greed.",
+    seq_s2_title: "AI ANALYSIS",
+    seq_s2_text: "Claude AI runs a structured analysis — and explains every step: Why this filter? What does this phase mean? You learn the method while applying it.",
+    seq_s3_title: "GET LEARNING SCENARIO",
+    seq_s3_text: "Receive an interactive DCA learning scenario — a thinking tool, not a directive.",
+    seq_s4_title: "EXPORT + ARCHIVE",
+    seq_s4_text: "Export your learning analysis as a retro terminal PDF. Every report is stored in your local archive — your personal learning journal.",
+    seq_s5_title: "PRIMER // LEARNING COMPANION",
+    seq_s5_text: "Your personal AI conversation partner. Knows your analyses, remembers your theses, challenges you. Three modes: ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. Not a chatbot. A conversation that moves you forward.",
+    cap_label: "> CAPABILITIES",
+    cap_title: "What the terminal teaches.",
+    cap_f1_title: "LIVE MARKET INTELLIGENCE",
+    cap_f1_text: "Real-time data from CoinGecko. ATH distance, market cap, exchange tier verification, Fear & Greed — all fetched and verified before analysis begins.",
+    cap_f2_title: "WYCKOFF PHASE DETECTION",
+    cap_f2_text: "Every analysis maps current price action to Wyckoff phases (A–E). You learn to recognize distribution, accumulation, and spring — not as theory, but on your coin.",
+    cap_f3_title: "SURVIVAL SCORE (VETO)",
+    cap_f3_text: "A hard veto filter checks team activity, GitHub commits, exchange listings, and red flags. You learn to ask the right questions before judging a project.",
+    cap_f4_title: "DCA LEARNING SCENARIO",
+    cap_f4_text: "An interactive DCA learning scenario. Not a buy plan — a thinking tool.",
+    cap_f5_title: "MULTI-LANGUAGE REPORTS",
+    cap_f5_text: "Analysis output in DE, EN, FR, ES, IT, PT. The PDF export adapts language and disclaimer text automatically.",
+    cap_f6_title: "LOCAL — NO CLOUD",
+    cap_f6_text: "Everything runs on your machine. Your analyses, your archive, your API key. No data leaves your computer except the AI call. Zero telemetry.",
+    cap_f7_title: "PRIMER: AI LEARNING COMPANION",
+    cap_f7_text: "A personal conversation partner that knows your analyses, challenges your theses and draws connections. Three conversation styles. A memory. Not an encyclopedia — a conversation.",
+    learn_label: "> TRAINING SYSTEM",
+    learn_title: "Learn in weeks, not years.",
+    learn_intro: "Most crypto tools deliver data. HCT delivers <em>understanding</em>.<br>Every analysis is an interactive learning session. The AI adapts to your level — explains when you need explanation, challenges you when you're ready. You're asked to think before you see the assessment. That's how real judgment grows — not dependency.",
+    learn_l1_badge: "BEGINNER",
+    learn_l1_title: "First contact.",
+    learn_l1_text: "Every technical term is explained in plain language right in the report. The analysis guides you step by step — explains the concept, applies it to your coin, then lets you think for yourself. After reading, you know not just what, but why.",
+    learn_l1_cue: "// simplified language · concepts explained inline",
+    learn_l2_badge: "ADVANCED",
+    learn_l2_title: "Pattern recognition.",
+    learn_l2_text: "Full framework output. Tri-Filter cascade, survival score, DCA learning scenario, Wyckoff phase classification. You're challenged to form your own thesis before seeing the assessment. No beginner scaffolding — maximum learning density.",
+    learn_l2_cue: "// standard output · full framework · no simplification",
+    learn_l3_badge: "EXPERT",
+    learn_l3_title: "The full picture.",
+    learn_l3_text: "All data. All filters. All flags. Bias checks, exchange liquidity analysis, assessment ranges, known data gaps. Here you train like an analyst — dense, precise, no hand-holding. The AI is your sparring partner, not your advisor.",
+    learn_l3_cue: "// maximum learning density · full technical vocabulary",
+    learn_b1: "READ YOUR<br>FIRST REPORT",
+    learn_b2: "RECOGNIZE<br>THE PATTERNS",
+    learn_b3: "FORM YOUR<br>OWN THESIS",
+    learn_b4: "CHALLENGE<br>THE TOOL",
+    learn_b5: "YOU ARE<br>THE ANALYST",
+    learn_quote: "'The tool becomes your sparring partner. Eventually you think faster than it writes.'",
+    trial_label: "> FREE TRIAL",
+    trial_title: "Don't learn blind.",
+    trial_badge: "// 2 LEARNING SESSIONS INCLUDED FREE",
+    trial_h: "Experience it before you decide.",
+    trial_text: "Every download of HCT includes <strong>2 complete learning sessions — fully unlocked, no license required.</strong> Learn with a real coin. See the Wyckoff phase detection, the survival score, the DCA learning scenario. Export the PDF. Check the archive. Then decide.<br><br>At €599/year, you deserve to know exactly what you're getting.",
+    trial_cta: "Download Free Trial",
+    trial_sub: "macOS · no account · no credit card",
+    price_label: "> ACCESS TIERS",
+    price_title: "Choose your tier.",
+    price_intro: "One-time or annual license. No subscription traps, no auto-renewal without notice.<br>All tiers include the full learning engine, unlimited learning sessions, live data, and PDF export.<br>You bring your own Anthropic API key — your data stays on your machine.",
+    price_a_tier: "// ANNUAL LICENSE",
+    price_a_period: "per year · renews annually",
+    price_a_btn: "Get Access",
+    price_3_tier: "// 3-YEAR LICENSE",
+    price_3_period: "one-time · valid 3 years",
+    price_3_save: "> SAVE €398 vs. annual",
+    price_3_btn: "Get Started",
+    price_l_tier: "// LIFETIME LICENSE",
+    price_l_period: "one-time · all future updates",
+    price_l_save: "> PAY ONCE. OWN IT FOREVER.",
+    price_l_btn: "Own It",
+    feat_unlimited: "Unlimited learning sessions",
+    feat_coingecko: "Live CoinGecko data",
+    feat_wyckoff: "Wyckoff + DCA learning scenario",
+    feat_pdf: "PDF export (retro terminal)",
+    feat_local: "Local archive — no cloud",
+    feat_claude: "Claude Opus Pro AI model",
+    feat_multilang: "Multi-language output (6 languages)",
+    feat_a_upd: "All updates during license period",
+    feat_3_upd: "All updates for 3 years",
+    feat_l_upd: "All future updates · forever",
+    feat_a_seats: "2 installs",
+    feat_3_seats: "2 installs",
+    feat_l_seats: "1 install",
+    page_title: "Holistic Coin Trainer — Everyone talks about crypto. No one understands it. Until now.",
+    hero_t5: "// APPLE DEVELOPER ID · NOTARIZED",
+    psych_label: "> WARNING // THE BIGGEST RISK IN CRYPTO: YOU",
+    psych_text: "FOMO. Emotional misjudgments. Impulsive decisions. Emotional decisions are the biggest risk in the crypto market. HCT trains structured thinking, critical questioning, and impulse control. No gut feeling. No hype. Just learning process.",
+    price_e_label: "> ENTERPRISE",
+    price_e_title: "For teams, educational institutions and companies.",
+    ent_seats_1: "3–5 SEATS",
+    ent_seats_2: "6–20 SEATS",
+    ent_seats_3: "21–50 SEATS",
+    ent_seats_4: "50+ SEATS",
+    ent_per_seat: "/seat/year",
+    ent_save_1: "–€100 · 17% DISCOUNT",
+    ent_save_2: "–€200 · 33% DISCOUNT",
+    ent_save_3: "–€300 · 50% DISCOUNT",
+    ent_price_req: "ON REQUEST",
+    ent_save_4: "INDIVIDUAL TERMS",
+    ent_f1: "Individual API keys per user",
+    ent_f2: "Own CoinGecko API key",
+    ent_f3: "Sonnet & Opus Pro learning sessions",
+    ent_f4: "Central license management",
+    ent_f5: "Dedicated support",
+    ent_f6: "Custom terms",
+    ent_card_btn: "Request offer",
+    ent_info: "// 1 SEAT = 1 MAC · ANNUAL LICENCE ONLY · LEARNING GROUPS · EDUCATIONAL INSTITUTIONS · RESEARCH TEAMS · COMPANIES",
+    ent_edu_note: "HCT remains an educational tool in team and enterprise contexts.",
+    price_e_btn: "NEGOTIATE ACCESS",
+    sysreq_title: "> SYSTEM REQUIREMENTS",
+    sysreq_os: "<strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia",
+    sysreq_chip: "<strong>Apple Silicon</strong> native · Intel Mac via Rosetta 2",
+    sysreq_ram: "<strong>4 GB RAM</strong> minimum · 8 GB recommended",
+    sysreq_net: "<strong>Internet connection</strong> required (API requests)",
+    api_note: "<strong>&gt; IMPORTANT — API KEY &amp; USAGE COSTS</strong><br>HCT requires your own <strong>Anthropic API key</strong> for AI-powered learning sessions. The key is entered once in the app and never leaves your machine. API usage is billed directly by Anthropic — separate from your HCT license. A typical learning session costs approximately <code>~$0.80 with Claude Sonnet · ~$6.00 with Claude Opus Pro</code>. You stay in full control of your API spend at all times. An Anthropic account can be created at <code>console.anthropic.com</code>.",
+    disclaimer: "<strong style=\"color:var(--gray-light);\">NOT FINANCIAL ADVICE.</strong> Holistic Coin Trainer is an educational and learning tool only. All analysis output is generated by AI and does not constitute investment advice, financial advice, or a recommendation to buy or sell any asset. Crypto assets are highly volatile. Past performance is not indicative of future results. This tool does not constitute financial, investment, or tax advice.",
+    legal_note: "By purchasing you accept the <a href=\"legal/agb.html\" style=\"color:var(--gold-dim);\">Terms</a> and <a href=\"legal/eula.html\" style=\"color:var(--gold-dim);\">EULA</a>. <a href=\"legal/widerruf.html\" style=\"color:var(--gold-dim);\">Cancellation policy</a>.",
+    footer_agb: "Terms",
+    footer_widerruf: "Withdrawal",
+    footer_contact: "Contact",
+    footer_support: "Support",
+    footer_facebook: "Facebook",
+    footer_instagram: "Instagram"
+  },
+
+  FR: {
+    nav_cta: "ESSAI GRATUIT",
+    hero_boot: "> MOTEUR D'APPRENTISSAGE EN LIGNE · IA · IMMERSIF · INTERACTIF",
+    hero_h1: "Tout le monde parle de crypto. Personne ne comprend.",
+    hero_h2: "Jusqu'à maintenant.",
+    hero_t1: "// HOLISTIC COIN TRAINER v2.3",
+    hero_t2: "// CLAUDE AI + DONNÉES LIVE COINGECKO",
+    hero_t3: "// WYCKOFF · FONDAMENTAUX · SCÉNARIOS D'APPRENTISSAGE",
+    hero_t4: "// 2 SESSIONS D'APPRENTISSAGE GRATUITES",
+    hero_cta: "Commencer gratuitement",
+    hero_scroll: "▼ · DÉFILER",
+    seq_label: "> SÉQUENCE",
+    seq_title: "Comment fonctionne le terminal d'apprentissage.",
+    seq_s1_title: "ENTRER LE TICKER",
+    seq_s1_text: "Tape n'importe quel symbole de coin. Le système récupère les données live de CoinGecko — prix, distance ATH, volume, listings d'échanges, Fear & Greed.",
+    seq_s2_title: "ANALYSE IA",
+    seq_s2_text: "Claude IA réalise une analyse structurée — et t'explique chaque étape : Pourquoi ce filtre ? Que signifie cette phase ? Tu apprends la méthode en l'appliquant.",
+    seq_s3_title: "RECEVOIR LE SCÉNARIO",
+    seq_s3_text: "Reçois un scénario d'apprentissage DCA interactif — un outil de réflexion, pas une directive.",
+    seq_s4_title: "EXPORTER + ARCHIVER",
+    seq_s4_text: "Exporte ton analyse d'apprentissage en PDF terminal rétro. Chaque rapport est stocké dans ton archive locale — ton journal d'apprentissage personnel.",
+    seq_s5_title: "PRIMER // COMPAGNON D'APPRENTISSAGE",
+    seq_s5_text: "Ton partenaire de conversation IA personnel. Connaît tes analyses, se souvient de tes thèses, te pousse à réfléchir. Trois modes : ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. Pas un chatbot. Une conversation qui te fait avancer.",
+    cap_label: "> FONCTIONNALITÉS",
+    cap_title: "Ce que le terminal enseigne.",
+    cap_f1_title: "INTELLIGENCE MARCHÉ LIVE",
+    cap_f1_text: "Données en temps réel de CoinGecko. Distance ATH, capitalisation, vérification des niveaux d'échanges, Fear & Greed — tout récupéré et vérifié avant l'analyse.",
+    cap_f2_title: "DÉTECTION DE PHASE WYCKOFF",
+    cap_f2_text: "Chaque analyse classe l'évolution des prix dans les phases de Wyckoff (A–E). Tu apprends à reconnaître distribution, accumulation et spring — pas en théorie, mais sur ta crypto.",
+    cap_f3_title: "SCORE DE SURVIE (VETO)",
+    cap_f3_text: "Un filtre véto strict vérifie l'activité de l'équipe, les commits GitHub, les listings d'exchanges et les red flags. Tu apprends à poser les bonnes questions avant de juger un projet.",
+    cap_f4_title: "SCÉNARIO D'APPRENTISSAGE DCA",
+    cap_f4_text: "Un scénario d'apprentissage DCA interactif. Pas un plan d'achat — un outil de réflexion.",
+    cap_f5_title: "RAPPORTS MULTILINGUES",
+    cap_f5_text: "Output d'analyse en DE, EN, FR, ES, IT, PT. L'export PDF adapte automatiquement la langue et le texte du disclaimer.",
+    cap_f6_title: "LOCAL — SANS CLOUD",
+    cap_f6_text: "Tout tourne sur ta machine. Tes analyses, ton archive, ta clé API. Aucune donnée ne quitte ton ordinateur sauf l'appel IA. Zéro télémétrie.",
+    cap_f7_title: "PRIMER : COMPAGNON IA",
+    cap_f7_text: "Un partenaire de conversation personnel qui connaît tes analyses, questionne tes thèses et établit des connexions. Trois styles de conversation. Une mémoire. Pas une encyclopédie — une conversation.",
+    learn_label: "> SYSTÈME DE FORMATION",
+    learn_title: "Apprendre en semaines, pas en années.",
+    learn_intro: "La plupart des outils crypto livrent des données. HCT livre de la <em>compréhension</em>.<br>Chaque analyse est une session d'apprentissage interactive. L'IA s'adapte à ton niveau — explique quand tu as besoin d'explications, te défie quand tu es prêt. Tu es invité à réfléchir avant de voir l'évaluation. C'est ainsi que se développe un vrai jugement — pas une dépendance.",
+    learn_l1_badge: "DÉBUTANT",
+    learn_l1_title: "Premier contact.",
+    learn_l1_text: "Chaque terme technique est expliqué en langage simple directement dans le rapport. L'analyse te guide pas à pas — explique le concept, l'applique à ta crypto, puis te laisse réfléchir par toi-même. Après lecture, tu sais non seulement quoi, mais pourquoi.",
+    learn_l1_cue: "// langage simplifié · concepts expliqués en ligne",
+    learn_l2_badge: "AVANCÉ",
+    learn_l2_title: "Reconnaissance des patterns.",
+    learn_l2_text: "Output complet du framework. Cascade Tri-Filter, score de survie, scénario DCA, classification Wyckoff. Tu es mis au défi de formuler ta propre thèse avant de voir l'évaluation. Sans échafaudage débutant — densité d'apprentissage maximale.",
+    learn_l2_cue: "// output standard · framework complet · sans simplification",
+    learn_l3_badge: "EXPERT",
+    learn_l3_title: "Le tableau complet.",
+    learn_l3_text: "Toutes les données. Tous les filtres. Tous les flags. Vérifications de biais, analyse de liquidité d'exchange, fourchettes d'estimation, lacunes de données connues. Ici tu t'entraînes comme un analyste — dense, précis, sans assistance. L'IA est ton partenaire d'entraînement, pas ton conseiller.",
+    learn_l3_cue: "// densité d'apprentissage maximale · vocabulaire technique complet",
+    learn_b1: "LIRE TON<br>PREMIER RAPPORT",
+    learn_b2: "RECONNAÎTRE<br>LES PATTERNS",
+    learn_b3: "FORMULER<br>TA THÈSE",
+    learn_b4: "REMETTRE EN QUESTION<br>L'OUTIL",
+    learn_b5: "TU ES<br>L'ANALYSTE",
+    learn_quote: "« L'outil devient ton partenaire d'entraînement. Un jour tu penseras plus vite qu'il n'écrit. »",
+    trial_label: "> ESSAI GRATUIT",
+    trial_title: "N'apprends pas à l'aveugle.",
+    trial_badge: "// 2 SESSIONS D'APPRENTISSAGE GRATUITES",
+    trial_h: "Vis l'expérience avant de te décider.",
+    trial_text: "Chaque téléchargement de HCT comprend <strong>2 sessions d'apprentissage complètes — entièrement débloquées, sans licence.</strong> Apprends avec une vraie crypto. Vois la détection de phase Wyckoff, le score de survie, le scénario DCA. Exporte le PDF. Vérifie l'archive. Puis décide.<br><br>À €599/an, tu mérites de savoir exactement ce que tu obtiens.",
+    trial_cta: "Télécharger gratuitement",
+    trial_sub: "macOS · sans compte · sans carte bancaire",
+    price_label: "> NIVEAUX D'ACCÈS",
+    price_title: "Choisis ton niveau.",
+    price_intro: "Licence unique ou annuelle. Pas de pièges d'abonnement, pas de renouvellement automatique sans avertissement.<br>Tous les niveaux incluent le moteur d'analyse complet, analyses illimitées, données live et export PDF.<br>Tu apportes ta propre clé API Anthropic — tes données restent sur ta machine.",
+    price_a_tier: "// LICENCE ANNUELLE",
+    price_a_period: "par an · renouvellement annuel",
+    price_a_btn: "Obtenir l'accès",
+    price_3_tier: "// LICENCE 3 ANS",
+    price_3_period: "unique · valable 3 ans",
+    price_3_save: "> ÉCONOMISE €398 vs. annuel",
+    price_3_btn: "Commencer",
+    price_l_tier: "// LICENCE À VIE",
+    price_l_period: "unique · toutes les futures mises à jour",
+    price_l_save: "> PAYER UNE FOIS. POSSÉDER POUR TOUJOURS.",
+    price_l_btn: "Posséder",
+    feat_unlimited: "Sessions d'apprentissage illimitées",
+    feat_coingecko: "Données live CoinGecko",
+    feat_wyckoff: "Wyckoff + scénario DCA",
+    feat_pdf: "Export PDF (terminal rétro)",
+    feat_local: "Archive locale — sans cloud",
+    feat_claude: "Modèle IA Claude Opus Pro",
+    feat_multilang: "Output multilingue (6 langues)",
+    feat_a_upd: "Toutes les mises à jour pendant la période de licence",
+    feat_3_upd: "Toutes les mises à jour pendant 3 ans",
+    feat_l_upd: "Toutes les futures mises à jour · à vie",
+    feat_a_seats: "2 installations",
+    feat_3_seats: "2 installations",
+    feat_l_seats: "1 installation",
+    page_title: "Holistic Coin Trainer — Tout le monde parle de crypto. Personne ne comprend. Jusqu'à maintenant.",
+    hero_t5: "// APPLE DEVELOPER ID · NOTARIZED",
+    psych_label: "> AVERTISSEMENT // LE PLUS GRAND RISQUE EN CRYPTO : TOI",
+    psych_text: "FOMO. Erreurs émotionnelles. Décisions impulsives. Les décisions émotionnelles sont le plus grand risque sur le marché crypto. HCT entraîne la pensée structurée, le questionnement critique et le contrôle des impulsions. Pas d'instinct. Pas de hype. Juste processus d'apprentissage.",
+    price_e_label: "> ENTERPRISE",
+    price_e_title: "Pour les équipes, établissements d'enseignement et entreprises.",
+    ent_seats_1: "3–5 SEATS",
+    ent_seats_2: "6–20 SEATS",
+    ent_seats_3: "21–50 SEATS",
+    ent_seats_4: "50+ SEATS",
+    ent_per_seat: "/siège/an",
+    ent_save_1: "–€100 · 17% RÉDUCTION",
+    ent_save_2: "–€200 · 33% RÉDUCTION",
+    ent_save_3: "–€300 · 50% RÉDUCTION",
+    ent_price_req: "SUR DEMANDE",
+    ent_save_4: "CONDITIONS INDIVIDUELLES",
+    ent_f1: "Clés API individuelles par utilisateur",
+    ent_f2: "Propre clé API CoinGecko",
+    ent_f3: "Sessions Sonnet & Opus Pro",
+    ent_f4: "Gestion centralisée des licences",
+    ent_f5: "Support dédié",
+    ent_f6: "Conditions personnalisées",
+    ent_card_btn: "Demander une offre",
+    ent_info: "// 1 SIÈGE = 1 MAC · LICENCE ANNUELLE UNIQUEMENT · GROUPES D'APPRENTISSAGE · ÉTABLISSEMENTS D'ENSEIGNEMENT · ÉQUIPES DE RECHERCHE · ENTREPRISES",
+    ent_edu_note: "HCT reste un outil éducatif dans les contextes d'équipe et d'entreprise.",
+    price_e_btn: "NÉGOCIER L'ACCÈS",
+    sysreq_title: "> CONFIGURATION REQUISE",
+    sysreq_os: "<strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia",
+    sysreq_chip: "<strong>Apple Silicon</strong> natif · Intel Mac via Rosetta 2",
+    sysreq_ram: "<strong>4 Go de RAM</strong> minimum · 8 Go recommandés",
+    sysreq_net: "<strong>Connexion Internet</strong> requise (requêtes API)",
+    api_note: "<strong>&gt; IMPORTANT — CLÉ API &amp; COÛTS D'UTILISATION</strong><br>HCT nécessite ta propre <strong>clé API Anthropic</strong> pour effectuer des analyses IA. La clé est saisie une seule fois dans l'app et ne quitte jamais ta machine. L'utilisation de l'API est facturée directement par Anthropic — séparément de ta licence HCT. Une analyse typique coûte environ <code>~$0,80 avec Sonnet · ~$5,00 avec Opus</code>. Tu gardes le contrôle total de tes dépenses API. Un compte Anthropic peut être créé sur <code>console.anthropic.com</code>.",
+    disclaimer: "<strong style=\"color:var(--gray-light);\">PAS DE CONSEIL FINANCIER.</strong> Holistic Coin Trainer est uniquement un outil éducatif et d'apprentissage. Tous les outputs d'analyse sont générés par IA et ne constituent pas des conseils en investissement, conseils financiers ou recommandations d'achat ou de vente d'actifs. Les crypto-actifs sont très volatils. Les performances passées ne présagent pas des résultats futurs. Cet outil ne constitue pas un conseil financier, d'investissement ou fiscal.",
+    legal_note: "En achetant, tu acceptes les <a href=\"legal/agb.html\" style=\"color:var(--gold-dim);\">CGV</a> et le <a href=\"legal/eula.html\" style=\"color:var(--gold-dim);\">CLUF</a>. <a href=\"legal/widerruf.html\" style=\"color:var(--gold-dim);\">Droit de rétractation</a>.",
+    footer_agb: "CGV",
+    footer_widerruf: "Rétractation",
+    footer_contact: "Contact",
+    footer_support: "Support",
+    footer_facebook: "Facebook",
+    footer_instagram: "Instagram"
+  },
+
+  ES: {
+    nav_cta: "PRUEBA GRATIS",
+    hero_boot: "> MOTOR DE APRENDIZAJE EN LÍNEA · IA · INMERSIVO · INTERACTIVO",
+    hero_h1: "Todos hablan de crypto. Nadie lo entiende.",
+    hero_h2: "Hasta ahora.",
+    hero_t1: "// HOLISTIC COIN TRAINER v2.3",
+    hero_t2: "// CLAUDE AI + DATOS LIVE COINGECKO",
+    hero_t3: "// WYCKOFF · FUNDAMENTOS · ESCENARIOS DE APRENDIZAJE",
+    hero_t4: "// 2 SESIONES DE APRENDIZAJE GRATUITAS",
+    hero_cta: "Comenzar gratis",
+    hero_scroll: "▼ · DESPLAZAR",
+    seq_label: "> SECUENCIA",
+    seq_title: "Cómo funciona el terminal de aprendizaje.",
+    seq_s1_title: "INGRESAR TICKER",
+    seq_s1_text: "Escribe cualquier símbolo de moneda. El sistema obtiene datos en vivo de CoinGecko — precio, distancia ATH, volumen, listados de exchanges, Fear & Greed.",
+    seq_s2_title: "ANÁLISIS IA",
+    seq_s2_text: "Claude IA realiza un análisis estructurado — y te explica cada paso: ¿Por qué este filtro? ¿Qué significa esta fase? Aprendes el método mientras lo aplicas.",
+    seq_s3_title: "RECIBIR ESCENARIO",
+    seq_s3_text: "Recibe un escenario de aprendizaje DCA interactivo — una herramienta de pensamiento, no una directriz.",
+    seq_s4_title: "EXPORTAR + ARCHIVAR",
+    seq_s4_text: "Exporta tu análisis de aprendizaje como PDF terminal retro. Cada informe se almacena en tu archivo local — tu diario de aprendizaje personal.",
+    seq_s5_title: "PRIMER // COMPAÑERO DE APRENDIZAJE",
+    seq_s5_text: "Tu compañero de conversación IA personal. Conoce tus análisis, recuerda tus tesis, te desafía. Tres modos: ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. No es un chatbot. Una conversación que te hace avanzar.",
+    cap_label: "> CAPACIDADES",
+    cap_title: "Lo que el terminal enseña.",
+    cap_f1_title: "INTELIGENCIA DE MERCADO EN VIVO",
+    cap_f1_text: "Datos en tiempo real de CoinGecko. Distancia ATH, capitalización de mercado, verificación de nivel de exchange, Fear & Greed — todo obtenido y verificado antes del análisis.",
+    cap_f2_title: "DETECCIÓN DE FASE WYCKOFF",
+    cap_f2_text: "Cada análisis mapea la acción del precio en fases de Wyckoff (A–E). Aprendes a reconocer distribución, acumulación y spring — no como teoría, sino en tu moneda.",
+    cap_f3_title: "PUNTUACIÓN DE SUPERVIVENCIA (VETO)",
+    cap_f3_text: "Un filtro de veto estricto verifica actividad del equipo, commits GitHub, listings en exchanges y red flags. Aprendes a hacer las preguntas correctas antes de juzgar un proyecto.",
+    cap_f4_title: "ESCENARIO DE APRENDIZAJE DCA",
+    cap_f4_text: "Un escenario de aprendizaje DCA interactivo. No es un plan de compra — es una herramienta de pensamiento.",
+    cap_f5_title: "INFORMES MULTILINGÜES",
+    cap_f5_text: "Output de análisis en DE, EN, FR, ES, IT, PT. El export PDF adapta automáticamente el idioma y el texto del disclaimer.",
+    cap_f6_title: "LOCAL — SIN NUBE",
+    cap_f6_text: "Todo corre en tu máquina. Tus análisis, tu archivo, tu clave API. Ningún dato sale de tu computadora excepto la llamada IA. Cero telemetría.",
+    cap_f7_title: "PRIMER: COMPAÑERO IA",
+    cap_f7_text: "Un compañero de conversación personal que conoce tus análisis, cuestiona tus tesis y establece conexiones. Tres estilos de conversación. Una memoria. No es una enciclopedia — es una conversación.",
+    learn_label: "> SISTEMA DE FORMACIÓN",
+    learn_title: "Aprende en semanas, no en años.",
+    learn_intro: "La mayoría de herramientas crypto entregan datos. HCT entrega <em>comprensión</em>.<br>Cada análisis es una sesión de aprendizaje interactiva. La IA se adapta a tu nivel — explica cuando necesitas explicación, te desafía cuando estás listo. Se te pide pensar antes de ver la evaluación. Así crece el juicio real — no la dependencia.",
+    learn_l1_badge: "PRINCIPIANTE",
+    learn_l1_title: "Primer contacto.",
+    learn_l1_text: "Cada término técnico se explica en lenguaje sencillo directamente en el informe. El análisis te guía paso a paso — explica el concepto, lo aplica a tu moneda y luego te deja pensar por ti mismo. Después de leer, sabes no solo qué, sino por qué.",
+    learn_l1_cue: "// lenguaje simplificado · conceptos explicados en línea",
+    learn_l2_badge: "AVANZADO",
+    learn_l2_title: "Reconocimiento de patrones.",
+    learn_l2_text: "Output completo del framework. Cascada Tri-Filter, puntuación de supervivencia, escenario DCA, clasificación Wyckoff. Se te desafía a formular tu propia tesis antes de ver la evaluación. Sin andamiaje de principiante — máxima densidad de aprendizaje.",
+    learn_l2_cue: "// output estándar · framework completo · sin simplificación",
+    learn_l3_badge: "EXPERTO",
+    learn_l3_title: "El cuadro completo.",
+    learn_l3_text: "Todos los datos. Todos los filtros. Todos los flags. Verificaciones de sesgo, análisis de liquidez de exchange, rangos de evaluación, lagunas de datos conocidas. Aquí entrenas como un analista — denso, preciso, sin ayuda. La IA es tu compañero de entrenamiento, no tu asesor.",
+    learn_l3_cue: "// densidad de aprendizaje máxima · vocabulario técnico completo",
+    learn_b1: "LEE TU<br>PRIMER INFORME",
+    learn_b2: "RECONOCE<br>LOS PATRONES",
+    learn_b3: "FORMA TU<br>PROPIA TESIS",
+    learn_b4: "DESAFÍA<br>LA HERRAMIENTA",
+    learn_b5: "TÚ ERES<br>EL ANALISTA",
+    learn_quote: "«La herramienta se convierte en tu compañero de entrenamiento. Al final piensas más rápido de lo que escribe.»",
+    trial_label: "> PRUEBA GRATUITA",
+    trial_title: "No aprendas a ciegas.",
+    trial_badge: "// 2 SESIONES DE APRENDIZAJE GRATUITAS",
+    trial_h: "Vívelo antes de decidirte.",
+    trial_text: "Cada descarga de HCT incluye <strong>2 sesiones de aprendizaje completas — totalmente desbloqueadas, sin licencia.</strong> Aprende con una moneda real. Ve la detección de fase Wyckoff, la puntuación de supervivencia, el escenario DCA. Exporta el PDF. Revisa el archivo. Luego decide.<br><br>A €599/año, mereces saber exactamente lo que obtienes.",
+    trial_cta: "Descargar gratis",
+    trial_sub: "macOS · sin cuenta · sin tarjeta de crédito",
+    price_label: "> NIVELES DE ACCESO",
+    price_title: "Elige tu nivel.",
+    price_intro: "Licencia única o anual. Sin trampas de suscripción, sin renovación automática sin aviso.<br>Todos los niveles incluyen el motor de análisis completo, análisis ilimitados, datos en vivo y export PDF.<br>Traes tu propia clave API de Anthropic — tus datos se quedan en tu máquina.",
+    price_a_tier: "// LICENCIA ANUAL",
+    price_a_period: "por año · renovación anual",
+    price_a_btn: "Obtener acceso",
+    price_3_tier: "// LICENCIA 3 AÑOS",
+    price_3_period: "única · válida 3 años",
+    price_3_save: "> AHORRA €398 vs. anual",
+    price_3_btn: "Empezar",
+    price_l_tier: "// LICENCIA DE POR VIDA",
+    price_l_period: "única · todas las actualizaciones futuras",
+    price_l_save: "> PAGA UNA VEZ. TUYO PARA SIEMPRE.",
+    price_l_btn: "Poseerlo",
+    feat_unlimited: "Sesiones de aprendizaje ilimitadas",
+    feat_coingecko: "Datos live CoinGecko",
+    feat_wyckoff: "Wyckoff + escenario DCA",
+    feat_pdf: "Export PDF (terminal retro)",
+    feat_local: "Archivo local — sin nube",
+    feat_claude: "Modelo IA Claude Opus Pro",
+    feat_multilang: "Output multilingüe (6 idiomas)",
+    feat_a_upd: "Todas las actualizaciones durante el período de licencia",
+    feat_3_upd: "Todas las actualizaciones durante 3 años",
+    feat_l_upd: "Todas las actualizaciones futuras · para siempre",
+    feat_a_seats: "2 instalaciones",
+    feat_3_seats: "2 instalaciones",
+    feat_l_seats: "1 instalación",
+    page_title: "Holistic Coin Trainer — Todos hablan de crypto. Nadie lo entiende. Hasta ahora.",
+    hero_t5: "// APPLE DEVELOPER ID · NOTARIZED",
+    psych_label: "> AVISO // EL MAYOR RIESGO EN CRYPTO: TÚ",
+    psych_text: "FOMO. Errores emocionales. Decisiones impulsivas. Las decisiones emocionales son el mayor riesgo en el mercado crypto. HCT entrena el pensamiento estructurado, el cuestionamiento crítico y el control de impulsos. Sin instinto. Sin hype. Solo proceso de aprendizaje.",
+    price_e_label: "> ENTERPRISE",
+    price_e_title: "Para equipos, instituciones educativas y empresas.",
+    ent_seats_1: "3–5 SEATS",
+    ent_seats_2: "6–20 SEATS",
+    ent_seats_3: "21–50 SEATS",
+    ent_seats_4: "50+ SEATS",
+    ent_per_seat: "/puesto/año",
+    ent_save_1: "–€100 · 17% DESCUENTO",
+    ent_save_2: "–€200 · 33% DESCUENTO",
+    ent_save_3: "–€300 · 50% DESCUENTO",
+    ent_price_req: "A CONSULTAR",
+    ent_save_4: "CONDICIONES INDIVIDUALES",
+    ent_f1: "Claves API individuales por usuario",
+    ent_f2: "Propia clave API CoinGecko",
+    ent_f3: "Sesiones Sonnet & Opus Pro",
+    ent_f4: "Gestión centralizada de licencias",
+    ent_f5: "Soporte dedicado",
+    ent_f6: "Condiciones individuales",
+    ent_card_btn: "Solicitar oferta",
+    ent_info: "// 1 PUESTO = 1 MAC · SOLO LICENCIA ANUAL · GRUPOS DE APRENDIZAJE · INSTITUCIONES EDUCATIVAS · EQUIPOS DE INVESTIGACIÓN · EMPRESAS",
+    ent_edu_note: "HCT sigue siendo una herramienta educativa en contextos de equipo y empresa.",
+    price_e_btn: "NEGOCIAR ACCESO",
+    sysreq_title: "> REQUISITOS DEL SISTEMA",
+    sysreq_os: "<strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia",
+    sysreq_chip: "<strong>Apple Silicon</strong> nativo · Intel Mac via Rosetta 2",
+    sysreq_ram: "<strong>4 GB de RAM</strong> mínimo · 8 GB recomendados",
+    sysreq_net: "<strong>Conexión a Internet</strong> requerida (solicitudes API)",
+    api_note: "<strong>&gt; IMPORTANTE — CLAVE API &amp; COSTOS DE USO</strong><br>HCT requiere tu propia <strong>clave API de Anthropic</strong> para ejecutar análisis IA. La clave se ingresa una vez en la app y nunca sale de tu máquina. El uso de la API es facturado directamente por Anthropic — por separado de tu licencia HCT. Un análisis típico cuesta aproximadamente <code>~$0,80 con Sonnet · ~$5,00 con Opus</code>. Mantienes control total de tus gastos de API. Se puede crear una cuenta de Anthropic en <code>console.anthropic.com</code>.",
+    disclaimer: "<strong style=\"color:var(--gray-light);\">NO ES ASESORAMIENTO FINANCIERO.</strong> Holistic Coin Trainer es exclusivamente una herramienta educativa y de aprendizaje. Todo el output de análisis es generado por IA y no constituye asesoramiento de inversión, financiero ni recomendación de compra o venta de activos. Los criptoactivos son altamente volátiles. El rendimiento pasado no indica resultados futuros. Esta herramienta no constituye asesoramiento financiero, de inversión o fiscal.",
+    legal_note: "Al comprar aceptas los <a href=\"legal/agb.html\" style=\"color:var(--gold-dim);\">Términos</a> y el <a href=\"legal/eula.html\" style=\"color:var(--gold-dim);\">EULA</a>. <a href=\"legal/widerruf.html\" style=\"color:var(--gold-dim);\">Política de cancelación</a>.",
+    footer_agb: "Condiciones",
+    footer_widerruf: "Desistimiento",
+    footer_contact: "Contacto",
+    footer_support: "Soporte",
+    footer_facebook: "Facebook",
+    footer_instagram: "Instagram"
+  },
+
+  IT: {
+    nav_cta: "PROVA GRATIS",
+    hero_boot: "> MOTORE DI APPRENDIMENTO ONLINE · IA · IMMERSIVO · INTERATTIVO",
+    hero_h1: "Tutti parlano di crypto. Nessuno capisce.",
+    hero_h2: "Fino ad ora.",
+    hero_t1: "// HOLISTIC COIN TRAINER v2.3",
+    hero_t2: "// CLAUDE AI + DATI LIVE COINGECKO",
+    hero_t3: "// WYCKOFF · FONDAMENTALI · SCENARI DI APPRENDIMENTO",
+    hero_t4: "// 2 SESSIONI DI APPRENDIMENTO GRATUITE",
+    hero_cta: "Inizia gratuitamente",
+    hero_scroll: "▼ · SCORRI",
+    seq_label: "> SEQUENZA",
+    seq_title: "Come funziona il terminale di apprendimento.",
+    seq_s1_title: "INSERISCI TICKER",
+    seq_s1_text: "Digita qualsiasi simbolo di coin. Il sistema recupera i dati live da CoinGecko — prezzo, distanza ATH, volume, listing su exchange, Fear & Greed.",
+    seq_s2_title: "ANALISI IA",
+    seq_s2_text: "Claude IA esegue un'analisi strutturata — e ti spiega ogni passaggio: Perché questo filtro? Cosa significa questa fase? Impari il metodo mentre lo applichi.",
+    seq_s3_title: "RICEVI LO SCENARIO",
+    seq_s3_text: "Ricevi uno scenario di apprendimento DCA interattivo — uno strumento di riflessione, non una direttiva.",
+    seq_s4_title: "ESPORTA + ARCHIVIA",
+    seq_s4_text: "Esporta la tua analisi di apprendimento come PDF terminale retrò. Ogni report viene archiviato localmente — il tuo diario di apprendimento personale.",
+    seq_s5_title: "PRIMER // COMPAGNO DI APPRENDIMENTO",
+    seq_s5_text: "Il tuo partner di conversazione IA personale. Conosce le tue analisi, ricorda le tue tesi, ti sfida. Tre modalità: ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. Non è un chatbot. Una conversazione che ti fa progredire.",
+    cap_label: "> FUNZIONALITÀ",
+    cap_title: "Cosa insegna il terminale.",
+    cap_f1_title: "INTELLIGENCE DI MERCATO LIVE",
+    cap_f1_text: "Dati in tempo reale da CoinGecko. Distanza ATH, capitalizzazione di mercato, verifica del livello di exchange, Fear & Greed — tutto recuperato e verificato prima dell'analisi.",
+    cap_f2_title: "RILEVAMENTO FASE WYCKOFF",
+    cap_f2_text: "Ogni analisi mappa l'azione del prezzo nelle fasi di Wyckoff (A–E). Impari a riconoscere distribuzione, accumulazione e spring — non come teoria, ma sulla tua crypto.",
+    cap_f3_title: "PUNTEGGIO DI SOPRAVVIVENZA (VETO)",
+    cap_f3_text: "Un filtro di veto rigoroso verifica l'attività del team, i commit GitHub, i listing sugli exchange e i red flag. Impari a fare le domande giuste prima di giudicare un progetto.",
+    cap_f4_title: "SCENARIO DI APPRENDIMENTO DCA",
+    cap_f4_text: "Uno scenario di apprendimento DCA interattivo. Non un piano d'acquisto — uno strumento di pensiero.",
+    cap_f5_title: "REPORT MULTILINGUE",
+    cap_f5_text: "Output di analisi in DE, EN, FR, ES, IT, PT. L'export PDF adatta automaticamente la lingua e il testo del disclaimer.",
+    cap_f6_title: "LOCALE — NESSUN CLOUD",
+    cap_f6_text: "Tutto gira sulla tua macchina. Le tue analisi, il tuo archivio, la tua chiave API. Nessun dato lascia il tuo computer tranne la chiamata IA. Zero telemetria.",
+    cap_f7_title: "PRIMER: COMPAGNO IA",
+    cap_f7_text: "Un partner di conversazione personale che conosce le tue analisi, mette in discussione le tue tesi e crea connessioni. Tre stili di conversazione. Una memoria. Non un'enciclopedia — una conversazione.",
+    learn_label: "> SISTEMA DI FORMAZIONE",
+    learn_title: "Imparare in settimane, non in anni.",
+    learn_intro: "La maggior parte degli strumenti crypto fornisce dati. HCT fornisce <em>comprensione</em>.<br>Ogni analisi è una sessione di apprendimento interattiva. L'IA si adatta al tuo livello — spiega quando hai bisogno di spiegazioni, ti sfida quando sei pronto. Ti viene chiesto di pensare prima di vedere la valutazione. Così cresce il vero giudizio — non la dipendenza.",
+    learn_l1_badge: "PRINCIPIANTE",
+    learn_l1_title: "Primo contatto.",
+    learn_l1_text: "Ogni termine tecnico viene spiegato in linguaggio semplice direttamente nel report. L'analisi ti guida passo dopo passo — spiega il concetto, lo applica alla tua crypto, poi ti lascia riflettere da solo. Dopo la lettura, sai non solo cosa, ma perché.",
+    learn_l1_cue: "// linguaggio semplificato · concetti spiegati inline",
+    learn_l2_badge: "AVANZATO",
+    learn_l2_title: "Riconoscimento dei pattern.",
+    learn_l2_text: "Output completo del framework. Cascata Tri-Filter, punteggio di sopravvivenza, scenario DCA, classificazione Wyckoff. Sei sfidato a formulare la tua tesi prima di vedere la valutazione. Nessuna impalcatura per principianti — massima densità di apprendimento.",
+    learn_l2_cue: "// output standard · framework completo · senza semplificazioni",
+    learn_l3_badge: "ESPERTO",
+    learn_l3_title: "Il quadro completo.",
+    learn_l3_text: "Tutti i dati. Tutti i filtri. Tutti i flag. Verifiche di bias, analisi di liquidità degli exchange, fasce di valutazione, lacune di dati note. Qui ti alleni come un analista — denso, preciso, senza assistenza. L'IA è il tuo partner di allenamento, non il tuo consulente.",
+    learn_l3_cue: "// densità di apprendimento massima · vocabolario tecnico completo",
+    learn_b1: "LEGGI IL TUO<br>PRIMO REPORT",
+    learn_b2: "RICONOSCI<br>I PATTERN",
+    learn_b3: "FORMA LA TUA<br>TESI",
+    learn_b4: "METTI ALLA PROVA<br>LO STRUMENTO",
+    learn_b5: "SEI TU<br>L'ANALISTA",
+    learn_quote: "«Lo strumento diventa il tuo partner di allenamento. Alla fine penserai più velocemente di quanto scriva.»",
+    trial_label: "> PROVA GRATUITA",
+    trial_title: "Non imparare alla cieca.",
+    trial_badge: "// 2 SESSIONI DI APPRENDIMENTO GRATUITE",
+    trial_h: "Vivilo prima di decidere.",
+    trial_text: "Ogni download di HCT include <strong>2 sessioni di apprendimento complete — completamente sbloccate, senza licenza.</strong> Impara con una vera crypto. Vedi il rilevamento della fase Wyckoff, il punteggio di sopravvivenza, lo scenario DCA. Esporta il PDF. Controlla l'archivio. Poi decidi.<br><br>A €599/anno, meriti di sapere esattamente cosa ottieni.",
+    trial_cta: "Scarica gratis",
+    trial_sub: "macOS · nessun account · nessuna carta di credito",
+    price_label: "> LIVELLI DI ACCESSO",
+    price_title: "Scegli il tuo livello.",
+    price_intro: "Licenza unica o annuale. Nessuna trappola di abbonamento, nessun rinnovo automatico senza avviso.<br>Tutti i livelli includono il motore di analisi completo, analisi illimitate, dati live ed export PDF.<br>Porti la tua chiave API Anthropic — i tuoi dati rimangono sulla tua macchina.",
+    price_a_tier: "// LICENZA ANNUALE",
+    price_a_period: "all'anno · rinnovo annuale",
+    price_a_btn: "Ottieni accesso",
+    price_3_tier: "// LICENZA 3 ANNI",
+    price_3_period: "una tantum · valida 3 anni",
+    price_3_save: "> RISPARMIA €398 vs. annuale",
+    price_3_btn: "Iniziare",
+    price_l_tier: "// LICENZA A VITA",
+    price_l_period: "una tantum · tutti i futuri aggiornamenti",
+    price_l_save: "> PAGA UNA VOLTA. TIENILO PER SEMPRE.",
+    price_l_btn: "Possederlo",
+    feat_unlimited: "Sessioni di apprendimento illimitate",
+    feat_coingecko: "Dati live CoinGecko",
+    feat_wyckoff: "Wyckoff + scenario DCA",
+    feat_pdf: "Export PDF (terminale retro)",
+    feat_local: "Archivio locale — nessun cloud",
+    feat_claude: "Modello IA Claude Opus Pro",
+    feat_multilang: "Output multilingue (6 lingue)",
+    feat_a_upd: "Tutti gli aggiornamenti durante il periodo di licenza",
+    feat_3_upd: "Tutti gli aggiornamenti per 3 anni",
+    feat_l_upd: "Tutti i futuri aggiornamenti · per sempre",
+    feat_a_seats: "2 installazioni",
+    feat_3_seats: "2 installazioni",
+    feat_l_seats: "1 installazione",
+    page_title: "Holistic Coin Trainer — Tutti parlano di crypto. Nessuno capisce. Fino ad ora.",
+    hero_t5: "// APPLE DEVELOPER ID · NOTARIZED",
+    psych_label: "> AVVISO // IL MAGGIORE RISCHIO NEL CRYPTO: TU",
+    psych_text: "FOMO. Errori emotivi. Decisioni impulsive. Le decisioni emotive sono il rischio maggiore nel mercato crypto. HCT allena il pensiero strutturato, il questionamento critico e il controllo degli impulsi. Nessun istinto. Nessun hype. Solo processo di apprendimento.",
+    price_e_label: "> ENTERPRISE",
+    price_e_title: "Per team, istituti di formazione e aziende.",
+    ent_seats_1: "3–5 SEATS",
+    ent_seats_2: "6–20 SEATS",
+    ent_seats_3: "21–50 SEATS",
+    ent_seats_4: "50+ SEATS",
+    ent_per_seat: "/postazione/anno",
+    ent_save_1: "–€100 · 17% SCONTO",
+    ent_save_2: "–€200 · 33% SCONTO",
+    ent_save_3: "–€300 · 50% SCONTO",
+    ent_price_req: "SU RICHIESTA",
+    ent_save_4: "CONDIZIONI INDIVIDUALI",
+    ent_f1: "Chiavi API individuali per utente",
+    ent_f2: "Propria chiave API CoinGecko",
+    ent_f3: "Sessioni Sonnet & Opus Pro",
+    ent_f4: "Gestione centralizzata delle licenze",
+    ent_f5: "Supporto dedicato",
+    ent_f6: "Condizioni personalizzate",
+    ent_card_btn: "Richiedi offerta",
+    ent_info: "// 1 POSTAZIONE = 1 MAC · SOLO LICENZA ANNUALE · CONFIGURAZIONE DI SQUADRA SU RICHIESTA",
+    ent_edu_note: "HCT rimane uno strumento educativo nei contesti di team e aziendali.",
+    price_e_btn: "NEGOZIA L'ACCESSO",
+    sysreq_title: "> REQUISITI DI SISTEMA",
+    sysreq_os: "<strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia",
+    sysreq_chip: "<strong>Apple Silicon</strong> nativo · Intel Mac via Rosetta 2",
+    sysreq_ram: "<strong>4 GB di RAM</strong> minimo · 8 GB consigliati",
+    sysreq_net: "<strong>Connessione Internet</strong> necessaria (richieste API)",
+    api_note: "<strong>&gt; IMPORTANTE — CHIAVE API &amp; COSTI DI UTILIZZO</strong><br>HCT richiede la tua <strong>chiave API Anthropic</strong> per eseguire analisi IA. La chiave viene inserita una volta nell'app e non lascia mai la tua macchina. L'utilizzo dell'API viene fatturato direttamente da Anthropic — separatamente dalla tua licenza HCT. Una tipica analisi costa circa <code>~$0,80 con Sonnet · ~$5,00 con Opus</code>. Mantieni il pieno controllo delle tue spese API. Un account Anthropic può essere creato su <code>console.anthropic.com</code>.",
+    disclaimer: "<strong style=\"color:var(--gray-light);\">NON È CONSULENZA FINANZIARIA.</strong> Holistic Coin Trainer è esclusivamente uno strumento educativo e di apprendimento. Tutti gli output di analisi sono generati da IA e non costituiscono consulenza sugli investimenti, finanziaria o raccomandazione di acquisto o vendita di attività. Le criptovalute sono altamente volatili. I risultati passati non indicano risultati futuri. Questo strumento non costituisce consulenza finanziaria, di investimento o fiscale.",
+    legal_note: "Acquistando accetti i <a href=\"legal/agb.html\" style=\"color:var(--gold-dim);\">Termini</a> e l'<a href=\"legal/eula.html\" style=\"color:var(--gold-dim);\">EULA</a>. <a href=\"legal/widerruf.html\" style=\"color:var(--gold-dim);\">Diritto di recesso</a>.",
+    footer_agb: "Condizioni",
+    footer_widerruf: "Recesso",
+    footer_contact: "Contatto",
+    footer_support: "Supporto",
+    footer_facebook: "Facebook",
+    footer_instagram: "Instagram"
+  },
+
+  PT: {
+    nav_cta: "TESTE GRÁTIS",
+    hero_boot: "> MOTOR DE APRENDIZAGEM ONLINE · IA · IMERSIVO · INTERATIVO",
+    hero_h1: "Todos falam de crypto. Ninguém compreende.",
+    hero_h2: "Até agora.",
+    hero_t1: "// HOLISTIC COIN TRAINER v2.3",
+    hero_t2: "// CLAUDE AI + DADOS LIVE COINGECKO",
+    hero_t3: "// WYCKOFF · FUNDAMENTOS · CENÁRIOS DE APRENDIZAGEM",
+    hero_t4: "// 2 SESSÕES DE APRENDIZAGEM GRATUITAS",
+    hero_cta: "Começar gratuitamente",
+    hero_scroll: "▼ · ROLAR",
+    seq_label: "> SEQUÊNCIA",
+    seq_title: "Como funciona o terminal de aprendizagem.",
+    seq_s1_title: "INSERIR TICKER",
+    seq_s1_text: "Digite qualquer símbolo de moeda. O sistema obtém dados ao vivo do CoinGecko — preço, distância ATH, volume, listagens de exchanges, Fear & Greed.",
+    seq_s2_title: "ANÁLISE IA",
+    seq_s2_text: "Claude IA realiza uma análise estruturada — e explica-te cada passo: Porquê este filtro? O que significa esta fase? Aprendes o método enquanto o aplicas.",
+    seq_s3_title: "RECEBER CENÁRIO",
+    seq_s3_text: "Recebe um cenário de aprendizagem DCA interativo — uma ferramenta de pensamento, não uma diretriz.",
+    seq_s4_title: "EXPORTAR + ARQUIVAR",
+    seq_s4_text: "Exporta a tua análise de aprendizagem como PDF terminal retrô. Cada relatório é guardado no teu arquivo local — o teu diário de aprendizagem pessoal.",
+    seq_s5_title: "PRIMER // COMPANHEIRO DE APRENDIZAGEM",
+    seq_s5_text: "O teu parceiro de conversação IA pessoal. Conhece as tuas análises, lembra-se das tuas teses, desafia-te. Três modos: ⚔ SPARRING · 🎯 MENTOR · 🤝 PEER. Não é um chatbot. Uma conversa que te faz avançar.",
+    cap_label: "> FUNCIONALIDADES",
+    cap_title: "O que o terminal ensina.",
+    cap_f1_title: "INTELIGÊNCIA DE MERCADO AO VIVO",
+    cap_f1_text: "Dados em tempo real do CoinGecko. Distância ATH, capitalização de mercado, verificação de nível de exchange, Fear & Greed — tudo obtido e verificado antes da análise.",
+    cap_f2_title: "DETEÇÃO DE FASE WYCKOFF",
+    cap_f2_text: "Cada análise mapeia a ação do preço nas fases de Wyckoff (A–E). Aprendes a reconhecer distribuição, acumulação e spring — não como teoria, mas na tua crypto.",
+    cap_f3_title: "PONTUAÇÃO DE SOBREVIVÊNCIA (VETO)",
+    cap_f3_text: "Um filtro de veto rigoroso verifica atividade da equipa, commits GitHub, listings em exchanges e red flags. Aprendes a fazer as perguntas certas antes de julgar um projeto.",
+    cap_f4_title: "CENÁRIO DE APRENDIZAGEM DCA",
+    cap_f4_text: "Um cenário de aprendizagem DCA interativo. Não é um plano de compra — é uma ferramenta de pensamento.",
+    cap_f5_title: "RELATÓRIOS MULTILÍNGUES",
+    cap_f5_text: "Output de análise em DE, EN, FR, ES, IT, PT. O export PDF adapta automaticamente o idioma e o texto do disclaimer.",
+    cap_f6_title: "LOCAL — SEM NUVEM",
+    cap_f6_text: "Tudo corre na sua máquina. As suas análises, o seu arquivo, a sua chave API. Nenhum dado sai do seu computador exceto a chamada IA. Zero telemetria.",
+    cap_f7_title: "PRIMER: COMPANHEIRO IA",
+    cap_f7_text: "Um parceiro de conversação pessoal que conhece as suas análises, questiona as suas teses e estabelece conexões. Três estilos de conversação. Uma memória. Não é uma enciclopédia — é uma conversa.",
+    learn_label: "> SISTEMA DE FORMAÇÃO",
+    learn_title: "Aprender em semanas, não em anos.",
+    learn_intro: "A maioria das ferramentas crypto entrega dados. HCT entrega <em>compreensão</em>.<br>Cada análise é uma sessão de aprendizagem interativa. A IA adapta-se ao teu nível — explica quando precisas de explicação, desafia-te quando estás pronto. És convidado a pensar antes de veres a avaliação. É assim que cresce o verdadeiro julgamento — não a dependência.",
+    learn_l1_badge: "INICIANTE",
+    learn_l1_title: "Primeiro contacto.",
+    learn_l1_text: "Cada termo técnico é explicado em linguagem simples diretamente no relatório. A análise guia-te passo a passo — explica o conceito, aplica-o à tua crypto, depois deixa-te pensar por ti. Depois de ler, sabes não só o quê, mas porquê.",
+    learn_l1_cue: "// linguagem simplificada · conceitos explicados inline",
+    learn_l2_badge: "AVANÇADO",
+    learn_l2_title: "Reconhecimento de padrões.",
+    learn_l2_text: "Output completo do framework. Cascata Tri-Filter, pontuação de sobrevivência, cenário DCA, classificação Wyckoff. És desafiado a formular a tua própria tese antes de veres a avaliação. Sem andaime de iniciante — máxima densidade de aprendizagem.",
+    learn_l2_cue: "// output padrão · framework completo · sem simplificação",
+    learn_l3_badge: "ESPECIALISTA",
+    learn_l3_title: "O quadro completo.",
+    learn_l3_text: "Todos os dados. Todos os filtros. Todos os flags. Verificações de viés, análise de liquidez de exchange, faixas de avaliação, lacunas de dados conhecidas. Aqui treinas como um analista — denso, preciso, sem ajuda. A IA é o teu parceiro de treino, não o teu consultor.",
+    learn_l3_cue: "// densidade máxima de aprendizagem · vocabulário técnico completo",
+    learn_b1: "LÊ O TEU<br>PRIMEIRO RELATÓRIO",
+    learn_b2: "RECONHECE<br>OS PADRÕES",
+    learn_b3: "FORMA A TUA<br>PRÓPRIA TESE",
+    learn_b4: "DESAFIA<br>A FERRAMENTA",
+    learn_b5: "ÉS TU<br>O ANALISTA",
+    learn_quote: "«A ferramenta torna-se o teu parceiro de treino. Um dia pensarás mais rápido do que ela escreve.»",
+    trial_label: "> TESTE GRATUITO",
+    trial_title: "Não aprendas às cegas.",
+    trial_badge: "// 2 SESSÕES DE APRENDIZAGEM GRATUITAS",
+    trial_h: "Vive a experiência antes de decidires.",
+    trial_text: "Cada download de HCT inclui <strong>2 sessões de aprendizagem completas — totalmente desbloqueadas, sem licença.</strong> Aprende com uma moeda real. Vê a deteção de fase Wyckoff, a pontuação de sobrevivência, o cenário DCA. Exporta o PDF. Verifica o arquivo. Depois decide.<br><br>A €599/ano, mereces saber exatamente o que obtens.",
+    trial_cta: "Descarregar grátis",
+    trial_sub: "macOS · sem conta · sem cartão de crédito",
+    price_label: "> NÍVEIS DE ACESSO",
+    price_title: "Escolhe o teu nível.",
+    price_intro: "Licença única ou anual. Sem armadilhas de subscrição, sem renovação automática sem aviso.<br>Todos os níveis incluem o motor de análise completo, análises ilimitadas, dados ao vivo e export PDF.<br>Trazes a tua própria chave API Anthropic — os teus dados ficam na tua máquina.",
+    price_a_tier: "// LICENÇA ANUAL",
+    price_a_period: "por ano · renovação anual",
+    price_a_btn: "Obter acesso",
+    price_3_tier: "// LICENÇA 3 ANOS",
+    price_3_period: "única · válida 3 anos",
+    price_3_save: "> POUPA €398 vs. anual",
+    price_3_btn: "Começar",
+    price_l_tier: "// LICENÇA VITALÍCIA",
+    price_l_period: "única · todas as atualizações futuras",
+    price_l_save: "> PAGA UMA VEZ. TORNA-O TEU PARA SEMPRE.",
+    price_l_btn: "Possuir",
+    feat_unlimited: "Sessões de aprendizagem ilimitadas",
+    feat_coingecko: "Dados live CoinGecko",
+    feat_wyckoff: "Wyckoff + cenário DCA",
+    feat_pdf: "Export PDF (terminal retro)",
+    feat_local: "Arquivo local — sem nuvem",
+    feat_claude: "Modelo IA Claude Opus Pro",
+    feat_multilang: "Output multilíngue (6 idiomas)",
+    feat_a_upd: "Todas as atualizações durante o período de licença",
+    feat_3_upd: "Todas as atualizações durante 3 anos",
+    feat_l_upd: "Todas as atualizações futuras · para sempre",
+    feat_a_seats: "2 instalações",
+    feat_3_seats: "2 instalações",
+    feat_l_seats: "1 instalação",
+    page_title: "Holistic Coin Trainer — Todos falam de crypto. Ninguém compreende. Até agora.",
+    hero_t5: "// APPLE DEVELOPER ID · NOTARIZED",
+    psych_label: "> AVISO // O MAIOR RISCO EM CRIPTO: VOCÊ",
+    psych_text: "FOMO. Erros emocionais. Decisões impulsivas. Decisões emocionais são o maior risco no mercado crypto. HCT treina o pensamento estruturado, o questionamento crítico e o controlo de impulsos. Sem instinto. Sem hype. Só processo de aprendizagem.",
+    price_e_label: "> ENTERPRISE",
+    price_e_title: "Para equipas, instituições de ensino e empresas.",
+    ent_seats_1: "3–5 SEATS",
+    ent_seats_2: "6–20 SEATS",
+    ent_seats_3: "21–50 SEATS",
+    ent_seats_4: "50+ SEATS",
+    ent_per_seat: "/lugar/ano",
+    ent_save_1: "–€100 · 17% DESCONTO",
+    ent_save_2: "–€200 · 33% DESCONTO",
+    ent_save_3: "–€300 · 50% DESCONTO",
+    ent_price_req: "SOB CONSULTA",
+    ent_save_4: "CONDIÇÕES INDIVIDUAIS",
+    ent_f1: "Chaves API individuais por utilizador",
+    ent_f2: "Própria chave API CoinGecko",
+    ent_f3: "Sessões Sonnet & Opus Pro",
+    ent_f4: "Gestão centralizada de licenças",
+    ent_f5: "Suporte dedicado",
+    ent_f6: "Condições individuais",
+    ent_card_btn: "Solicitar oferta",
+    ent_info: "// 1 LUGAR = 1 MAC · APENAS LICENÇA ANUAL · CONFIGURAÇÃO DE EQUIPA SOB CONSULTA",
+    ent_edu_note: "O HCT continua a ser uma ferramenta educativa em contextos de equipa e empresariais.",
+    price_e_btn: "NEGOCIAR ACESSO",
+    sysreq_title: "> REQUISITOS DO SISTEMA",
+    sysreq_os: "<strong>macOS 12+</strong> · Monterey, Ventura, Sonoma, Sequoia",
+    sysreq_chip: "<strong>Apple Silicon</strong> nativo · Intel Mac via Rosetta 2",
+    sysreq_ram: "<strong>4 GB de RAM</strong> mínimo · 8 GB recomendado",
+    sysreq_net: "<strong>Ligação à Internet</strong> obrigatória (pedidos API)",
+    api_note: "<strong>&gt; IMPORTANTE — CHAVE API &amp; CUSTOS DE UTILIZAÇÃO</strong><br>HCT requer a tua própria <strong>chave API Anthropic</strong> para executar análises IA. A chave é inserida uma vez na app e nunca sai da tua máquina. A utilização da API é faturada diretamente pela Anthropic — separadamente da tua licença HCT. Uma análise típica custa aproximadamente <code>~$0,80 com Sonnet · ~$5,00 com Opus</code>. Mantens o controlo total dos teus gastos de API. Uma conta Anthropic pode ser criada em <code>console.anthropic.com</code>.",
+    disclaimer: "<strong style=\"color:var(--gray-light);\">NÃO É ACONSELHAMENTO FINANCEIRO.</strong> Holistic Coin Trainer é exclusivamente uma ferramenta educativa e de aprendizagem. Todo o output de análise é gerado por IA e não constitui aconselhamento de investimento, financeiro ou recomendação de compra ou venda de ativos. Os criptoativos são altamente voláteis. O desempenho passado não indica resultados futuros. Esta ferramenta não constitui aconselhamento financeiro, de investimento ou fiscal.",
+    legal_note: "Ao comprar, aceitas os <a href=\"legal/agb.html\" style=\"color:var(--gold-dim);\">Termos</a> e o <a href=\"legal/eula.html\" style=\"color:var(--gold-dim);\">EULA</a>. <a href=\"legal/widerruf.html\" style=\"color:var(--gold-dim);\">Política de cancelamento</a>.",
+    footer_agb: "Condições",
+    footer_widerruf: "Retratação",
+    footer_contact: "Contacto",
+    footer_support: "Suporte",
+    footer_facebook: "Facebook",
+    footer_instagram: "Instagram"
+  }
+};
+
+// ── Switching logic ──────────────────────────────────────────
+function applyLang(lang) {
+  const tr = T[lang];
+  if (!tr) return;
+
+  // plain text
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const key = el.dataset.i18n;
+    if (tr[key] !== undefined) el.textContent = tr[key];
+  });
+
+  // html content (elements with inline tags)
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const key = el.dataset.i18nHtml;
+    if (tr[key] !== undefined) el.innerHTML = tr[key];
+  });
+
+  // update active button
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.classList.toggle('active', btn.dataset.lang === lang);
+  });
+
+  // update page title
+  if (tr.page_title) document.title = tr.page_title;
+
+  // update html lang attribute
+  document.documentElement.lang = lang.toLowerCase();
+
+  // persist
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+// Init
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let saved = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : 'DE';
+  try { if (!urlLang) saved = localStorage.getItem('hct_lang') || saved; } catch(e) {}
+  if (!T[saved]) saved = 'DE';
+  applyLang(saved);
+
+  document.querySelectorAll('.lang-btn').forEach(btn => {
+    btn.addEventListener('click', () => applyLang(btn.dataset.lang));
+  });
+
+  // Support-Link aktivieren wenn SUPPORT_URL gesetzt
+  const supportLink = document.getElementById('footer-support-link');
+  if (supportLink && SUPPORT_URL) {
+    supportLink.href = SUPPORT_URL;
+    supportLink.target = '_blank';
+    supportLink.rel = 'noopener';
+    supportLink.style.display = '';
+  }
+});
+</script>
+
+</body>
+</html>
