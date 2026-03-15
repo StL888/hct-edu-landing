@@ -510,6 +510,20 @@
       margin-bottom: 8px;
     }
 
+    .card-api-hint {
+      font-size: 10px;
+      color: var(--amber);
+      margin-top: 4px;
+      margin-bottom: 8px;
+      opacity: 0.8;
+      letter-spacing: 0.03em;
+    }
+    .card-api-hint a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted currentColor;
+    }
+
     .card-saving {
       font-size: 10px;
       color: var(--green-dim);
@@ -1230,6 +1244,7 @@
         <div class="card-tier" data-i18n="price_a_tier">// JAHRES-LIZENZ</div>
         <div class="card-price"><sup>€</sup>599</div>
         <div class="card-period" data-i18n="price_a_period">pro Jahr · jährliche Verlängerung</div>
+        <div class="card-api-hint"><a href="#api-note" data-i18n="card_api_hint">+ Anthropic API ~$0,80/Analyse ↓</a></div>
         <div class="card-saving">&nbsp;</div>
         <ul class="card-features">
           <li data-i18n="feat_unlimited">Unbegrenzte Lerneinheiten</li>
@@ -1252,6 +1267,7 @@
         <div class="card-tier" data-i18n="price_3_tier">// 3-JAHRES-LIZENZ</div>
         <div class="card-price"><sup>€</sup>1.399</div>
         <div class="card-period" data-i18n="price_3_period">einmalig · 3 Jahre gültig</div>
+        <div class="card-api-hint"><a href="#api-note" data-i18n="card_api_hint">+ Anthropic API ~$0,80/Analyse ↓</a></div>
         <div class="card-saving" data-i18n="price_3_save">&gt; SPARE €398 ggü. Jahres-Lizenz</div>
         <ul class="card-features">
           <li data-i18n="feat_unlimited">Unbegrenzte Lerneinheiten</li>
@@ -1274,6 +1290,7 @@
         <div class="card-tier" data-i18n="price_l_tier">// LIFETIME-LIZENZ</div>
         <div class="card-price"><sup>€</sup>1.999</div>
         <div class="card-period" data-i18n="price_l_period">einmalig · alle zukünftigen Updates</div>
+        <div class="card-api-hint"><a href="#api-note" data-i18n="card_api_hint">+ Anthropic API ~$0,80/Analyse ↓</a></div>
         <div class="card-saving" data-i18n="price_l_save">&gt; EINMAL ZAHLEN. FÜR IMMER BESITZEN.</div>
         <ul class="card-features">
           <li data-i18n="feat_unlimited">Unbegrenzte Lerneinheiten</li>
@@ -1374,7 +1391,7 @@
     </div>
 
     <!-- API KEY NOTE -->
-    <div class="api-note" data-i18n-html="api_note"><strong>&gt; WICHTIG — API-KEY &amp; NUTZUNGSKOSTEN</strong><br>HCT benötigt deinen eigenen <strong>Anthropic API-Key</strong> für KI-gestützte Lerneinheiten. Der Key wird einmalig in der App eingegeben und verlässt nie deinen Rechner. Die API-Nutzung wird direkt von Anthropic abgerechnet – getrennt von deiner HCT-Lizenz. Eine typische Lerneinheit kostet etwa <code>~$0,80 mit Claude Sonnet · ~$6,00 mit Claude Opus Pro</code>. Du hast jederzeit die volle Kontrolle über deine API-Ausgaben. Ein Anthropic-Konto kann unter <code>console.anthropic.com</code> erstellt werden.</div>
+    <div class="api-note" id="api-note" data-i18n-html="api_note"><strong>&gt; WICHTIG — API-KEY &amp; NUTZUNGSKOSTEN</strong><br>HCT benötigt deinen eigenen <strong>Anthropic API-Key</strong> für KI-gestützte Lerneinheiten. Der Key wird einmalig in der App eingegeben und verlässt nie deinen Rechner. Die API-Nutzung wird direkt von Anthropic abgerechnet – getrennt von deiner HCT-Lizenz. Eine typische Lerneinheit kostet etwa <code>~$0,80 mit Claude Sonnet · ~$6,00 mit Claude Opus Pro</code>. Du hast jederzeit die volle Kontrolle über deine API-Ausgaben. Ein Anthropic-Konto kann unter <code>console.anthropic.com</code> erstellt werden.</div>
 
     <!-- SYSTEM REQUIREMENTS -->
     <div class="api-note" style="margin-top:16px; border-left-color: var(--green-dim);">
@@ -1509,6 +1526,7 @@ const T = {
     price_l_period: "einmalig · alle zukünftigen Updates",
     price_l_save: "> EINMAL ZAHLEN. FÜR IMMER BESITZEN.",
     price_l_btn: "Für immer",
+    card_api_hint: '+ Anthropic API ~$0,80/Analyse ↓',
     feat_unlimited: "Unbegrenzte Lerneinheiten",
     feat_coingecko: "Live CoinGecko-Daten",
     feat_wyckoff: "Wyckoff + DCA-Lernszenario",
@@ -1647,6 +1665,7 @@ const T = {
     price_l_period: "one-time · all future updates",
     price_l_save: "> PAY ONCE. OWN IT FOREVER.",
     price_l_btn: "Own It",
+    card_api_hint: '+ Anthropic API ~$0.80/analysis ↓',
     feat_unlimited: "Unlimited learning sessions",
     feat_coingecko: "Live CoinGecko data",
     feat_wyckoff: "Wyckoff + DCA learning scenario",
@@ -1785,6 +1804,7 @@ const T = {
     price_l_period: "unique · toutes les futures mises à jour",
     price_l_save: "> PAYER UNE FOIS. POSSÉDER POUR TOUJOURS.",
     price_l_btn: "Posséder",
+    card_api_hint: '+ Anthropic API ~0,80 $/analyse ↓',
     feat_unlimited: "Sessions d'apprentissage illimitées",
     feat_coingecko: "Données live CoinGecko",
     feat_wyckoff: "Wyckoff + scénario DCA",
@@ -1923,6 +1943,7 @@ const T = {
     price_l_period: "única · todas las actualizaciones futuras",
     price_l_save: "> PAGA UNA VEZ. TUYO PARA SIEMPRE.",
     price_l_btn: "Poseerlo",
+    card_api_hint: '+ Anthropic API ~$0,80/análisis ↓',
     feat_unlimited: "Sesiones de aprendizaje ilimitadas",
     feat_coingecko: "Datos live CoinGecko",
     feat_wyckoff: "Wyckoff + escenario DCA",
@@ -2061,6 +2082,7 @@ const T = {
     price_l_period: "una tantum · tutti i futuri aggiornamenti",
     price_l_save: "> PAGA UNA VOLTA. TIENILO PER SEMPRE.",
     price_l_btn: "Possederlo",
+    card_api_hint: '+ Anthropic API ~$0,80/analisi ↓',
     feat_unlimited: "Sessioni di apprendimento illimitate",
     feat_coingecko: "Dati live CoinGecko",
     feat_wyckoff: "Wyckoff + scenario DCA",
@@ -2199,6 +2221,7 @@ const T = {
     price_l_period: "única · todas as atualizações futuras",
     price_l_save: "> PAGA UMA VEZ. TORNA-O TEU PARA SEMPRE.",
     price_l_btn: "Possuir",
+    card_api_hint: '+ Anthropic API ~$0,80/análise ↓',
     feat_unlimited: "Sessões de aprendizagem ilimitadas",
     feat_coingecko: "Dados live CoinGecko",
     feat_wyckoff: "Wyckoff + cenário DCA",

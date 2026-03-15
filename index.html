@@ -591,6 +591,20 @@
       margin-bottom: 8px;
     }
 
+    .card-api-hint {
+      font-size: 10px;
+      color: var(--amber);
+      margin-top: 4px;
+      margin-bottom: 8px;
+      opacity: 0.8;
+      letter-spacing: 0.03em;
+    }
+    .card-api-hint a {
+      color: inherit;
+      text-decoration: none;
+      border-bottom: 1px dotted currentColor;
+    }
+
     .card-saving {
       font-family: var(--mono);
       font-size: 10px;
@@ -1145,6 +1159,7 @@
         <div class="card-tier" data-i18n="tier1">// JAHRES-LIZENZ</div>
         <div class="card-price"><sup>€</sup>599</div>
         <div class="card-period" data-i18n="period1">pro Jahr · manuelle Verlängerung</div>
+        <div class="card-api-hint"><a href="#api-note" data-i18n="card_api_hint">+ Anthropic API ~$0,80/Analyse ↓</a></div>
         <div class="card-saving" data-i18n-html="saving1">&nbsp;</div>
         <ul class="card-features">
           <li data-i18n="feat1_1">Unbegrenzte Lerneinheiten</li>
@@ -1167,6 +1182,7 @@
         <div class="card-tier" data-i18n="tier2">// 3-JAHRES-LIZENZ</div>
         <div class="card-price"><sup>€</sup>1.399</div>
         <div class="card-period" data-i18n="period2">einmalig · 3 Jahre gültig</div>
+        <div class="card-api-hint"><a href="#api-note" data-i18n="card_api_hint">+ Anthropic API ~$0,80/Analyse ↓</a></div>
         <div class="card-saving" data-i18n="saving2">&gt; SPARE €398 gegenüber Jahres-Lizenz</div>
         <ul class="card-features">
           <li data-i18n="feat2_1">Unbegrenzte Lerneinheiten</li>
@@ -1188,6 +1204,7 @@
         <div class="card-tier" data-i18n="tier3">// LIFETIME-LIZENZ</div>
         <div class="card-price"><sup>€</sup>1.999</div>
         <div class="card-period" data-i18n="period3">einmalig · alle zukünftigen Updates</div>
+        <div class="card-api-hint"><a href="#api-note" data-i18n="card_api_hint">+ Anthropic API ~$0,80/Analyse ↓</a></div>
         <div class="card-saving" data-i18n="saving3">&gt; EINMAL ZAHLEN. FÜR IMMER BESITZEN.</div>
         <ul class="card-features">
           <li data-i18n="feat3_1">Unbegrenzte Lerneinheiten</li>
@@ -1282,7 +1299,7 @@
     </div>
 
     <!-- SETUP NOTE -->
-    <div class="setup-note">
+    <div class="setup-note" id="api-note">
       <div class="setup-note-title" data-i18n="setup_title">&gt; EINMALIGE EINRICHTUNG — CA. 5 MINUTEN</div>
       <p class="setup-note-body" style="font-size:13px; color:var(--text-soft); margin-bottom:20px; line-height:1.7;" data-i18n-html="setup_text">
         HCT nutzt KI für seine Lerneinheiten. Dafür brauchst du einen persönlichen Zugangsschlüssel
@@ -1478,6 +1495,7 @@ const TRANSLATIONS = {
     feat3_7: '6 Sprachen',
     feat3_8: 'Alle zukünftigen Updates — für immer',
     btn3: 'Lifetime-Lizenz holen',
+    card_api_hint: '+ Anthropic API ~$0,80/Analyse ↓',
     feat1_seats: '2 Arbeitsplätze',
     feat2_seats: '2 Arbeitsplätze',
     feat3_seats: '1 Arbeitsplatz',
@@ -1637,6 +1655,7 @@ const TRANSLATIONS = {
     feat3_7: '6 languages',
     feat3_8: 'All future updates — forever',
     btn3: 'Get lifetime licence',
+    card_api_hint: '+ Anthropic API ~$0.80/analysis ↓',
     feat1_seats: '2 installs',
     feat2_seats: '2 installs',
     feat3_seats: '1 install',
@@ -1796,6 +1815,7 @@ const TRANSLATIONS = {
     feat3_7: '6 langues',
     feat3_8: 'Toutes les mises à jour futures — pour toujours',
     btn3: 'Obtenir la licence à vie',
+    card_api_hint: '+ Anthropic API ~0,80 $/analyse ↓',
     feat1_seats: '2 postes',
     feat2_seats: '2 postes',
     feat3_seats: '1 poste',
@@ -1955,6 +1975,7 @@ const TRANSLATIONS = {
     feat3_7: '6 idiomas',
     feat3_8: 'Todas las actualizaciones futuras — para siempre',
     btn3: 'Obtener licencia vitalicia',
+    card_api_hint: '+ Anthropic API ~$0,80/análisis ↓',
     feat1_seats: '2 puestos',
     feat2_seats: '2 puestos',
     feat3_seats: '1 puesto',
@@ -2114,6 +2135,7 @@ const TRANSLATIONS = {
     feat3_7: '6 lingue',
     feat3_8: 'Tutti gli aggiornamenti futuri — per sempre',
     btn3: 'Ottieni la licenza a vita',
+    card_api_hint: '+ Anthropic API ~$0,80/analisi ↓',
     feat1_seats: '2 postazioni',
     feat2_seats: '2 postazioni',
     feat3_seats: '1 postazione',
@@ -2273,6 +2295,7 @@ const TRANSLATIONS = {
     feat3_7: '6 idiomas',
     feat3_8: 'Todas as atualizações futuras — para sempre',
     btn3: 'Obter licença vitalícia',
+    card_api_hint: '+ Anthropic API ~$0,80/análise ↓',
     feat1_seats: '2 postos',
     feat2_seats: '2 postos',
     feat3_seats: '1 posto',
