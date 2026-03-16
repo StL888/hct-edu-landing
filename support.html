@@ -243,6 +243,10 @@
       background: var(--green);
       animation: pulse 2s infinite;
     }
+    .status-dot.green  { background: var(--green); }
+    .status-dot.yellow { background: #ffa500; }
+    .status-dot.red    { background: var(--red); }
+    .status-dot.gray   { background: var(--gray); animation: none; }
     @keyframes pulse {
       0%, 100% { opacity: 1; }
       50% { opacity: 0.4; }
@@ -331,7 +335,7 @@
     <p data-i18n="status_desc">HCT nutzt die Anthropic API (Claude). Bei Analyse-Fehlern oder PRIMER-Problemen zuerst den Live-Status pr&uuml;fen:</p>
     <a href="https://status.anthropic.com" target="_blank" rel="noopener" class="status-badge">
       <span class="status-dot"></span>
-      <span>status.anthropic.com</span>
+      <span class="status-label">status.anthropic.com</span>
     </a>
   </section>
 
@@ -406,6 +410,22 @@
         <strong>Linux:</strong> Experimentell. Download als AppImage.
       </div>
     </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq8_q">Was bedeutet der Status-Punkt in der Toolbar?</div>
+      <div class="faq-a" data-i18n-html="faq8_a">
+        HCT zeigt den Live-Status der Anthropic API in der Toolbar an:<br><br>
+        <strong>&#9679; gr&uuml;n</strong> &mdash; API erreichbar (All Systems Operational)<br>
+        <strong>&#9679; orange</strong> &mdash; Eingeschr&auml;nkt (Partially Degraded Service)<br>
+        <strong>&#9679; rot</strong> &mdash; Nicht erreichbar (Major/Critical Outage)<br>
+        <strong>&#9679; grau</strong> &mdash; Status unbekannt (kein Internet)<br><br>
+        Klick auf den Punkt &ouml;ffnet <a href="https://status.anthropic.com" target="_blank" rel="noopener">status.anthropic.com</a>.<br><br>
+        <strong>Fehlerbehebung:</strong><br>
+        1. Status pr&uuml;fen: <a href="https://status.anthropic.com" target="_blank" rel="noopener">status.anthropic.com</a><br>
+        2. Guthaben pr&uuml;fen: <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> &rarr; Billing<br>
+        3. API-Key pr&uuml;fen: Einstellungen &rarr; SYSTEM (beginnt mit <code>sk-ant-</code>)
+      </div>
+    </div>
   </section>
 
   <!-- ── QUICK LINKS ─────────────────────────────────── -->
@@ -470,6 +490,8 @@ const T = {
     faq6_a: "<strong>Lokal:</strong> Alle Reports, PRIMER-Sessions und Einstellungen werden ausschlie\u00dflich auf deinem Ger\u00e4t gespeichert (SQLite-Datenbank).<br><strong>API:</strong> Deine Analyse-Anfragen werden an Anthropic gesendet. Anthropic speichert keine API-Daten f\u00fcr Training (siehe <a href='https://www.anthropic.com/policies/privacy' target='_blank'>Anthropic Privacy Policy</a>).<br><strong>Kein Tracking:</strong> HCT hat keine Analytics, kein Telemetrie, keine Server.",
     faq7_q: "Auf welchen Plattformen l\u00e4uft HCT?",
     faq7_a: "<strong>macOS:</strong> Ab macOS 13 (Ventura). Intel + Apple Silicon. Notarisiert.<br><strong>Windows:</strong> Ab Windows 10. Download als ZIP.<br><strong>iPad:</strong> Native SwiftUI-App (iPadOS 17+). TestFlight-Beta.<br><strong>Linux:</strong> Experimentell. Download als AppImage.",
+    faq8_q: "Was bedeutet der Status-Punkt in der Toolbar?",
+    faq8_a: "HCT zeigt den Live-Status der Anthropic API in der Toolbar an:<br><br><strong>\u25cf gr\u00fcn</strong> \u2014 API erreichbar (All Systems Operational)<br><strong>\u25cf orange</strong> \u2014 Eingeschr\u00e4nkt (Partially Degraded Service)<br><strong>\u25cf rot</strong> \u2014 Nicht erreichbar (Major/Critical Outage)<br><strong>\u25cf grau</strong> \u2014 Status unbekannt (kein Internet)<br><br>Klick auf den Punkt \u00f6ffnet <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a>.<br><br><strong>Fehlerbehebung:</strong><br>1. Status pr\u00fcfen: <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br>2. Guthaben pr\u00fcfen: <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br>3. API-Key pr\u00fcfen: Einstellungen \u2192 SYSTEM (beginnt mit <code>sk-ant-</code>)",
     h_links: "QUICK LINKS",
     link_ticket_label: "SUPPORT",
     link_ticket_title: "Ticket erstellen",
@@ -503,6 +525,8 @@ const T = {
     faq6_a: "<strong>Local:</strong> All reports, PRIMER sessions and settings are stored exclusively on your device (SQLite database).<br><strong>API:</strong> Your analysis requests are sent to Anthropic. Anthropic does not store API data for training (see <a href='https://www.anthropic.com/policies/privacy' target='_blank'>Anthropic Privacy Policy</a>).<br><strong>No tracking:</strong> HCT has no analytics, no telemetry, no servers.",
     faq7_q: "Which platforms does HCT support?",
     faq7_a: "<strong>macOS:</strong> macOS 13+ (Ventura). Intel + Apple Silicon. Notarized.<br><strong>Windows:</strong> Windows 10+. Download as ZIP.<br><strong>iPad:</strong> Native SwiftUI app (iPadOS 17+). TestFlight beta.<br><strong>Linux:</strong> Experimental. Download as AppImage.",
+    faq8_q: "What does the status indicator in the toolbar mean?",
+    faq8_a: "HCT shows the live Anthropic API status in the toolbar:<br><br><strong>\u25cf green</strong> \u2014 API reachable (All Systems Operational)<br><strong>\u25cf orange</strong> \u2014 Degraded (Partially Degraded Service)<br><strong>\u25cf red</strong> \u2014 Unreachable (Major/Critical Outage)<br><strong>\u25cf gray</strong> \u2014 Status unknown (no internet)<br><br>Click the dot to open <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a>.<br><br><strong>Troubleshooting:</strong><br>1. Check status: <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br>2. Check API credits: <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br>3. Check API key: Settings \u2192 SYSTEM (starts with <code>sk-ant-</code>)",
     h_links: "QUICK LINKS",
     link_ticket_label: "SUPPORT",
     link_ticket_title: "Create ticket",
@@ -536,6 +560,8 @@ const T = {
     faq6_a: "<strong>Local :</strong> Tous les rapports et sessions sont stock\u00e9s exclusivement sur votre appareil.<br><strong>API :</strong> Anthropic ne stocke pas les donn\u00e9es API pour l'entra\u00eenement.<br><strong>Pas de tracking :</strong> Aucune analyse, aucune t\u00e9l\u00e9m\u00e9trie, aucun serveur.",
     faq7_q: "Sur quelles plateformes HCT fonctionne-t-il ?",
     faq7_a: "<strong>macOS :</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows :</strong> Windows 10+. ZIP.<br><strong>iPad :</strong> App SwiftUI native (iPadOS 17+). TestFlight.<br><strong>Linux :</strong> Exp\u00e9rimental. AppImage.",
+    faq8_q: "Que signifie le point de statut dans la barre d'outils ?",
+    faq8_a: "HCT affiche le statut en direct de l'API Anthropic dans la barre d'outils :<br><br><strong>\u25cf vert</strong> \u2014 API accessible (All Systems Operational)<br><strong>\u25cf orange</strong> \u2014 D\u00e9grad\u00e9 (Partially Degraded Service)<br><strong>\u25cf rouge</strong> \u2014 Inaccessible (Major/Critical Outage)<br><strong>\u25cf gris</strong> \u2014 Statut inconnu (pas d'internet)<br><br>Cliquez sur le point pour ouvrir <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a>.<br><br><strong>D\u00e9pannage :</strong><br>1. V\u00e9rifier le statut : <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br>2. V\u00e9rifier le solde API : <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br>3. V\u00e9rifier la cl\u00e9 API : Param\u00e8tres \u2192 SYSTEM (commence par <code>sk-ant-</code>)",
     h_links: "LIENS RAPIDES",
     link_ticket_label: "SUPPORT",
     link_ticket_title: "Cr\u00e9er un ticket",
@@ -569,6 +595,8 @@ const T = {
     faq6_a: "<strong>Local:</strong> Todo se almacena exclusivamente en tu dispositivo.<br><strong>API:</strong> Anthropic no almacena datos API para entrenamiento.<br><strong>Sin tracking:</strong> Sin anal\u00edticas, sin telemetr\u00eda, sin servidores.",
     faq7_q: "\u00bfEn qu\u00e9 plataformas funciona HCT?",
     faq7_a: "<strong>macOS:</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows:</strong> Windows 10+. ZIP.<br><strong>iPad:</strong> SwiftUI nativa (iPadOS 17+). TestFlight.<br><strong>Linux:</strong> Experimental. AppImage.",
+    faq8_q: "\u00bfQu\u00e9 significa el punto de estado en la barra de herramientas?",
+    faq8_a: "HCT muestra el estado en vivo de la API Anthropic en la barra de herramientas:<br><br><strong>\u25cf verde</strong> \u2014 API accesible (All Systems Operational)<br><strong>\u25cf naranja</strong> \u2014 Degradado (Partially Degraded Service)<br><strong>\u25cf rojo</strong> \u2014 Inaccesible (Major/Critical Outage)<br><strong>\u25cf gris</strong> \u2014 Estado desconocido (sin internet)<br><br>Haz clic en el punto para abrir <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a>.<br><br><strong>Soluci\u00f3n de problemas:</strong><br>1. Verificar estado: <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br>2. Verificar saldo: <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br>3. Verificar clave API: Configuraci\u00f3n \u2192 SYSTEM (comienza con <code>sk-ant-</code>)",
     h_links: "ENLACES R\u00c1PIDOS",
     link_ticket_label: "SOPORTE",
     link_ticket_title: "Crear ticket",
@@ -602,6 +630,8 @@ const T = {
     faq6_a: "<strong>Locale:</strong> Tutto viene salvato esclusivamente sul tuo dispositivo.<br><strong>API:</strong> Anthropic non salva i dati API per l'addestramento.<br><strong>Nessun tracking:</strong> Nessuna analisi, nessuna telemetria, nessun server.",
     faq7_q: "Su quali piattaforme funziona HCT?",
     faq7_a: "<strong>macOS:</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows:</strong> Windows 10+. ZIP.<br><strong>iPad:</strong> SwiftUI nativa (iPadOS 17+). TestFlight.<br><strong>Linux:</strong> Sperimentale. AppImage.",
+    faq8_q: "Cosa significa il punto di stato nella barra degli strumenti?",
+    faq8_a: "HCT mostra lo stato in tempo reale dell'API Anthropic nella barra degli strumenti:<br><br><strong>\u25cf verde</strong> \u2014 API raggiungibile (All Systems Operational)<br><strong>\u25cf arancione</strong> \u2014 Degradato (Partially Degraded Service)<br><strong>\u25cf rosso</strong> \u2014 Non raggiungibile (Major/Critical Outage)<br><strong>\u25cf grigio</strong> \u2014 Stato sconosciuto (nessun internet)<br><br>Clicca sul punto per aprire <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a>.<br><br><strong>Risoluzione problemi:</strong><br>1. Verifica stato: <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br>2. Verifica saldo: <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br>3. Verifica chiave API: Impostazioni \u2192 SYSTEM (inizia con <code>sk-ant-</code>)",
     h_links: "LINK RAPIDI",
     link_ticket_label: "SUPPORTO",
     link_ticket_title: "Crea ticket",
@@ -635,6 +665,8 @@ const T = {
     faq6_a: "<strong>Local:</strong> Tudo \u00e9 guardado exclusivamente no seu dispositivo.<br><strong>API:</strong> A Anthropic n\u00e3o guarda dados API para treino.<br><strong>Sem tracking:</strong> Sem an\u00e1lises, sem telemetria, sem servidores.",
     faq7_q: "Em que plataformas funciona o HCT?",
     faq7_a: "<strong>macOS:</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows:</strong> Windows 10+. ZIP.<br><strong>iPad:</strong> SwiftUI nativa (iPadOS 17+). TestFlight.<br><strong>Linux:</strong> Experimental. AppImage.",
+    faq8_q: "O que significa o ponto de estado na barra de ferramentas?",
+    faq8_a: "HCT mostra o estado em tempo real da API Anthropic na barra de ferramentas:<br><br><strong>\u25cf verde</strong> \u2014 API acess\u00edvel (All Systems Operational)<br><strong>\u25cf laranja</strong> \u2014 Degradado (Partially Degraded Service)<br><strong>\u25cf vermelho</strong> \u2014 Inacess\u00edvel (Major/Critical Outage)<br><strong>\u25cf cinzento</strong> \u2014 Estado desconhecido (sem internet)<br><br>Clique no ponto para abrir <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a>.<br><br><strong>Resolu\u00e7\u00e3o de problemas:</strong><br>1. Verificar estado: <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br>2. Verificar saldo: <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br>3. Verificar chave API: Defini\u00e7\u00f5es \u2192 SYSTEM (come\u00e7a com <code>sk-ant-</code>)",
     h_links: "LINKS R\u00c1PIDOS",
     link_ticket_label: "SUPORTE",
     link_ticket_title: "Criar ticket",
@@ -684,6 +716,24 @@ document.addEventListener('DOMContentLoaded', () => {
       q.parentElement.classList.toggle('open');
     });
   });
+
+  // Live Anthropic API Status
+  fetch('https://status.claude.com/api/v2/status.json')
+    .then(r => r.json())
+    .then(data => {
+      const dot = document.querySelector('.status-dot');
+      const label = document.querySelector('.status-label');
+      const ind = data.status.indicator;
+      const desc = data.status.description;
+      if (ind === 'none') { dot.className = 'status-dot green'; }
+      else if (ind === 'minor') { dot.className = 'status-dot yellow'; }
+      else { dot.className = 'status-dot red'; }
+      if (label) label.textContent = desc + ' \u2014 status.anthropic.com';
+    })
+    .catch(() => {
+      const dot = document.querySelector('.status-dot');
+      if (dot) dot.className = 'status-dot gray';
+    });
 });
 </script>
 </body>
