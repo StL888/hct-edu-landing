@@ -1444,7 +1444,7 @@
 
 <script>
 // ── Support URL — Tally-Formular eintragen wenn verfügbar ─────────────────────
-const SUPPORT_URL = 'https://tally.so/r/aQxKEq';
+const SUPPORT_URL = 'support.html';
 // ─────────────────────────────────────────────────────────────────────────────
 
 const T = {
@@ -2337,8 +2337,6 @@ document.addEventListener('DOMContentLoaded', () => {
   const supportLink = document.getElementById('footer-support-link');
   if (supportLink && SUPPORT_URL) {
     supportLink.href = SUPPORT_URL;
-    supportLink.target = '_blank';
-    supportLink.rel = 'noopener';
     supportLink.style.display = '';
   }
 });

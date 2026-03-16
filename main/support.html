@@ -1,0 +1,690 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title data-i18n="page_title">Support — Holistic Coin Trainer</title>
+  <meta name="robots" content="noindex, nofollow">
+  <style>
+    :root {
+      --bg:         #0a0a0a;
+      --surface:    #111111;
+      --border:     #1e1e1e;
+      --text:       #c8c8c8;
+      --gray:       #555;
+      --gray-light: #888;
+      --gold:       #ffd700;
+      --gold-dim:   #b8960c;
+      --green:      #00ff41;
+      --green-dim:  #1a7431;
+      --red:        #ff4444;
+      --font: 'SF Mono', 'Fira Mono', 'Cascadia Code', 'Consolas', monospace;
+    }
+
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font);
+      font-size: 13px;
+      line-height: 1.8;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    header {
+      border-bottom: 1px solid var(--border);
+      padding: 18px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .logo {
+      font-size: 11px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+    }
+    .logo span { color: var(--gold); }
+
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--gray);
+      font-family: var(--font);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--gold-dim); border-color: var(--border); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,215,0,0.06); }
+
+    .back-link {
+      font-size: 10px;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    .back-link:hover { color: var(--gold-dim); }
+    .back-link::before { content: "\2190  "; }
+
+    main {
+      max-width: 720px;
+      margin: 0 auto;
+      padding: 60px 40px 80px;
+      flex: 1;
+      width: 100%;
+    }
+
+    .page-label {
+      font-size: 9px;
+      letter-spacing: 0.25em;
+      color: var(--gold-dim);
+      margin-bottom: 8px;
+    }
+
+    h1 {
+      font-size: 22px;
+      font-weight: 700;
+      letter-spacing: 0.12em;
+      color: var(--gold);
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 12px;
+      color: var(--gray-light);
+      margin-bottom: 40px;
+    }
+
+    section {
+      margin-bottom: 36px;
+    }
+
+    h2 {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.2em;
+      color: var(--gold-dim);
+      text-transform: uppercase;
+      margin-bottom: 10px;
+      padding-bottom: 6px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    p {
+      color: var(--text);
+      margin-bottom: 6px;
+    }
+
+    a {
+      color: var(--gray-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    a:hover { color: var(--gold-dim); }
+
+    /* ── FAQ ─────────────────────────────────────────────── */
+    .faq-item {
+      border: 1px solid var(--border);
+      margin-bottom: 8px;
+      background: var(--surface);
+    }
+
+    .faq-q {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 14px 18px;
+      cursor: pointer;
+      font-size: 12px;
+      color: var(--text);
+      letter-spacing: 0.04em;
+      transition: color 0.2s;
+      user-select: none;
+    }
+    .faq-q:hover { color: var(--gold); }
+
+    .faq-q::after {
+      content: "+";
+      font-size: 16px;
+      color: var(--gray);
+      transition: transform 0.2s;
+    }
+    .faq-item.open .faq-q::after {
+      content: "\2212";
+      color: var(--gold-dim);
+    }
+
+    .faq-a {
+      display: none;
+      padding: 0 18px 16px;
+      font-size: 12px;
+      line-height: 1.9;
+      color: var(--gray-light);
+    }
+    .faq-item.open .faq-a { display: block; }
+
+    .faq-a code {
+      background: rgba(255,215,0,0.08);
+      padding: 1px 6px;
+      font-size: 11px;
+      color: var(--gold-dim);
+    }
+
+    /* ── LINKS ───────────────────────────────────────────── */
+    .link-grid {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 12px;
+      margin-top: 12px;
+    }
+
+    .link-card {
+      border: 1px solid var(--border);
+      background: var(--surface);
+      padding: 16px 18px;
+      text-decoration: none;
+      transition: border-color 0.2s;
+    }
+    .link-card:hover { border-color: var(--gold-dim); }
+
+    .link-card .lc-label {
+      font-size: 9px;
+      letter-spacing: 0.15em;
+      color: var(--gray);
+      text-transform: uppercase;
+      margin-bottom: 4px;
+    }
+    .link-card .lc-title {
+      font-size: 12px;
+      color: var(--gold);
+      letter-spacing: 0.05em;
+    }
+    .link-card .lc-desc {
+      font-size: 10px;
+      color: var(--gray-light);
+      margin-top: 4px;
+    }
+
+    /* ── STATUS BADGE ────────────────────────────────────── */
+    .status-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 11px;
+      padding: 6px 14px;
+      border: 1px solid var(--border);
+      background: var(--surface);
+      color: var(--gray-light);
+      margin-top: 8px;
+    }
+    .status-dot {
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--green);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; }
+      50% { opacity: 0.4; }
+    }
+
+    /* ── NOTICE ──────────────────────────────────────────── */
+    .notice {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-left: 2px solid var(--gold-dim);
+      padding: 16px 20px;
+      font-size: 11px;
+      color: var(--gray-light);
+      margin-top: 40px;
+      line-height: 1.7;
+    }
+
+    /* ── PLATFORM TABS ───────────────────────────────────── */
+    .platform-tabs {
+      display: flex;
+      gap: 0;
+      margin-bottom: 16px;
+      border-bottom: 1px solid var(--border);
+    }
+    .ptab {
+      padding: 8px 18px;
+      font-family: var(--font);
+      font-size: 10px;
+      letter-spacing: 0.12em;
+      color: var(--gray);
+      background: none;
+      border: none;
+      border-bottom: 2px solid transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .ptab:hover { color: var(--gold-dim); }
+    .ptab.active { color: var(--gold); border-bottom-color: var(--gold); }
+
+    .pcontent { display: none; }
+    .pcontent.active { display: block; }
+
+    footer {
+      border-top: 1px solid var(--border);
+      padding: 24px 40px;
+      text-align: center;
+      font-size: 9px;
+      color: var(--gray);
+      letter-spacing: 0.15em;
+      opacity: 0.5;
+    }
+
+    @media (max-width: 600px) {
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
+      main   { padding: 40px 20px 60px; }
+      .link-grid { grid-template-columns: 1fr; }
+      .header-right { gap: 12px; }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
+  <div class="header-right">
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="DE">DE</button>
+      <button class="lang-btn" data-lang="EN">EN</button>
+      <button class="lang-btn" data-lang="FR">FR</button>
+      <button class="lang-btn" data-lang="ES">ES</button>
+      <button class="lang-btn" data-lang="IT">IT</button>
+      <button class="lang-btn" data-lang="PT">PT</button>
+    </div>
+    <a href="index.html" class="back-link" data-i18n="back">Startseite</a>
+  </div>
+</header>
+
+<main>
+  <div class="page-label">SUPPORT</div>
+  <h1 data-i18n="title">HILFE &amp; SUPPORT</h1>
+  <p class="subtitle" data-i18n="subtitle">Antworten auf die h&auml;ufigsten Fragen. Bei weiteren Problemen: Ticket erstellen.</p>
+
+  <!-- ── API STATUS ──────────────────────────────────── -->
+  <section>
+    <h2 data-i18n="h_status">API STATUS</h2>
+    <p data-i18n="status_desc">HCT nutzt die Anthropic API (Claude). Bei Analyse-Fehlern oder PRIMER-Problemen zuerst den Live-Status pr&uuml;fen:</p>
+    <a href="https://status.anthropic.com" target="_blank" rel="noopener" class="status-badge">
+      <span class="status-dot"></span>
+      <span>status.anthropic.com</span>
+    </a>
+  </section>
+
+  <!-- ── FAQ ─────────────────────────────────────────── -->
+  <section>
+    <h2 data-i18n="h_faq">FAQ</h2>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq1_q">App startet nicht / Sicherheitswarnung</div>
+      <div class="faq-a" data-i18n-html="faq1_a">
+        <strong>macOS:</strong> Beim ersten Start: Rechtsklick auf die App &rarr; &laquo;&#214;ffnen&raquo;. Ab v2.3 ist die App notarisiert &mdash; kein Warndialog mehr.<br>
+        <strong>Windows:</strong> SmartScreen-Warnung &rarr; &laquo;Weitere Informationen&raquo; &rarr; &laquo;Trotzdem ausf&#252;hren&raquo;.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq2_q">Wie richte ich den API-Key ein?</div>
+      <div class="faq-a" data-i18n-html="faq2_a">
+        1. Gehe zu <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a><br>
+        2. Erstelle einen Account und lade API-Credits auf (ab $5)<br>
+        3. Erstelle einen API-Key unter &laquo;API Keys&raquo;<br>
+        4. In HCT: Einstellungen &rarr; SYSTEM &rarr; API-Key eingeben<br><br>
+        <em>Der Key beginnt mit <code>sk-ant-...</code> und wird sicher im System-Keychain gespeichert.</em>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq3_q">Analyse funktioniert nicht / Fehlermeldung</div>
+      <div class="faq-a" data-i18n-html="faq3_a">
+        <strong>&#10102; API-Status pr&#252;fen:</strong> <a href="https://status.anthropic.com" target="_blank" rel="noopener">status.anthropic.com</a><br>
+        <strong>&#10103; API-Guthaben pr&#252;fen:</strong> <a href="https://console.anthropic.com" target="_blank" rel="noopener">console.anthropic.com</a> &rarr; Billing<br>
+        <strong>&#10104; Key korrekt?</strong> Einstellungen &rarr; SYSTEM &rarr; Key pr&#252;fen (beginnt mit <code>sk-ant-</code>)<br><br>
+        H&#228;ufigste Ursachen: Kein Guthaben, ung&#252;ltiger Key, oder tempor&#228;rer API-Ausfall.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq4_q">Was kostet eine Analyse?</div>
+      <div class="faq-a" data-i18n-html="faq4_a">
+        <strong>Analyse (Sonnet):</strong> ~$0,60&ndash;0,80 pro Report<br>
+        <strong>Analyse (Opus Pro):</strong> ~$5,00 pro Report<br>
+        <strong>PRIMER:</strong> ~$0,01&ndash;0,03 pro Nachricht<br>
+        <strong>Follow-Up Check:</strong> ~$0,02<br><br>
+        Die Kosten werden nach jeder Analyse und in der Sitzungs&#252;bersicht angezeigt.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq5_q">Welches Modell soll ich nutzen?</div>
+      <div class="faq-a" data-i18n-html="faq5_a">
+        <strong>Sonnet (Standard):</strong> Schnell, g&#252;nstig, f&#252;r Einsteiger und Fortgeschrittene ideal.<br>
+        <strong>Opus Pro:</strong> Tiefere Analyse, nuancierter. Empfohlen f&#252;r Experten-Level.<br><br>
+        Opus Pro wird in den Einstellungen aktiviert und funktioniert am besten mit Level &laquo;Experte&raquo;.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq6_q">Werden meine Daten gespeichert?</div>
+      <div class="faq-a" data-i18n-html="faq6_a">
+        <strong>Lokal:</strong> Alle Reports, PRIMER-Sessions und Einstellungen werden ausschlie&#223;lich auf deinem Ger&#228;t gespeichert (SQLite-Datenbank).<br>
+        <strong>API:</strong> Deine Analyse-Anfragen werden an Anthropic gesendet. Anthropic speichert keine API-Daten f&#252;r Training (siehe <a href="https://www.anthropic.com/policies/privacy" target="_blank" rel="noopener">Anthropic Privacy Policy</a>).<br>
+        <strong>Kein Tracking:</strong> HCT hat keine Analytics, kein Telemetrie, keine Server.
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-q" data-i18n="faq7_q">Auf welchen Plattformen l&auml;uft HCT?</div>
+      <div class="faq-a" data-i18n-html="faq7_a">
+        <strong>macOS:</strong> Ab macOS 13 (Ventura). Intel + Apple Silicon. Notarisiert.<br>
+        <strong>Windows:</strong> Ab Windows 10. Download als ZIP.<br>
+        <strong>iPad:</strong> Native SwiftUI-App (iPadOS 17+). TestFlight-Beta.<br>
+        <strong>Linux:</strong> Experimentell. Download als AppImage.
+      </div>
+    </div>
+  </section>
+
+  <!-- ── QUICK LINKS ─────────────────────────────────── -->
+  <section>
+    <h2 data-i18n="h_links">QUICK LINKS</h2>
+    <div class="link-grid">
+      <a href="https://tally.so/r/aQxKEq" target="_blank" rel="noopener" class="link-card">
+        <div class="lc-label" data-i18n="link_ticket_label">SUPPORT</div>
+        <div class="lc-title" data-i18n="link_ticket_title">Ticket erstellen</div>
+        <div class="lc-desc" data-i18n="link_ticket_desc">Bug melden, Feature w&uuml;nschen, Frage stellen</div>
+      </a>
+      <a href="https://status.anthropic.com" target="_blank" rel="noopener" class="link-card">
+        <div class="lc-label">API</div>
+        <div class="lc-title">Anthropic Status</div>
+        <div class="lc-desc" data-i18n="link_status_desc">Live-Status der Claude API</div>
+      </a>
+      <a href="https://console.anthropic.com" target="_blank" rel="noopener" class="link-card">
+        <div class="lc-label" data-i18n="link_console_label">ACCOUNT</div>
+        <div class="lc-title">Anthropic Console</div>
+        <div class="lc-desc" data-i18n="link_console_desc">API-Key, Guthaben, Billing</div>
+      </a>
+      <a href="mailto:hello@holisticcointrainer.com" class="link-card">
+        <div class="lc-label" data-i18n="link_contact_label">KONTAKT</div>
+        <div class="lc-title" data-i18n="link_contact_title">E-Mail</div>
+        <div class="lc-desc">hello@holisticcointrainer.com</div>
+      </a>
+    </div>
+  </section>
+
+  <div class="notice" data-i18n-html="notice">
+    <strong>Hinweis:</strong> HCT ist ein Bildungstool &mdash; keine Finanz- oder Anlageberatung.
+    Die Anthropic API wird direkt von deinem Ger&auml;t aufgerufen. HCT hat keinen eigenen Server
+    und keinen Einfluss auf die Verf&uuml;gbarkeit der API.
+  </div>
+</main>
+
+<footer>
+  &gt; holisticcointrainer.com &nbsp;//&nbsp; v2.3 &nbsp;//&nbsp; 2026
+</footer>
+
+<script>
+const T = {
+  DE: {
+    page_title: "Support \u2014 Holistic Coin Trainer",
+    back: "Startseite",
+    title: "HILFE & SUPPORT",
+    subtitle: "Antworten auf die h\u00e4ufigsten Fragen. Bei weiteren Problemen: Ticket erstellen.",
+    h_status: "API STATUS",
+    status_desc: "HCT nutzt die Anthropic API (Claude). Bei Analyse-Fehlern oder PRIMER-Problemen zuerst den Live-Status pr\u00fcfen:",
+    h_faq: "FAQ",
+    faq1_q: "App startet nicht / Sicherheitswarnung",
+    faq1_a: "<strong>macOS:</strong> Beim ersten Start: Rechtsklick auf die App \u2192 \u00ab\u00d6ffnen\u00bb. Ab v2.3 ist die App notarisiert \u2014 kein Warndialog mehr.<br><strong>Windows:</strong> SmartScreen-Warnung \u2192 \u00abWeitere Informationen\u00bb \u2192 \u00abTrotzdem ausf\u00fchren\u00bb.",
+    faq2_q: "Wie richte ich den API-Key ein?",
+    faq2_a: "1. Gehe zu <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a><br>2. Erstelle einen Account und lade API-Credits auf (ab $5)<br>3. Erstelle einen API-Key unter \u00abAPI Keys\u00bb<br>4. In HCT: Einstellungen \u2192 SYSTEM \u2192 API-Key eingeben<br><br><em>Der Key beginnt mit <code>sk-ant-...</code> und wird sicher im System-Keychain gespeichert.</em>",
+    faq3_q: "Analyse funktioniert nicht / Fehlermeldung",
+    faq3_a: "<strong>\u2776 API-Status pr\u00fcfen:</strong> <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br><strong>\u2777 API-Guthaben pr\u00fcfen:</strong> <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br><strong>\u2778 Key korrekt?</strong> Einstellungen \u2192 SYSTEM \u2192 Key pr\u00fcfen (beginnt mit <code>sk-ant-</code>)<br><br>H\u00e4ufigste Ursachen: Kein Guthaben, ung\u00fcltiger Key, oder tempor\u00e4rer API-Ausfall.",
+    faq4_q: "Was kostet eine Analyse?",
+    faq4_a: "<strong>Analyse (Sonnet):</strong> ~$0,60\u20130,80 pro Report<br><strong>Analyse (Opus Pro):</strong> ~$5,00 pro Report<br><strong>PRIMER:</strong> ~$0,01\u20130,03 pro Nachricht<br><strong>Follow-Up Check:</strong> ~$0,02<br><br>Die Kosten werden nach jeder Analyse und in der Sitzungs\u00fcbersicht angezeigt.",
+    faq5_q: "Welches Modell soll ich nutzen?",
+    faq5_a: "<strong>Sonnet (Standard):</strong> Schnell, g\u00fcnstig, f\u00fcr Einsteiger und Fortgeschrittene ideal.<br><strong>Opus Pro:</strong> Tiefere Analyse, nuancierter. Empfohlen f\u00fcr Experten-Level.<br><br>Opus Pro wird in den Einstellungen aktiviert und funktioniert am besten mit Level \u00abExperte\u00bb.",
+    faq6_q: "Werden meine Daten gespeichert?",
+    faq6_a: "<strong>Lokal:</strong> Alle Reports, PRIMER-Sessions und Einstellungen werden ausschlie\u00dflich auf deinem Ger\u00e4t gespeichert (SQLite-Datenbank).<br><strong>API:</strong> Deine Analyse-Anfragen werden an Anthropic gesendet. Anthropic speichert keine API-Daten f\u00fcr Training (siehe <a href='https://www.anthropic.com/policies/privacy' target='_blank'>Anthropic Privacy Policy</a>).<br><strong>Kein Tracking:</strong> HCT hat keine Analytics, kein Telemetrie, keine Server.",
+    faq7_q: "Auf welchen Plattformen l\u00e4uft HCT?",
+    faq7_a: "<strong>macOS:</strong> Ab macOS 13 (Ventura). Intel + Apple Silicon. Notarisiert.<br><strong>Windows:</strong> Ab Windows 10. Download als ZIP.<br><strong>iPad:</strong> Native SwiftUI-App (iPadOS 17+). TestFlight-Beta.<br><strong>Linux:</strong> Experimentell. Download als AppImage.",
+    h_links: "QUICK LINKS",
+    link_ticket_label: "SUPPORT",
+    link_ticket_title: "Ticket erstellen",
+    link_ticket_desc: "Bug melden, Feature w\u00fcnschen, Frage stellen",
+    link_status_desc: "Live-Status der Claude API",
+    link_console_label: "ACCOUNT",
+    link_console_desc: "API-Key, Guthaben, Billing",
+    link_contact_label: "KONTAKT",
+    link_contact_title: "E-Mail",
+    notice: "<strong>Hinweis:</strong> HCT ist ein Bildungstool \u2014 keine Finanz- oder Anlageberatung. Die Anthropic API wird direkt von deinem Ger\u00e4t aufgerufen. HCT hat keinen eigenen Server und keinen Einfluss auf die Verf\u00fcgbarkeit der API."
+  },
+  EN: {
+    page_title: "Support \u2014 Holistic Coin Trainer",
+    back: "Home",
+    title: "HELP & SUPPORT",
+    subtitle: "Answers to the most common questions. For other issues: create a ticket.",
+    h_status: "API STATUS",
+    status_desc: "HCT uses the Anthropic API (Claude). If analyses fail or PRIMER doesn't respond, check the live status first:",
+    h_faq: "FAQ",
+    faq1_q: "App won't start / security warning",
+    faq1_a: "<strong>macOS:</strong> On first launch: Right-click the app \u2192 \u201cOpen\u201d. From v2.3 the app is notarized \u2014 no warning dialog.<br><strong>Windows:</strong> SmartScreen warning \u2192 \u201cMore info\u201d \u2192 \u201cRun anyway\u201d.",
+    faq2_q: "How do I set up the API key?",
+    faq2_a: "1. Go to <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a><br>2. Create an account and add API credits (from $5)<br>3. Create an API key under \u201cAPI Keys\u201d<br>4. In HCT: Settings \u2192 SYSTEM \u2192 Enter API key<br><br><em>The key starts with <code>sk-ant-...</code> and is stored securely in the system keychain.</em>",
+    faq3_q: "Analysis not working / error message",
+    faq3_a: "<strong>\u2776 Check API status:</strong> <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br><strong>\u2777 Check API credits:</strong> <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br><strong>\u2778 Key correct?</strong> Settings \u2192 SYSTEM \u2192 Check key (starts with <code>sk-ant-</code>)<br><br>Most common causes: No credits, invalid key, or temporary API outage.",
+    faq4_q: "How much does an analysis cost?",
+    faq4_a: "<strong>Analysis (Sonnet):</strong> ~$0.60\u20130.80 per report<br><strong>Analysis (Opus Pro):</strong> ~$5.00 per report<br><strong>PRIMER:</strong> ~$0.01\u20130.03 per message<br><strong>Follow-Up Check:</strong> ~$0.02<br><br>Costs are displayed after each analysis and in the session overview.",
+    faq5_q: "Which model should I use?",
+    faq5_a: "<strong>Sonnet (Standard):</strong> Fast, affordable, ideal for beginners and intermediate users.<br><strong>Opus Pro:</strong> Deeper analysis, more nuanced. Recommended for expert level.<br><br>Opus Pro is activated in Settings and works best with level \u201cExpert\u201d.",
+    faq6_q: "Is my data stored?",
+    faq6_a: "<strong>Local:</strong> All reports, PRIMER sessions and settings are stored exclusively on your device (SQLite database).<br><strong>API:</strong> Your analysis requests are sent to Anthropic. Anthropic does not store API data for training (see <a href='https://www.anthropic.com/policies/privacy' target='_blank'>Anthropic Privacy Policy</a>).<br><strong>No tracking:</strong> HCT has no analytics, no telemetry, no servers.",
+    faq7_q: "Which platforms does HCT support?",
+    faq7_a: "<strong>macOS:</strong> macOS 13+ (Ventura). Intel + Apple Silicon. Notarized.<br><strong>Windows:</strong> Windows 10+. Download as ZIP.<br><strong>iPad:</strong> Native SwiftUI app (iPadOS 17+). TestFlight beta.<br><strong>Linux:</strong> Experimental. Download as AppImage.",
+    h_links: "QUICK LINKS",
+    link_ticket_label: "SUPPORT",
+    link_ticket_title: "Create ticket",
+    link_ticket_desc: "Report a bug, request a feature, ask a question",
+    link_status_desc: "Live status of the Claude API",
+    link_console_label: "ACCOUNT",
+    link_console_desc: "API key, credits, billing",
+    link_contact_label: "CONTACT",
+    link_contact_title: "Email",
+    notice: "<strong>Note:</strong> HCT is an educational tool \u2014 not financial or investment advice. The Anthropic API is called directly from your device. HCT has no server of its own and no influence on API availability."
+  },
+  FR: {
+    page_title: "Support \u2014 Holistic Coin Trainer",
+    back: "Accueil",
+    title: "AIDE & SUPPORT",
+    subtitle: "R\u00e9ponses aux questions les plus fr\u00e9quentes. Pour d'autres probl\u00e8mes : cr\u00e9ez un ticket.",
+    h_status: "STATUT API",
+    status_desc: "HCT utilise l'API Anthropic (Claude). En cas d'erreur d'analyse ou de probl\u00e8me PRIMER, v\u00e9rifiez d'abord le statut :",
+    h_faq: "FAQ",
+    faq1_q: "L'app ne d\u00e9marre pas / avertissement de s\u00e9curit\u00e9",
+    faq1_a: "<strong>macOS :</strong> Au premier lancement : clic droit sur l'app \u2192 \u00ab Ouvrir \u00bb. \u00c0 partir de v2.3, l'app est notaris\u00e9e.<br><strong>Windows :</strong> Avertissement SmartScreen \u2192 \u00ab Plus d'infos \u00bb \u2192 \u00ab Ex\u00e9cuter quand m\u00eame \u00bb.",
+    faq2_q: "Comment configurer la cl\u00e9 API ?",
+    faq2_a: "1. Allez sur <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a><br>2. Cr\u00e9ez un compte et ajoutez des cr\u00e9dits API (\u00e0 partir de 5$)<br>3. Cr\u00e9ez une cl\u00e9 API sous \u00ab API Keys \u00bb<br>4. Dans HCT : Param\u00e8tres \u2192 SYSTEM \u2192 Entrer la cl\u00e9 API<br><br><em>La cl\u00e9 commence par <code>sk-ant-...</code> et est stock\u00e9e en s\u00e9curit\u00e9 dans le trousseau syst\u00e8me.</em>",
+    faq3_q: "L'analyse ne fonctionne pas / message d'erreur",
+    faq3_a: "<strong>\u2776 V\u00e9rifier le statut API :</strong> <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br><strong>\u2777 V\u00e9rifier le solde API :</strong> <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br><strong>\u2778 Cl\u00e9 correcte ?</strong> Param\u00e8tres \u2192 SYSTEM<br><br>Causes les plus fr\u00e9quentes : pas de cr\u00e9dits, cl\u00e9 invalide ou panne API temporaire.",
+    faq4_q: "Combien co\u00fbte une analyse ?",
+    faq4_a: "<strong>Analyse (Sonnet) :</strong> ~0,60\u20130,80 $ par rapport<br><strong>Analyse (Opus Pro) :</strong> ~5,00 $ par rapport<br><strong>PRIMER :</strong> ~0,01\u20130,03 $ par message<br><strong>Follow-Up Check :</strong> ~0,02 $",
+    faq5_q: "Quel mod\u00e8le utiliser ?",
+    faq5_a: "<strong>Sonnet (Standard) :</strong> Rapide, abordable, id\u00e9al pour d\u00e9butants et interm\u00e9diaires.<br><strong>Opus Pro :</strong> Analyse plus profonde. Recommand\u00e9 pour le niveau Expert.",
+    faq6_q: "Mes donn\u00e9es sont-elles stock\u00e9es ?",
+    faq6_a: "<strong>Local :</strong> Tous les rapports et sessions sont stock\u00e9s exclusivement sur votre appareil.<br><strong>API :</strong> Anthropic ne stocke pas les donn\u00e9es API pour l'entra\u00eenement.<br><strong>Pas de tracking :</strong> Aucune analyse, aucune t\u00e9l\u00e9m\u00e9trie, aucun serveur.",
+    faq7_q: "Sur quelles plateformes HCT fonctionne-t-il ?",
+    faq7_a: "<strong>macOS :</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows :</strong> Windows 10+. ZIP.<br><strong>iPad :</strong> App SwiftUI native (iPadOS 17+). TestFlight.<br><strong>Linux :</strong> Exp\u00e9rimental. AppImage.",
+    h_links: "LIENS RAPIDES",
+    link_ticket_label: "SUPPORT",
+    link_ticket_title: "Cr\u00e9er un ticket",
+    link_ticket_desc: "Signaler un bug, demander une fonctionnalit\u00e9, poser une question",
+    link_status_desc: "Statut en direct de l'API Claude",
+    link_console_label: "COMPTE",
+    link_console_desc: "Cl\u00e9 API, solde, facturation",
+    link_contact_label: "CONTACT",
+    link_contact_title: "E-mail",
+    notice: "<strong>Note :</strong> HCT est un outil \u00e9ducatif \u2014 pas un conseil financier. L'API Anthropic est appel\u00e9e directement depuis votre appareil. HCT n'a pas de serveur propre."
+  },
+  ES: {
+    page_title: "Soporte \u2014 Holistic Coin Trainer",
+    back: "Inicio",
+    title: "AYUDA Y SOPORTE",
+    subtitle: "Respuestas a las preguntas m\u00e1s frecuentes. Para otros problemas: crea un ticket.",
+    h_status: "ESTADO API",
+    status_desc: "HCT usa la API de Anthropic (Claude). Si el an\u00e1lisis falla o PRIMER no responde, verifica primero el estado:",
+    h_faq: "FAQ",
+    faq1_q: "La app no inicia / advertencia de seguridad",
+    faq1_a: "<strong>macOS:</strong> Primera vez: clic derecho en la app \u2192 \u00abAbrir\u00bb. Desde v2.3 la app est\u00e1 notarizada.<br><strong>Windows:</strong> SmartScreen \u2192 \u00abM\u00e1s informaci\u00f3n\u00bb \u2192 \u00abEjecutar de todos modos\u00bb.",
+    faq2_q: "\u00bfC\u00f3mo configuro la clave API?",
+    faq2_a: "1. Ve a <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a><br>2. Crea una cuenta y a\u00f1ade cr\u00e9ditos API (desde $5)<br>3. Crea una clave API<br>4. En HCT: Configuraci\u00f3n \u2192 SYSTEM \u2192 Ingresar clave API",
+    faq3_q: "El an\u00e1lisis no funciona / mensaje de error",
+    faq3_a: "<strong>\u2776 Verificar estado API:</strong> <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br><strong>\u2777 Verificar saldo:</strong> <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br><strong>\u2778 \u00bfClave correcta?</strong> Configuraci\u00f3n \u2192 SYSTEM",
+    faq4_q: "\u00bfCu\u00e1nto cuesta un an\u00e1lisis?",
+    faq4_a: "<strong>An\u00e1lisis (Sonnet):</strong> ~$0,60\u20130,80<br><strong>An\u00e1lisis (Opus Pro):</strong> ~$5,00<br><strong>PRIMER:</strong> ~$0,01\u20130,03 por mensaje",
+    faq5_q: "\u00bfQu\u00e9 modelo debo usar?",
+    faq5_a: "<strong>Sonnet:</strong> R\u00e1pido, econ\u00f3mico, ideal para principiantes.<br><strong>Opus Pro:</strong> An\u00e1lisis m\u00e1s profundo. Recomendado para nivel Experto.",
+    faq6_q: "\u00bfSe almacenan mis datos?",
+    faq6_a: "<strong>Local:</strong> Todo se almacena exclusivamente en tu dispositivo.<br><strong>API:</strong> Anthropic no almacena datos API para entrenamiento.<br><strong>Sin tracking:</strong> Sin anal\u00edticas, sin telemetr\u00eda, sin servidores.",
+    faq7_q: "\u00bfEn qu\u00e9 plataformas funciona HCT?",
+    faq7_a: "<strong>macOS:</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows:</strong> Windows 10+. ZIP.<br><strong>iPad:</strong> SwiftUI nativa (iPadOS 17+). TestFlight.<br><strong>Linux:</strong> Experimental. AppImage.",
+    h_links: "ENLACES R\u00c1PIDOS",
+    link_ticket_label: "SOPORTE",
+    link_ticket_title: "Crear ticket",
+    link_ticket_desc: "Reportar un bug, pedir una funci\u00f3n, hacer una pregunta",
+    link_status_desc: "Estado en vivo de la API Claude",
+    link_console_label: "CUENTA",
+    link_console_desc: "Clave API, saldo, facturaci\u00f3n",
+    link_contact_label: "CONTACTO",
+    link_contact_title: "Correo",
+    notice: "<strong>Nota:</strong> HCT es una herramienta educativa \u2014 no es asesor\u00eda financiera. La API se llama directamente desde tu dispositivo. HCT no tiene servidor propio."
+  },
+  IT: {
+    page_title: "Supporto \u2014 Holistic Coin Trainer",
+    back: "Home",
+    title: "AIUTO & SUPPORTO",
+    subtitle: "Risposte alle domande pi\u00f9 frequenti. Per altri problemi: crea un ticket.",
+    h_status: "STATO API",
+    status_desc: "HCT usa l'API Anthropic (Claude). Se l'analisi fallisce o PRIMER non risponde, verifica prima lo stato:",
+    h_faq: "FAQ",
+    faq1_q: "L'app non si avvia / avviso di sicurezza",
+    faq1_a: "<strong>macOS:</strong> Al primo avvio: clic destro sull'app \u2192 \u00abApri\u00bb. Da v2.3 l'app \u00e8 autenticata.<br><strong>Windows:</strong> SmartScreen \u2192 \u00abUlteriori informazioni\u00bb \u2192 \u00abEsegui comunque\u00bb.",
+    faq2_q: "Come configuro la chiave API?",
+    faq2_a: "1. Vai su <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a><br>2. Crea un account e aggiungi crediti API (da $5)<br>3. Crea una chiave API<br>4. In HCT: Impostazioni \u2192 SYSTEM \u2192 Inserisci chiave API",
+    faq3_q: "L'analisi non funziona / messaggio di errore",
+    faq3_a: "<strong>\u2776 Verifica stato API:</strong> <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br><strong>\u2777 Verifica saldo:</strong> <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br><strong>\u2778 Chiave corretta?</strong> Impostazioni \u2192 SYSTEM",
+    faq4_q: "Quanto costa un'analisi?",
+    faq4_a: "<strong>Analisi (Sonnet):</strong> ~$0,60\u20130,80<br><strong>Analisi (Opus Pro):</strong> ~$5,00<br><strong>PRIMER:</strong> ~$0,01\u20130,03 per messaggio",
+    faq5_q: "Quale modello devo usare?",
+    faq5_a: "<strong>Sonnet:</strong> Veloce, economico, ideale per principianti.<br><strong>Opus Pro:</strong> Analisi pi\u00f9 profonda. Consigliato per livello Esperto.",
+    faq6_q: "I miei dati vengono salvati?",
+    faq6_a: "<strong>Locale:</strong> Tutto viene salvato esclusivamente sul tuo dispositivo.<br><strong>API:</strong> Anthropic non salva i dati API per l'addestramento.<br><strong>Nessun tracking:</strong> Nessuna analisi, nessuna telemetria, nessun server.",
+    faq7_q: "Su quali piattaforme funziona HCT?",
+    faq7_a: "<strong>macOS:</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows:</strong> Windows 10+. ZIP.<br><strong>iPad:</strong> SwiftUI nativa (iPadOS 17+). TestFlight.<br><strong>Linux:</strong> Sperimentale. AppImage.",
+    h_links: "LINK RAPIDI",
+    link_ticket_label: "SUPPORTO",
+    link_ticket_title: "Crea ticket",
+    link_ticket_desc: "Segnala un bug, richiedi una funzione, fai una domanda",
+    link_status_desc: "Stato in tempo reale dell'API Claude",
+    link_console_label: "ACCOUNT",
+    link_console_desc: "Chiave API, saldo, fatturazione",
+    link_contact_label: "CONTATTO",
+    link_contact_title: "E-mail",
+    notice: "<strong>Nota:</strong> HCT \u00e8 uno strumento educativo \u2014 non \u00e8 consulenza finanziaria. L'API viene chiamata direttamente dal tuo dispositivo. HCT non ha un server proprio."
+  },
+  PT: {
+    page_title: "Suporte \u2014 Holistic Coin Trainer",
+    back: "In\u00edcio",
+    title: "AJUDA & SUPORTE",
+    subtitle: "Respostas \u00e0s perguntas mais frequentes. Para outros problemas: crie um ticket.",
+    h_status: "ESTADO API",
+    status_desc: "HCT usa a API Anthropic (Claude). Se a an\u00e1lise falhar ou o PRIMER n\u00e3o responder, verifique primeiro o estado:",
+    h_faq: "FAQ",
+    faq1_q: "A app n\u00e3o inicia / aviso de seguran\u00e7a",
+    faq1_a: "<strong>macOS:</strong> Na primeira vez: clique direito na app \u2192 \u00abAbrir\u00bb. A partir de v2.3 a app est\u00e1 notarizada.<br><strong>Windows:</strong> SmartScreen \u2192 \u00abMais informa\u00e7\u00f5es\u00bb \u2192 \u00abExecutar mesmo assim\u00bb.",
+    faq2_q: "Como configuro a chave API?",
+    faq2_a: "1. Aceda a <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a><br>2. Crie uma conta e adicione cr\u00e9ditos API (a partir de $5)<br>3. Crie uma chave API<br>4. No HCT: Defini\u00e7\u00f5es \u2192 SYSTEM \u2192 Inserir chave API",
+    faq3_q: "A an\u00e1lise n\u00e3o funciona / mensagem de erro",
+    faq3_a: "<strong>\u2776 Verificar estado API:</strong> <a href='https://status.anthropic.com' target='_blank'>status.anthropic.com</a><br><strong>\u2777 Verificar saldo:</strong> <a href='https://console.anthropic.com' target='_blank'>console.anthropic.com</a> \u2192 Billing<br><strong>\u2778 Chave correta?</strong> Defini\u00e7\u00f5es \u2192 SYSTEM",
+    faq4_q: "Quanto custa uma an\u00e1lise?",
+    faq4_a: "<strong>An\u00e1lise (Sonnet):</strong> ~$0,60\u20130,80<br><strong>An\u00e1lise (Opus Pro):</strong> ~$5,00<br><strong>PRIMER:</strong> ~$0,01\u20130,03 por mensagem",
+    faq5_q: "Qual modelo devo usar?",
+    faq5_a: "<strong>Sonnet:</strong> R\u00e1pido, econ\u00f3mico, ideal para iniciantes.<br><strong>Opus Pro:</strong> An\u00e1lise mais profunda. Recomendado para n\u00edvel Especialista.",
+    faq6_q: "Os meus dados s\u00e3o guardados?",
+    faq6_a: "<strong>Local:</strong> Tudo \u00e9 guardado exclusivamente no seu dispositivo.<br><strong>API:</strong> A Anthropic n\u00e3o guarda dados API para treino.<br><strong>Sem tracking:</strong> Sem an\u00e1lises, sem telemetria, sem servidores.",
+    faq7_q: "Em que plataformas funciona o HCT?",
+    faq7_a: "<strong>macOS:</strong> macOS 13+. Intel + Apple Silicon.<br><strong>Windows:</strong> Windows 10+. ZIP.<br><strong>iPad:</strong> SwiftUI nativa (iPadOS 17+). TestFlight.<br><strong>Linux:</strong> Experimental. AppImage.",
+    h_links: "LINKS R\u00c1PIDOS",
+    link_ticket_label: "SUPORTE",
+    link_ticket_title: "Criar ticket",
+    link_ticket_desc: "Reportar um bug, pedir uma funcionalidade, fazer uma pergunta",
+    link_status_desc: "Estado em tempo real da API Claude",
+    link_console_label: "CONTA",
+    link_console_desc: "Chave API, saldo, fatura\u00e7\u00e3o",
+    link_contact_label: "CONTACTO",
+    link_contact_title: "E-mail",
+    notice: "<strong>Nota:</strong> HCT \u00e9 uma ferramenta educativa \u2014 n\u00e3o \u00e9 aconselhamento financeiro. A API \u00e9 chamada diretamente do seu dispositivo. O HCT n\u00e3o tem servidor pr\u00f3prio."
+  }
+};
+
+function applyLang(lang) {
+  const tr = T[lang] || T.DE;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (tr[k]) el.textContent = tr[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (tr[k]) el.innerHTML = tr[k];
+  });
+  if (tr.page_title) document.title = tr.page_title;
+  document.documentElement.lang = lang.toLowerCase();
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let lang = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : null;
+  if (!lang) { try { lang = localStorage.getItem('hct_lang'); } catch(e) {} }
+  if (!lang) {
+    const bl = (navigator.language || '').split('-')[0].toUpperCase();
+    lang = T[bl] ? bl : 'DE';
+  }
+  applyLang(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+
+  // FAQ Accordion
+  document.querySelectorAll('.faq-q').forEach(q => {
+    q.addEventListener('click', () => {
+      q.parentElement.classList.toggle('open');
+    });
+  });
+});
+</script>
+</body>
+</html>
