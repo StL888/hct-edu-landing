@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>AGB — Holistic Coin Trainer</title>
+  <title data-i18n="page_title">AGB — Holistic Coin Trainer</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
@@ -31,7 +31,6 @@
       flex-direction: column;
     }
 
-    /* ── TOPBAR ─────────────────────────────────────────────── */
     header {
       border-bottom: 1px solid var(--border);
       padding: 18px 40px;
@@ -48,6 +47,31 @@
     }
     .logo span { color: var(--gold); }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--gray);
+      font-family: var(--font);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--gold-dim); border-color: var(--border); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,215,0,0.06); }
+
     .back-link {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -56,9 +80,8 @@
       transition: color 0.2s;
     }
     .back-link:hover { color: var(--gold-dim); }
-    .back-link::before { content: "← "; }
+    .back-link::before { content: "\2190  "; }
 
-    /* ── MAIN ───────────────────────────────────────────────── */
     main {
       max-width: 680px;
       margin: 0 auto;
@@ -81,9 +104,7 @@
       margin-bottom: 40px;
     }
 
-    section {
-      margin-bottom: 36px;
-    }
+    section { margin-bottom: 36px; }
 
     h2 {
       font-size: 10px;
@@ -96,16 +117,9 @@
       border-bottom: 1px solid var(--border);
     }
 
-    p {
-      color: var(--text);
-      margin-bottom: 8px;
-    }
+    p { color: var(--text); margin-bottom: 8px; }
 
-    ul {
-      list-style: none;
-      padding: 0;
-      margin-bottom: 8px;
-    }
+    ul { list-style: none; padding: 0; margin-bottom: 8px; }
 
     ul li {
       color: var(--text);
@@ -122,11 +136,7 @@
       font-size: 10px;
     }
 
-    a {
-      color: var(--gray-light);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
+    a { color: var(--gray-light); text-decoration: none; transition: color 0.2s; }
     a:hover { color: var(--gold-dim); }
 
     .notice {
@@ -140,7 +150,6 @@
       line-height: 1.7;
     }
 
-    /* ── FOOTER ─────────────────────────────────────────────── */
     footer {
       border-top: 1px solid var(--border);
       padding: 24px 40px;
@@ -152,8 +161,9 @@
     }
 
     @media (max-width: 600px) {
-      header { padding: 16px 20px; }
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
       main   { padding: 40px 20px 60px; }
+      .header-right { gap: 12px; }
     }
   </style>
 </head>
@@ -161,249 +171,294 @@
 
   <header>
     <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
-    <a href="../index.html" class="back-link">Zurück</a>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="DE">DE</button>
+        <button class="lang-btn" data-lang="EN">EN</button>
+        <button class="lang-btn" data-lang="FR">FR</button>
+        <button class="lang-btn" data-lang="ES">ES</button>
+        <button class="lang-btn" data-lang="IT">IT</button>
+        <button class="lang-btn" data-lang="PT">PT</button>
+        <button class="lang-btn" data-lang="JA">JA</button>
+      </div>
+      <a href="../index.html" class="back-link" data-i18n="back">Zur&uuml;ck</a>
+    </div>
   </header>
 
   <main>
-    <div class="page-label">AGB · Stand März 2026</div>
-    <h1>ALLGEMEINE GESCHÄFTS&shy;BEDINGUNGEN</h1>
+    <div class="page-label" data-i18n="label">AGB &middot; Stand M&auml;rz 2026</div>
+    <h1 data-i18n="title">ALLGEMEINE GESCH&Auml;FTS&shy;BEDINGUNGEN</h1>
 
     <section>
-      <h2>§ 1 Geltungsbereich</h2>
-      <p>
-        Diese Allgemeinen Geschäftsbedingungen gelten für die Nutzung der Software
-        „Holistic Coin Trainer" (nachfolgend „Software"), angeboten von:
-      </p>
-      <p>
-        Stefan Laackman<br>
-        Torstraße 68, 10119 Berlin<br>
-        E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>
-      </p>
-      <p>
-        Die Software ist ein Lern- und Bildungswerkzeug für die eigenständige
-        Auseinandersetzung mit Kryptowährungen. Sie stellt ausdrücklich keine
-        Anlageberatung, Finanzportfolioverwaltung, Steuerberatung oder sonstige
-        regulierte Finanzdienstleistung dar.
-      </p>
+      <h2 data-i18n="h_s1">&sect; 1 Geltungsbereich</h2>
+      <p data-i18n="s1_p1">Diese Allgemeinen Gesch&auml;ftsbedingungen gelten f&uuml;r die Nutzung der Software &bdquo;Holistic Coin Trainer&ldquo; (nachfolgend &bdquo;Software&ldquo;), angeboten von:</p>
+      <p>Stefan Laackman<br>Torstra&szlig;e 68, 10119 Berlin<br>E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a></p>
+      <p data-i18n="s1_p2">Die Software ist ein Lern- und Bildungswerkzeug f&uuml;r die eigenst&auml;ndige Auseinandersetzung mit Kryptow&auml;hrungen. Sie stellt ausdr&uuml;cklich keine Anlageberatung, Finanzportfolioverwaltung, Steuerberatung oder sonstige regulierte Finanzdienstleistung dar.</p>
     </section>
 
     <section>
-      <h2>§ 2 Vertragsschluss &amp; Lizenzmodelle</h2>
-      <p>
-        Der Vertrag kommt durch den Kauf einer Lizenz über den Zahlungsdienstleister
-        Lemon Squeezy (LemonSqueezy LLC) zustande. Lemon Squeezy agiert als
-        Merchant of Record und ist vertragsschließender Händler gegenüber dem Käufer.
-      </p>
-      <p>Es stehen folgende Lizenzmodelle zur Verfügung:</p>
+      <h2 data-i18n="h_s2">&sect; 2 Vertragsschluss &amp; Lizenzmodelle</h2>
+      <p data-i18n="s2_p1">Der Vertrag kommt durch den Kauf einer Lizenz &uuml;ber den Zahlungsdienstleister Lemon Squeezy (LemonSqueezy LLC) zustande. Lemon Squeezy agiert als Merchant of Record und ist vertragsschlie&szlig;ender H&auml;ndler gegen&uuml;ber dem K&auml;ufer.</p>
+      <p data-i18n="s2_p2">Es stehen folgende Lizenzmodelle zur Verf&uuml;gung:</p>
       <ul>
-        <li>1-Jahres-Lizenz: €599</li>
-        <li>3-Jahres-Lizenz: €1.399</li>
-        <li>Lifetime-Lizenz: €1.999</li>
+        <li data-i18n="s2_li1">1-Jahres-Lizenz: &euro;599</li>
+        <li data-i18n="s2_li2">3-Jahres-Lizenz: &euro;1.399</li>
+        <li data-i18n="s2_li3">Lifetime-Lizenz: &euro;1.999</li>
       </ul>
-      <p>
-        Jede Lizenz ist persönlich und nicht übertragbar. Die 1-Jahres-Lizenz
-        und die 3-Jahres-Lizenz berechtigen zur Nutzung auf bis zu zwei (2)
-        Geräten (macOS, Windows oder Linux). Die Lifetime-Lizenz berechtigt zur Nutzung auf einem (1)
-        Gerät (macOS, Windows oder Linux). Die Nutzung der Software erfordert einen
-        eigenen API-Schlüssel des Anbieters Anthropic. Die dadurch entstehenden
-        API-Kosten trägt der Nutzer selbst und sind nicht im Lizenzpreis enthalten.
-      </p>
+      <p data-i18n="s2_p3">Jede Lizenz ist pers&ouml;nlich und nicht &uuml;bertragbar. Die 1-Jahres-Lizenz und die 3-Jahres-Lizenz berechtigen zur Nutzung auf bis zu zwei (2) Ger&auml;ten (macOS, Windows oder Linux). Die Lifetime-Lizenz berechtigt zur Nutzung auf einem (1) Ger&auml;t (macOS, Windows oder Linux). Die Nutzung der Software erfordert einen eigenen API-Schl&uuml;ssel des Anbieters Anthropic. Die dadurch entstehenden API-Kosten tr&auml;gt der Nutzer selbst und sind nicht im Lizenzpreis enthalten.</p>
     </section>
 
     <section>
-      <h2>§ 3 Bildungszweck</h2>
-      <p>
-        (1) Die Software dient ausschließlich Bildungs- und Lernzwecken. Sie ist
-        ausdrücklich keine der folgenden regulierten Dienstleistungen:
-      </p>
+      <h2 data-i18n="h_s3">&sect; 3 Bildungszweck</h2>
+      <p data-i18n="s3_p1">(1) Die Software dient ausschlie&szlig;lich Bildungs- und Lernzwecken. Sie ist ausdr&uuml;cklich keine der folgenden regulierten Dienstleistungen:</p>
       <ul>
-        <li>Anlageberatung im Sinne von § 2 Abs. 8 Nr. 10 WpHG</li>
-        <li>Finanzportfolioverwaltung</li>
-        <li>Steuerberatung im Sinne des StBerG</li>
-        <li>Beratung zu Kryptowerten im Sinne von Art. 3 Abs. 1 Nr. 25 MiCA (Verordnung (EU) 2023/1114)</li>
+        <li data-i18n="s3_li1">Anlageberatung im Sinne von &sect; 2 Abs. 8 Nr. 10 WpHG</li>
+        <li data-i18n="s3_li2">Finanzportfolioverwaltung</li>
+        <li data-i18n="s3_li3">Steuerberatung im Sinne des StBerG</li>
+        <li data-i18n="s3_li4">Beratung zu Kryptowerten im Sinne von Art. 3 Abs. 1 Nr. 25 MiCA (Verordnung (EU) 2023/1114)</li>
       </ul>
-      <p>
-        (2) Dies gilt für sämtliche Funktionsbereiche der Software, insbesondere:
-        Analyse-Reports, DCA-Szenarien, DCA-Denklabor, interaktive Lerngespräche
-        im PRIMER sowie das Analyse-Profil.
-      </p>
-      <p>
-        (3) Der dialogische Charakter des PRIMER — einschließlich namentlicher
-        Ansprache, Bezugnahme auf vergangene Analysen und personalisiertem
-        Feedback — begründet kein individuelles Beratungsverhältnis. Der PRIMER
-        ist ein automatisiertes Lernsystem auf Basis vorprogrammierter
-        KI-Modelle.
-      </p>
-      <p>
-        (4) DCA-Szenarien und DCA-Denklabor-Simulationen verwenden fiktive
-        „Lerneinheiten" (LE) ohne Bezug zu echtem Geld.
-      </p>
+      <p data-i18n="s3_p2">(2) Dies gilt f&uuml;r s&auml;mtliche Funktionsbereiche der Software, insbesondere: Analyse-Reports, DCA-Szenarien, DCA-Denklabor, interaktive Lerngespr&auml;che im PRIMER sowie das Analyse-Profil.</p>
+      <p data-i18n="s3_p3">(3) Der dialogische Charakter des PRIMER &mdash; einschlie&szlig;lich namentlicher Ansprache, Bezugnahme auf vergangene Analysen und personalisiertem Feedback &mdash; begr&uuml;ndet kein individuelles Beratungsverh&auml;ltnis. Der PRIMER ist ein automatisiertes Lernsystem auf Basis vorprogrammierter KI-Modelle.</p>
+      <p data-i18n="s3_p4">(4) DCA-Szenarien und DCA-Denklabor-Simulationen verwenden fiktive &bdquo;Lerneinheiten&ldquo; (LE) ohne Bezug zu echtem Geld.</p>
     </section>
 
     <section>
-      <h2>§ 4 Pflichten des Nutzers</h2>
-      <p>
-        Der Nutzer ist verpflichtet, vor jeder Investitionsentscheidung
-        unabhängigen professionellen Rat einzuholen. Bei erstmaliger Nutzung
-        der Software bestätigt der Nutzer durch eine Checkbox, dass er dies
-        zur Kenntnis genommen hat.
-      </p>
-      <p>
-        Der Nutzer ist selbst dafür verantwortlich, die Einhaltung der in
-        seiner Jurisdiktion geltenden Gesetze sicherzustellen. Die Nutzung
-        der Software ist in folgenden Jurisdiktionen ausdrücklich ausgeschlossen:
-      </p>
+      <h2 data-i18n="h_s4">&sect; 4 Pflichten des Nutzers</h2>
+      <p data-i18n="s4_p1">Der Nutzer ist verpflichtet, vor jeder Investitionsentscheidung unabh&auml;ngigen professionellen Rat einzuholen. Bei erstmaliger Nutzung der Software best&auml;tigt der Nutzer durch eine Checkbox, dass er dies zur Kenntnis genommen hat.</p>
+      <p data-i18n="s4_p2">Der Nutzer ist selbst daf&uuml;r verantwortlich, die Einhaltung der in seiner Jurisdiktion geltenden Gesetze sicherzustellen. Die Nutzung der Software ist in folgenden Jurisdiktionen ausdr&uuml;cklich ausgeschlossen:</p>
       <ul>
-        <li>Vereinigte Staaten von Amerika (USA)</li>
-        <li>Kanada</li>
-        <li>Vereinigtes Königreich (UK)</li>
-        <li>Volksrepublik China</li>
-        <li>Russische Föderation</li>
+        <li data-i18n="s4_li1">Vereinigte Staaten von Amerika (USA)</li>
+        <li data-i18n="s4_li2">Kanada</li>
+        <li data-i18n="s4_li3">Vereinigtes K&ouml;nigreich (UK)</li>
+        <li data-i18n="s4_li4">Volksrepublik China</li>
+        <li data-i18n="s4_li5">Russische F&ouml;deration</li>
       </ul>
-      <p>
-        Der Nutzer ist für die sichere Aufbewahrung seines API-Schlüssels
-        selbst verantwortlich.
-      </p>
-      <p>
-        Der Nutzer nimmt zur Kenntnis, dass im PRIMER eingegebene
-        Freitext-Nachrichten zur Verarbeitung an Anthropic, Inc. (USA)
-        übermittelt werden. Der Nutzer verpflichtet sich, im PRIMER keine
-        sensiblen persönlichen Daten einzugeben, insbesondere keine
-        Finanzdaten, Portfolioinformationen, Kontodaten oder
-        Vermögensverhältnisse.
-      </p>
+      <p data-i18n="s4_p3">Der Nutzer ist f&uuml;r die sichere Aufbewahrung seines API-Schl&uuml;ssels selbst verantwortlich.</p>
+      <p data-i18n="s4_p4">Der Nutzer nimmt zur Kenntnis, dass im PRIMER eingegebene Freitext-Nachrichten zur Verarbeitung an Anthropic, Inc. (USA) &uuml;bermittelt werden. Der Nutzer verpflichtet sich, im PRIMER keine sensiblen pers&ouml;nlichen Daten einzugeben, insbesondere keine Finanzdaten, Portfolioinformationen, Kontodaten oder Verm&ouml;gensverh&auml;ltnisse.</p>
     </section>
 
     <section>
-      <h2>§ 5 KI-generierte Inhalte &amp; Haftung</h2>
-      <p>
-        (1) Die Software verwendet KI-Modelle (Anthropic Claude) zur Erzeugung
-        von Analyse-Reports und interaktiven Lerninhalten. KI-generierte Inhalte
-        können Fehler, Ungenauigkeiten oder Halluzinationen enthalten. Dies gilt
-        für Analyse-Reports ebenso wie für PRIMER-Lerngespräche. Eine Gewähr
-        für die Richtigkeit, Vollständigkeit oder Aktualität der Inhalte wird
-        nicht übernommen.
-      </p>
-      <p>
-        (2) Personalisierte Rückmeldungen im PRIMER (Bezugnahme auf analysierte
-        Coins, Einschätzungstendenzen) stellen keine individuelle Finanz- oder
-        Anlageberatung dar.
-      </p>
-      <p>
-        (3) Die Einschätzungs-Statistik im Analyse-Profil vergleicht die
-        Einordnungen des Nutzers mit dem Framework — sie bewertet nicht die
-        Qualität von Anlageentscheidungen.
-      </p>
-      <p>
-        Marktdaten von CoinGecko werden ohne Gewährleistung bereitgestellt.
-        Die Haftung bei Verletzung von Kardinalpflichten ist der Höhe nach
-        auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Die
-        vorstehenden Haftungsbeschränkungen gelten nicht für Schäden aus der
-        Verletzung des Lebens, des Körpers oder der Gesundheit, bei Vorsatz
-        oder grober Fahrlässigkeit, bei Übernahme einer Garantie sowie für
-        Ansprüche nach dem Produkthaftungsgesetz. Für Vermögensschäden, die
-        aus Investitionsentscheidungen auf Basis der Software-Inhalte
-        resultieren, wird keine Haftung übernommen.
-      </p>
-      <div class="notice">
-        Hinweis: KI-generierte Analysen und PRIMER-Lerngespräche sind
-        Bildungsinhalte und keine Handlungsempfehlungen. Der Nutzer trägt
-        die alleinige Verantwortung für seine Investitionsentscheidungen.
-      </div>
+      <h2 data-i18n="h_s5">&sect; 5 KI-generierte Inhalte &amp; Haftung</h2>
+      <p data-i18n="s5_p1">(1) Die Software verwendet KI-Modelle (Anthropic Claude) zur Erzeugung von Analyse-Reports und interaktiven Lerninhalten. KI-generierte Inhalte k&ouml;nnen Fehler, Ungenauigkeiten oder Halluzinationen enthalten. Dies gilt f&uuml;r Analyse-Reports ebenso wie f&uuml;r PRIMER-Lerngespr&auml;che. Eine Gew&auml;hr f&uuml;r die Richtigkeit, Vollst&auml;ndigkeit oder Aktualit&auml;t der Inhalte wird nicht &uuml;bernommen.</p>
+      <p data-i18n="s5_p2">(2) Personalisierte R&uuml;ckmeldungen im PRIMER (Bezugnahme auf analysierte Coins, Einsch&auml;tzungstendenzen) stellen keine individuelle Finanz- oder Anlageberatung dar.</p>
+      <p data-i18n="s5_p3">(3) Die Einsch&auml;tzungs-Statistik im Analyse-Profil vergleicht die Einordnungen des Nutzers mit dem Framework &mdash; sie bewertet nicht die Qualit&auml;t von Anlageentscheidungen.</p>
+      <p data-i18n="s5_p4">Marktdaten von CoinGecko werden ohne Gew&auml;hrleistung bereitgestellt. Die Haftung bei Verletzung von Kardinalpflichten ist der H&ouml;he nach auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Die vorstehenden Haftungsbeschr&auml;nkungen gelten nicht f&uuml;r Sch&auml;den aus der Verletzung des Lebens, des K&ouml;rpers oder der Gesundheit, bei Vorsatz oder grober Fahrl&auml;ssigkeit, bei &Uuml;bernahme einer Garantie sowie f&uuml;r Anspr&uuml;che nach dem Produkthaftungsgesetz. F&uuml;r Verm&ouml;genssch&auml;den, die aus Investitionsentscheidungen auf Basis der Software-Inhalte resultieren, wird keine Haftung &uuml;bernommen.</p>
+      <div class="notice" data-i18n="s5_notice">Hinweis: KI-generierte Analysen und PRIMER-Lerngespr&auml;che sind Bildungsinhalte und keine Handlungsempfehlungen. Der Nutzer tr&auml;gt die alleinige Verantwortung f&uuml;r seine Investitionsentscheidungen.</div>
     </section>
 
     <section>
-      <h2>§ 6 Datenschutz</h2>
-      <p>
-        Es werden keine personenbezogenen Daten auf Servern des Anbieters
-        gespeichert. Der API-Schlüssel wird ausschließlich im System-Keychain
-        des Betriebssystems (macOS Keychain, Windows Credential Manager oder
-        Linux Secret Service) abgelegt. Die Zahlungsabwicklung erfolgt über
-        Lemon Squeezy in eigener datenschutzrechtlicher Verantwortung.
-      </p>
-      <p>
-        Zur Lizenzverwaltung werden pseudonymisierte Geräte-IDs verwendet.
-        Die Datenverarbeitung durch Anthropic richtet sich nach der
-        Datenschutzerklärung von Anthropic.
-      </p>
-      <p>
-        Ausführliche Informationen finden Sie in unserer
-        <a href="datenschutz.html">Datenschutzerklärung</a>.
-      </p>
+      <h2 data-i18n="h_s6">&sect; 6 Datenschutz</h2>
+      <p data-i18n="s6_p1">Es werden keine personenbezogenen Daten auf Servern des Anbieters gespeichert. Der API-Schl&uuml;ssel wird ausschlie&szlig;lich im System-Keychain des Betriebssystems (macOS Keychain, Windows Credential Manager oder Linux Secret Service) abgelegt. Die Zahlungsabwicklung erfolgt &uuml;ber Lemon Squeezy in eigener datenschutzrechtlicher Verantwortung.</p>
+      <p data-i18n="s6_p2">Zur Lizenzverwaltung werden pseudonymisierte Ger&auml;te-IDs verwendet. Die Datenverarbeitung durch Anthropic richtet sich nach der Datenschutzerkl&auml;rung von Anthropic.</p>
+      <p data-i18n-html="s6_p3">Ausf&uuml;hrliche Informationen finden Sie in unserer <a href="datenschutz.html">Datenschutzerkl&auml;rung</a>.</p>
     </section>
 
     <section>
-      <h2>§ 7 Geistiges Eigentum</h2>
-      <p>
-        Die Software einschließlich Tri-Filter-Analyse-Engine, Prompt-System
-        und Framework-Architektur ist urheberrechtlich geschützt. Der Nutzer
-        erhält eine einfache, nicht-exklusive Lizenz zur bestimmungsgemäßen
-        Nutzung.
-      </p>
-      <p>
-        Erstellte Analyse-Reports dürfen ausschließlich für den persönlichen
-        Lerngebrauch verwendet werden. Eine kommerzielle Weiterverwertung,
-        Vervielfältigung oder Weitergabe der Reports ist nicht gestattet.
-      </p>
+      <h2 data-i18n="h_s7">&sect; 7 Geistiges Eigentum</h2>
+      <p data-i18n="s7_p1">Die Software einschlie&szlig;lich Tri-Filter-Analyse-Engine, Prompt-System und Framework-Architektur ist urheberrechtlich gesch&uuml;tzt. Der Nutzer erh&auml;lt eine einfache, nicht-exklusive Lizenz zur bestimmungsgem&auml;&szlig;en Nutzung.</p>
+      <p data-i18n="s7_p2">Erstellte Analyse-Reports d&uuml;rfen ausschlie&szlig;lich f&uuml;r den pers&ouml;nlichen Lerngebrauch verwendet werden. Eine kommerzielle Weiterverwertung, Vervielf&auml;ltigung oder Weitergabe der Reports ist nicht gestattet.</p>
     </section>
 
     <section>
-      <h2>§ 8 Verfügbarkeit &amp; Support</h2>
-      <p>
-        Die Software wird „as is" bereitgestellt. Eine ununterbrochene
-        Verfügbarkeit wird nicht garantiert. Dies gilt insbesondere für
-        Drittanbieter-Dienste (Anthropic API, CoinGecko API).
-      </p>
-      <p>
-        Support erfolgt per E-Mail an
-        <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>.
-      </p>
+      <h2 data-i18n="h_s8">&sect; 8 Verf&uuml;gbarkeit &amp; Support</h2>
+      <p data-i18n="s8_p1">Die Software wird &bdquo;as is&ldquo; bereitgestellt. Eine ununterbrochene Verf&uuml;gbarkeit wird nicht garantiert. Dies gilt insbesondere f&uuml;r Drittanbieter-Dienste (Anthropic API, CoinGecko API).</p>
+      <p data-i18n-html="s8_p2">Support erfolgt per E-Mail an <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>.</p>
     </section>
 
     <section>
-      <h2>§ 9 Vertragslaufzeit &amp; Kündigung</h2>
-      <p>
-        Die Vertragslaufzeit richtet sich nach dem gewählten Lizenzmodell.
-        Die Lizenz endet automatisch nach Ablauf des Lizenzzeitraums.
-      </p>
-      <p>
-        Eine außerordentliche Kündigung aus wichtigem Grund bleibt beiden
-        Parteien vorbehalten. Bei Verstoß gegen die Jurisdiktionsbeschränkungen
-        (§ 4) ist der Anbieter berechtigt, die Lizenz mit sofortiger Wirkung
-        zu sperren.
-      </p>
+      <h2 data-i18n="h_s9">&sect; 9 Vertragslaufzeit &amp; K&uuml;ndigung</h2>
+      <p data-i18n="s9_p1">Die Vertragslaufzeit richtet sich nach dem gew&auml;hlten Lizenzmodell. Die Lizenz endet automatisch nach Ablauf des Lizenzzeitraums.</p>
+      <p data-i18n="s9_p2">Eine au&szlig;erordentliche K&uuml;ndigung aus wichtigem Grund bleibt beiden Parteien vorbehalten. Bei Versto&szlig; gegen die Jurisdiktionsbeschr&auml;nkungen (&sect; 4) ist der Anbieter berechtigt, die Lizenz mit sofortiger Wirkung zu sperren.</p>
     </section>
 
     <section>
-      <h2>§ 10 Schlussbestimmungen</h2>
-      <p>
-        Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss
-        des UN-Kaufrechts (CISG). Gerichtsstand für Kaufleute ist Berlin.
-      </p>
-      <p>
-        Die Europäische Kommission stellt eine Plattform zur
-        Online-Streitbeilegung bereit:
-        <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>
-      </p>
-      <p>
-        Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren
-        vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
-      </p>
-      <p>
-        Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden,
-        bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.
-      </p>
+      <h2 data-i18n="h_s10">&sect; 10 Schlussbestimmungen</h2>
+      <p data-i18n="s10_p1">Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG). Gerichtsstand f&uuml;r Kaufleute ist Berlin.</p>
+      <p data-i18n-html="s10_p2">Die Europ&auml;ische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a></p>
+      <p data-i18n="s10_p3">Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.</p>
+      <p data-i18n="s10_p4">Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der &uuml;brigen Bestimmungen unber&uuml;hrt.</p>
     </section>
 
-    <div class="notice">
-      Stand: März 2026 — Diese AGB werden bei wesentlichen Änderungen
-      aktualisiert und dem Nutzer in geeigneter Form mitgeteilt.
-    </div>
+    <div class="notice" data-i18n="notice">Stand: M&auml;rz 2026 &mdash; Diese AGB werden bei wesentlichen &Auml;nderungen aktualisiert und dem Nutzer in geeigneter Form mitgeteilt.</div>
   </main>
 
-  <footer>
-    &gt; holisticcointrainer.com &nbsp;//&nbsp; 2026
-  </footer>
+  <footer>&gt; holisticcointrainer.com &nbsp;//&nbsp; 2026</footer>
 
+<script>
+const T = {
+  DE: {
+    page_title: "AGB \u2014 Holistic Coin Trainer",
+    back: "Zur\u00fcck",
+    label: "AGB \u00b7 Stand M\u00e4rz 2026",
+    title: "ALLGEMEINE GESCH\u00c4FTSBEDINGUNGEN",
+    h_s1: "\u00a7 1 Geltungsbereich",
+    s1_p1: "Diese Allgemeinen Gesch\u00e4ftsbedingungen gelten f\u00fcr die Nutzung der Software \u201eHolistic Coin Trainer\u201c (nachfolgend \u201eSoftware\u201c), angeboten von:",
+    s1_p2: "Die Software ist ein Lern- und Bildungswerkzeug f\u00fcr die eigenst\u00e4ndige Auseinandersetzung mit Kryptow\u00e4hrungen. Sie stellt ausdr\u00fccklich keine Anlageberatung, Finanzportfolioverwaltung, Steuerberatung oder sonstige regulierte Finanzdienstleistung dar.",
+    h_s2: "\u00a7 2 Vertragsschluss & Lizenzmodelle",
+    s2_p1: "Der Vertrag kommt durch den Kauf einer Lizenz \u00fcber den Zahlungsdienstleister Lemon Squeezy (LemonSqueezy LLC) zustande. Lemon Squeezy agiert als Merchant of Record und ist vertragsschlie\u00dfender H\u00e4ndler gegen\u00fcber dem K\u00e4ufer.",
+    s2_p2: "Es stehen folgende Lizenzmodelle zur Verf\u00fcgung:",
+    s2_li1: "1-Jahres-Lizenz: \u20ac599", s2_li2: "3-Jahres-Lizenz: \u20ac1.399", s2_li3: "Lifetime-Lizenz: \u20ac1.999",
+    s2_p3: "Jede Lizenz ist pers\u00f6nlich und nicht \u00fcbertragbar. Die 1-Jahres-Lizenz und die 3-Jahres-Lizenz berechtigen zur Nutzung auf bis zu zwei (2) Ger\u00e4ten (macOS, Windows oder Linux). Die Lifetime-Lizenz berechtigt zur Nutzung auf einem (1) Ger\u00e4t (macOS, Windows oder Linux). Die Nutzung der Software erfordert einen eigenen API-Schl\u00fcssel des Anbieters Anthropic. Die dadurch entstehenden API-Kosten tr\u00e4gt der Nutzer selbst und sind nicht im Lizenzpreis enthalten.",
+    h_s3: "\u00a7 3 Bildungszweck",
+    s3_p1: "(1) Die Software dient ausschlie\u00dflich Bildungs- und Lernzwecken. Sie ist ausdr\u00fccklich keine der folgenden regulierten Dienstleistungen:",
+    s3_li1: "Anlageberatung im Sinne von \u00a7 2 Abs. 8 Nr. 10 WpHG", s3_li2: "Finanzportfolioverwaltung", s3_li3: "Steuerberatung im Sinne des StBerG", s3_li4: "Beratung zu Kryptowerten im Sinne von Art. 3 Abs. 1 Nr. 25 MiCA (Verordnung (EU) 2023/1114)",
+    s3_p2: "(2) Dies gilt f\u00fcr s\u00e4mtliche Funktionsbereiche der Software, insbesondere: Analyse-Reports, DCA-Szenarien, DCA-Denklabor, interaktive Lerngespr\u00e4che im PRIMER sowie das Analyse-Profil.",
+    s3_p3: "(3) Der dialogische Charakter des PRIMER \u2014 einschlie\u00dflich namentlicher Ansprache, Bezugnahme auf vergangene Analysen und personalisiertem Feedback \u2014 begr\u00fcndet kein individuelles Beratungsverh\u00e4ltnis. Der PRIMER ist ein automatisiertes Lernsystem auf Basis vorprogrammierter KI-Modelle.",
+    s3_p4: "(4) DCA-Szenarien und DCA-Denklabor-Simulationen verwenden fiktive \u201eLerneinheiten\u201c (LE) ohne Bezug zu echtem Geld.",
+    h_s4: "\u00a7 4 Pflichten des Nutzers",
+    s4_p1: "Der Nutzer ist verpflichtet, vor jeder Investitionsentscheidung unabh\u00e4ngigen professionellen Rat einzuholen. Bei erstmaliger Nutzung der Software best\u00e4tigt der Nutzer durch eine Checkbox, dass er dies zur Kenntnis genommen hat.",
+    s4_p2: "Der Nutzer ist selbst daf\u00fcr verantwortlich, die Einhaltung der in seiner Jurisdiktion geltenden Gesetze sicherzustellen. Die Nutzung der Software ist in folgenden Jurisdiktionen ausdr\u00fccklich ausgeschlossen:",
+    s4_li1: "Vereinigte Staaten von Amerika (USA)", s4_li2: "Kanada", s4_li3: "Vereinigtes K\u00f6nigreich (UK)", s4_li4: "Volksrepublik China", s4_li5: "Russische F\u00f6deration",
+    s4_p3: "Der Nutzer ist f\u00fcr die sichere Aufbewahrung seines API-Schl\u00fcssels selbst verantwortlich.",
+    s4_p4: "Der Nutzer nimmt zur Kenntnis, dass im PRIMER eingegebene Freitext-Nachrichten zur Verarbeitung an Anthropic, Inc. (USA) \u00fcbermittelt werden. Der Nutzer verpflichtet sich, im PRIMER keine sensiblen pers\u00f6nlichen Daten einzugeben, insbesondere keine Finanzdaten, Portfolioinformationen, Kontodaten oder Verm\u00f6gensverh\u00e4ltnisse.",
+    h_s5: "\u00a7 5 KI-generierte Inhalte & Haftung",
+    s5_p1: "(1) Die Software verwendet KI-Modelle (Anthropic Claude) zur Erzeugung von Analyse-Reports und interaktiven Lerninhalten. KI-generierte Inhalte k\u00f6nnen Fehler, Ungenauigkeiten oder Halluzinationen enthalten. Dies gilt f\u00fcr Analyse-Reports ebenso wie f\u00fcr PRIMER-Lerngespr\u00e4che. Eine Gew\u00e4hr f\u00fcr die Richtigkeit, Vollst\u00e4ndigkeit oder Aktualit\u00e4t der Inhalte wird nicht \u00fcbernommen.",
+    s5_p2: "(2) Personalisierte R\u00fcckmeldungen im PRIMER (Bezugnahme auf analysierte Coins, Einsch\u00e4tzungstendenzen) stellen keine individuelle Finanz- oder Anlageberatung dar.",
+    s5_p3: "(3) Die Einsch\u00e4tzungs-Statistik im Analyse-Profil vergleicht die Einordnungen des Nutzers mit dem Framework \u2014 sie bewertet nicht die Qualit\u00e4t von Anlageentscheidungen.",
+    s5_p4: "Marktdaten von CoinGecko werden ohne Gew\u00e4hrleistung bereitgestellt. Die Haftung bei Verletzung von Kardinalpflichten ist der H\u00f6he nach auf den vertragstypischen, vorhersehbaren Schaden begrenzt. Die vorstehenden Haftungsbeschr\u00e4nkungen gelten nicht f\u00fcr Sch\u00e4den aus der Verletzung des Lebens, des K\u00f6rpers oder der Gesundheit, bei Vorsatz oder grober Fahrl\u00e4ssigkeit, bei \u00dcbernahme einer Garantie sowie f\u00fcr Anspr\u00fcche nach dem Produkthaftungsgesetz. F\u00fcr Verm\u00f6genssch\u00e4den, die aus Investitionsentscheidungen auf Basis der Software-Inhalte resultieren, wird keine Haftung \u00fcbernommen.",
+    s5_notice: "Hinweis: KI-generierte Analysen und PRIMER-Lerngespr\u00e4che sind Bildungsinhalte und keine Handlungsempfehlungen. Der Nutzer tr\u00e4gt die alleinige Verantwortung f\u00fcr seine Investitionsentscheidungen.",
+    h_s6: "\u00a7 6 Datenschutz",
+    s6_p1: "Es werden keine personenbezogenen Daten auf Servern des Anbieters gespeichert. Der API-Schl\u00fcssel wird ausschlie\u00dflich im System-Keychain des Betriebssystems (macOS Keychain, Windows Credential Manager oder Linux Secret Service) abgelegt. Die Zahlungsabwicklung erfolgt \u00fcber Lemon Squeezy in eigener datenschutzrechtlicher Verantwortung.",
+    s6_p2: "Zur Lizenzverwaltung werden pseudonymisierte Ger\u00e4te-IDs verwendet. Die Datenverarbeitung durch Anthropic richtet sich nach der Datenschutzerkl\u00e4rung von Anthropic.",
+    s6_p3: "Ausf\u00fchrliche Informationen finden Sie in unserer <a href='datenschutz.html'>Datenschutzerkl\u00e4rung</a>.",
+    h_s7: "\u00a7 7 Geistiges Eigentum",
+    s7_p1: "Die Software einschlie\u00dflich Tri-Filter-Analyse-Engine, Prompt-System und Framework-Architektur ist urheberrechtlich gesch\u00fctzt. Der Nutzer erh\u00e4lt eine einfache, nicht-exklusive Lizenz zur bestimmungsgem\u00e4\u00dfen Nutzung.",
+    s7_p2: "Erstellte Analyse-Reports d\u00fcrfen ausschlie\u00dflich f\u00fcr den pers\u00f6nlichen Lerngebrauch verwendet werden. Eine kommerzielle Weiterverwertung, Vervielf\u00e4ltigung oder Weitergabe der Reports ist nicht gestattet.",
+    h_s8: "\u00a7 8 Verf\u00fcgbarkeit & Support",
+    s8_p1: "Die Software wird \u201eas is\u201c bereitgestellt. Eine ununterbrochene Verf\u00fcgbarkeit wird nicht garantiert. Dies gilt insbesondere f\u00fcr Drittanbieter-Dienste (Anthropic API, CoinGecko API).",
+    s8_p2: "Support erfolgt per E-Mail an <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>.",
+    h_s9: "\u00a7 9 Vertragslaufzeit & K\u00fcndigung",
+    s9_p1: "Die Vertragslaufzeit richtet sich nach dem gew\u00e4hlten Lizenzmodell. Die Lizenz endet automatisch nach Ablauf des Lizenzzeitraums.",
+    s9_p2: "Eine au\u00dferordentliche K\u00fcndigung aus wichtigem Grund bleibt beiden Parteien vorbehalten. Bei Versto\u00df gegen die Jurisdiktionsbeschr\u00e4nkungen (\u00a7 4) ist der Anbieter berechtigt, die Lizenz mit sofortiger Wirkung zu sperren.",
+    h_s10: "\u00a7 10 Schlussbestimmungen",
+    s10_p1: "Es gilt das Recht der Bundesrepublik Deutschland unter Ausschluss des UN-Kaufrechts (CISG). Gerichtsstand f\u00fcr Kaufleute ist Berlin.",
+    s10_p2: "Die Europ\u00e4ische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>",
+    s10_p3: "Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.",
+    s10_p4: "Sollten einzelne Bestimmungen dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der \u00fcbrigen Bestimmungen unber\u00fchrt.",
+    notice: "Stand: M\u00e4rz 2026 \u2014 Diese AGB werden bei wesentlichen \u00c4nderungen aktualisiert und dem Nutzer in geeigneter Form mitgeteilt."
+  },
+  EN: {
+    page_title: "Terms & Conditions \u2014 Holistic Coin Trainer",
+    back: "Back", label: "T&C \u00b7 As of March 2026", title: "TERMS AND CONDITIONS",
+    h_s1: "\u00a7 1 Scope", s1_p1: "These Terms and Conditions apply to the use of the software \u201cHolistic Coin Trainer\u201d (hereinafter \u201cSoftware\u201d), offered by:", s1_p2: "The Software is a learning and educational tool for independent engagement with cryptocurrencies. It is expressly not investment advice, financial portfolio management, tax advice, or any other regulated financial service.",
+    h_s2: "\u00a7 2 Contract & License Models", s2_p1: "The contract is concluded through the purchase of a license via the payment service provider Lemon Squeezy (LemonSqueezy LLC). Lemon Squeezy acts as Merchant of Record and is the contracting merchant vis-\u00e0-vis the buyer.", s2_p2: "The following license models are available:", s2_li1: "1-year license: \u20ac599", s2_li2: "3-year license: \u20ac1,399", s2_li3: "Lifetime license: \u20ac1,999", s2_p3: "Each license is personal and non-transferable. The 1-year license and 3-year license entitle usage on up to two (2) devices (macOS, Windows, or Linux). The lifetime license entitles usage on one (1) device (macOS, Windows, or Linux). Use of the Software requires the user\u2019s own API key from Anthropic. The resulting API costs are borne by the user and are not included in the license price.",
+    h_s3: "\u00a7 3 Educational Purpose", s3_p1: "(1) The Software is intended exclusively for educational and learning purposes. It is expressly none of the following regulated services:", s3_li1: "Investment advice within the meaning of \u00a7 2 para. 8 no. 10 WpHG", s3_li2: "Financial portfolio management", s3_li3: "Tax advice within the meaning of the StBerG", s3_li4: "Advice on crypto-assets within the meaning of Art. 3 para. 1 no. 25 MiCA (Regulation (EU) 2023/1114)", s3_p2: "(2) This applies to all functional areas of the Software, in particular: analysis reports, DCA scenarios, DCA Thinking Lab, interactive learning conversations in PRIMER, and the Analysis Profile.", s3_p3: "(3) The conversational nature of PRIMER \u2014 including personalized address, reference to past analyses, and personalized feedback \u2014 does not constitute an individual advisory relationship. PRIMER is an automated learning system based on pre-programmed AI models.", s3_p4: "(4) DCA scenarios and DCA Thinking Lab simulations use fictitious \u201cLearning Units\u201d (LU) with no relation to real money.",
+    h_s4: "\u00a7 4 User Obligations", s4_p1: "The user is obligated to seek independent professional advice before making any investment decision. Upon first use of the Software, the user confirms via a checkbox that they have taken note of this.", s4_p2: "The user is personally responsible for ensuring compliance with the laws applicable in their jurisdiction. Use of the Software is expressly excluded in the following jurisdictions:", s4_li1: "United States of America (USA)", s4_li2: "Canada", s4_li3: "United Kingdom (UK)", s4_li4: "People\u2019s Republic of China", s4_li5: "Russian Federation", s4_p3: "The user is personally responsible for the secure storage of their API key.", s4_p4: "The user acknowledges that free-text messages entered in PRIMER are transmitted to Anthropic, Inc. (USA) for processing. The user agrees not to enter sensitive personal data in PRIMER, in particular no financial data, portfolio information, account details, or asset information.",
+    h_s5: "\u00a7 5 AI-Generated Content & Liability", s5_p1: "(1) The Software uses AI models (Anthropic Claude) to generate analysis reports and interactive learning content. AI-generated content may contain errors, inaccuracies, or hallucinations. This applies to analysis reports as well as PRIMER learning conversations. No guarantee is given for the accuracy, completeness, or timeliness of the content.", s5_p2: "(2) Personalized feedback in PRIMER (references to analyzed coins, assessment tendencies) does not constitute individual financial or investment advice.", s5_p3: "(3) The assessment statistics in the Analysis Profile compare the user\u2019s assessments with the framework \u2014 they do not evaluate the quality of investment decisions.", s5_p4: "Market data from CoinGecko is provided without warranty. Liability for breach of cardinal obligations is limited in amount to the typically foreseeable damage. The above limitations of liability do not apply to damages arising from injury to life, body, or health, in cases of intent or gross negligence, assumption of a guarantee, or claims under the Product Liability Act. No liability is assumed for financial losses resulting from investment decisions based on the Software\u2019s content.", s5_notice: "Note: AI-generated analyses and PRIMER learning conversations are educational content and not actionable recommendations. The user bears sole responsibility for their investment decisions.",
+    h_s6: "\u00a7 6 Data Protection", s6_p1: "No personal data is stored on the provider\u2019s servers. The API key is stored exclusively in the operating system\u2019s keychain (macOS Keychain, Windows Credential Manager, or Linux Secret Service). Payment processing is handled by Lemon Squeezy under its own data protection responsibility.", s6_p2: "Pseudonymized device IDs are used for license management. Data processing by Anthropic is governed by Anthropic\u2019s privacy policy.", s6_p3: "Detailed information can be found in our <a href='datenschutz.html'>Privacy Policy</a>.",
+    h_s7: "\u00a7 7 Intellectual Property", s7_p1: "The Software, including the Tri-Filter Analysis Engine, prompt system, and framework architecture, is protected by copyright. The user receives a simple, non-exclusive license for intended use.", s7_p2: "Generated analysis reports may only be used for personal learning purposes. Commercial exploitation, reproduction, or redistribution of reports is not permitted.",
+    h_s8: "\u00a7 8 Availability & Support", s8_p1: "The Software is provided \u201cas is.\u201d Uninterrupted availability is not guaranteed. This applies in particular to third-party services (Anthropic API, CoinGecko API).", s8_p2: "Support is provided via email at <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>.",
+    h_s9: "\u00a7 9 Contract Term & Termination", s9_p1: "The contract term is determined by the selected license model. The license ends automatically upon expiration of the license period.", s9_p2: "Extraordinary termination for good cause remains reserved for both parties. In the event of a violation of the jurisdiction restrictions (\u00a7 4), the provider is entitled to suspend the license with immediate effect.",
+    h_s10: "\u00a7 10 Final Provisions", s10_p1: "The law of the Federal Republic of Germany applies, excluding the UN Convention on Contracts for the International Sale of Goods (CISG). The place of jurisdiction for merchants is Berlin.", s10_p2: "The European Commission provides a platform for online dispute resolution: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>", s10_p3: "The provider is neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.", s10_p4: "Should individual provisions of these Terms and Conditions be or become invalid, the validity of the remaining provisions shall remain unaffected.",
+    notice: "As of: March 2026 \u2014 These Terms and Conditions will be updated in case of material changes and communicated to the user in an appropriate manner."
+  },
+  FR: {
+    page_title: "CGV \u2014 Holistic Coin Trainer",
+    back: "Retour", label: "CGV \u00b7 \u00c9tat mars 2026", title: "CONDITIONS G\u00c9N\u00c9RALES DE VENTE",
+    h_s1: "\u00a7 1 Champ d'application", s1_p1: "Les pr\u00e9sentes conditions g\u00e9n\u00e9rales s'appliquent \u00e0 l'utilisation du logiciel \u00ab Holistic Coin Trainer \u00bb (ci-apr\u00e8s \u00ab Logiciel \u00bb), propos\u00e9 par :", s1_p2: "Le Logiciel est un outil d'apprentissage et de formation pour l'\u00e9tude ind\u00e9pendante des cryptomonnaies. Il ne constitue express\u00e9ment pas un conseil en investissement, une gestion de portefeuille, un conseil fiscal ou tout autre service financier r\u00e9glement\u00e9.",
+    h_s2: "\u00a7 2 Conclusion du contrat et mod\u00e8les de licence", s2_p1: "Le contrat est conclu par l'achat d'une licence via le prestataire de paiement Lemon Squeezy (LemonSqueezy LLC). Lemon Squeezy agit en tant que Merchant of Record.", s2_p2: "Les mod\u00e8les de licence suivants sont disponibles :", s2_li1: "Licence 1 an : 599 \u20ac", s2_li2: "Licence 3 ans : 1 399 \u20ac", s2_li3: "Licence \u00e0 vie : 1 999 \u20ac", s2_p3: "Chaque licence est personnelle et non transf\u00e9rable. Les licences 1 an et 3 ans autorisent l'utilisation sur 2 appareils maximum (macOS, Windows ou Linux). La licence \u00e0 vie autorise l'utilisation sur 1 appareil. L'utilisation n\u00e9cessite une cl\u00e9 API Anthropic propre \u00e0 l'utilisateur. Les co\u00fbts d'API sont \u00e0 la charge de l'utilisateur.",
+    h_s3: "\u00a7 3 Finalit\u00e9 \u00e9ducative", s3_p1: "(1) Le Logiciel est destin\u00e9 exclusivement \u00e0 des fins \u00e9ducatives. Il ne constitue aucun des services r\u00e9glement\u00e9s suivants :", s3_li1: "Conseil en investissement au sens du \u00a7 2 al. 8 n\u00b0 10 WpHG", s3_li2: "Gestion de portefeuille financier", s3_li3: "Conseil fiscal au sens du StBerG", s3_li4: "Conseil en crypto-actifs au sens de l'art. 3 al. 1 n\u00b0 25 MiCA (R\u00e8glement (UE) 2023/1114)", s3_p2: "(2) Cela s'applique \u00e0 tous les domaines fonctionnels du Logiciel : rapports d'analyse, sc\u00e9narios DCA, laboratoire DCA, conversations PRIMER et profil d'analyse.", s3_p3: "(3) Le caract\u00e8re conversationnel du PRIMER ne constitue pas une relation de conseil individuelle. PRIMER est un syst\u00e8me d'apprentissage automatis\u00e9.", s3_p4: "(4) Les sc\u00e9narios DCA utilisent des \u00ab unit\u00e9s d'apprentissage \u00bb (UA) fictives sans lien avec de l'argent r\u00e9el.",
+    h_s4: "\u00a7 4 Obligations de l'utilisateur", s4_p1: "L'utilisateur est tenu de solliciter un conseil professionnel ind\u00e9pendant avant toute d\u00e9cision d'investissement.", s4_p2: "L'utilisation du Logiciel est express\u00e9ment exclue dans les juridictions suivantes :", s4_li1: "\u00c9tats-Unis d'Am\u00e9rique (USA)", s4_li2: "Canada", s4_li3: "Royaume-Uni (UK)", s4_li4: "R\u00e9publique populaire de Chine", s4_li5: "F\u00e9d\u00e9ration de Russie", s4_p3: "L'utilisateur est responsable de la conservation s\u00e9curis\u00e9e de sa cl\u00e9 API.", s4_p4: "L'utilisateur reconna\u00eet que les messages saisis dans PRIMER sont transmis \u00e0 Anthropic, Inc. (USA). L'utilisateur s'engage \u00e0 ne pas saisir de donn\u00e9es personnelles sensibles dans PRIMER.",
+    h_s5: "\u00a7 5 Contenus g\u00e9n\u00e9r\u00e9s par l'IA et responsabilit\u00e9", s5_p1: "(1) Le Logiciel utilise des mod\u00e8les d'IA (Anthropic Claude). Les contenus g\u00e9n\u00e9r\u00e9s par l'IA peuvent contenir des erreurs ou des hallucinations. Aucune garantie n'est donn\u00e9e quant \u00e0 l'exactitude des contenus.", s5_p2: "(2) Les retours personnalis\u00e9s dans PRIMER ne constituent pas un conseil financier individuel.", s5_p3: "(3) Les statistiques du profil d'analyse comparent les \u00e9valuations de l'utilisateur avec le framework.", s5_p4: "Les donn\u00e9es de march\u00e9 de CoinGecko sont fournies sans garantie. La responsabilit\u00e9 pour violation d'obligations cardinales est limit\u00e9e aux dommages pr\u00e9visibles typiques du contrat. Ces limitations ne s'appliquent pas aux dommages corporels, \u00e0 la faute intentionnelle ou \u00e0 la n\u00e9gligence grave. Aucune responsabilit\u00e9 n'est assum\u00e9e pour les pertes financi\u00e8res r\u00e9sultant de d\u00e9cisions d'investissement.", s5_notice: "Note : les analyses g\u00e9n\u00e9r\u00e9es par l'IA et les conversations PRIMER sont du contenu \u00e9ducatif, pas des recommandations. L'utilisateur assume l'enti\u00e8re responsabilit\u00e9 de ses d\u00e9cisions d'investissement.",
+    h_s6: "\u00a7 6 Protection des donn\u00e9es", s6_p1: "Aucune donn\u00e9e personnelle n'est stock\u00e9e sur les serveurs du fournisseur. La cl\u00e9 API est stock\u00e9e dans le trousseau du syst\u00e8me d'exploitation.", s6_p2: "Des identifiants d'appareils pseudonymis\u00e9s sont utilis\u00e9s pour la gestion des licences.", s6_p3: "Informations d\u00e9taill\u00e9es dans notre <a href='datenschutz.html'>politique de confidentialit\u00e9</a>.",
+    h_s7: "\u00a7 7 Propri\u00e9t\u00e9 intellectuelle", s7_p1: "Le Logiciel est prot\u00e9g\u00e9 par le droit d'auteur. L'utilisateur re\u00e7oit une licence simple et non exclusive.", s7_p2: "Les rapports g\u00e9n\u00e9r\u00e9s ne peuvent \u00eatre utilis\u00e9s qu'\u00e0 des fins d'apprentissage personnel.",
+    h_s8: "\u00a7 8 Disponibilit\u00e9 et support", s8_p1: "Le Logiciel est fourni \u00ab en l'\u00e9tat \u00bb. La disponibilit\u00e9 continue n'est pas garantie.", s8_p2: "Le support est assur\u00e9 par e-mail \u00e0 <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>.",
+    h_s9: "\u00a7 9 Dur\u00e9e et r\u00e9siliation", s9_p1: "La dur\u00e9e du contrat d\u00e9pend du mod\u00e8le de licence choisi.", s9_p2: "La r\u00e9siliation extraordinaire pour motif grave reste r\u00e9serv\u00e9e aux deux parties.",
+    h_s10: "\u00a7 10 Dispositions finales", s10_p1: "Le droit de la R\u00e9publique f\u00e9d\u00e9rale d'Allemagne s'applique, \u00e0 l'exclusion de la CVIM. Le tribunal comp\u00e9tent pour les commer\u00e7ants est Berlin.", s10_p2: "La Commission europ\u00e9enne met \u00e0 disposition une plateforme de r\u00e8glement en ligne des litiges : <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>", s10_p3: "Le fournisseur n'est ni oblig\u00e9 ni dispos\u00e9 \u00e0 participer \u00e0 une proc\u00e9dure de r\u00e8glement des litiges.", s10_p4: "Si des dispositions individuelles sont invalides, la validit\u00e9 des autres dispositions n'est pas affect\u00e9e.",
+    notice: "\u00c9tat : mars 2026 \u2014 Ces CGV seront mises \u00e0 jour en cas de modifications substantielles."
+  },
+  ES: {
+    page_title: "T\u00e9rminos y condiciones \u2014 Holistic Coin Trainer",
+    back: "Volver", label: "T&C \u00b7 Estado marzo 2026", title: "T\u00c9RMINOS Y CONDICIONES",
+    h_s1: "\u00a7 1 \u00c1mbito de aplicaci\u00f3n", s1_p1: "Estos t\u00e9rminos y condiciones se aplican al uso del software \u00abHolistic Coin Trainer\u00bb (en adelante \u00abSoftware\u00bb), ofrecido por:", s1_p2: "El Software es una herramienta de aprendizaje para el estudio independiente de criptomonedas. No constituye asesoramiento de inversi\u00f3n, gesti\u00f3n de carteras, asesoramiento fiscal ni ning\u00fan otro servicio financiero regulado.",
+    h_s2: "\u00a7 2 Celebraci\u00f3n del contrato y modelos de licencia", s2_p1: "El contrato se celebra mediante la compra de una licencia a trav\u00e9s de Lemon Squeezy (LemonSqueezy LLC), que act\u00faa como Merchant of Record.", s2_p2: "Modelos de licencia disponibles:", s2_li1: "Licencia 1 a\u00f1o: 599 \u20ac", s2_li2: "Licencia 3 a\u00f1os: 1.399 \u20ac", s2_li3: "Licencia de por vida: 1.999 \u20ac", s2_p3: "Cada licencia es personal e intransferible. Las licencias de 1 y 3 a\u00f1os autorizan el uso en hasta 2 dispositivos. La licencia de por vida autoriza el uso en 1 dispositivo. Se requiere una clave API propia de Anthropic. Los costes de API corren a cargo del usuario.",
+    h_s3: "\u00a7 3 Finalidad educativa", s3_p1: "(1) El Software est\u00e1 destinado exclusivamente a fines educativos. No constituye ning\u00fan servicio regulado:", s3_li1: "Asesoramiento de inversi\u00f3n seg\u00fan \u00a7 2 ap. 8 n.\u00ba 10 WpHG", s3_li2: "Gesti\u00f3n de carteras financieras", s3_li3: "Asesoramiento fiscal seg\u00fan StBerG", s3_li4: "Asesoramiento sobre criptoactivos seg\u00fan art. 3 ap. 1 n.\u00ba 25 MiCA", s3_p2: "(2) Esto se aplica a todas las \u00e1reas funcionales del Software.", s3_p3: "(3) El car\u00e1cter conversacional del PRIMER no constituye una relaci\u00f3n de asesoramiento individual.", s3_p4: "(4) Los escenarios DCA utilizan \u00abUnidades de Aprendizaje\u00bb ficticias sin relaci\u00f3n con dinero real.",
+    h_s4: "\u00a7 4 Obligaciones del usuario", s4_p1: "El usuario est\u00e1 obligado a buscar asesoramiento profesional independiente antes de tomar decisiones de inversi\u00f3n.", s4_p2: "El uso del Software est\u00e1 excluido en las siguientes jurisdicciones:", s4_li1: "Estados Unidos de Am\u00e9rica (EE. UU.)", s4_li2: "Canad\u00e1", s4_li3: "Reino Unido (UK)", s4_li4: "Rep\u00fablica Popular China", s4_li5: "Federaci\u00f3n Rusa", s4_p3: "El usuario es responsable de la custodia segura de su clave API.", s4_p4: "El usuario reconoce que los mensajes introducidos en PRIMER se transmiten a Anthropic, Inc. (EE. UU.). El usuario se compromete a no introducir datos personales sensibles en PRIMER.",
+    h_s5: "\u00a7 5 Contenido generado por IA y responsabilidad", s5_p1: "(1) El Software utiliza modelos de IA (Anthropic Claude). El contenido generado por IA puede contener errores o alucinaciones. No se garantiza la exactitud del contenido.", s5_p2: "(2) La retroalimentaci\u00f3n personalizada en PRIMER no constituye asesoramiento financiero individual.", s5_p3: "(3) Las estad\u00edsticas del perfil comparan las evaluaciones del usuario con el framework.", s5_p4: "Los datos de mercado de CoinGecko se proporcionan sin garant\u00eda. No se asume responsabilidad por p\u00e9rdidas derivadas de decisiones de inversi\u00f3n.", s5_notice: "Nota: los an\u00e1lisis generados por IA y las conversaciones PRIMER son contenido educativo, no recomendaciones de acci\u00f3n.",
+    h_s6: "\u00a7 6 Protecci\u00f3n de datos", s6_p1: "No se almacenan datos personales en servidores del proveedor. La clave API se almacena en el llavero del sistema operativo.", s6_p2: "Se utilizan IDs de dispositivo pseudonimizados para la gesti\u00f3n de licencias.", s6_p3: "Informaci\u00f3n detallada en nuestra <a href='datenschutz.html'>pol\u00edtica de privacidad</a>.",
+    h_s7: "\u00a7 7 Propiedad intelectual", s7_p1: "El Software est\u00e1 protegido por derechos de autor. El usuario recibe una licencia simple y no exclusiva.", s7_p2: "Los informes generados solo pueden usarse para aprendizaje personal.",
+    h_s8: "\u00a7 8 Disponibilidad y soporte", s8_p1: "El Software se proporciona \u00abtal cual\u00bb. No se garantiza disponibilidad continua.", s8_p2: "Soporte por correo electr\u00f3nico a <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>.",
+    h_s9: "\u00a7 9 Vigencia y terminaci\u00f3n", s9_p1: "La vigencia del contrato depende del modelo de licencia elegido.", s9_p2: "La terminaci\u00f3n extraordinaria por causa justificada queda reservada a ambas partes.",
+    h_s10: "\u00a7 10 Disposiciones finales", s10_p1: "Se aplica el derecho de la Rep\u00fablica Federal de Alemania, excluyendo la CISG. El foro competente para comerciantes es Berl\u00edn.", s10_p2: "La Comisi\u00f3n Europea ofrece una plataforma de resoluci\u00f3n de litigios en l\u00ednea: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>", s10_p3: "El proveedor no est\u00e1 obligado ni dispuesto a participar en procedimientos de resoluci\u00f3n de conflictos.", s10_p4: "Si alguna disposici\u00f3n resulta inv\u00e1lida, la validez de las dem\u00e1s no se ver\u00e1 afectada.",
+    notice: "Estado: marzo 2026 \u2014 Estos T&C se actualizar\u00e1n en caso de cambios sustanciales."
+  },
+  IT: {
+    page_title: "Condizioni generali \u2014 Holistic Coin Trainer",
+    back: "Indietro", label: "CG \u00b7 Stato marzo 2026", title: "CONDIZIONI GENERALI",
+    h_s1: "\u00a7 1 Ambito di applicazione", s1_p1: "Le presenti condizioni generali si applicano all'utilizzo del software \u00abHolistic Coin Trainer\u00bb (di seguito \u00abSoftware\u00bb), offerto da:", s1_p2: "Il Software \u00e8 uno strumento di apprendimento per lo studio indipendente delle criptovalute. Non costituisce consulenza in investimenti, gestione di portafogli, consulenza fiscale o qualsiasi altro servizio finanziario regolamentato.",
+    h_s2: "\u00a7 2 Conclusione del contratto e modelli di licenza", s2_p1: "Il contratto si conclude con l'acquisto di una licenza tramite Lemon Squeezy (LemonSqueezy LLC), che agisce come Merchant of Record.", s2_p2: "Sono disponibili i seguenti modelli di licenza:", s2_li1: "Licenza annuale: 599 \u20ac", s2_li2: "Licenza triennale: 1.399 \u20ac", s2_li3: "Licenza a vita: 1.999 \u20ac", s2_p3: "Ogni licenza \u00e8 personale e non trasferibile. Le licenze annuale e triennale autorizzano l'uso su massimo 2 dispositivi. La licenza a vita autorizza l'uso su 1 dispositivo. \u00c8 necessaria una chiave API Anthropic propria. I costi dell'API sono a carico dell'utente.",
+    h_s3: "\u00a7 3 Finalit\u00e0 educativa", s3_p1: "(1) Il Software \u00e8 destinato esclusivamente a scopi educativi. Non costituisce nessuno dei seguenti servizi regolamentati:", s3_li1: "Consulenza in investimenti ai sensi del \u00a7 2 comma 8 n. 10 WpHG", s3_li2: "Gestione di portafogli finanziari", s3_li3: "Consulenza fiscale ai sensi dello StBerG", s3_li4: "Consulenza su cripto-attivit\u00e0 ai sensi dell'art. 3 comma 1 n. 25 MiCA", s3_p2: "(2) Ci\u00f2 si applica a tutte le aree funzionali del Software.", s3_p3: "(3) Il carattere conversazionale del PRIMER non costituisce un rapporto di consulenza individuale.", s3_p4: "(4) Gli scenari DCA utilizzano \u00abUnit\u00e0 di Apprendimento\u00bb fittizie senza relazione con denaro reale.",
+    h_s4: "\u00a7 4 Obblighi dell'utente", s4_p1: "L'utente \u00e8 tenuto a richiedere una consulenza professionale indipendente prima di qualsiasi decisione di investimento.", s4_p2: "L'uso del Software \u00e8 escluso nelle seguenti giurisdizioni:", s4_li1: "Stati Uniti d'America (USA)", s4_li2: "Canada", s4_li3: "Regno Unito (UK)", s4_li4: "Repubblica Popolare Cinese", s4_li5: "Federazione Russa", s4_p3: "L'utente \u00e8 responsabile della custodia sicura della propria chiave API.", s4_p4: "L'utente riconosce che i messaggi inseriti nel PRIMER vengono trasmessi ad Anthropic, Inc. (USA). L'utente si impegna a non inserire dati personali sensibili nel PRIMER.",
+    h_s5: "\u00a7 5 Contenuti generati dall'IA e responsabilit\u00e0", s5_p1: "(1) Il Software utilizza modelli di IA (Anthropic Claude). I contenuti generati dall'IA possono contenere errori o allucinazioni. Non si garantisce l'accuratezza dei contenuti.", s5_p2: "(2) I feedback personalizzati nel PRIMER non costituiscono consulenza finanziaria individuale.", s5_p3: "(3) Le statistiche del profilo confrontano le valutazioni dell'utente con il framework.", s5_p4: "I dati di mercato di CoinGecko sono forniti senza garanzia. Non si assume responsabilit\u00e0 per perdite finanziarie derivanti da decisioni di investimento.", s5_notice: "Nota: le analisi generate dall'IA e le conversazioni PRIMER sono contenuto educativo, non raccomandazioni operative.",
+    h_s6: "\u00a7 6 Protezione dei dati", s6_p1: "Nessun dato personale viene memorizzato sui server del fornitore. La chiave API viene conservata nel portachiavi del sistema operativo.", s6_p2: "Per la gestione delle licenze vengono utilizzati ID dispositivo pseudonimizzati.", s6_p3: "Informazioni dettagliate nella nostra <a href='datenschutz.html'>informativa sulla privacy</a>.",
+    h_s7: "\u00a7 7 Propriet\u00e0 intellettuale", s7_p1: "Il Software \u00e8 protetto dal diritto d'autore. L'utente riceve una licenza semplice e non esclusiva.", s7_p2: "I report generati possono essere utilizzati solo per l'apprendimento personale.",
+    h_s8: "\u00a7 8 Disponibilit\u00e0 e supporto", s8_p1: "Il Software viene fornito \u00abcos\u00ec com'\u00e8\u00bb. La disponibilit\u00e0 continua non \u00e8 garantita.", s8_p2: "Il supporto \u00e8 disponibile via e-mail a <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>.",
+    h_s9: "\u00a7 9 Durata e risoluzione", s9_p1: "La durata del contratto dipende dal modello di licenza scelto.", s9_p2: "La risoluzione straordinaria per giusta causa resta riservata a entrambe le parti.",
+    h_s10: "\u00a7 10 Disposizioni finali", s10_p1: "Si applica il diritto della Repubblica Federale di Germania, esclusa la CISG. Il foro competente per i commercianti \u00e8 Berlino.", s10_p2: "La Commissione europea mette a disposizione una piattaforma per la risoluzione delle controversie online: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>", s10_p3: "Il fornitore non \u00e8 n\u00e9 obbligato n\u00e9 disposto a partecipare a procedimenti di risoluzione delle controversie.", s10_p4: "Se singole disposizioni risultano invalide, la validit\u00e0 delle altre disposizioni non ne \u00e8 pregiudicata.",
+    notice: "Stato: marzo 2026 \u2014 Le presenti CG verranno aggiornate in caso di modifiche sostanziali."
+  },
+  PT: {
+    page_title: "Termos e condi\u00e7\u00f5es \u2014 Holistic Coin Trainer",
+    back: "Voltar", label: "T&C \u00b7 Estado mar\u00e7o 2026", title: "TERMOS E CONDI\u00c7\u00d5ES",
+    h_s1: "\u00a7 1 \u00c2mbito de aplica\u00e7\u00e3o", s1_p1: "Os presentes termos e condi\u00e7\u00f5es aplicam-se \u00e0 utiliza\u00e7\u00e3o do software \u00abHolistic Coin Trainer\u00bb (doravante \u00abSoftware\u00bb), oferecido por:", s1_p2: "O Software \u00e9 uma ferramenta de aprendizagem para o estudo independente de criptomoedas. N\u00e3o constitui aconselhamento de investimento, gest\u00e3o de carteiras, aconselhamento fiscal nem qualquer outro servi\u00e7o financeiro regulado.",
+    h_s2: "\u00a7 2 Celebra\u00e7\u00e3o do contrato e modelos de licen\u00e7a", s2_p1: "O contrato \u00e9 celebrado atrav\u00e9s da compra de uma licen\u00e7a via Lemon Squeezy (LemonSqueezy LLC), que atua como Merchant of Record.", s2_p2: "Est\u00e3o dispon\u00edveis os seguintes modelos de licen\u00e7a:", s2_li1: "Licen\u00e7a 1 ano: 599 \u20ac", s2_li2: "Licen\u00e7a 3 anos: 1.399 \u20ac", s2_li3: "Licen\u00e7a vital\u00edcia: 1.999 \u20ac", s2_p3: "Cada licen\u00e7a \u00e9 pessoal e intransfer\u00edvel. As licen\u00e7as de 1 e 3 anos autorizam a utiliza\u00e7\u00e3o em at\u00e9 2 dispositivos. A licen\u00e7a vital\u00edcia autoriza a utiliza\u00e7\u00e3o em 1 dispositivo. \u00c9 necess\u00e1ria uma chave API Anthropic pr\u00f3pria. Os custos da API s\u00e3o suportados pelo utilizador.",
+    h_s3: "\u00a7 3 Finalidade educativa", s3_p1: "(1) O Software destina-se exclusivamente a fins educativos. N\u00e3o constitui nenhum dos seguintes servi\u00e7os regulados:", s3_li1: "Aconselhamento de investimento nos termos do \u00a7 2 par\u00e1grafo 8 n.\u00ba 10 WpHG", s3_li2: "Gest\u00e3o de carteiras financeiras", s3_li3: "Aconselhamento fiscal nos termos do StBerG", s3_li4: "Aconselhamento sobre criptoativos nos termos do art. 3 par\u00e1grafo 1 n.\u00ba 25 MiCA", s3_p2: "(2) Isto aplica-se a todas as \u00e1reas funcionais do Software.", s3_p3: "(3) O car\u00e1ter conversacional do PRIMER n\u00e3o constitui uma rela\u00e7\u00e3o de aconselhamento individual.", s3_p4: "(4) Os cen\u00e1rios DCA utilizam \u00abUnidades de Aprendizagem\u00bb fict\u00edcias sem rela\u00e7\u00e3o com dinheiro real.",
+    h_s4: "\u00a7 4 Obriga\u00e7\u00f5es do utilizador", s4_p1: "O utilizador \u00e9 obrigado a procurar aconselhamento profissional independente antes de qualquer decis\u00e3o de investimento.", s4_p2: "A utiliza\u00e7\u00e3o do Software est\u00e1 exclu\u00edda nas seguintes jurisdi\u00e7\u00f5es:", s4_li1: "Estados Unidos da Am\u00e9rica (EUA)", s4_li2: "Canad\u00e1", s4_li3: "Reino Unido (UK)", s4_li4: "Rep\u00fablica Popular da China", s4_li5: "Federa\u00e7\u00e3o Russa", s4_p3: "O utilizador \u00e9 respons\u00e1vel pela cust\u00f3dia segura da sua chave API.", s4_p4: "O utilizador reconhece que as mensagens introduzidas no PRIMER s\u00e3o transmitidas \u00e0 Anthropic, Inc. (EUA). O utilizador compromete-se a n\u00e3o introduzir dados pessoais sens\u00edveis no PRIMER.",
+    h_s5: "\u00a7 5 Conte\u00fados gerados por IA e responsabilidade", s5_p1: "(1) O Software utiliza modelos de IA (Anthropic Claude). Os conte\u00fados gerados por IA podem conter erros ou alucina\u00e7\u00f5es. N\u00e3o se garante a exatid\u00e3o dos conte\u00fados.", s5_p2: "(2) O feedback personalizado no PRIMER n\u00e3o constitui aconselhamento financeiro individual.", s5_p3: "(3) As estat\u00edsticas do perfil comparam as avalia\u00e7\u00f5es do utilizador com o framework.", s5_p4: "Os dados de mercado do CoinGecko s\u00e3o fornecidos sem garantia. N\u00e3o se assume responsabilidade por perdas financeiras decorrentes de decis\u00f5es de investimento.", s5_notice: "Nota: as an\u00e1lises geradas por IA e as conversas PRIMER s\u00e3o conte\u00fado educativo, n\u00e3o recomenda\u00e7\u00f5es de a\u00e7\u00e3o.",
+    h_s6: "\u00a7 6 Prote\u00e7\u00e3o de dados", s6_p1: "Nenhum dado pessoal \u00e9 armazenado nos servidores do fornecedor. A chave API \u00e9 armazenada no chaveiro do sistema operativo.", s6_p2: "S\u00e3o utilizados IDs de dispositivo pseudonimizados para a gest\u00e3o de licen\u00e7as.", s6_p3: "Informa\u00e7\u00f5es detalhadas na nossa <a href='datenschutz.html'>pol\u00edtica de privacidade</a>.",
+    h_s7: "\u00a7 7 Propriedade intelectual", s7_p1: "O Software est\u00e1 protegido por direitos de autor. O utilizador recebe uma licen\u00e7a simples e n\u00e3o exclusiva.", s7_p2: "Os relat\u00f3rios gerados s\u00f3 podem ser utilizados para aprendizagem pessoal.",
+    h_s8: "\u00a7 8 Disponibilidade e suporte", s8_p1: "O Software \u00e9 fornecido \u00abtal como est\u00e1\u00bb. A disponibilidade cont\u00ednua n\u00e3o \u00e9 garantida.", s8_p2: "Suporte por e-mail em <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>.",
+    h_s9: "\u00a7 9 Vig\u00eancia e rescis\u00e3o", s9_p1: "A vig\u00eancia do contrato depende do modelo de licen\u00e7a escolhido.", s9_p2: "A rescis\u00e3o extraordin\u00e1ria por justa causa fica reservada a ambas as partes.",
+    h_s10: "\u00a7 10 Disposi\u00e7\u00f5es finais", s10_p1: "Aplica-se o direito da Rep\u00fablica Federal da Alemanha, excluindo a CISG. O foro competente para comerciantes \u00e9 Berlim.", s10_p2: "A Comiss\u00e3o Europeia disponibiliza uma plataforma de resolu\u00e7\u00e3o de lit\u00edgios em linha: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>", s10_p3: "O fornecedor n\u00e3o \u00e9 obrigado nem est\u00e1 disposto a participar em procedimentos de resolu\u00e7\u00e3o de lit\u00edgios.", s10_p4: "Se disposi\u00e7\u00f5es individuais forem inv\u00e1lidas, a validade das restantes n\u00e3o \u00e9 afetada.",
+    notice: "Estado: mar\u00e7o 2026 \u2014 Estes T&C ser\u00e3o atualizados em caso de altera\u00e7\u00f5es substanciais."
+  },
+  JA: {
+    page_title: "\u5229\u7528\u898f\u7d04 \u2014 Holistic Coin Trainer",
+    back: "\u623b\u308b", label: "\u5229\u7528\u898f\u7d04 \u00b7 2026\u5e743\u6708\u73fe\u5728", title: "\u5229\u7528\u898f\u7d04",
+    h_s1: "\u00a7 1 \u9069\u7528\u7bc4\u56f2", s1_p1: "\u672c\u5229\u7528\u898f\u7d04\u306f\u3001\u4ee5\u4e0b\u306e\u63d0\u4f9b\u8005\u304c\u63d0\u4f9b\u3059\u308b\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u300cHolistic Coin Trainer\u300d\uff08\u4ee5\u4e0b\u300c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u300d\uff09\u306e\u4f7f\u7528\u306b\u9069\u7528\u3055\u308c\u307e\u3059\uff1a", s1_p2: "\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u6697\u53f7\u8cc7\u7523\u306e\u72ec\u7acb\u3057\u305f\u5b66\u7fd2\u306e\u305f\u3081\u306e\u6559\u80b2\u30c4\u30fc\u30eb\u3067\u3059\u3002\u6295\u8cc7\u52a9\u8a00\u3001\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa\u7ba1\u7406\u3001\u7a0e\u52d9\u52a9\u8a00\u3001\u305d\u306e\u4ed6\u306e\u898f\u5236\u3055\u308c\u305f\u91d1\u878d\u30b5\u30fc\u30d3\u30b9\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u3002",
+    h_s2: "\u00a7 2 \u5951\u7d04\u7de0\u7d50\u3068\u30e9\u30a4\u30bb\u30f3\u30b9\u30e2\u30c7\u30eb", s2_p1: "\u5951\u7d04\u306f\u3001\u6c7a\u6e08\u30b5\u30fc\u30d3\u30b9\u30d7\u30ed\u30d0\u30a4\u30c0\u30fcLemon Squeezy\uff08LemonSqueezy LLC\uff09\u3092\u901a\u3058\u305f\u30e9\u30a4\u30bb\u30f3\u30b9\u8cfc\u5165\u306b\u3088\u308a\u7de0\u7d50\u3055\u308c\u307e\u3059\u3002", s2_p2: "\u4ee5\u4e0b\u306e\u30e9\u30a4\u30bb\u30f3\u30b9\u30e2\u30c7\u30eb\u304c\u5229\u7528\u53ef\u80fd\u3067\u3059\uff1a", s2_li1: "1\u5e74\u30e9\u30a4\u30bb\u30f3\u30b9: 599\u20ac", s2_li2: "3\u5e74\u30e9\u30a4\u30bb\u30f3\u30b9: 1,399\u20ac", s2_li3: "\u6c38\u4e45\u30e9\u30a4\u30bb\u30f3\u30b9: 1,999\u20ac", s2_p3: "\u5404\u30e9\u30a4\u30bb\u30f3\u30b9\u306f\u500b\u4eba\u7528\u3067\u8b72\u6e21\u4e0d\u53ef\u3067\u3059\u30021\u5e74\u30fb3\u5e74\u30e9\u30a4\u30bb\u30f3\u30b9\u306f\u6700\u59272\u53f0\u306e\u30c7\u30d0\u30a4\u30b9\u3067\u4f7f\u7528\u3067\u304d\u307e\u3059\u3002\u6c38\u4e45\u30e9\u30a4\u30bb\u30f3\u30b9\u306f1\u53f0\u3067\u3059\u3002Anthropic\u306eAPI\u30ad\u30fc\u304c\u5fc5\u8981\u3067\u3059\u3002API\u8cbb\u7528\u306f\u30e6\u30fc\u30b6\u30fc\u8ca0\u62c5\u3067\u3059\u3002",
+    h_s3: "\u00a7 3 \u6559\u80b2\u76ee\u7684", s3_p1: "(1) \u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u6559\u80b2\u304a\u3088\u3073\u5b66\u7fd2\u76ee\u7684\u306b\u306e\u307f\u4f7f\u7528\u3055\u308c\u307e\u3059\u3002\u4ee5\u4e0b\u306e\u898f\u5236\u30b5\u30fc\u30d3\u30b9\u306e\u3044\u305a\u308c\u306b\u3082\u8a72\u5f53\u3057\u307e\u305b\u3093\uff1a", s3_li1: "WpHG\u306b\u3088\u308b\u6295\u8cc7\u52a9\u8a00", s3_li2: "\u91d1\u878d\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa\u7ba1\u7406", s3_li3: "StBerG\u306b\u3088\u308b\u7a0e\u52d9\u52a9\u8a00", s3_li4: "MiCA\u306b\u3088\u308b\u6697\u53f7\u8cc7\u7523\u52a9\u8a00", s3_p2: "(2) \u3053\u308c\u306f\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u3059\u3079\u3066\u306e\u6a5f\u80fd\u9818\u57df\u306b\u9069\u7528\u3055\u308c\u307e\u3059\u3002", s3_p3: "(3) PRIMER\u306e\u5bfe\u8a71\u7684\u306a\u6027\u683c\u306f\u3001\u500b\u5225\u306e\u30a2\u30c9\u30d0\u30a4\u30b6\u30ea\u30fc\u95a2\u4fc2\u3092\u69cb\u6210\u3057\u307e\u305b\u3093\u3002", s3_p4: "(4) DCA\u30b7\u30ca\u30ea\u30aa\u306f\u5b9f\u969b\u306e\u304a\u91d1\u3068\u306f\u7121\u95a2\u4fc2\u306e\u67b6\u7a7a\u306e\u300c\u5b66\u7fd2\u30e6\u30cb\u30c3\u30c8\u300d\u3092\u4f7f\u7528\u3057\u307e\u3059\u3002",
+    h_s4: "\u00a7 4 \u30e6\u30fc\u30b6\u30fc\u306e\u7fa9\u52d9", s4_p1: "\u30e6\u30fc\u30b6\u30fc\u306f\u3001\u6295\u8cc7\u5224\u65ad\u306e\u524d\u306b\u72ec\u7acb\u3057\u305f\u5c02\u9580\u5bb6\u306e\u52a9\u8a00\u3092\u6c42\u3081\u308b\u7fa9\u52d9\u304c\u3042\u308a\u307e\u3059\u3002", s4_p2: "\u4ee5\u4e0b\u306e\u7ba1\u8f44\u5730\u57df\u3067\u306e\u4f7f\u7528\u306f\u660e\u793a\u7684\u306b\u9664\u5916\u3055\u308c\u307e\u3059\uff1a", s4_li1: "\u30a2\u30e1\u30ea\u30ab\u5408\u8846\u56fd\uff08\u7c73\u56fd\uff09", s4_li2: "\u30ab\u30ca\u30c0", s4_li3: "\u82f1\u56fd\uff08UK\uff09", s4_li4: "\u4e2d\u83ef\u4eba\u6c11\u5171\u548c\u56fd", s4_li5: "\u30ed\u30b7\u30a2\u9023\u90a6", s4_p3: "\u30e6\u30fc\u30b6\u30fc\u306f\u81ea\u5206\u306eAPI\u30ad\u30fc\u306e\u5b89\u5168\u306a\u4fdd\u7ba1\u306b\u8cac\u4efb\u3092\u8ca0\u3044\u307e\u3059\u3002", s4_p4: "\u30e6\u30fc\u30b6\u30fc\u306f\u3001PRIMER\u306b\u5165\u529b\u3055\u308c\u305f\u30e1\u30c3\u30bb\u30fc\u30b8\u304cAnthropic, Inc.\uff08\u7c73\u56fd\uff09\u306b\u9001\u4fe1\u3055\u308c\u308b\u3053\u3068\u3092\u8a8d\u8b58\u3057\u3066\u3044\u307e\u3059\u3002\u30e6\u30fc\u30b6\u30fc\u306fPRIMER\u306b\u6a5f\u5bc6\u306e\u500b\u4eba\u30c7\u30fc\u30bf\u3092\u5165\u529b\u3057\u306a\u3044\u3053\u3068\u306b\u540c\u610f\u3057\u307e\u3059\u3002",
+    h_s5: "\u00a7 5 AI\u751f\u6210\u30b3\u30f3\u30c6\u30f3\u30c4\u3068\u8cac\u4efb", s5_p1: "(1) \u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306fAI\u30e2\u30c7\u30eb\uff08Anthropic Claude\uff09\u3092\u4f7f\u7528\u3057\u307e\u3059\u3002AI\u751f\u6210\u30b3\u30f3\u30c6\u30f3\u30c4\u306b\u306f\u8aa4\u308a\u3084\u30cf\u30eb\u30b7\u30cd\u30fc\u30b7\u30e7\u30f3\u304c\u542b\u307e\u308c\u308b\u5834\u5408\u304c\u3042\u308a\u307e\u3059\u3002\u30b3\u30f3\u30c6\u30f3\u30c4\u306e\u6b63\u78ba\u6027\u306f\u4fdd\u8a3c\u3055\u308c\u307e\u305b\u3093\u3002", s5_p2: "(2) PRIMER\u3067\u306e\u500b\u5225\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u306f\u500b\u5225\u306e\u91d1\u878d\u52a9\u8a00\u3092\u69cb\u6210\u3057\u307e\u305b\u3093\u3002", s5_p3: "(3) \u5206\u6790\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u306e\u7d71\u8a08\u306f\u30e6\u30fc\u30b6\u30fc\u306e\u8a55\u4fa1\u3092\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u3068\u6bd4\u8f03\u3057\u307e\u3059\u3002", s5_p4: "CoinGecko\u306e\u5e02\u5834\u30c7\u30fc\u30bf\u306f\u4fdd\u8a3c\u306a\u3057\u3067\u63d0\u4f9b\u3055\u308c\u307e\u3059\u3002\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u30b3\u30f3\u30c6\u30f3\u30c4\u306b\u57fa\u3065\u304f\u6295\u8cc7\u5224\u65ad\u306b\u3088\u308b\u8ca1\u7523\u7684\u640d\u5bb3\u306b\u3064\u3044\u3066\u306f\u8cac\u4efb\u3092\u8ca0\u3044\u307e\u305b\u3093\u3002", s5_notice: "\u6ce8\u610f: AI\u751f\u6210\u5206\u6790\u3068PRIMER\u5b66\u7fd2\u4f1a\u8a71\u306f\u6559\u80b2\u30b3\u30f3\u30c6\u30f3\u30c4\u3067\u3042\u308a\u3001\u884c\u52d5\u63a8\u5968\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u3002\u30e6\u30fc\u30b6\u30fc\u306f\u6295\u8cc7\u5224\u65ad\u306b\u3064\u3044\u3066\u5168\u8cac\u4efb\u3092\u8ca0\u3044\u307e\u3059\u3002",
+    h_s6: "\u00a7 6 \u30c7\u30fc\u30bf\u4fdd\u8b77", s6_p1: "\u63d0\u4f9b\u8005\u306e\u30b5\u30fc\u30d0\u30fc\u306b\u500b\u4eba\u30c7\u30fc\u30bf\u306f\u4fdd\u5b58\u3055\u308c\u307e\u305b\u3093\u3002API\u30ad\u30fc\u306fOS\u306e\u30ad\u30fc\u30c1\u30a7\u30fc\u30f3\u306b\u4fdd\u5b58\u3055\u308c\u307e\u3059\u3002", s6_p2: "\u30e9\u30a4\u30bb\u30f3\u30b9\u7ba1\u7406\u306b\u306f\u4eee\u540d\u5316\u3055\u308c\u305f\u30c7\u30d0\u30a4\u30b9ID\u304c\u4f7f\u7528\u3055\u308c\u307e\u3059\u3002", s6_p3: "\u8a73\u7d30\u306f<a href='datenschutz.html'>\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc</a>\u3092\u3054\u89a7\u304f\u3060\u3055\u3044\u3002",
+    h_s7: "\u00a7 7 \u77e5\u7684\u8ca1\u7523", s7_p1: "\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u8457\u4f5c\u6a29\u6cd5\u3067\u4fdd\u8b77\u3055\u308c\u3066\u3044\u307e\u3059\u3002\u30e6\u30fc\u30b6\u30fc\u306f\u5358\u7d14\u306a\u975e\u72ec\u5360\u30e9\u30a4\u30bb\u30f3\u30b9\u3092\u53d6\u5f97\u3057\u307e\u3059\u3002", s7_p2: "\u751f\u6210\u3055\u308c\u305f\u30ec\u30dd\u30fc\u30c8\u306f\u500b\u4eba\u5b66\u7fd2\u76ee\u7684\u306b\u306e\u307f\u4f7f\u7528\u3067\u304d\u307e\u3059\u3002",
+    h_s8: "\u00a7 8 \u53ef\u7528\u6027\u3068\u30b5\u30dd\u30fc\u30c8", s8_p1: "\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u300c\u73fe\u72b6\u306e\u307e\u307e\u300d\u63d0\u4f9b\u3055\u308c\u307e\u3059\u3002\u7d99\u7d9a\u7684\u306a\u53ef\u7528\u6027\u306f\u4fdd\u8a3c\u3055\u308c\u307e\u305b\u3093\u3002", s8_p2: "\u30b5\u30dd\u30fc\u30c8\u306f<a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>\u307e\u3067\u30e1\u30fc\u30eb\u3067\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044\u3002",
+    h_s9: "\u00a7 9 \u5951\u7d04\u671f\u9593\u3068\u89e3\u7d04", s9_p1: "\u5951\u7d04\u671f\u9593\u306f\u9078\u629e\u3057\u305f\u30e9\u30a4\u30bb\u30f3\u30b9\u30e2\u30c7\u30eb\u306b\u3088\u308a\u307e\u3059\u3002", s9_p2: "\u6b63\u5f53\u306a\u7406\u7531\u306b\u3088\u308b\u7279\u5225\u89e3\u7d04\u306f\u4e21\u5f53\u4e8b\u8005\u306b\u7559\u4fdd\u3055\u308c\u307e\u3059\u3002",
+    h_s10: "\u00a7 10 \u6700\u7d42\u898f\u5b9a", s10_p1: "\u30c9\u30a4\u30c4\u9023\u90a6\u5171\u548c\u56fd\u306e\u6cd5\u5f8b\u304c\u9069\u7528\u3055\u308c\u307e\u3059\uff08CISG\u3092\u9664\u304f\uff09\u3002\u5546\u4eba\u306e\u88c1\u5224\u7ba1\u8f44\u306f\u30d9\u30eb\u30ea\u30f3\u3067\u3059\u3002", s10_p2: "\u6b27\u5dde\u59d4\u54e1\u4f1a\u306f\u30aa\u30f3\u30e9\u30a4\u30f3\u7d1b\u4e89\u89e3\u6c7a\u30d7\u30e9\u30c3\u30c8\u30d5\u30a9\u30fc\u30e0\u3092\u63d0\u4f9b\u3057\u3066\u3044\u307e\u3059: <a href='https://ec.europa.eu/consumers/odr' target='_blank' rel='noopener'>ec.europa.eu/consumers/odr</a>", s10_p3: "\u63d0\u4f9b\u8005\u306f\u6d88\u8cbb\u8005\u4ef2\u88c1\u59d4\u54e1\u4f1a\u3067\u306e\u7d1b\u4e89\u89e3\u6c7a\u624b\u7d9a\u304d\u3078\u306e\u53c2\u52a0\u7fa9\u52d9\u306f\u306a\u304f\u3001\u307e\u305f\u53c2\u52a0\u306e\u610f\u601d\u3082\u3042\u308a\u307e\u305b\u3093\u3002", s10_p4: "\u672c\u898f\u7d04\u306e\u500b\u3005\u306e\u898f\u5b9a\u304c\u7121\u52b9\u3068\u306a\u3063\u305f\u5834\u5408\u3067\u3082\u3001\u6b8b\u308a\u306e\u898f\u5b9a\u306e\u6709\u52b9\u6027\u306f\u5f71\u97ff\u3092\u53d7\u3051\u307e\u305b\u3093\u3002",
+    notice: "\u73fe\u5728: 2026\u5e743\u6708 \u2014 \u672c\u5229\u7528\u898f\u7d04\u306f\u91cd\u8981\u306a\u5909\u66f4\u304c\u3042\u3063\u305f\u5834\u5408\u306b\u66f4\u65b0\u3055\u308c\u307e\u3059\u3002"
+  }
+};
+
+function applyLang(lang) {
+  const tr = T[lang] || T.DE;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (tr[k]) el.textContent = tr[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (tr[k]) el.innerHTML = tr[k];
+  });
+  if (tr.page_title) document.title = tr.page_title;
+  document.documentElement.lang = lang.toLowerCase();
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let lang = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : null;
+  if (!lang) { try { lang = localStorage.getItem('hct_lang'); } catch(e) {} }
+  if (!lang) {
+    const bl = (navigator.language || '').split('-')[0].toUpperCase();
+    lang = T[bl] ? bl : 'DE';
+  }
+  applyLang(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+});
+</script>
 </body>
 </html>

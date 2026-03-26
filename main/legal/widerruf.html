@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Widerrufsbelehrung — Holistic Coin Trainer</title>
+  <title data-i18n="page_title">Widerrufsbelehrung — Holistic Coin Trainer</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
@@ -48,6 +48,31 @@
     }
     .logo span { color: var(--gold); }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--gray);
+      font-family: var(--font);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--gold-dim); border-color: var(--border); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,215,0,0.06); }
+
     .back-link {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -56,7 +81,7 @@
       transition: color 0.2s;
     }
     .back-link:hover { color: var(--gold-dim); }
-    .back-link::before { content: "← "; }
+    .back-link::before { content: "\2190  "; }
 
     /* ── MAIN ───────────────────────────────────────────────── */
     main {
@@ -181,8 +206,9 @@
     }
 
     @media (max-width: 600px) {
-      header { padding: 16px 20px; }
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
       main   { padding: 40px 20px 60px; }
+      .header-right { gap: 12px; }
     }
   </style>
 </head>
@@ -190,114 +216,125 @@
 
   <header>
     <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
-    <a href="../index.html" class="back-link">Zurück</a>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="DE">DE</button>
+        <button class="lang-btn" data-lang="EN">EN</button>
+        <button class="lang-btn" data-lang="FR">FR</button>
+        <button class="lang-btn" data-lang="ES">ES</button>
+        <button class="lang-btn" data-lang="IT">IT</button>
+        <button class="lang-btn" data-lang="PT">PT</button>
+        <button class="lang-btn" data-lang="JA">JA</button>
+      </div>
+      <a href="../index.html" class="back-link" data-i18n="back">Zur&uuml;ck</a>
+    </div>
   </header>
 
   <main>
-    <div class="page-label">FERNABSATZRECHT · §§ 312g, 356 BGB</div>
-    <h1>WIDERRUFS&shy;BELEHRUNG</h1>
+    <div class="page-label" data-i18n="label">FERNABSATZRECHT &middot; &sect;&sect; 312g, 356 BGB</div>
+    <h1 data-i18n="title">WIDERRUFS&shy;BELEHRUNG</h1>
 
     <section>
-      <h2>Widerrufsrecht</h2>
-      <p>
-        Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gründen
-        diesen Vertrag zu widerrufen. Die Widerrufsfrist beträgt vierzehn Tage
+      <h2 data-i18n="h_right">Widerrufsrecht</h2>
+      <p data-i18n="right_p1">
+        Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gr&uuml;nden
+        diesen Vertrag zu widerrufen. Die Widerrufsfrist betr&auml;gt vierzehn Tage
         ab dem Tag des Vertragsschlusses.
       </p>
-      <p>
-        Um Ihr Widerrufsrecht auszuüben, müssen Sie uns mittels einer
-        eindeutigen Erklärung (z.&nbsp;B. ein mit der Post versandter Brief
-        oder eine E-Mail) über Ihren Entschluss, diesen Vertrag zu widerrufen,
+      <p data-i18n="right_p2">
+        Um Ihr Widerrufsrecht auszu&uuml;ben, m&uuml;ssen Sie uns mittels einer
+        eindeutigen Erkl&auml;rung (z.&nbsp;B. ein mit der Post versandter Brief
+        oder eine E-Mail) &uuml;ber Ihren Entschluss, diesen Vertrag zu widerrufen,
         informieren. Richten Sie Ihren Widerruf an:
       </p>
       <p>
         Stefan Laackman<br>
-        Torstraße 68, 10119 Berlin<br>
+        Torstra&szlig;e 68, 10119 Berlin<br>
         E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>
       </p>
-      <p>
+      <p data-i18n="right_p3">
         Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung
-        über die Ausübung des Widerrufsrechts vor Ablauf der Widerrufsfrist
+        &uuml;ber die Aus&uuml;bung des Widerrufsrechts vor Ablauf der Widerrufsfrist
         absenden.
       </p>
     </section>
 
     <section>
-      <h2>Folgen des Widerrufs</h2>
-      <p>
+      <h2 data-i18n="h_consequences">Folgen des Widerrufs</h2>
+      <p data-i18n="consequences_p1">
         Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen,
-        die wir von Ihnen erhalten haben, unverzüglich und spätestens binnen
-        vierzehn Tagen ab dem Tag zurückzuzahlen, an dem die Mitteilung über
+        die wir von Ihnen erhalten haben, unverz&uuml;glich und sp&auml;testens binnen
+        vierzehn Tagen ab dem Tag zur&uuml;ckzuzahlen, an dem die Mitteilung &uuml;ber
         Ihren Widerruf bei uns eingegangen ist.
       </p>
-      <p>
-        Für diese Rückzahlung verwenden wir dasselbe Zahlungsmittel, das Sie
-        bei der ursprünglichen Transaktion eingesetzt haben, es sei denn,
-        mit Ihnen wurde ausdrücklich etwas anderes vereinbart. In keinem Fall
-        werden Ihnen wegen dieser Rückzahlung Entgelte berechnet.
+      <p data-i18n="consequences_p2">
+        F&uuml;r diese R&uuml;ckzahlung verwenden wir dasselbe Zahlungsmittel, das Sie
+        bei der urspr&uuml;nglichen Transaktion eingesetzt haben, es sei denn,
+        mit Ihnen wurde ausdr&uuml;cklich etwas anderes vereinbart. In keinem Fall
+        werden Ihnen wegen dieser R&uuml;ckzahlung Entgelte berechnet.
       </p>
     </section>
 
     <section>
-      <h2>Besonderer Hinweis — Vorzeitiges Erlöschen</h2>
-      <div class="notice">
+      <h2 data-i18n="h_expiry">Besonderer Hinweis &mdash; Vorzeitiges Erl&ouml;schen</h2>
+      <div class="notice" data-i18n-html="expiry_notice">
         Das Widerrufsrecht erlischt vorzeitig, wenn der Nutzer:<br><br>
-        (1) ausdrücklich zugestimmt hat, dass der Anbieter mit der Ausführung
+        (1) ausdr&uuml;cklich zugestimmt hat, dass der Anbieter mit der Ausf&uuml;hrung
         des Vertrags vor Ablauf der Widerrufsfrist beginnt, und<br><br>
-        (2) seine Kenntnis davon bestätigt hat, dass er durch seine Zustimmung
-        mit Beginn der Ausführung des Vertrags sein Widerrufsrecht verliert.<br><br>
-        Die Ausführung beginnt mit der Aktivierung des Lizenzschlüssels.
+        (2) seine Kenntnis davon best&auml;tigt hat, dass er durch seine Zustimmung
+        mit Beginn der Ausf&uuml;hrung des Vertrags sein Widerrufsrecht verliert.<br><br>
+        Die Ausf&uuml;hrung beginnt mit der Aktivierung des Lizenzschl&uuml;ssels.
       </div>
     </section>
 
     <section>
-      <h2>Muster-Widerrufsformular</h2>
-      <p>
-        Wenn Sie den Vertrag widerrufen wollen, dann füllen Sie bitte dieses
-        Formular aus und senden Sie es zurück:
+      <h2 data-i18n="h_form">Muster-Widerrufsformular</h2>
+      <p data-i18n="form_intro">
+        Wenn Sie den Vertrag widerrufen wollen, dann f&uuml;llen Sie bitte dieses
+        Formular aus und senden Sie es zur&uuml;ck:
       </p>
 
       <div class="form-box">
-        <div class="form-title">// WIDERRUFSFORMULAR</div>
+        <div class="form-title" data-i18n="form_title">// WIDERRUFSFORMULAR</div>
 
         <p>
-          An: Stefan Laackman, Torstraße 68, 10119 Berlin<br>
+          An: Stefan Laackman, Torstra&szlig;e 68, 10119 Berlin<br>
           E-Mail: hello@holisticcointrainer.com
         </p>
 
-        <p>
+        <p data-i18n="form_declaration">
           Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen
-          Vertrag über die Bereitstellung folgender digitaler Inhalte (*):
+          Vertrag &uuml;ber die Bereitstellung folgender digitaler Inhalte (*):
         </p>
 
         <div class="field">
-          <span class="field-label">Lizenzmodell:</span> ___________________________
+          <span class="field-label" data-i18n="field_license">Lizenzmodell:</span> ___________________________
         </div>
         <div class="field">
-          <span class="field-label">Bestellt am / erhalten am (*):</span> ___________________________
+          <span class="field-label" data-i18n="field_date">Bestellt am / erhalten am (*):</span> ___________________________
         </div>
         <div class="field">
-          <span class="field-label">Name des/der Verbraucher(s):</span> ___________________________
+          <span class="field-label" data-i18n="field_name">Name des/der Verbraucher(s):</span> ___________________________
         </div>
         <div class="field">
-          <span class="field-label">Anschrift des/der Verbraucher(s):</span> ___________________________
+          <span class="field-label" data-i18n="field_address">Anschrift des/der Verbraucher(s):</span> ___________________________
         </div>
         <div class="field">
-          <span class="field-label">Unterschrift (nur bei Papierform):</span> ___________________________
+          <span class="field-label" data-i18n="field_signature">Unterschrift (nur bei Papierform):</span> ___________________________
         </div>
         <div class="field">
-          <span class="field-label">Datum:</span> ___________________________
+          <span class="field-label" data-i18n="field_form_date">Datum:</span> ___________________________
         </div>
 
-        <p style="margin-top: 12px; font-size: 10px; color: var(--gray);">
+        <p style="margin-top: 12px; font-size: 10px; color: var(--gray);" data-i18n="form_footnote">
           (*) Unzutreffendes streichen.
         </p>
       </div>
     </section>
 
-    <div class="notice">
-      Stand: März 2026 — Diese Widerrufsbelehrung entspricht dem gesetzlichen
-      Muster gemäß Anlage 1 zu Art. 246a § 1 Abs. 2 Satz 1 Nr. 1 EGBGB.
+    <div class="notice" data-i18n="notice">
+      Stand: M&auml;rz 2026 &mdash; Diese Widerrufsbelehrung entspricht dem gesetzlichen
+      Muster gem&auml;&szlig; Anlage 1 zu Art. 246a &sect; 1 Abs. 2 Satz 1 Nr. 1 EGBGB.
     </div>
   </main>
 
@@ -305,5 +342,229 @@
     &gt; holisticcointrainer.com &nbsp;//&nbsp; 2026
   </footer>
 
+<script>
+const T = {
+  DE: {
+    page_title: "Widerrufsbelehrung \u2014 Holistic Coin Trainer",
+    back: "Zur\u00fcck",
+    label: "FERNABSATZRECHT \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "WIDERRUFSBELEHRUNG",
+    h_right: "Widerrufsrecht",
+    right_p1: "Sie haben das Recht, binnen vierzehn Tagen ohne Angabe von Gr\u00fcnden diesen Vertrag zu widerrufen. Die Widerrufsfrist betr\u00e4gt vierzehn Tage ab dem Tag des Vertragsschlusses.",
+    right_p2: "Um Ihr Widerrufsrecht auszu\u00fcben, m\u00fcssen Sie uns mittels einer eindeutigen Erkl\u00e4rung (z. B. ein mit der Post versandter Brief oder eine E-Mail) \u00fcber Ihren Entschluss, diesen Vertrag zu widerrufen, informieren. Richten Sie Ihren Widerruf an:",
+    right_p3: "Zur Wahrung der Widerrufsfrist reicht es aus, dass Sie die Mitteilung \u00fcber die Aus\u00fcbung des Widerrufsrechts vor Ablauf der Widerrufsfrist absenden.",
+    h_consequences: "Folgen des Widerrufs",
+    consequences_p1: "Wenn Sie diesen Vertrag widerrufen, haben wir Ihnen alle Zahlungen, die wir von Ihnen erhalten haben, unverz\u00fcglich und sp\u00e4testens binnen vierzehn Tagen ab dem Tag zur\u00fcckzuzahlen, an dem die Mitteilung \u00fcber Ihren Widerruf bei uns eingegangen ist.",
+    consequences_p2: "F\u00fcr diese R\u00fcckzahlung verwenden wir dasselbe Zahlungsmittel, das Sie bei der urspr\u00fcnglichen Transaktion eingesetzt haben, es sei denn, mit Ihnen wurde ausdr\u00fccklich etwas anderes vereinbart. In keinem Fall werden Ihnen wegen dieser R\u00fcckzahlung Entgelte berechnet.",
+    h_expiry: "Besonderer Hinweis \u2014 Vorzeitiges Erl\u00f6schen",
+    expiry_notice: "Das Widerrufsrecht erlischt vorzeitig, wenn der Nutzer:<br><br>(1) ausdr\u00fccklich zugestimmt hat, dass der Anbieter mit der Ausf\u00fchrung des Vertrags vor Ablauf der Widerrufsfrist beginnt, und<br><br>(2) seine Kenntnis davon best\u00e4tigt hat, dass er durch seine Zustimmung mit Beginn der Ausf\u00fchrung des Vertrags sein Widerrufsrecht verliert.<br><br>Die Ausf\u00fchrung beginnt mit der Aktivierung des Lizenzschl\u00fcssels.",
+    h_form: "Muster-Widerrufsformular",
+    form_intro: "Wenn Sie den Vertrag widerrufen wollen, dann f\u00fcllen Sie bitte dieses Formular aus und senden Sie es zur\u00fcck:",
+    form_title: "// WIDERRUFSFORMULAR",
+    form_declaration: "Hiermit widerrufe(n) ich/wir (*) den von mir/uns (*) abgeschlossenen Vertrag \u00fcber die Bereitstellung folgender digitaler Inhalte (*):",
+    field_license: "Lizenzmodell:",
+    field_date: "Bestellt am / erhalten am (*):",
+    field_name: "Name des/der Verbraucher(s):",
+    field_address: "Anschrift des/der Verbraucher(s):",
+    field_signature: "Unterschrift (nur bei Papierform):",
+    field_form_date: "Datum:",
+    form_footnote: "(*) Unzutreffendes streichen.",
+    notice: "Stand: M\u00e4rz 2026 \u2014 Diese Widerrufsbelehrung entspricht dem gesetzlichen Muster gem\u00e4\u00df Anlage 1 zu Art. 246a \u00a7 1 Abs. 2 Satz 1 Nr. 1 EGBGB."
+  },
+  EN: {
+    page_title: "Cancellation Policy \u2014 Holistic Coin Trainer",
+    back: "Back",
+    label: "DISTANCE SELLING \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "CANCELLATION POLICY",
+    h_right: "Right of Withdrawal",
+    right_p1: "You have the right to withdraw from this contract within fourteen days without giving any reason. The withdrawal period is fourteen days from the date the contract was concluded.",
+    right_p2: "To exercise your right of withdrawal, you must inform us by means of a clear statement (e.g. a letter sent by post or an email) of your decision to withdraw from this contract. Please send your withdrawal to:",
+    right_p3: "To meet the withdrawal deadline, it is sufficient that you send the notification of exercising your right of withdrawal before the withdrawal period expires.",
+    h_consequences: "Consequences of Withdrawal",
+    consequences_p1: "If you withdraw from this contract, we shall reimburse all payments we have received from you without undue delay and no later than fourteen days from the day on which we received the notification of your withdrawal.",
+    consequences_p2: "For this reimbursement, we shall use the same means of payment that you used for the original transaction, unless expressly agreed otherwise with you. Under no circumstances will you be charged any fees for this reimbursement.",
+    h_expiry: "Special Notice \u2014 Premature Expiry",
+    expiry_notice: "The right of withdrawal expires prematurely if the user:<br><br>(1) has expressly agreed that the provider may begin performing the contract before the withdrawal period expires, and<br><br>(2) has confirmed their knowledge that by giving consent, they lose their right of withdrawal upon commencement of the contract performance.<br><br>Performance begins with the activation of the license key.",
+    h_form: "Model Withdrawal Form",
+    form_intro: "If you wish to withdraw from the contract, please complete and return this form:",
+    form_title: "// WITHDRAWAL FORM",
+    form_declaration: "I/We (*) hereby withdraw from the contract I/we (*) concluded for the provision of the following digital content (*):",
+    field_license: "License model:",
+    field_date: "Ordered on / received on (*):",
+    field_name: "Name of consumer(s):",
+    field_address: "Address of consumer(s):",
+    field_signature: "Signature (only for paper form):",
+    field_form_date: "Date:",
+    form_footnote: "(*) Delete as applicable.",
+    notice: "As of: March 2026 \u2014 This cancellation policy complies with the statutory model pursuant to Annex 1 to Art. 246a \u00a7 1 para. 2 sentence 1 no. 1 EGBGB."
+  },
+  FR: {
+    page_title: "Politique d'annulation \u2014 Holistic Coin Trainer",
+    back: "Retour",
+    label: "VENTE \u00c0 DISTANCE \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "POLITIQUE D'ANNULATION",
+    h_right: "Droit de r\u00e9tractation",
+    right_p1: "Vous disposez d'un d\u00e9lai de quatorze jours pour vous r\u00e9tracter du pr\u00e9sent contrat sans avoir \u00e0 en indiquer les motifs. Le d\u00e9lai de r\u00e9tractation est de quatorze jours \u00e0 compter de la date de conclusion du contrat.",
+    right_p2: "Pour exercer votre droit de r\u00e9tractation, vous devez nous informer de votre d\u00e9cision de vous r\u00e9tracter au moyen d'une d\u00e9claration claire (par exemple une lettre envoy\u00e9e par courrier postal ou un e-mail). Veuillez adresser votre r\u00e9tractation \u00e0 :",
+    right_p3: "Pour respecter le d\u00e9lai de r\u00e9tractation, il suffit que vous envoyiez la notification d'exercice de votre droit de r\u00e9tractation avant l'expiration du d\u00e9lai.",
+    h_consequences: "Cons\u00e9quences de la r\u00e9tractation",
+    consequences_p1: "Si vous vous r\u00e9tractez du pr\u00e9sent contrat, nous vous rembourserons tous les paiements que nous avons re\u00e7us de votre part sans retard et au plus tard dans les quatorze jours \u00e0 compter du jour o\u00f9 nous avons \u00e9t\u00e9 inform\u00e9s de votre d\u00e9cision de r\u00e9tractation.",
+    consequences_p2: "Pour ce remboursement, nous utiliserons le m\u00eame moyen de paiement que celui que vous avez utilis\u00e9 pour la transaction initiale, sauf convention contraire expresse. En aucun cas des frais ne vous seront factur\u00e9s pour ce remboursement.",
+    h_expiry: "Avis sp\u00e9cial \u2014 Extinction anticip\u00e9e",
+    expiry_notice: "Le droit de r\u00e9tractation s'\u00e9teint pr\u00e9matur\u00e9ment si l'utilisateur :<br><br>(1) a express\u00e9ment accept\u00e9 que le prestataire commence l'ex\u00e9cution du contrat avant l'expiration du d\u00e9lai de r\u00e9tractation, et<br><br>(2) a confirm\u00e9 qu'il savait qu'en donnant son consentement, il perdrait son droit de r\u00e9tractation d\u00e8s le d\u00e9but de l'ex\u00e9cution du contrat.<br><br>L'ex\u00e9cution commence avec l'activation de la cl\u00e9 de licence.",
+    h_form: "Mod\u00e8le de formulaire de r\u00e9tractation",
+    form_intro: "Si vous souhaitez vous r\u00e9tracter du contrat, veuillez remplir ce formulaire et nous le renvoyer :",
+    form_title: "// FORMULAIRE DE R\u00c9TRACTATION",
+    form_declaration: "Par la pr\u00e9sente, je/nous (*) r\u00e9voque(ons) le contrat que j'ai/nous avons (*) conclu pour la fourniture du contenu num\u00e9rique suivant (*) :",
+    field_license: "Mod\u00e8le de licence :",
+    field_date: "Command\u00e9 le / re\u00e7u le (*) :",
+    field_name: "Nom du/des consommateur(s) :",
+    field_address: "Adresse du/des consommateur(s) :",
+    field_signature: "Signature (uniquement sur papier) :",
+    field_form_date: "Date :",
+    form_footnote: "(*) Rayer la mention inutile.",
+    notice: "\u00c9tat : mars 2026 \u2014 Cette politique d'annulation est conforme au mod\u00e8le l\u00e9gal selon l'annexe 1 de l'art. 246a \u00a7 1 al. 2 phrase 1 n\u00b0 1 EGBGB."
+  },
+  ES: {
+    page_title: "Pol\u00edtica de cancelaci\u00f3n \u2014 Holistic Coin Trainer",
+    back: "Volver",
+    label: "VENTA A DISTANCIA \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "POL\u00cdTICA DE CANCELACI\u00d3N",
+    h_right: "Derecho de desistimiento",
+    right_p1: "Usted tiene derecho a desistir del presente contrato en un plazo de catorce d\u00edas sin necesidad de indicar los motivos. El plazo de desistimiento es de catorce d\u00edas a partir de la fecha de celebraci\u00f3n del contrato.",
+    right_p2: "Para ejercer su derecho de desistimiento, debe comunicarnos su decisi\u00f3n mediante una declaraci\u00f3n inequ\u00edvoca (por ejemplo, una carta enviada por correo postal o un correo electr\u00f3nico). Dirija su desistimiento a:",
+    right_p3: "Para cumplir con el plazo de desistimiento, basta con que env\u00ede la comunicaci\u00f3n del ejercicio de su derecho de desistimiento antes de que expire el plazo.",
+    h_consequences: "Consecuencias del desistimiento",
+    consequences_p1: "Si usted desiste del presente contrato, le devolveremos todos los pagos que hayamos recibido de usted sin demora indebida y a m\u00e1s tardar en el plazo de catorce d\u00edas a partir del d\u00eda en que recibamos la notificaci\u00f3n de su desistimiento.",
+    consequences_p2: "Para esta devoluci\u00f3n utilizaremos el mismo medio de pago que usted utiliz\u00f3 en la transacci\u00f3n original, salvo que se haya acordado expresamente otra cosa. En ning\u00fan caso se le cobrar\u00e1n gastos por esta devoluci\u00f3n.",
+    h_expiry: "Aviso especial \u2014 Extinci\u00f3n anticipada",
+    expiry_notice: "El derecho de desistimiento se extingue anticipadamente si el usuario:<br><br>(1) ha aceptado expresamente que el proveedor comience la ejecuci\u00f3n del contrato antes de que expire el plazo de desistimiento, y<br><br>(2) ha confirmado su conocimiento de que, al dar su consentimiento, pierde su derecho de desistimiento con el inicio de la ejecuci\u00f3n del contrato.<br><br>La ejecuci\u00f3n comienza con la activaci\u00f3n de la clave de licencia.",
+    h_form: "Modelo de formulario de desistimiento",
+    form_intro: "Si desea desistir del contrato, por favor complete y devuelva este formulario:",
+    form_title: "// FORMULARIO DE DESISTIMIENTO",
+    form_declaration: "Por la presente, yo/nosotros (*) desisto/desistimos del contrato celebrado por m\u00ed/nosotros (*) para la prestaci\u00f3n del siguiente contenido digital (*):",
+    field_license: "Modelo de licencia:",
+    field_date: "Pedido el / recibido el (*):",
+    field_name: "Nombre del/de los consumidor(es):",
+    field_address: "Direcci\u00f3n del/de los consumidor(es):",
+    field_signature: "Firma (solo en formato papel):",
+    field_form_date: "Fecha:",
+    form_footnote: "(*) T\u00e1chese lo que no proceda.",
+    notice: "Estado: marzo 2026 \u2014 Esta pol\u00edtica de cancelaci\u00f3n cumple con el modelo legal conforme al anexo 1 del art. 246a \u00a7 1 ap. 2 frase 1 n.\u00ba 1 EGBGB."
+  },
+  IT: {
+    page_title: "Politica di cancellazione \u2014 Holistic Coin Trainer",
+    back: "Indietro",
+    label: "VENDITA A DISTANZA \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "POLITICA DI CANCELLAZIONE",
+    h_right: "Diritto di recesso",
+    right_p1: "L'utente ha il diritto di recedere dal presente contratto entro quattordici giorni senza indicarne i motivi. Il periodo di recesso \u00e8 di quattordici giorni dalla data di conclusione del contratto.",
+    right_p2: "Per esercitare il diritto di recesso, \u00e8 necessario comunicarci la propria decisione mediante una dichiarazione chiara (ad esempio una lettera inviata per posta o un'e-mail). Si prega di indirizzare il recesso a:",
+    right_p3: "Per rispettare il termine di recesso, \u00e8 sufficiente inviare la comunicazione dell'esercizio del diritto di recesso prima della scadenza del periodo.",
+    h_consequences: "Conseguenze del recesso",
+    consequences_p1: "In caso di recesso dal presente contratto, rimborseremo tutti i pagamenti ricevuti senza indebito ritardo e al pi\u00f9 tardi entro quattordici giorni dal giorno in cui abbiamo ricevuto la notifica del recesso.",
+    consequences_p2: "Per questo rimborso utilizzeremo lo stesso mezzo di pagamento utilizzato per la transazione originale, salvo diverso accordo espresso. In nessun caso verranno addebitati costi per questo rimborso.",
+    h_expiry: "Avviso speciale \u2014 Estinzione anticipata",
+    expiry_notice: "Il diritto di recesso si estingue anticipatamente se l'utente:<br><br>(1) ha espressamente acconsentito a che il fornitore inizi l'esecuzione del contratto prima della scadenza del periodo di recesso, e<br><br>(2) ha confermato di sapere che, dando il proprio consenso, perde il diritto di recesso con l'inizio dell'esecuzione del contratto.<br><br>L'esecuzione inizia con l'attivazione della chiave di licenza.",
+    h_form: "Modello di modulo di recesso",
+    form_intro: "Se desidera recedere dal contratto, compili e restituisca il presente modulo:",
+    form_title: "// MODULO DI RECESSO",
+    form_declaration: "Con la presente io/noi (*) recedo/recediamo dal contratto da me/noi (*) stipulato per la fornitura del seguente contenuto digitale (*):",
+    field_license: "Modello di licenza:",
+    field_date: "Ordinato il / ricevuto il (*):",
+    field_name: "Nome del/dei consumatore/i:",
+    field_address: "Indirizzo del/dei consumatore/i:",
+    field_signature: "Firma (solo per modulo cartaceo):",
+    field_form_date: "Data:",
+    form_footnote: "(*) Cancellare la dicitura non pertinente.",
+    notice: "Stato: marzo 2026 \u2014 Questa politica di cancellazione \u00e8 conforme al modello legale ai sensi dell'allegato 1 all'art. 246a \u00a7 1 comma 2 frase 1 n. 1 EGBGB."
+  },
+  PT: {
+    page_title: "Pol\u00edtica de cancelamento \u2014 Holistic Coin Trainer",
+    back: "Voltar",
+    label: "VENDA \u00c0 DIST\u00c2NCIA \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "POL\u00cdTICA DE CANCELAMENTO",
+    h_right: "Direito de rescis\u00e3o",
+    right_p1: "O utilizador tem o direito de rescindir o presente contrato no prazo de catorze dias sem indicar os motivos. O prazo de rescis\u00e3o \u00e9 de catorze dias a partir da data da celebra\u00e7\u00e3o do contrato.",
+    right_p2: "Para exercer o seu direito de rescis\u00e3o, deve comunicar-nos a sua decis\u00e3o atrav\u00e9s de uma declara\u00e7\u00e3o inequ\u00edvoca (por exemplo, uma carta enviada por correio postal ou um e-mail). Dirija a sua rescis\u00e3o a:",
+    right_p3: "Para cumprir o prazo de rescis\u00e3o, basta enviar a comunica\u00e7\u00e3o do exerc\u00edcio do direito de rescis\u00e3o antes do termo do prazo.",
+    h_consequences: "Consequ\u00eancias da rescis\u00e3o",
+    consequences_p1: "Se rescindir o presente contrato, reembolsaremos todos os pagamentos recebidos sem demora injustificada e o mais tardar no prazo de catorze dias a contar do dia em que recebemos a notifica\u00e7\u00e3o da sua rescis\u00e3o.",
+    consequences_p2: "Para este reembolso, utilizaremos o mesmo meio de pagamento que utilizou na transa\u00e7\u00e3o original, salvo acordo expresso em contr\u00e1rio. Em nenhum caso lhe ser\u00e3o cobradas taxas por este reembolso.",
+    h_expiry: "Aviso especial \u2014 Extin\u00e7\u00e3o antecipada",
+    expiry_notice: "O direito de rescis\u00e3o extingue-se antecipadamente se o utilizador:<br><br>(1) tiver expressamente concordado que o prestador inicie a execu\u00e7\u00e3o do contrato antes do termo do prazo de rescis\u00e3o, e<br><br>(2) tiver confirmado o seu conhecimento de que, ao dar o seu consentimento, perde o seu direito de rescis\u00e3o com o in\u00edcio da execu\u00e7\u00e3o do contrato.<br><br>A execu\u00e7\u00e3o tem in\u00edcio com a ativa\u00e7\u00e3o da chave de licen\u00e7a.",
+    h_form: "Modelo de formul\u00e1rio de rescis\u00e3o",
+    form_intro: "Se pretender rescindir o contrato, preencha e devolva este formul\u00e1rio:",
+    form_title: "// FORMUL\u00c1RIO DE RESCIS\u00c3O",
+    form_declaration: "Pela presente, eu/n\u00f3s (*) rescindo/rescindimos o contrato celebrado por mim/n\u00f3s (*) para o fornecimento do seguinte conte\u00fado digital (*):",
+    field_license: "Modelo de licen\u00e7a:",
+    field_date: "Encomendado em / recebido em (*):",
+    field_name: "Nome do(s) consumidor(es):",
+    field_address: "Morada do(s) consumidor(es):",
+    field_signature: "Assinatura (apenas em formato papel):",
+    field_form_date: "Data:",
+    form_footnote: "(*) Riscar o que n\u00e3o se aplica.",
+    notice: "Estado: mar\u00e7o 2026 \u2014 Esta pol\u00edtica de cancelamento cumpre o modelo legal nos termos do anexo 1 do art. 246a \u00a7 1 par\u00e1grafo 2 frase 1 n.\u00ba 1 EGBGB."
+  },
+  JA: {
+    page_title: "\u89e3\u7d04\u30fb\u8fd4\u91d1\u30dd\u30ea\u30b7\u30fc \u2014 Holistic Coin Trainer",
+    back: "\u623b\u308b",
+    label: "\u901a\u4fe1\u8ca9\u58f2\u6cd5 \u00b7 \u00a7\u00a7 312g, 356 BGB",
+    title: "\u89e3\u7d04\u30fb\u8fd4\u91d1\u30dd\u30ea\u30b7\u30fc",
+    h_right: "\u89e3\u7d04\u6a29",
+    right_p1: "\u304a\u5ba2\u69d8\u306f\u3001\u7406\u7531\u3092\u793a\u3059\u3053\u3068\u306a\u304f\u300114\u65e5\u4ee5\u5185\u306b\u672c\u5951\u7d04\u3092\u89e3\u7d04\u3059\u308b\u6a29\u5229\u3092\u6709\u3057\u307e\u3059\u3002\u89e3\u7d04\u671f\u9593\u306f\u5951\u7d04\u7de0\u7d50\u65e5\u304b\u308914\u65e5\u9593\u3067\u3059\u3002",
+    right_p2: "\u89e3\u7d04\u6a29\u3092\u884c\u4f7f\u3059\u308b\u306b\u306f\u3001\u660e\u78ba\u306a\u610f\u601d\u8868\u793a\uff08\u4f8b\u3048\u3070\u90f5\u9001\u306b\u3088\u308b\u66f8\u9762\u307e\u305f\u306f\u30e1\u30fc\u30eb\uff09\u306b\u3088\u308a\u3001\u672c\u5951\u7d04\u3092\u89e3\u7d04\u3059\u308b\u65e8\u3092\u304a\u77e5\u3089\u305b\u304f\u3060\u3055\u3044\u3002\u89e3\u7d04\u306e\u9023\u7d61\u5148:",
+    right_p3: "\u89e3\u7d04\u671f\u9650\u3092\u9075\u5b88\u3059\u308b\u305f\u3081\u306b\u306f\u3001\u89e3\u7d04\u6a29\u884c\u4f7f\u306e\u901a\u77e5\u3092\u89e3\u7d04\u671f\u9650\u306e\u6e80\u4e86\u524d\u306b\u9001\u4ed8\u3059\u308c\u3070\u5341\u5206\u3067\u3059\u3002",
+    h_consequences: "\u89e3\u7d04\u306e\u7d50\u679c",
+    consequences_p1: "\u672c\u5951\u7d04\u3092\u89e3\u7d04\u3055\u308c\u305f\u5834\u5408\u3001\u304a\u5ba2\u69d8\u304b\u3089\u53d7\u3051\u53d6\u3063\u305f\u3059\u3079\u3066\u306e\u652f\u6255\u3044\u3092\u3001\u89e3\u7d04\u901a\u77e5\u3092\u53d7\u3051\u53d6\u3063\u305f\u65e5\u304b\u308914\u65e5\u4ee5\u5185\u306b\u904e\u5ea6\u306e\u9045\u5ef6\u306a\u304f\u8fd4\u91d1\u3044\u305f\u3057\u307e\u3059\u3002",
+    consequences_p2: "\u8fd4\u91d1\u306b\u306f\u3001\u5143\u306e\u53d6\u5f15\u3067\u4f7f\u7528\u3055\u308c\u305f\u306e\u3068\u540c\u3058\u652f\u6255\u3044\u65b9\u6cd5\u3092\u4f7f\u7528\u3057\u307e\u3059\uff08\u5225\u9014\u660e\u793a\u7684\u306b\u5408\u610f\u3055\u308c\u305f\u5834\u5408\u3092\u9664\u304f\uff09\u3002\u3044\u304b\u306a\u308b\u5834\u5408\u3082\u3001\u8fd4\u91d1\u306b\u4f34\u3046\u624b\u6570\u6599\u306f\u304b\u304b\u308a\u307e\u305b\u3093\u3002",
+    h_expiry: "\u7279\u5225\u306a\u304a\u77e5\u3089\u305b \u2014 \u65e9\u671f\u5931\u52b9",
+    expiry_notice: "\u89e3\u7d04\u6a29\u306f\u3001\u4ee5\u4e0b\u306e\u5834\u5408\u306b\u65e9\u671f\u306b\u5931\u52b9\u3057\u307e\u3059\uff1a<br><br>(1) \u30e6\u30fc\u30b6\u30fc\u304c\u3001\u89e3\u7d04\u671f\u9593\u306e\u6e80\u4e86\u524d\u306b\u63d0\u4f9b\u8005\u304c\u5951\u7d04\u306e\u5c65\u884c\u3092\u958b\u59cb\u3059\u308b\u3053\u3068\u306b\u660e\u793a\u7684\u306b\u540c\u610f\u3057\u305f\u5834\u5408\u3001\u304b\u3064<br><br>(2) \u540c\u610f\u3059\u308b\u3053\u3068\u306b\u3088\u308a\u3001\u5951\u7d04\u5c65\u884c\u306e\u958b\u59cb\u3068\u3068\u3082\u306b\u89e3\u7d04\u6a29\u304c\u5931\u308f\u308c\u308b\u3053\u3068\u3092\u78ba\u8a8d\u3057\u305f\u5834\u5408\u3002<br><br>\u5c65\u884c\u306f\u30e9\u30a4\u30bb\u30f3\u30b9\u30ad\u30fc\u306e\u6709\u52b9\u5316\u3092\u3082\u3063\u3066\u958b\u59cb\u3055\u308c\u307e\u3059\u3002",
+    h_form: "\u89e3\u7d04\u30d5\u30a9\u30fc\u30e0\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8",
+    form_intro: "\u5951\u7d04\u3092\u89e3\u7d04\u3055\u308c\u308b\u5834\u5408\u306f\u3001\u672c\u30d5\u30a9\u30fc\u30e0\u306b\u8a18\u5165\u306e\u4e0a\u3001\u3054\u8fd4\u9001\u304f\u3060\u3055\u3044\uff1a",
+    form_title: "// \u89e3\u7d04\u30d5\u30a9\u30fc\u30e0",
+    form_declaration: "\u79c1/\u79c1\u305f\u3061(*)\u306f\u3001\u4ee5\u4e0b\u306e\u30c7\u30b8\u30bf\u30eb\u30b3\u30f3\u30c6\u30f3\u30c4(*)\u306e\u63d0\u4f9b\u306b\u95a2\u3057\u3066\u79c1/\u79c1\u305f\u3061(*)\u304c\u7de0\u7d50\u3057\u305f\u5951\u7d04\u3092\u89e3\u7d04\u3057\u307e\u3059\uff1a",
+    field_license: "\u30e9\u30a4\u30bb\u30f3\u30b9\u30e2\u30c7\u30eb:",
+    field_date: "\u6ce8\u6587\u65e5 / \u53d7\u9818\u65e5 (*):",
+    field_name: "\u6d88\u8cbb\u8005\u6c0f\u540d:",
+    field_address: "\u6d88\u8cbb\u8005\u4f4f\u6240:",
+    field_signature: "\u7f72\u540d\uff08\u66f8\u9762\u306e\u5834\u5408\u306e\u307f\uff09:",
+    field_form_date: "\u65e5\u4ed8:",
+    form_footnote: "(*) \u8a72\u5f53\u3057\u306a\u3044\u3082\u306e\u3092\u524a\u9664\u3057\u3066\u304f\u3060\u3055\u3044\u3002",
+    notice: "\u73fe\u5728: 2026\u5e743\u6708 \u2014 \u672c\u89e3\u7d04\u30dd\u30ea\u30b7\u30fc\u306f\u3001EGBGB\u7b2c246a\u6761\u00a71\u7b2c2\u9805\u7b2c1\u6587\u7b2c1\u53f7\u306e\u4ed8\u5c5e\u66f81\u306b\u57fa\u3065\u304f\u6cd5\u5b9a\u30c6\u30f3\u30d7\u30ec\u30fc\u30c8\u306b\u6e96\u62e0\u3057\u3066\u3044\u307e\u3059\u3002"
+  }
+};
+
+function applyLang(lang) {
+  const tr = T[lang] || T.DE;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (tr[k]) el.textContent = tr[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (tr[k]) el.innerHTML = tr[k];
+  });
+  if (tr.page_title) document.title = tr.page_title;
+  document.documentElement.lang = lang.toLowerCase();
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let lang = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : null;
+  if (!lang) { try { lang = localStorage.getItem('hct_lang'); } catch(e) {} }
+  if (!lang) {
+    const bl = (navigator.language || '').split('-')[0].toUpperCase();
+    lang = T[bl] ? bl : 'DE';
+  }
+  applyLang(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+});
+</script>
 </body>
 </html>

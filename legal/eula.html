@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>EULA — Holistic Coin Trainer</title>
+  <title data-i18n="page_title">EULA — Holistic Coin Trainer</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
@@ -48,6 +48,31 @@
     }
     .logo span { color: var(--gold); }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--gray);
+      font-family: var(--font);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--gold-dim); border-color: var(--border); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,215,0,0.06); }
+
     .back-link {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -56,7 +81,7 @@
       transition: color 0.2s;
     }
     .back-link:hover { color: var(--gold-dim); }
-    .back-link::before { content: "← "; }
+    .back-link::before { content: "\2190  "; }
 
     /* ── MAIN ───────────────────────────────────────────────── */
     main {
@@ -152,8 +177,9 @@
     }
 
     @media (max-width: 600px) {
-      header { padding: 16px 20px; }
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
       main   { padding: 40px 20px 60px; }
+      .header-right { gap: 12px; }
     }
   </style>
 </head>
@@ -161,171 +187,182 @@
 
   <header>
     <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
-    <a href="../index.html" class="back-link">Zurück</a>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="DE">DE</button>
+        <button class="lang-btn" data-lang="EN">EN</button>
+        <button class="lang-btn" data-lang="FR">FR</button>
+        <button class="lang-btn" data-lang="ES">ES</button>
+        <button class="lang-btn" data-lang="IT">IT</button>
+        <button class="lang-btn" data-lang="PT">PT</button>
+        <button class="lang-btn" data-lang="JA">JA</button>
+      </div>
+      <a href="../index.html" class="back-link" data-i18n="back">Zur&uuml;ck</a>
+    </div>
   </header>
 
   <main>
-    <div class="page-label">EULA · Stand März 2026</div>
-    <h1>ENDNUTZER-LIZENZ&shy;VEREINBARUNG</h1>
+    <div class="page-label" data-i18n="label">EULA &middot; Stand M&auml;rz 2026</div>
+    <h1 data-i18n="title">ENDNUTZER-LIZENZ&shy;VEREINBARUNG</h1>
 
     <section>
-      <h2>1. Lizenzgegenstand</h2>
-      <p>
+      <h2 data-i18n="h_s1">1. Lizenzgegenstand</h2>
+      <p data-i18n="s1_p1">
         Diese Endnutzer-Lizenzvereinbarung (EULA) regelt die Nutzung der Software
-        „Holistic Coin Trainer" (nachfolgend „Software"), bereitgestellt von:
+        &bdquo;Holistic Coin Trainer&ldquo; (nachfolgend &bdquo;Software&ldquo;), bereitgestellt von:
       </p>
       <p>
         Stefan Laackman<br>
-        Torstraße 68, 10119 Berlin<br>
+        Torstra&szlig;e 68, 10119 Berlin<br>
         E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>
       </p>
-      <p>
-        Mit der Installation und Nutzung der Software erklärt sich der Nutzer
+      <p data-i18n="s1_p2">
+        Mit der Installation und Nutzung der Software erkl&auml;rt sich der Nutzer
         mit den Bedingungen dieser EULA einverstanden. Stimmt der Nutzer nicht
         zu, darf die Software nicht installiert oder verwendet werden.
       </p>
     </section>
 
     <section>
-      <h2>2. Lizenzumfang</h2>
-      <p>
-        Der Nutzer erhält eine einfache, nicht-exklusive, nicht übertragbare
+      <h2 data-i18n="h_s2">2. Lizenzumfang</h2>
+      <p data-i18n="s2_p1">
+        Der Nutzer erh&auml;lt eine einfache, nicht-exklusive, nicht &uuml;bertragbare
         und widerrufliche Lizenz zur Nutzung der Software. Die 1-Jahres-Lizenz
         und die 3-Jahres-Lizenz berechtigen zur Nutzung auf bis zu zwei (2)
-        Geräten (macOS, Windows oder Linux). Die Lifetime-Lizenz berechtigt zur Nutzung auf einem (1)
-        Gerät (macOS, Windows oder Linux).
+        Ger&auml;ten (macOS, Windows oder Linux). Die Lifetime-Lizenz berechtigt zur Nutzung auf einem (1)
+        Ger&auml;t (macOS, Windows oder Linux).
       </p>
-      <p>(2) Die Lizenz umfasst:</p>
+      <p data-i18n="s2_p2">(2) Die Lizenz umfasst:</p>
       <ul>
-        <li>Installation und Ausführung der Software</li>
-        <li>Erstellung von KI-gestützten Analyse-Reports zu Lernzwecken</li>
-        <li>Nutzung des interaktiven Lernmodus (PRIMER)</li>
-        <li>Nutzung des DCA-Denklabors zu Lernzwecken</li>
-        <li>Nutzung des Analyse-Profils</li>
-        <li>Lokale Speicherung von Reports in der Datenbank</li>
-        <li>Export von Reports als PDF oder Markdown</li>
+        <li data-i18n="s2_li1">Installation und Ausf&uuml;hrung der Software</li>
+        <li data-i18n="s2_li2">Erstellung von KI-gest&uuml;tzten Analyse-Reports zu Lernzwecken</li>
+        <li data-i18n="s2_li3">Nutzung des interaktiven Lernmodus (PRIMER)</li>
+        <li data-i18n="s2_li4">Nutzung des DCA-Denklabors zu Lernzwecken</li>
+        <li data-i18n="s2_li5">Nutzung des Analyse-Profils</li>
+        <li data-i18n="s2_li6">Lokale Speicherung von Reports in der Datenbank</li>
+        <li data-i18n="s2_li7">Export von Reports als PDF oder Markdown</li>
       </ul>
-      <p>(3) Die Lizenz umfasst ausdrücklich nicht:</p>
+      <p data-i18n="s2_p3">(3) Die Lizenz umfasst ausdr&uuml;cklich nicht:</p>
       <ul>
-        <li>Reverse Engineering, Dekompilierung oder Disassemblierung</li>
-        <li>Weitergabe, Vervielfältigung oder Redistribution der Software</li>
-        <li>Kommerzielle Nutzung oder Weitergabe generierter Reports</li>
-        <li>Modifikation des Prompt-Systems oder der Analyse-Engine</li>
-        <li>Nutzung in ausgeschlossenen Jurisdiktionen (USA, Kanada, UK, China, Russland)</li>
+        <li data-i18n="s2_li8">Reverse Engineering, Dekompilierung oder Disassemblierung</li>
+        <li data-i18n="s2_li9">Weitergabe, Vervielf&auml;ltigung oder Redistribution der Software</li>
+        <li data-i18n="s2_li10">Kommerzielle Nutzung oder Weitergabe generierter Reports</li>
+        <li data-i18n="s2_li11">Modifikation des Prompt-Systems oder der Analyse-Engine</li>
+        <li data-i18n="s2_li12">Nutzung in ausgeschlossenen Jurisdiktionen (USA, Kanada, UK, China, Russland)</li>
       </ul>
     </section>
 
     <section>
-      <h2>3. Bildungszweck</h2>
-      <p>
-        (1) Die Software dient ausschließlich Bildungs- und Lernzwecken. Sie ist
-        ausdrücklich keine der folgenden regulierten Dienstleistungen:
+      <h2 data-i18n="h_s3">3. Bildungszweck</h2>
+      <p data-i18n="s3_p1">
+        (1) Die Software dient ausschlie&szlig;lich Bildungs- und Lernzwecken. Sie ist
+        ausdr&uuml;cklich keine der folgenden regulierten Dienstleistungen:
       </p>
       <ul>
-        <li>Anlageberatung im Sinne von § 2 Abs. 8 Nr. 10 WpHG</li>
-        <li>Finanzportfolioverwaltung</li>
-        <li>Steuerberatung im Sinne des StBerG</li>
-        <li>Beratung zu Kryptowerten im Sinne von Art. 3 Abs. 1 Nr. 25 MiCA (Verordnung (EU) 2023/1114)</li>
+        <li data-i18n="s3_li1">Anlageberatung im Sinne von &sect; 2 Abs. 8 Nr. 10 WpHG</li>
+        <li data-i18n="s3_li2">Finanzportfolioverwaltung</li>
+        <li data-i18n="s3_li3">Steuerberatung im Sinne des StBerG</li>
+        <li data-i18n="s3_li4">Beratung zu Kryptowerten im Sinne von Art. 3 Abs. 1 Nr. 25 MiCA (Verordnung (EU) 2023/1114)</li>
       </ul>
-      <p>
-        (2) Dies gilt für sämtliche Funktionsbereiche der Software, insbesondere:
-        Analyse-Reports, DCA-Szenarien, DCA-Denklabor, interaktive Lerngespräche
+      <p data-i18n="s3_p2">
+        (2) Dies gilt f&uuml;r s&auml;mtliche Funktionsbereiche der Software, insbesondere:
+        Analyse-Reports, DCA-Szenarien, DCA-Denklabor, interaktive Lerngespr&auml;che
         im PRIMER sowie das Analyse-Profil.
       </p>
-      <p>
-        (3) Der dialogische Charakter des PRIMER — einschließlich namentlicher
+      <p data-i18n="s3_p3">
+        (3) Der dialogische Charakter des PRIMER &mdash; einschlie&szlig;lich namentlicher
         Ansprache, Bezugnahme auf vergangene Analysen und personalisiertem
-        Feedback — begründet kein individuelles Beratungsverhältnis. Der PRIMER
+        Feedback &mdash; begr&uuml;ndet kein individuelles Beratungsverh&auml;ltnis. Der PRIMER
         ist ein automatisiertes Lernsystem auf Basis vorprogrammierter
         KI-Modelle.
       </p>
-      <p>
+      <p data-i18n="s3_p4">
         (4) DCA-Szenarien und DCA-Denklabor-Simulationen verwenden fiktive
-        „Lerneinheiten" (LE) ohne Bezug zu echtem Geld.
+        &bdquo;Lerneinheiten&ldquo; (LE) ohne Bezug zu echtem Geld.
       </p>
-      <div class="notice">
+      <div class="notice" data-i18n="s3_notice">
         Die Software stellt keine professionelle Anlage-, Finanz- oder
-        Steuerberatung dar. Alle Inhalte — einschließlich PRIMER-Lerngespräche
-        und DCA-Denklabor-Simulationen — dienen dem Lernzweck und der
-        persönlichen Weiterbildung.
+        Steuerberatung dar. Alle Inhalte &mdash; einschlie&szlig;lich PRIMER-Lerngespr&auml;che
+        und DCA-Denklabor-Simulationen &mdash; dienen dem Lernzweck und der
+        pers&ouml;nlichen Weiterbildung.
       </div>
     </section>
 
     <section>
-      <h2>4. Technische Voraussetzungen</h2>
-      <p>
-        (1) Die Nutzung der Software setzt einen eigenen API-Schlüssel des
-        Anbieters Anthropic voraus. Die API-Kosten trägt der Nutzer selbst
+      <h2 data-i18n="h_s4">4. Technische Voraussetzungen</h2>
+      <p data-i18n="s4_p1">
+        (1) Die Nutzung der Software setzt einen eigenen API-Schl&uuml;ssel des
+        Anbieters Anthropic voraus. Die API-Kosten tr&auml;gt der Nutzer selbst
         und sind nicht im Lizenzpreis enthalten.
       </p>
-      <p>
-        (2) Die API-Kosten betragen ca. $0,50–$8,00 pro Analyse (abhängig
-        vom gewählten Modell) sowie ca. $0,01–$0,15 pro PRIMER-Interaktion
-        (einzelner Nachrichtenaustausch). Eine vollständige Lernsitzung mit
-        mehreren Interaktionen kann entsprechend höhere Kosten verursachen.
+      <p data-i18n="s4_p2">
+        (2) Die API-Kosten betragen ca. $0,50&ndash;$8,00 pro Analyse (abh&auml;ngig
+        vom gew&auml;hlten Modell) sowie ca. $0,01&ndash;$0,15 pro PRIMER-Interaktion
+        (einzelner Nachrichtenaustausch). Eine vollst&auml;ndige Lernsitzung mit
+        mehreren Interaktionen kann entsprechend h&ouml;here Kosten verursachen.
       </p>
-      <p>
-        Die Verfügbarkeit der Drittanbieter-Dienste (Anthropic API,
+      <p data-i18n="s4_p3">
+        Die Verf&uuml;gbarkeit der Drittanbieter-Dienste (Anthropic API,
         CoinGecko API) wird vom Anbieter der Software nicht garantiert.
-        Ausfälle oder Änderungen dieser Dienste liegen außerhalb des
+        Ausf&auml;lle oder &Auml;nderungen dieser Dienste liegen au&szlig;erhalb des
         Einflussbereichs des Anbieters.
       </p>
     </section>
 
     <section>
-      <h2>5. Gewährleistung &amp; Haftung</h2>
-      <p>
+      <h2 data-i18n="h_s5">5. Gew&auml;hrleistung &amp; Haftung</h2>
+      <p data-i18n="s5_p1">
         (1) Die Software wird in der jeweils aktuellen Version bereitgestellt.
-        Die gesetzlichen Mängelgewährleistungsrechte bleiben unberührt.
-        Darüber hinausgehende Garantien werden nicht übernommen. Eine Gewähr
-        für die inhaltliche Richtigkeit der KI-generierten Inhalte wird nicht
-        übernommen, da diese von Drittanbieter-KI-Systemen erzeugt werden.
-        Dies gilt für Analyse-Reports, PRIMER-Lerngespräche,
-        DCA-Denklabor-Simulationen und das Analyse-Profil gleichermaßen.
+        Die gesetzlichen M&auml;ngelgew&auml;hrleistungsrechte bleiben unber&uuml;hrt.
+        Dar&uuml;ber hinausgehende Garantien werden nicht &uuml;bernommen. Eine Gew&auml;hr
+        f&uuml;r die inhaltliche Richtigkeit der KI-generierten Inhalte wird nicht
+        &uuml;bernommen, da diese von Drittanbieter-KI-Systemen erzeugt werden.
+        Dies gilt f&uuml;r Analyse-Reports, PRIMER-Lerngespr&auml;che,
+        DCA-Denklabor-Simulationen und das Analyse-Profil gleicherma&szlig;en.
       </p>
-      <p>
-        (2) Personalisierte Rückmeldungen im PRIMER (Bezugnahme auf analysierte
-        Coins, Einschätzungstendenzen) stellen keine individuelle Finanz- oder
-        Anlageberatung dar. Die Einschätzungs-Statistik im Analyse-Profil
-        vergleicht die Einordnungen des Nutzers mit dem Framework — sie
-        bewertet nicht die Qualität von Anlageentscheidungen.
+      <p data-i18n="s5_p2">
+        (2) Personalisierte R&uuml;ckmeldungen im PRIMER (Bezugnahme auf analysierte
+        Coins, Einsch&auml;tzungstendenzen) stellen keine individuelle Finanz- oder
+        Anlageberatung dar. Die Einsch&auml;tzungs-Statistik im Analyse-Profil
+        vergleicht die Einordnungen des Nutzers mit dem Framework &mdash; sie
+        bewertet nicht die Qualit&auml;t von Anlageentscheidungen.
       </p>
-      <p>
-        Die Haftung richtet sich im Übrigen nach den Regelungen in § 5 der
-        <a href="agb.html">Allgemeinen Geschäftsbedingungen</a>.
+      <p data-i18n-html="s5_p3">
+        Die Haftung richtet sich im &Uuml;brigen nach den Regelungen in &sect; 5 der
+        <a href="agb.html">Allgemeinen Gesch&auml;ftsbedingungen</a>.
       </p>
     </section>
 
     <section>
-      <h2>6. Laufzeit &amp; Beendigung</h2>
-      <p>
+      <h2 data-i18n="h_s6">6. Laufzeit &amp; Beendigung</h2>
+      <p data-i18n="s6_p1">
         Die Laufzeit der Lizenz richtet sich nach dem erworbenen Lizenzmodell.
-        Der Anbieter ist berechtigt, die Lizenz bei Verstößen gegen diese
+        Der Anbieter ist berechtigt, die Lizenz bei Verst&ouml;&szlig;en gegen diese
         EULA mit sofortiger Wirkung zu beenden, insbesondere bei:
       </p>
       <ul>
-        <li>Nutzung in ausgeschlossenen Jurisdiktionen</li>
-        <li>Reverse Engineering oder Manipulation der Software</li>
-        <li>Kommerzielle Verwertung der generierten Inhalte</li>
-        <li>Weitergabe oder Redistribution der Software</li>
+        <li data-i18n="s6_li1">Nutzung in ausgeschlossenen Jurisdiktionen</li>
+        <li data-i18n="s6_li2">Reverse Engineering oder Manipulation der Software</li>
+        <li data-i18n="s6_li3">Kommerzielle Verwertung der generierten Inhalte</li>
+        <li data-i18n="s6_li4">Weitergabe oder Redistribution der Software</li>
       </ul>
-      <p>
-        Bereits generierte Reports verbleiben beim Nutzer und können
-        weiterhin für den persönlichen Lerngebrauch genutzt werden.
+      <p data-i18n="s6_p2">
+        Bereits generierte Reports verbleiben beim Nutzer und k&ouml;nnen
+        weiterhin f&uuml;r den pers&ouml;nlichen Lerngebrauch genutzt werden.
       </p>
     </section>
 
     <section>
-      <h2>7. Anwendbares Recht</h2>
-      <p>
+      <h2 data-i18n="h_s7">7. Anwendbares Recht</h2>
+      <p data-i18n-html="s7_p1">
         Es gilt das Recht der Bundesrepublik Deutschland. Die
-        <a href="agb.html">Allgemeinen Geschäftsbedingungen</a> gelten
-        ergänzend.
+        <a href="agb.html">Allgemeinen Gesch&auml;ftsbedingungen</a> gelten
+        erg&auml;nzend.
       </p>
     </section>
 
-    <div class="notice">
-      Stand: März 2026 — Diese EULA wird bei wesentlichen Änderungen
+    <div class="notice" data-i18n="notice">
+      Stand: M&auml;rz 2026 &mdash; Diese EULA wird bei wesentlichen &Auml;nderungen
       aktualisiert. Die jeweils aktuelle Fassung ist unter
       holisticcointrainer.com/legal/eula.html abrufbar.
     </div>
@@ -335,5 +372,411 @@
     &gt; holisticcointrainer.com &nbsp;//&nbsp; 2026
   </footer>
 
+<script>
+const T = {
+  DE: {
+    page_title: "EULA \u2014 Holistic Coin Trainer",
+    back: "Zur\u00fcck",
+    label: "EULA \u00b7 Stand M\u00e4rz 2026",
+    title: "ENDNUTZER-LIZENZVEREINBARUNG",
+    h_s1: "1. Lizenzgegenstand",
+    s1_p1: "Diese Endnutzer-Lizenzvereinbarung (EULA) regelt die Nutzung der Software \u201eHolistic Coin Trainer\u201c (nachfolgend \u201eSoftware\u201c), bereitgestellt von:",
+    s1_p2: "Mit der Installation und Nutzung der Software erkl\u00e4rt sich der Nutzer mit den Bedingungen dieser EULA einverstanden. Stimmt der Nutzer nicht zu, darf die Software nicht installiert oder verwendet werden.",
+    h_s2: "2. Lizenzumfang",
+    s2_p1: "Der Nutzer erh\u00e4lt eine einfache, nicht-exklusive, nicht \u00fcbertragbare und widerrufliche Lizenz zur Nutzung der Software. Die 1-Jahres-Lizenz und die 3-Jahres-Lizenz berechtigen zur Nutzung auf bis zu zwei (2) Ger\u00e4ten (macOS, Windows oder Linux). Die Lifetime-Lizenz berechtigt zur Nutzung auf einem (1) Ger\u00e4t (macOS, Windows oder Linux).",
+    s2_p2: "(2) Die Lizenz umfasst:",
+    s2_li1: "Installation und Ausf\u00fchrung der Software",
+    s2_li2: "Erstellung von KI-gest\u00fctzten Analyse-Reports zu Lernzwecken",
+    s2_li3: "Nutzung des interaktiven Lernmodus (PRIMER)",
+    s2_li4: "Nutzung des DCA-Denklabors zu Lernzwecken",
+    s2_li5: "Nutzung des Analyse-Profils",
+    s2_li6: "Lokale Speicherung von Reports in der Datenbank",
+    s2_li7: "Export von Reports als PDF oder Markdown",
+    s2_p3: "(3) Die Lizenz umfasst ausdr\u00fccklich nicht:",
+    s2_li8: "Reverse Engineering, Dekompilierung oder Disassemblierung",
+    s2_li9: "Weitergabe, Vervielf\u00e4ltigung oder Redistribution der Software",
+    s2_li10: "Kommerzielle Nutzung oder Weitergabe generierter Reports",
+    s2_li11: "Modifikation des Prompt-Systems oder der Analyse-Engine",
+    s2_li12: "Nutzung in ausgeschlossenen Jurisdiktionen (USA, Kanada, UK, China, Russland)",
+    h_s3: "3. Bildungszweck",
+    s3_p1: "(1) Die Software dient ausschlie\u00dflich Bildungs- und Lernzwecken. Sie ist ausdr\u00fccklich keine der folgenden regulierten Dienstleistungen:",
+    s3_li1: "Anlageberatung im Sinne von \u00a7 2 Abs. 8 Nr. 10 WpHG",
+    s3_li2: "Finanzportfolioverwaltung",
+    s3_li3: "Steuerberatung im Sinne des StBerG",
+    s3_li4: "Beratung zu Kryptowerten im Sinne von Art. 3 Abs. 1 Nr. 25 MiCA (Verordnung (EU) 2023/1114)",
+    s3_p2: "(2) Dies gilt f\u00fcr s\u00e4mtliche Funktionsbereiche der Software, insbesondere: Analyse-Reports, DCA-Szenarien, DCA-Denklabor, interaktive Lerngespr\u00e4che im PRIMER sowie das Analyse-Profil.",
+    s3_p3: "(3) Der dialogische Charakter des PRIMER \u2014 einschlie\u00dflich namentlicher Ansprache, Bezugnahme auf vergangene Analysen und personalisiertem Feedback \u2014 begr\u00fcndet kein individuelles Beratungsverh\u00e4ltnis. Der PRIMER ist ein automatisiertes Lernsystem auf Basis vorprogrammierter KI-Modelle.",
+    s3_p4: "(4) DCA-Szenarien und DCA-Denklabor-Simulationen verwenden fiktive \u201eLerneinheiten\u201c (LE) ohne Bezug zu echtem Geld.",
+    s3_notice: "Die Software stellt keine professionelle Anlage-, Finanz- oder Steuerberatung dar. Alle Inhalte \u2014 einschlie\u00dflich PRIMER-Lerngespr\u00e4che und DCA-Denklabor-Simulationen \u2014 dienen dem Lernzweck und der pers\u00f6nlichen Weiterbildung.",
+    h_s4: "4. Technische Voraussetzungen",
+    s4_p1: "(1) Die Nutzung der Software setzt einen eigenen API-Schl\u00fcssel des Anbieters Anthropic voraus. Die API-Kosten tr\u00e4gt der Nutzer selbst und sind nicht im Lizenzpreis enthalten.",
+    s4_p2: "(2) Die API-Kosten betragen ca. $0,50\u2013$8,00 pro Analyse (abh\u00e4ngig vom gew\u00e4hlten Modell) sowie ca. $0,01\u2013$0,15 pro PRIMER-Interaktion (einzelner Nachrichtenaustausch). Eine vollst\u00e4ndige Lernsitzung mit mehreren Interaktionen kann entsprechend h\u00f6here Kosten verursachen.",
+    s4_p3: "Die Verf\u00fcgbarkeit der Drittanbieter-Dienste (Anthropic API, CoinGecko API) wird vom Anbieter der Software nicht garantiert. Ausf\u00e4lle oder \u00c4nderungen dieser Dienste liegen au\u00dferhalb des Einflussbereichs des Anbieters.",
+    h_s5: "5. Gew\u00e4hrleistung & Haftung",
+    s5_p1: "(1) Die Software wird in der jeweils aktuellen Version bereitgestellt. Die gesetzlichen M\u00e4ngelgew\u00e4hrleistungsrechte bleiben unber\u00fchrt. Dar\u00fcber hinausgehende Garantien werden nicht \u00fcbernommen. Eine Gew\u00e4hr f\u00fcr die inhaltliche Richtigkeit der KI-generierten Inhalte wird nicht \u00fcbernommen, da diese von Drittanbieter-KI-Systemen erzeugt werden. Dies gilt f\u00fcr Analyse-Reports, PRIMER-Lerngespr\u00e4che, DCA-Denklabor-Simulationen und das Analyse-Profil gleicherma\u00dfen.",
+    s5_p2: "(2) Personalisierte R\u00fcckmeldungen im PRIMER (Bezugnahme auf analysierte Coins, Einsch\u00e4tzungstendenzen) stellen keine individuelle Finanz- oder Anlageberatung dar. Die Einsch\u00e4tzungs-Statistik im Analyse-Profil vergleicht die Einordnungen des Nutzers mit dem Framework \u2014 sie bewertet nicht die Qualit\u00e4t von Anlageentscheidungen.",
+    s5_p3: "Die Haftung richtet sich im \u00dcbrigen nach den Regelungen in \u00a7 5 der <a href='agb.html'>Allgemeinen Gesch\u00e4ftsbedingungen</a>.",
+    h_s6: "6. Laufzeit & Beendigung",
+    s6_p1: "Die Laufzeit der Lizenz richtet sich nach dem erworbenen Lizenzmodell. Der Anbieter ist berechtigt, die Lizenz bei Verst\u00f6\u00dfen gegen diese EULA mit sofortiger Wirkung zu beenden, insbesondere bei:",
+    s6_li1: "Nutzung in ausgeschlossenen Jurisdiktionen",
+    s6_li2: "Reverse Engineering oder Manipulation der Software",
+    s6_li3: "Kommerzielle Verwertung der generierten Inhalte",
+    s6_li4: "Weitergabe oder Redistribution der Software",
+    s6_p2: "Bereits generierte Reports verbleiben beim Nutzer und k\u00f6nnen weiterhin f\u00fcr den pers\u00f6nlichen Lerngebrauch genutzt werden.",
+    h_s7: "7. Anwendbares Recht",
+    s7_p1: "Es gilt das Recht der Bundesrepublik Deutschland. Die <a href='agb.html'>Allgemeinen Gesch\u00e4ftsbedingungen</a> gelten erg\u00e4nzend.",
+    notice: "Stand: M\u00e4rz 2026 \u2014 Diese EULA wird bei wesentlichen \u00c4nderungen aktualisiert. Die jeweils aktuelle Fassung ist unter holisticcointrainer.com/legal/eula.html abrufbar."
+  },
+  EN: {
+    page_title: "EULA \u2014 Holistic Coin Trainer",
+    back: "Back",
+    label: "EULA \u00b7 As of March 2026",
+    title: "END USER LICENSE AGREEMENT",
+    h_s1: "1. Subject of the License",
+    s1_p1: "This End User License Agreement (EULA) governs the use of the software \u201cHolistic Coin Trainer\u201d (hereinafter \u201cSoftware\u201d), provided by:",
+    s1_p2: "By installing and using the Software, the user agrees to the terms of this EULA. If the user does not agree, the Software may not be installed or used.",
+    h_s2: "2. Scope of License",
+    s2_p1: "The user receives a simple, non-exclusive, non-transferable, and revocable license to use the Software. The 1-year license and the 3-year license entitle the user to use the Software on up to two (2) devices (macOS, Windows, or Linux). The lifetime license entitles the user to use the Software on one (1) device (macOS, Windows, or Linux).",
+    s2_p2: "(2) The license includes:",
+    s2_li1: "Installation and execution of the Software",
+    s2_li2: "Creation of AI-powered analysis reports for learning purposes",
+    s2_li3: "Use of the interactive learning mode (PRIMER)",
+    s2_li4: "Use of the DCA Thinking Lab for learning purposes",
+    s2_li5: "Use of the Analysis Profile",
+    s2_li6: "Local storage of reports in the database",
+    s2_li7: "Export of reports as PDF or Markdown",
+    s2_p3: "(3) The license expressly does not include:",
+    s2_li8: "Reverse engineering, decompilation, or disassembly",
+    s2_li9: "Redistribution, duplication, or sharing of the Software",
+    s2_li10: "Commercial use or sharing of generated reports",
+    s2_li11: "Modification of the prompt system or analysis engine",
+    s2_li12: "Use in excluded jurisdictions (USA, Canada, UK, China, Russia)",
+    h_s3: "3. Educational Purpose",
+    s3_p1: "(1) The Software is intended exclusively for educational and learning purposes. It is expressly none of the following regulated services:",
+    s3_li1: "Investment advice within the meaning of \u00a7 2 para. 8 no. 10 WpHG",
+    s3_li2: "Financial portfolio management",
+    s3_li3: "Tax advice within the meaning of the StBerG",
+    s3_li4: "Advice on crypto-assets within the meaning of Art. 3 para. 1 no. 25 MiCA (Regulation (EU) 2023/1114)",
+    s3_p2: "(2) This applies to all functional areas of the Software, in particular: analysis reports, DCA scenarios, DCA Thinking Lab, interactive learning conversations in PRIMER, and the Analysis Profile.",
+    s3_p3: "(3) The conversational nature of PRIMER \u2014 including personalized address, reference to past analyses, and personalized feedback \u2014 does not constitute an individual advisory relationship. PRIMER is an automated learning system based on pre-programmed AI models.",
+    s3_p4: "(4) DCA scenarios and DCA Thinking Lab simulations use fictitious \u201cLearning Units\u201d (LU) with no relation to real money.",
+    s3_notice: "The Software does not constitute professional investment, financial, or tax advice. All content \u2014 including PRIMER learning conversations and DCA Thinking Lab simulations \u2014 serves learning purposes and personal development.",
+    h_s4: "4. Technical Requirements",
+    s4_p1: "(1) Use of the Software requires the user\u2019s own API key from Anthropic. API costs are borne by the user and are not included in the license price.",
+    s4_p2: "(2) API costs are approximately $0.50\u2013$8.00 per analysis (depending on the selected model) and approximately $0.01\u2013$0.15 per PRIMER interaction (individual message exchange). A complete learning session with multiple interactions may incur correspondingly higher costs.",
+    s4_p3: "The availability of third-party services (Anthropic API, CoinGecko API) is not guaranteed by the Software provider. Outages or changes to these services are beyond the provider\u2019s control.",
+    h_s5: "5. Warranty & Liability",
+    s5_p1: "(1) The Software is provided in its current version. Statutory warranty rights remain unaffected. No further guarantees are provided. No guarantee is given for the accuracy of AI-generated content, as this is produced by third-party AI systems. This applies equally to analysis reports, PRIMER learning conversations, DCA Thinking Lab simulations, and the Analysis Profile.",
+    s5_p2: "(2) Personalized feedback in PRIMER (references to analyzed coins, assessment tendencies) does not constitute individual financial or investment advice. The assessment statistics in the Analysis Profile compare the user\u2019s assessments with the framework \u2014 they do not evaluate the quality of investment decisions.",
+    s5_p3: "Liability is otherwise governed by the provisions in \u00a7 5 of the <a href='agb.html'>Terms and Conditions</a>.",
+    h_s6: "6. Term & Termination",
+    s6_p1: "The term of the license is determined by the purchased license model. The provider is entitled to terminate the license with immediate effect in case of violations of this EULA, in particular:",
+    s6_li1: "Use in excluded jurisdictions",
+    s6_li2: "Reverse engineering or manipulation of the Software",
+    s6_li3: "Commercial exploitation of generated content",
+    s6_li4: "Redistribution or sharing of the Software",
+    s6_p2: "Previously generated reports remain with the user and may continue to be used for personal learning purposes.",
+    h_s7: "7. Applicable Law",
+    s7_p1: "The law of the Federal Republic of Germany applies. The <a href='agb.html'>Terms and Conditions</a> apply supplementarily.",
+    notice: "As of: March 2026 \u2014 This EULA will be updated in case of material changes. The current version is available at holisticcointrainer.com/legal/eula.html."
+  },
+  FR: {
+    page_title: "CLUF \u2014 Holistic Coin Trainer",
+    back: "Retour",
+    label: "CLUF \u00b7 \u00c9tat mars 2026",
+    title: "CONTRAT DE LICENCE UTILISATEUR FINAL",
+    h_s1: "1. Objet de la licence",
+    s1_p1: "Le pr\u00e9sent contrat de licence utilisateur final (CLUF) r\u00e9git l'utilisation du logiciel \u00ab Holistic Coin Trainer \u00bb (ci-apr\u00e8s \u00ab Logiciel \u00bb), fourni par :",
+    s1_p2: "En installant et en utilisant le Logiciel, l'utilisateur accepte les conditions du pr\u00e9sent CLUF. Si l'utilisateur n'accepte pas, le Logiciel ne peut \u00eatre install\u00e9 ni utilis\u00e9.",
+    h_s2: "2. \u00c9tendue de la licence",
+    s2_p1: "L'utilisateur re\u00e7oit une licence simple, non exclusive, non transf\u00e9rable et r\u00e9vocable pour utiliser le Logiciel. La licence 1 an et la licence 3 ans autorisent l'utilisation sur un maximum de deux (2) appareils (macOS, Windows ou Linux). La licence \u00e0 vie autorise l'utilisation sur un (1) appareil (macOS, Windows ou Linux).",
+    s2_p2: "(2) La licence comprend :",
+    s2_li1: "Installation et ex\u00e9cution du Logiciel",
+    s2_li2: "Cr\u00e9ation de rapports d'analyse assist\u00e9s par IA \u00e0 des fins d'apprentissage",
+    s2_li3: "Utilisation du mode d'apprentissage interactif (PRIMER)",
+    s2_li4: "Utilisation du laboratoire de r\u00e9flexion DCA \u00e0 des fins d'apprentissage",
+    s2_li5: "Utilisation du profil d'analyse",
+    s2_li6: "Stockage local des rapports dans la base de donn\u00e9es",
+    s2_li7: "Export des rapports en PDF ou Markdown",
+    s2_p3: "(3) La licence n'inclut express\u00e9ment pas :",
+    s2_li8: "R\u00e9tro-ing\u00e9nierie, d\u00e9compilation ou d\u00e9sassemblage",
+    s2_li9: "Redistribution, duplication ou partage du Logiciel",
+    s2_li10: "Utilisation commerciale ou partage des rapports g\u00e9n\u00e9r\u00e9s",
+    s2_li11: "Modification du syst\u00e8me de prompts ou du moteur d'analyse",
+    s2_li12: "Utilisation dans des juridictions exclues (\u00c9tats-Unis, Canada, Royaume-Uni, Chine, Russie)",
+    h_s3: "3. Finalit\u00e9 \u00e9ducative",
+    s3_p1: "(1) Le Logiciel est destin\u00e9 exclusivement \u00e0 des fins \u00e9ducatives et d'apprentissage. Il ne constitue express\u00e9ment aucun des services r\u00e9glement\u00e9s suivants :",
+    s3_li1: "Conseil en investissement au sens du \u00a7 2 al. 8 n\u00b0 10 WpHG",
+    s3_li2: "Gestion de portefeuille financier",
+    s3_li3: "Conseil fiscal au sens du StBerG",
+    s3_li4: "Conseil en crypto-actifs au sens de l'art. 3 al. 1 n\u00b0 25 MiCA (R\u00e8glement (UE) 2023/1114)",
+    s3_p2: "(2) Cela s'applique \u00e0 tous les domaines fonctionnels du Logiciel, notamment : rapports d'analyse, sc\u00e9narios DCA, laboratoire de r\u00e9flexion DCA, conversations d'apprentissage interactives dans PRIMER et le profil d'analyse.",
+    s3_p3: "(3) Le caract\u00e8re conversationnel du PRIMER \u2014 y compris l'interpellation personnalis\u00e9e, la r\u00e9f\u00e9rence aux analyses pass\u00e9es et le feedback personnalis\u00e9 \u2014 ne constitue pas une relation de conseil individuelle. Le PRIMER est un syst\u00e8me d'apprentissage automatis\u00e9 bas\u00e9 sur des mod\u00e8les d'IA pr\u00e9programm\u00e9s.",
+    s3_p4: "(4) Les sc\u00e9narios DCA et les simulations du laboratoire de r\u00e9flexion DCA utilisent des \u00ab unit\u00e9s d'apprentissage \u00bb (UA) fictives sans lien avec de l'argent r\u00e9el.",
+    s3_notice: "Le Logiciel ne constitue pas un conseil professionnel en investissement, en finance ou en fiscalit\u00e9. Tous les contenus \u2014 y compris les conversations d'apprentissage PRIMER et les simulations du laboratoire DCA \u2014 servent \u00e0 l'apprentissage et au d\u00e9veloppement personnel.",
+    h_s4: "4. Pr\u00e9requis techniques",
+    s4_p1: "(1) L'utilisation du Logiciel n\u00e9cessite une cl\u00e9 API propre \u00e0 l'utilisateur aupr\u00e8s d'Anthropic. Les co\u00fbts d'API sont \u00e0 la charge de l'utilisateur et ne sont pas inclus dans le prix de la licence.",
+    s4_p2: "(2) Les co\u00fbts d'API sont d'environ 0,50\u20138,00 $ par analyse (selon le mod\u00e8le choisi) et d'environ 0,01\u20130,15 $ par interaction PRIMER. Une session d'apprentissage compl\u00e8te avec plusieurs interactions peut entra\u00eener des co\u00fbts plus \u00e9lev\u00e9s.",
+    s4_p3: "La disponibilit\u00e9 des services tiers (API Anthropic, API CoinGecko) n'est pas garantie par le fournisseur du Logiciel. Les pannes ou modifications de ces services \u00e9chappent au contr\u00f4le du fournisseur.",
+    h_s5: "5. Garantie et responsabilit\u00e9",
+    s5_p1: "(1) Le Logiciel est fourni dans sa version actuelle. Les droits l\u00e9gaux de garantie restent inchang\u00e9s. Aucune garantie suppl\u00e9mentaire n'est fournie. Aucune garantie n'est donn\u00e9e quant \u00e0 l'exactitude des contenus g\u00e9n\u00e9r\u00e9s par l'IA. Cela s'applique aux rapports d'analyse, aux conversations PRIMER, aux simulations DCA et au profil d'analyse.",
+    s5_p2: "(2) Les retours personnalis\u00e9s dans PRIMER ne constituent pas un conseil financier ou en investissement individuel. Les statistiques du profil d'analyse comparent les \u00e9valuations de l'utilisateur avec le framework \u2014 elles n'\u00e9valuent pas la qualit\u00e9 des d\u00e9cisions d'investissement.",
+    s5_p3: "La responsabilit\u00e9 est par ailleurs r\u00e9gie par les dispositions du \u00a7 5 des <a href='agb.html'>conditions g\u00e9n\u00e9rales</a>.",
+    h_s6: "6. Dur\u00e9e et r\u00e9siliation",
+    s6_p1: "La dur\u00e9e de la licence d\u00e9pend du mod\u00e8le de licence acquis. Le fournisseur est en droit de r\u00e9silier la licence avec effet imm\u00e9diat en cas de violation du pr\u00e9sent CLUF, notamment en cas de :",
+    s6_li1: "Utilisation dans des juridictions exclues",
+    s6_li2: "R\u00e9tro-ing\u00e9nierie ou manipulation du Logiciel",
+    s6_li3: "Exploitation commerciale des contenus g\u00e9n\u00e9r\u00e9s",
+    s6_li4: "Redistribution ou partage du Logiciel",
+    s6_p2: "Les rapports d\u00e9j\u00e0 g\u00e9n\u00e9r\u00e9s restent chez l'utilisateur et peuvent continuer \u00e0 \u00eatre utilis\u00e9s \u00e0 des fins d'apprentissage personnel.",
+    h_s7: "7. Droit applicable",
+    s7_p1: "Le droit de la R\u00e9publique f\u00e9d\u00e9rale d'Allemagne s'applique. Les <a href='agb.html'>conditions g\u00e9n\u00e9rales</a> s'appliquent \u00e0 titre compl\u00e9mentaire.",
+    notice: "\u00c9tat : mars 2026 \u2014 Ce CLUF sera mis \u00e0 jour en cas de modifications substantielles. La version actuelle est disponible sur holisticcointrainer.com/legal/eula.html."
+  },
+  ES: {
+    page_title: "EULA \u2014 Holistic Coin Trainer",
+    back: "Volver",
+    label: "EULA \u00b7 Estado marzo 2026",
+    title: "ACUERDO DE LICENCIA DE USUARIO FINAL",
+    h_s1: "1. Objeto de la licencia",
+    s1_p1: "El presente acuerdo de licencia de usuario final (EULA) regula el uso del software \u00abHolistic Coin Trainer\u00bb (en adelante \u00abSoftware\u00bb), proporcionado por:",
+    s1_p2: "Al instalar y utilizar el Software, el usuario acepta los t\u00e9rminos de este EULA. Si el usuario no est\u00e1 de acuerdo, el Software no podr\u00e1 ser instalado ni utilizado.",
+    h_s2: "2. Alcance de la licencia",
+    s2_p1: "El usuario recibe una licencia simple, no exclusiva, intransferible y revocable para utilizar el Software. La licencia de 1 a\u00f1o y la de 3 a\u00f1os autorizan el uso en hasta dos (2) dispositivos (macOS, Windows o Linux). La licencia de por vida autoriza el uso en un (1) dispositivo (macOS, Windows o Linux).",
+    s2_p2: "(2) La licencia incluye:",
+    s2_li1: "Instalaci\u00f3n y ejecuci\u00f3n del Software",
+    s2_li2: "Creaci\u00f3n de informes de an\u00e1lisis asistidos por IA con fines de aprendizaje",
+    s2_li3: "Uso del modo de aprendizaje interactivo (PRIMER)",
+    s2_li4: "Uso del laboratorio de reflexi\u00f3n DCA con fines de aprendizaje",
+    s2_li5: "Uso del perfil de an\u00e1lisis",
+    s2_li6: "Almacenamiento local de informes en la base de datos",
+    s2_li7: "Exportaci\u00f3n de informes como PDF o Markdown",
+    s2_p3: "(3) La licencia expresamente no incluye:",
+    s2_li8: "Ingenier\u00eda inversa, descompilaci\u00f3n o desensamblaje",
+    s2_li9: "Redistribuci\u00f3n, duplicaci\u00f3n o compartir el Software",
+    s2_li10: "Uso comercial o compartir informes generados",
+    s2_li11: "Modificaci\u00f3n del sistema de prompts o del motor de an\u00e1lisis",
+    s2_li12: "Uso en jurisdicciones excluidas (EE. UU., Canad\u00e1, Reino Unido, China, Rusia)",
+    h_s3: "3. Finalidad educativa",
+    s3_p1: "(1) El Software est\u00e1 destinado exclusivamente a fines educativos y de aprendizaje. No constituye expresamente ninguno de los siguientes servicios regulados:",
+    s3_li1: "Asesoramiento de inversi\u00f3n en el sentido del \u00a7 2 ap. 8 n.\u00ba 10 WpHG",
+    s3_li2: "Gesti\u00f3n de carteras financieras",
+    s3_li3: "Asesoramiento fiscal en el sentido del StBerG",
+    s3_li4: "Asesoramiento sobre criptoactivos en el sentido del art. 3 ap. 1 n.\u00ba 25 MiCA (Reglamento (UE) 2023/1114)",
+    s3_p2: "(2) Esto se aplica a todas las \u00e1reas funcionales del Software: informes de an\u00e1lisis, escenarios DCA, laboratorio DCA, conversaciones de aprendizaje interactivas en PRIMER y el perfil de an\u00e1lisis.",
+    s3_p3: "(3) El car\u00e1cter conversacional del PRIMER \u2014 incluyendo el trato personalizado, la referencia a an\u00e1lisis pasados y la retroalimentaci\u00f3n personalizada \u2014 no constituye una relaci\u00f3n de asesoramiento individual. PRIMER es un sistema de aprendizaje automatizado basado en modelos de IA preprogramados.",
+    s3_p4: "(4) Los escenarios DCA y las simulaciones del laboratorio DCA utilizan \u00abUnidades de Aprendizaje\u00bb (UA) ficticias sin relaci\u00f3n con dinero real.",
+    s3_notice: "El Software no constituye asesoramiento profesional en inversi\u00f3n, finanzas o fiscalidad. Todos los contenidos \u2014 incluyendo las conversaciones de aprendizaje PRIMER y las simulaciones del laboratorio DCA \u2014 sirven para el aprendizaje y el desarrollo personal.",
+    h_s4: "4. Requisitos t\u00e9cnicos",
+    s4_p1: "(1) El uso del Software requiere una clave API propia del usuario de Anthropic. Los costes de API corren a cargo del usuario y no est\u00e1n incluidos en el precio de la licencia.",
+    s4_p2: "(2) Los costes de API son de aproximadamente $0,50\u2013$8,00 por an\u00e1lisis y de aproximadamente $0,01\u2013$0,15 por interacci\u00f3n PRIMER. Una sesi\u00f3n completa puede generar costes m\u00e1s elevados.",
+    s4_p3: "La disponibilidad de los servicios de terceros (API Anthropic, API CoinGecko) no est\u00e1 garantizada por el proveedor del Software.",
+    h_s5: "5. Garant\u00eda y responsabilidad",
+    s5_p1: "(1) El Software se proporciona en su versi\u00f3n actual. Los derechos de garant\u00eda legal no se ven afectados. No se proporcionan garant\u00edas adicionales. No se garantiza la exactitud del contenido generado por IA.",
+    s5_p2: "(2) La retroalimentaci\u00f3n personalizada en PRIMER no constituye asesoramiento financiero o de inversi\u00f3n individual. Las estad\u00edsticas del perfil de an\u00e1lisis comparan las evaluaciones del usuario con el framework \u2014 no eval\u00faan la calidad de las decisiones de inversi\u00f3n.",
+    s5_p3: "La responsabilidad se rige por las disposiciones del \u00a7 5 de los <a href='agb.html'>t\u00e9rminos y condiciones</a>.",
+    h_s6: "6. Vigencia y terminaci\u00f3n",
+    s6_p1: "La vigencia de la licencia depende del modelo de licencia adquirido. El proveedor tiene derecho a terminar la licencia con efecto inmediato en caso de violaciones de este EULA, en particular:",
+    s6_li1: "Uso en jurisdicciones excluidas",
+    s6_li2: "Ingenier\u00eda inversa o manipulaci\u00f3n del Software",
+    s6_li3: "Explotaci\u00f3n comercial del contenido generado",
+    s6_li4: "Redistribuci\u00f3n o compartir el Software",
+    s6_p2: "Los informes previamente generados permanecen con el usuario y pueden seguir utiliz\u00e1ndose para el aprendizaje personal.",
+    h_s7: "7. Derecho aplicable",
+    s7_p1: "Se aplica el derecho de la Rep\u00fablica Federal de Alemania. Los <a href='agb.html'>t\u00e9rminos y condiciones</a> se aplican de forma complementaria.",
+    notice: "Estado: marzo 2026 \u2014 Este EULA se actualizar\u00e1 en caso de cambios sustanciales. La versi\u00f3n actual est\u00e1 disponible en holisticcointrainer.com/legal/eula.html."
+  },
+  IT: {
+    page_title: "EULA \u2014 Holistic Coin Trainer",
+    back: "Indietro",
+    label: "EULA \u00b7 Stato marzo 2026",
+    title: "CONTRATTO DI LICENZA PER L'UTENTE FINALE",
+    h_s1: "1. Oggetto della licenza",
+    s1_p1: "Il presente contratto di licenza per l'utente finale (EULA) disciplina l'utilizzo del software \u00abHolistic Coin Trainer\u00bb (di seguito \u00abSoftware\u00bb), fornito da:",
+    s1_p2: "Installando e utilizzando il Software, l'utente accetta le condizioni del presente EULA. Se l'utente non accetta, il Software non pu\u00f2 essere installato n\u00e9 utilizzato.",
+    h_s2: "2. Ambito della licenza",
+    s2_p1: "L'utente riceve una licenza semplice, non esclusiva, non trasferibile e revocabile per l'utilizzo del Software. La licenza annuale e quella triennale autorizzano l'uso su un massimo di due (2) dispositivi (macOS, Windows o Linux). La licenza a vita autorizza l'uso su un (1) dispositivo (macOS, Windows o Linux).",
+    s2_p2: "(2) La licenza comprende:",
+    s2_li1: "Installazione ed esecuzione del Software",
+    s2_li2: "Creazione di report di analisi assistiti dall'IA a scopo di apprendimento",
+    s2_li3: "Utilizzo della modalit\u00e0 di apprendimento interattivo (PRIMER)",
+    s2_li4: "Utilizzo del laboratorio di riflessione DCA a scopo di apprendimento",
+    s2_li5: "Utilizzo del profilo di analisi",
+    s2_li6: "Archiviazione locale dei report nel database",
+    s2_li7: "Esportazione dei report in PDF o Markdown",
+    s2_p3: "(3) La licenza espressamente non include:",
+    s2_li8: "Reverse engineering, decompilazione o disassemblaggio",
+    s2_li9: "Ridistribuzione, duplicazione o condivisione del Software",
+    s2_li10: "Uso commerciale o condivisione dei report generati",
+    s2_li11: "Modifica del sistema di prompt o del motore di analisi",
+    s2_li12: "Utilizzo in giurisdizioni escluse (USA, Canada, Regno Unito, Cina, Russia)",
+    h_s3: "3. Finalit\u00e0 educativa",
+    s3_p1: "(1) Il Software \u00e8 destinato esclusivamente a scopi educativi e di apprendimento. Non costituisce espressamente nessuno dei seguenti servizi regolamentati:",
+    s3_li1: "Consulenza in materia di investimenti ai sensi del \u00a7 2 comma 8 n. 10 WpHG",
+    s3_li2: "Gestione di portafogli finanziari",
+    s3_li3: "Consulenza fiscale ai sensi dello StBerG",
+    s3_li4: "Consulenza su cripto-attivit\u00e0 ai sensi dell'art. 3 comma 1 n. 25 MiCA (Regolamento (UE) 2023/1114)",
+    s3_p2: "(2) Ci\u00f2 si applica a tutte le aree funzionali del Software: report di analisi, scenari DCA, laboratorio DCA, conversazioni di apprendimento interattive in PRIMER e il profilo di analisi.",
+    s3_p3: "(3) Il carattere conversazionale del PRIMER \u2014 incluso l'approccio personalizzato, il riferimento ad analisi passate e il feedback personalizzato \u2014 non costituisce un rapporto di consulenza individuale. PRIMER \u00e8 un sistema di apprendimento automatizzato basato su modelli IA preprogrammati.",
+    s3_p4: "(4) Gli scenari DCA e le simulazioni del laboratorio DCA utilizzano \u00abUnit\u00e0 di Apprendimento\u00bb (UA) fittizie senza relazione con denaro reale.",
+    s3_notice: "Il Software non costituisce consulenza professionale in materia di investimenti, finanza o fiscalit\u00e0. Tutti i contenuti \u2014 comprese le conversazioni PRIMER e le simulazioni del laboratorio DCA \u2014 servono all'apprendimento e allo sviluppo personale.",
+    h_s4: "4. Requisiti tecnici",
+    s4_p1: "(1) L'utilizzo del Software richiede una chiave API propria dell'utente da Anthropic. I costi dell'API sono a carico dell'utente e non sono inclusi nel prezzo della licenza.",
+    s4_p2: "(2) I costi dell'API sono di circa $0,50\u2013$8,00 per analisi e di circa $0,01\u2013$0,15 per interazione PRIMER. Una sessione completa pu\u00f2 comportare costi pi\u00f9 elevati.",
+    s4_p3: "La disponibilit\u00e0 dei servizi di terze parti (API Anthropic, API CoinGecko) non \u00e8 garantita dal fornitore del Software.",
+    h_s5: "5. Garanzia e responsabilit\u00e0",
+    s5_p1: "(1) Il Software viene fornito nella sua versione attuale. I diritti di garanzia legale restano impregiudicati. Non vengono fornite garanzie aggiuntive. Non si garantisce l'accuratezza dei contenuti generati dall'IA.",
+    s5_p2: "(2) I feedback personalizzati nel PRIMER non costituiscono consulenza finanziaria o di investimento individuale. Le statistiche del profilo di analisi confrontano le valutazioni dell'utente con il framework \u2014 non valutano la qualit\u00e0 delle decisioni di investimento.",
+    s5_p3: "La responsabilit\u00e0 \u00e8 per il resto disciplinata dalle disposizioni del \u00a7 5 delle <a href='agb.html'>condizioni generali</a>.",
+    h_s6: "6. Durata e risoluzione",
+    s6_p1: "La durata della licenza dipende dal modello di licenza acquistato. Il fornitore ha il diritto di risolvere la licenza con effetto immediato in caso di violazioni del presente EULA, in particolare in caso di:",
+    s6_li1: "Utilizzo in giurisdizioni escluse",
+    s6_li2: "Reverse engineering o manipolazione del Software",
+    s6_li3: "Sfruttamento commerciale dei contenuti generati",
+    s6_li4: "Ridistribuzione o condivisione del Software",
+    s6_p2: "I report precedentemente generati rimangono all'utente e possono continuare a essere utilizzati per l'apprendimento personale.",
+    h_s7: "7. Diritto applicabile",
+    s7_p1: "Si applica il diritto della Repubblica Federale di Germania. Le <a href='agb.html'>condizioni generali</a> si applicano in via integrativa.",
+    notice: "Stato: marzo 2026 \u2014 Il presente EULA verr\u00e0 aggiornato in caso di modifiche sostanziali. La versione attuale \u00e8 disponibile su holisticcointrainer.com/legal/eula.html."
+  },
+  PT: {
+    page_title: "EULA \u2014 Holistic Coin Trainer",
+    back: "Voltar",
+    label: "EULA \u00b7 Estado mar\u00e7o 2026",
+    title: "ACORDO DE LICEN\u00c7A DE UTILIZADOR FINAL",
+    h_s1: "1. Objeto da licen\u00e7a",
+    s1_p1: "O presente acordo de licen\u00e7a de utilizador final (EULA) regula a utiliza\u00e7\u00e3o do software \u00abHolistic Coin Trainer\u00bb (doravante \u00abSoftware\u00bb), fornecido por:",
+    s1_p2: "Ao instalar e utilizar o Software, o utilizador aceita os termos deste EULA. Se o utilizador n\u00e3o concordar, o Software n\u00e3o poder\u00e1 ser instalado nem utilizado.",
+    h_s2: "2. \u00c2mbito da licen\u00e7a",
+    s2_p1: "O utilizador recebe uma licen\u00e7a simples, n\u00e3o exclusiva, intransfer\u00edvel e revog\u00e1vel para utilizar o Software. A licen\u00e7a de 1 ano e a de 3 anos autorizam a utiliza\u00e7\u00e3o em at\u00e9 dois (2) dispositivos (macOS, Windows ou Linux). A licen\u00e7a vital\u00edcia autoriza a utiliza\u00e7\u00e3o num (1) dispositivo (macOS, Windows ou Linux).",
+    s2_p2: "(2) A licen\u00e7a inclui:",
+    s2_li1: "Instala\u00e7\u00e3o e execu\u00e7\u00e3o do Software",
+    s2_li2: "Cria\u00e7\u00e3o de relat\u00f3rios de an\u00e1lise assistidos por IA para fins de aprendizagem",
+    s2_li3: "Utiliza\u00e7\u00e3o do modo de aprendizagem interativo (PRIMER)",
+    s2_li4: "Utiliza\u00e7\u00e3o do laborat\u00f3rio de reflex\u00e3o DCA para fins de aprendizagem",
+    s2_li5: "Utiliza\u00e7\u00e3o do perfil de an\u00e1lise",
+    s2_li6: "Armazenamento local de relat\u00f3rios na base de dados",
+    s2_li7: "Exporta\u00e7\u00e3o de relat\u00f3rios como PDF ou Markdown",
+    s2_p3: "(3) A licen\u00e7a expressamente n\u00e3o inclui:",
+    s2_li8: "Engenharia reversa, descompila\u00e7\u00e3o ou desmontagem",
+    s2_li9: "Redistribui\u00e7\u00e3o, duplica\u00e7\u00e3o ou partilha do Software",
+    s2_li10: "Uso comercial ou partilha de relat\u00f3rios gerados",
+    s2_li11: "Modifica\u00e7\u00e3o do sistema de prompts ou do motor de an\u00e1lise",
+    s2_li12: "Utiliza\u00e7\u00e3o em jurisdi\u00e7\u00f5es exclu\u00eddas (EUA, Canad\u00e1, Reino Unido, China, R\u00fassia)",
+    h_s3: "3. Finalidade educativa",
+    s3_p1: "(1) O Software destina-se exclusivamente a fins educativos e de aprendizagem. N\u00e3o constitui expressamente nenhum dos seguintes servi\u00e7os regulados:",
+    s3_li1: "Aconselhamento de investimento nos termos do \u00a7 2 par\u00e1grafo 8 n.\u00ba 10 WpHG",
+    s3_li2: "Gest\u00e3o de carteiras financeiras",
+    s3_li3: "Aconselhamento fiscal nos termos do StBerG",
+    s3_li4: "Aconselhamento sobre criptoativos nos termos do art. 3 par\u00e1grafo 1 n.\u00ba 25 MiCA (Regulamento (UE) 2023/1114)",
+    s3_p2: "(2) Isto aplica-se a todas as \u00e1reas funcionais do Software: relat\u00f3rios de an\u00e1lise, cen\u00e1rios DCA, laborat\u00f3rio DCA, conversas de aprendizagem interativas no PRIMER e o perfil de an\u00e1lise.",
+    s3_p3: "(3) O car\u00e1ter conversacional do PRIMER \u2014 incluindo o tratamento personalizado, a refer\u00eancia a an\u00e1lises passadas e o feedback personalizado \u2014 n\u00e3o constitui uma rela\u00e7\u00e3o de aconselhamento individual. O PRIMER \u00e9 um sistema de aprendizagem automatizado baseado em modelos de IA pr\u00e9-programados.",
+    s3_p4: "(4) Os cen\u00e1rios DCA e as simula\u00e7\u00f5es do laborat\u00f3rio DCA utilizam \u00abUnidades de Aprendizagem\u00bb (UA) fict\u00edcias sem rela\u00e7\u00e3o com dinheiro real.",
+    s3_notice: "O Software n\u00e3o constitui aconselhamento profissional em investimento, finan\u00e7as ou fiscalidade. Todos os conte\u00fados \u2014 incluindo as conversas PRIMER e as simula\u00e7\u00f5es do laborat\u00f3rio DCA \u2014 servem para aprendizagem e desenvolvimento pessoal.",
+    h_s4: "4. Requisitos t\u00e9cnicos",
+    s4_p1: "(1) A utiliza\u00e7\u00e3o do Software requer uma chave API pr\u00f3pria do utilizador da Anthropic. Os custos da API s\u00e3o suportados pelo utilizador e n\u00e3o est\u00e3o inclu\u00eddos no pre\u00e7o da licen\u00e7a.",
+    s4_p2: "(2) Os custos da API s\u00e3o de aproximadamente $0,50\u2013$8,00 por an\u00e1lise e de aproximadamente $0,01\u2013$0,15 por intera\u00e7\u00e3o PRIMER. Uma sess\u00e3o completa pode ter custos mais elevados.",
+    s4_p3: "A disponibilidade dos servi\u00e7os de terceiros (API Anthropic, API CoinGecko) n\u00e3o \u00e9 garantida pelo fornecedor do Software.",
+    h_s5: "5. Garantia e responsabilidade",
+    s5_p1: "(1) O Software \u00e9 fornecido na sua vers\u00e3o atual. Os direitos legais de garantia n\u00e3o s\u00e3o afetados. N\u00e3o s\u00e3o fornecidas garantias adicionais. N\u00e3o se garante a exatid\u00e3o dos conte\u00fados gerados por IA.",
+    s5_p2: "(2) O feedback personalizado no PRIMER n\u00e3o constitui aconselhamento financeiro ou de investimento individual. As estat\u00edsticas do perfil de an\u00e1lise comparam as avalia\u00e7\u00f5es do utilizador com o framework \u2014 n\u00e3o avaliam a qualidade das decis\u00f5es de investimento.",
+    s5_p3: "A responsabilidade rege-se pelas disposi\u00e7\u00f5es do \u00a7 5 dos <a href='agb.html'>termos e condi\u00e7\u00f5es</a>.",
+    h_s6: "6. Vig\u00eancia e rescis\u00e3o",
+    s6_p1: "A vig\u00eancia da licen\u00e7a depende do modelo de licen\u00e7a adquirido. O fornecedor tem o direito de rescindir a licen\u00e7a com efeito imediato em caso de viola\u00e7\u00f5es deste EULA, nomeadamente em caso de:",
+    s6_li1: "Utiliza\u00e7\u00e3o em jurisdi\u00e7\u00f5es exclu\u00eddas",
+    s6_li2: "Engenharia reversa ou manipula\u00e7\u00e3o do Software",
+    s6_li3: "Explora\u00e7\u00e3o comercial dos conte\u00fados gerados",
+    s6_li4: "Redistribui\u00e7\u00e3o ou partilha do Software",
+    s6_p2: "Os relat\u00f3rios previamente gerados permanecem com o utilizador e podem continuar a ser utilizados para aprendizagem pessoal.",
+    h_s7: "7. Direito aplic\u00e1vel",
+    s7_p1: "Aplica-se o direito da Rep\u00fablica Federal da Alemanha. Os <a href='agb.html'>termos e condi\u00e7\u00f5es</a> aplicam-se de forma complementar.",
+    notice: "Estado: mar\u00e7o 2026 \u2014 Este EULA ser\u00e1 atualizado em caso de altera\u00e7\u00f5es substanciais. A vers\u00e3o atual est\u00e1 dispon\u00edvel em holisticcointrainer.com/legal/eula.html."
+  },
+  JA: {
+    page_title: "\u30a8\u30f3\u30c9\u30e6\u30fc\u30b6\u30fc\u30e9\u30a4\u30bb\u30f3\u30b9\u5951\u7d04 \u2014 Holistic Coin Trainer",
+    back: "\u623b\u308b",
+    label: "EULA \u00b7 2026\u5e743\u6708\u73fe\u5728",
+    title: "\u30a8\u30f3\u30c9\u30e6\u30fc\u30b6\u30fc\u30e9\u30a4\u30bb\u30f3\u30b9\u5951\u7d04",
+    h_s1: "1. \u30e9\u30a4\u30bb\u30f3\u30b9\u306e\u5bfe\u8c61",
+    s1_p1: "\u672c\u30a8\u30f3\u30c9\u30e6\u30fc\u30b6\u30fc\u30e9\u30a4\u30bb\u30f3\u30b9\u5951\u7d04\uff08EULA\uff09\u306f\u3001\u4ee5\u4e0b\u306e\u63d0\u4f9b\u8005\u304c\u63d0\u4f9b\u3059\u308b\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u300cHolistic Coin Trainer\u300d\uff08\u4ee5\u4e0b\u300c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u300d\uff09\u306e\u4f7f\u7528\u3092\u898f\u5b9a\u3057\u307e\u3059\uff1a",
+    s1_p2: "\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u3092\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u304a\u3088\u3073\u4f7f\u7528\u3059\u308b\u3053\u3068\u306b\u3088\u308a\u3001\u30e6\u30fc\u30b6\u30fc\u306f\u672c EULA \u306e\u6761\u4ef6\u306b\u540c\u610f\u3057\u305f\u3082\u306e\u3068\u307f\u306a\u3055\u308c\u307e\u3059\u3002\u540c\u610f\u3057\u306a\u3044\u5834\u5408\u3001\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u3092\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u307e\u305f\u306f\u4f7f\u7528\u3059\u308b\u3053\u3068\u306f\u3067\u304d\u307e\u305b\u3093\u3002",
+    h_s2: "2. \u30e9\u30a4\u30bb\u30f3\u30b9\u306e\u7bc4\u56f2",
+    s2_p1: "\u30e6\u30fc\u30b6\u30fc\u306f\u3001\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u3092\u4f7f\u7528\u3059\u308b\u305f\u3081\u306e\u5358\u7d14\u306a\u3001\u975e\u72ec\u5360\u7684\u3001\u8b72\u6e21\u4e0d\u53ef\u3001\u53d6\u6d88\u53ef\u80fd\u306a\u30e9\u30a4\u30bb\u30f3\u30b9\u3092\u53d6\u5f97\u3057\u307e\u3059\u30021\u5e74\u30e9\u30a4\u30bb\u30f3\u30b9\u304a\u3088\u30733\u5e74\u30e9\u30a4\u30bb\u30f3\u30b9\u306f\u6700\u59272\u53f0\u306e\u30c7\u30d0\u30a4\u30b9\uff08macOS\u3001Windows\u307e\u305f\u306fLinux\uff09\u3067\u306e\u4f7f\u7528\u3092\u8a31\u53ef\u3057\u307e\u3059\u3002\u6c38\u4e45\u30e9\u30a4\u30bb\u30f3\u30b9\u306f1\u53f0\u306e\u30c7\u30d0\u30a4\u30b9\uff08macOS\u3001Windows\u307e\u305f\u306fLinux\uff09\u3067\u306e\u4f7f\u7528\u3092\u8a31\u53ef\u3057\u307e\u3059\u3002",
+    s2_p2: "(2) \u30e9\u30a4\u30bb\u30f3\u30b9\u306b\u542b\u307e\u308c\u308b\u3082\u306e\uff1a",
+    s2_li1: "\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u30a4\u30f3\u30b9\u30c8\u30fc\u30eb\u3068\u5b9f\u884c",
+    s2_li2: "\u5b66\u7fd2\u76ee\u7684\u306eAI\u652f\u63f4\u5206\u6790\u30ec\u30dd\u30fc\u30c8\u306e\u4f5c\u6210",
+    s2_li3: "\u30a4\u30f3\u30bf\u30e9\u30af\u30c6\u30a3\u30d6\u5b66\u7fd2\u30e2\u30fc\u30c9\uff08PRIMER\uff09\u306e\u4f7f\u7528",
+    s2_li4: "\u5b66\u7fd2\u76ee\u7684\u306eDCA\u601d\u8003\u30e9\u30dc\u306e\u4f7f\u7528",
+    s2_li5: "\u5206\u6790\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u306e\u4f7f\u7528",
+    s2_li6: "\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u3078\u306e\u30ec\u30dd\u30fc\u30c8\u306e\u30ed\u30fc\u30ab\u30eb\u4fdd\u5b58",
+    s2_li7: "PDF\u307e\u305f\u306fMarkdown\u3068\u3057\u3066\u306e\u30ec\u30dd\u30fc\u30c8\u306e\u30a8\u30af\u30b9\u30dd\u30fc\u30c8",
+    s2_p3: "(3) \u30e9\u30a4\u30bb\u30f3\u30b9\u306b\u542b\u307e\u308c\u306a\u3044\u3082\u306e\uff1a",
+    s2_li8: "\u30ea\u30d0\u30fc\u30b9\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u3001\u9006\u30b3\u30f3\u30d1\u30a4\u30eb\u307e\u305f\u306f\u9006\u30a2\u30bb\u30f3\u30d6\u30eb",
+    s2_li9: "\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u518d\u914d\u5e03\u3001\u8907\u88fd\u307e\u305f\u306f\u5171\u6709",
+    s2_li10: "\u751f\u6210\u3055\u308c\u305f\u30ec\u30dd\u30fc\u30c8\u306e\u5546\u696d\u5229\u7528\u307e\u305f\u306f\u5171\u6709",
+    s2_li11: "\u30d7\u30ed\u30f3\u30d7\u30c8\u30b7\u30b9\u30c6\u30e0\u307e\u305f\u306f\u5206\u6790\u30a8\u30f3\u30b8\u30f3\u306e\u6539\u5909",
+    s2_li12: "\u9664\u5916\u3055\u308c\u305f\u7ba1\u8f44\u5730\u57df\u3067\u306e\u4f7f\u7528\uff08\u7c73\u56fd\u3001\u30ab\u30ca\u30c0\u3001\u82f1\u56fd\u3001\u4e2d\u56fd\u3001\u30ed\u30b7\u30a2\uff09",
+    h_s3: "3. \u6559\u80b2\u76ee\u7684",
+    s3_p1: "(1) \u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u6559\u80b2\u304a\u3088\u3073\u5b66\u7fd2\u76ee\u7684\u306b\u306e\u307f\u4f7f\u7528\u3055\u308c\u307e\u3059\u3002\u4ee5\u4e0b\u306e\u898f\u5236\u3055\u308c\u305f\u30b5\u30fc\u30d3\u30b9\u306e\u3044\u305a\u308c\u306b\u3082\u8a72\u5f53\u3057\u307e\u305b\u3093\uff1a",
+    s3_li1: "WpHG \u00a72\u7b2c8\u9805\u7b2c10\u53f7\u306b\u3088\u308b\u6295\u8cc7\u52a9\u8a00",
+    s3_li2: "\u91d1\u878d\u30dd\u30fc\u30c8\u30d5\u30a9\u30ea\u30aa\u7ba1\u7406",
+    s3_li3: "StBerG\u306b\u3088\u308b\u7a0e\u52d9\u52a9\u8a00",
+    s3_li4: "MiCA\uff08\u898f\u5247(EU) 2023/1114\uff09\u7b2c3\u6761\u7b2c1\u9805\u7b2c25\u53f7\u306b\u3088\u308b\u6697\u53f7\u8cc7\u7523\u52a9\u8a00",
+    s3_p2: "(2) \u3053\u308c\u306f\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u3059\u3079\u3066\u306e\u6a5f\u80fd\u9818\u57df\u306b\u9069\u7528\u3055\u308c\u307e\u3059\uff1a\u5206\u6790\u30ec\u30dd\u30fc\u30c8\u3001DCA\u30b7\u30ca\u30ea\u30aa\u3001DCA\u601d\u8003\u30e9\u30dc\u3001PRIMER\u3067\u306e\u30a4\u30f3\u30bf\u30e9\u30af\u30c6\u30a3\u30d6\u5b66\u7fd2\u4f1a\u8a71\u3001\u304a\u3088\u3073\u5206\u6790\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u3002",
+    s3_p3: "(3) PRIMER\u306e\u5bfe\u8a71\u7684\u306a\u6027\u683c \u2014 \u500b\u4eba\u540d\u3067\u306e\u547c\u3073\u304b\u3051\u3001\u904e\u53bb\u306e\u5206\u6790\u3078\u306e\u53c2\u7167\u3001\u500b\u5225\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u3092\u542b\u3080 \u2014 \u306f\u3001\u500b\u5225\u306e\u30a2\u30c9\u30d0\u30a4\u30b6\u30ea\u30fc\u95a2\u4fc2\u3092\u69cb\u6210\u3057\u307e\u305b\u3093\u3002PRIMER\u306f\u4e8b\u524d\u30d7\u30ed\u30b0\u30e9\u30e0\u3055\u308c\u305fAI\u30e2\u30c7\u30eb\u306b\u57fa\u3065\u304f\u81ea\u52d5\u5316\u3055\u308c\u305f\u5b66\u7fd2\u30b7\u30b9\u30c6\u30e0\u3067\u3059\u3002",
+    s3_p4: "(4) DCA\u30b7\u30ca\u30ea\u30aa\u304a\u3088\u3073DCA\u601d\u8003\u30e9\u30dc\u30b7\u30df\u30e5\u30ec\u30fc\u30b7\u30e7\u30f3\u306f\u3001\u5b9f\u969b\u306e\u304a\u91d1\u3068\u306f\u7121\u95a2\u4fc2\u306e\u67b6\u7a7a\u306e\u300c\u5b66\u7fd2\u30e6\u30cb\u30c3\u30c8\u300d\uff08LU\uff09\u3092\u4f7f\u7528\u3057\u307e\u3059\u3002",
+    s3_notice: "\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u3001\u5c02\u9580\u7684\u306a\u6295\u8cc7\u3001\u91d1\u878d\u3001\u307e\u305f\u306f\u7a0e\u52d9\u52a9\u8a00\u3092\u69cb\u6210\u3057\u307e\u305b\u3093\u3002PRIMER\u5b66\u7fd2\u4f1a\u8a71\u3084DCA\u601d\u8003\u30e9\u30dc\u30b7\u30df\u30e5\u30ec\u30fc\u30b7\u30e7\u30f3\u3092\u542b\u3080\u3059\u3079\u3066\u306e\u30b3\u30f3\u30c6\u30f3\u30c4\u306f\u3001\u5b66\u7fd2\u304a\u3088\u3073\u81ea\u5df1\u5411\u4e0a\u306e\u305f\u3081\u306e\u3082\u306e\u3067\u3059\u3002",
+    h_s4: "4. \u6280\u8853\u8981\u4ef6",
+    s4_p1: "(1) \u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u4f7f\u7528\u306b\u306f\u3001Anthropic\u306e\u30e6\u30fc\u30b6\u30fc\u81ea\u8eab\u306eAPI\u30ad\u30fc\u304c\u5fc5\u8981\u3067\u3059\u3002API\u8cbb\u7528\u306f\u30e6\u30fc\u30b6\u30fc\u304c\u8ca0\u62c5\u3057\u3001\u30e9\u30a4\u30bb\u30f3\u30b9\u4fa1\u683c\u306b\u306f\u542b\u307e\u308c\u307e\u305b\u3093\u3002",
+    s4_p2: "(2) API\u8cbb\u7528\u306f\u5206\u6790\u3042\u305f\u308a\u7d04$0.50\u2013$8.00\uff08\u9078\u629e\u30e2\u30c7\u30eb\u306b\u3088\u308b\uff09\u3001PRIMER\u30a4\u30f3\u30bf\u30e9\u30af\u30b7\u30e7\u30f3\u3042\u305f\u308a\u7d04$0.01\u2013$0.15\u3067\u3059\u3002\u8907\u6570\u306e\u30a4\u30f3\u30bf\u30e9\u30af\u30b7\u30e7\u30f3\u3092\u542b\u3080\u5b8c\u5168\u306a\u5b66\u7fd2\u30bb\u30c3\u30b7\u30e7\u30f3\u3067\u306f\u3001\u305d\u308c\u306b\u5fdc\u3058\u305f\u9ad8\u3044\u8cbb\u7528\u304c\u767a\u751f\u3059\u308b\u5834\u5408\u304c\u3042\u308a\u307e\u3059\u3002",
+    s4_p3: "\u30b5\u30fc\u30c9\u30d1\u30fc\u30c6\u30a3\u30b5\u30fc\u30d3\u30b9\uff08Anthropic API\u3001CoinGecko API\uff09\u306e\u53ef\u7528\u6027\u306f\u3001\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u63d0\u4f9b\u8005\u306b\u3088\u3063\u3066\u4fdd\u8a3c\u3055\u308c\u307e\u305b\u3093\u3002",
+    h_s5: "5. \u4fdd\u8a3c\u3068\u8cac\u4efb",
+    s5_p1: "(1) \u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u73fe\u884c\u30d0\u30fc\u30b8\u30e7\u30f3\u3067\u63d0\u4f9b\u3055\u308c\u307e\u3059\u3002\u6cd5\u5b9a\u306e\u4fdd\u8a3c\u6a29\u306f\u5f71\u97ff\u3092\u53d7\u3051\u307e\u305b\u3093\u3002\u305d\u308c\u4ee5\u4e0a\u306e\u4fdd\u8a3c\u306f\u63d0\u4f9b\u3055\u308c\u307e\u305b\u3093\u3002AI\u751f\u6210\u30b3\u30f3\u30c6\u30f3\u30c4\u306e\u6b63\u78ba\u6027\u306f\u4fdd\u8a3c\u3055\u308c\u307e\u305b\u3093\u3002",
+    s5_p2: "(2) PRIMER\u3067\u306e\u500b\u5225\u30d5\u30a3\u30fc\u30c9\u30d0\u30c3\u30af\u306f\u3001\u500b\u5225\u306e\u91d1\u878d\u307e\u305f\u306f\u6295\u8cc7\u52a9\u8a00\u3092\u69cb\u6210\u3057\u307e\u305b\u3093\u3002\u5206\u6790\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u306e\u7d71\u8a08\u306f\u3001\u30e6\u30fc\u30b6\u30fc\u306e\u8a55\u4fa1\u3092\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\u3068\u6bd4\u8f03\u3057\u307e\u3059 \u2014 \u6295\u8cc7\u5224\u65ad\u306e\u8cea\u3092\u8a55\u4fa1\u3059\u308b\u3082\u306e\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u3002",
+    s5_p3: "\u8cac\u4efb\u306f\u305d\u306e\u4ed6\u3001<a href='agb.html'>\u5229\u7528\u898f\u7d04</a>\u306e\u00a75\u306e\u898f\u5b9a\u306b\u6e96\u62e0\u3057\u307e\u3059\u3002",
+    h_s6: "6. \u671f\u9593\u3068\u7d42\u4e86",
+    s6_p1: "\u30e9\u30a4\u30bb\u30f3\u30b9\u306e\u671f\u9593\u306f\u3001\u8cfc\u5165\u3057\u305f\u30e9\u30a4\u30bb\u30f3\u30b9\u30e2\u30c7\u30eb\u306b\u3088\u308a\u307e\u3059\u3002\u63d0\u4f9b\u8005\u306f\u3001\u672cEULA\u306b\u9055\u53cd\u3057\u305f\u5834\u5408\u3001\u7279\u306b\u4ee5\u4e0b\u306e\u5834\u5408\u306b\u3001\u5373\u6642\u306b\u30e9\u30a4\u30bb\u30f3\u30b9\u3092\u7d42\u4e86\u3059\u308b\u6a29\u5229\u3092\u6709\u3057\u307e\u3059\uff1a",
+    s6_li1: "\u9664\u5916\u3055\u308c\u305f\u7ba1\u8f44\u5730\u57df\u3067\u306e\u4f7f\u7528",
+    s6_li2: "\u30ea\u30d0\u30fc\u30b9\u30a8\u30f3\u30b8\u30cb\u30a2\u30ea\u30f3\u30b0\u307e\u305f\u306f\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u6539\u3056\u3093",
+    s6_li3: "\u751f\u6210\u3055\u308c\u305f\u30b3\u30f3\u30c6\u30f3\u30c4\u306e\u5546\u696d\u7684\u5229\u7528",
+    s6_li4: "\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u518d\u914d\u5e03\u307e\u305f\u306f\u5171\u6709",
+    s6_p2: "\u4ee5\u524d\u306b\u751f\u6210\u3055\u308c\u305f\u30ec\u30dd\u30fc\u30c8\u306f\u30e6\u30fc\u30b6\u30fc\u306e\u624b\u5143\u306b\u6b8b\u308a\u3001\u500b\u4eba\u7684\u306a\u5b66\u7fd2\u76ee\u7684\u3067\u5f15\u304d\u7d9a\u304d\u4f7f\u7528\u3067\u304d\u307e\u3059\u3002",
+    h_s7: "7. \u6e96\u62e0\u6cd5",
+    s7_p1: "\u30c9\u30a4\u30c4\u9023\u90a6\u5171\u548c\u56fd\u306e\u6cd5\u5f8b\u304c\u9069\u7528\u3055\u308c\u307e\u3059\u3002<a href='agb.html'>\u5229\u7528\u898f\u7d04</a>\u304c\u88dc\u5b8c\u7684\u306b\u9069\u7528\u3055\u308c\u307e\u3059\u3002",
+    notice: "\u73fe\u5728: 2026\u5e743\u6708 \u2014 \u672cEULA\u306f\u91cd\u8981\u306a\u5909\u66f4\u304c\u3042\u3063\u305f\u5834\u5408\u306b\u66f4\u65b0\u3055\u308c\u307e\u3059\u3002\u6700\u65b0\u7248\u306fholisticcointrainer.com/legal/eula.html\u3067\u5165\u624b\u3067\u304d\u307e\u3059\u3002"
+  }
+};
+
+function applyLang(lang) {
+  const tr = T[lang] || T.DE;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (tr[k]) el.textContent = tr[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (tr[k]) el.innerHTML = tr[k];
+  });
+  if (tr.page_title) document.title = tr.page_title;
+  document.documentElement.lang = lang.toLowerCase();
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let lang = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : null;
+  if (!lang) { try { lang = localStorage.getItem('hct_lang'); } catch(e) {} }
+  if (!lang) {
+    const bl = (navigator.language || '').split('-')[0].toUpperCase();
+    lang = T[bl] ? bl : 'DE';
+  }
+  applyLang(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+});
+</script>
 </body>
 </html>

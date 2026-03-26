@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datenschutzerklärung — Holistic Coin Trainer</title>
+  <title data-i18n="page_title">Datenschutzerkl&auml;rung &mdash; Holistic Coin Trainer</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
@@ -48,6 +48,31 @@
     }
     .logo span { color: var(--gold); }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--gray);
+      font-family: var(--font);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--gold-dim); border-color: var(--border); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,215,0,0.06); }
+
     .back-link {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -56,7 +81,7 @@
       transition: color 0.2s;
     }
     .back-link:hover { color: var(--gold-dim); }
-    .back-link::before { content: "← "; }
+    .back-link::before { content: "\2190  "; }
 
     /* ── MAIN ───────────────────────────────────────────────── */
     main {
@@ -152,8 +177,9 @@
     }
 
     @media (max-width: 600px) {
-      header { padding: 16px 20px; }
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
       main   { padding: 40px 20px 60px; }
+      .header-right { gap: 12px; }
     }
   </style>
 </head>
@@ -161,284 +187,295 @@
 
   <header>
     <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
-    <a href="../index.html" class="back-link">Zurück</a>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="DE">DE</button>
+        <button class="lang-btn" data-lang="EN">EN</button>
+        <button class="lang-btn" data-lang="FR">FR</button>
+        <button class="lang-btn" data-lang="ES">ES</button>
+        <button class="lang-btn" data-lang="IT">IT</button>
+        <button class="lang-btn" data-lang="PT">PT</button>
+        <button class="lang-btn" data-lang="JA">JA</button>
+      </div>
+      <a href="../index.html" class="back-link" data-i18n="back">Zur&uuml;ck</a>
+    </div>
   </header>
 
   <main>
-    <div class="page-label">DSGVO · Art. 13 &amp; 14</div>
-    <h1>DATENSCHUTZ&shy;ERKLÄRUNG</h1>
+    <div class="page-label" data-i18n="label">DSGVO &middot; Art. 13 &amp; 14</div>
+    <h1 data-i18n="title">DATENSCHUTZ&shy;ERKL&Auml;RUNG</h1>
 
     <section>
-      <h2>1. Verantwortlicher</h2>
-      <p>
+      <h2 data-i18n="h_s1">1. Verantwortlicher</h2>
+      <p data-i18n-html="s1_p1">
         Stefan Laackman<br>
-        Torstraße 68, 10119 Berlin<br>
+        Torstra&szlig;e 68, 10119 Berlin<br>
         E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>
       </p>
     </section>
 
     <section>
-      <h2>2. Erhobene Daten beim Websitebesuch</h2>
-      <p>
+      <h2 data-i18n="h_s2">2. Erhobene Daten beim Websitebesuch</h2>
+      <p data-i18n="s2_p1">
         Beim Aufrufen dieser Website werden durch den Hosting-Anbieter automatisch
-        technische Zugriffsdaten in Server-Logfiles erfasst. Dazu gehören:
+        technische Zugriffsdaten in Server-Logfiles erfasst. Dazu geh&ouml;ren:
       </p>
       <ul>
-        <li>IP-Adresse (anonymisiert)</li>
-        <li>Datum und Uhrzeit des Zugriffs</li>
-        <li>aufgerufene URL</li>
-        <li>übertragene Datenmenge</li>
-        <li>verwendeter Browser und Betriebssystem</li>
+        <li data-i18n="s2_li1">IP-Adresse (anonymisiert)</li>
+        <li data-i18n="s2_li2">Datum und Uhrzeit des Zugriffs</li>
+        <li data-i18n="s2_li3">aufgerufene URL</li>
+        <li data-i18n="s2_li4">&uuml;bertragene Datenmenge</li>
+        <li data-i18n="s2_li5">verwendeter Browser und Betriebssystem</li>
       </ul>
-      <p>
-        Diese Daten werden ausschließlich zur Sicherstellung des technischen Betriebs
-        verarbeitet und nicht mit anderen Datenquellen zusammengeführt.
+      <p data-i18n="s2_p2">
+        Diese Daten werden ausschlie&szlig;lich zur Sicherstellung des technischen Betriebs
+        verarbeitet und nicht mit anderen Datenquellen zusammengef&uuml;hrt.
         Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).
       </p>
     </section>
 
     <section>
-      <h2>3. Hosting &amp; CDN — Cloudflare</h2>
-      <p>
-        Diese Website wird über Dienste von Cloudflare, Inc. (101 Townsend St.,
+      <h2 data-i18n="h_s3">3. Hosting &amp; CDN &mdash; Cloudflare</h2>
+      <p data-i18n="s3_p1">
+        Diese Website wird &uuml;ber Dienste von Cloudflare, Inc. (101 Townsend St.,
         San Francisco, CA 94107, USA) ausgeliefert. Cloudflare fungiert als
-        Content Delivery Network (CDN) und DNS-Anbieter. Dabei können technische
-        Verbindungsdaten an Server von Cloudflare übertragen werden.
+        Content Delivery Network (CDN) und DNS-Anbieter. Dabei k&ouml;nnen technische
+        Verbindungsdaten an Server von Cloudflare &uuml;bertragen werden.
       </p>
-      <p>
+      <p data-i18n-html="s3_p2">
         Cloudflare ist nach dem EU-U.S. Data Privacy Framework zertifiziert.
         Weitere Informationen: <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" rel="noopener">cloudflare.com/privacypolicy</a>
       </p>
     </section>
 
     <section>
-      <h2>4. Zahlungsabwicklung — Lemon Squeezy</h2>
-      <p>
-        Käufe werden über Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center,
+      <h2 data-i18n="h_s4">4. Zahlungsabwicklung &mdash; Lemon Squeezy</h2>
+      <p data-i18n="s4_p1">
+        K&auml;ufe werden &uuml;ber Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center,
         2nd Floor, Princeton, NJ 08540, USA) abgewickelt. Lemon Squeezy agiert
-        als Merchant of Record — das bedeutet, dass Lemon Squeezy der
-        vertragsschließende Händler gegenüber dem Käufer ist und die
+        als Merchant of Record &mdash; das bedeutet, dass Lemon Squeezy der
+        vertragsschlie&szlig;ende H&auml;ndler gegen&uuml;ber dem K&auml;ufer ist und die
         Zahlungsdaten in eigener datenschutzrechtlicher Verantwortung verarbeitet.
       </p>
-      <p>
-        Es werden keine Zahlungsdaten (Kreditkarte, Bankverbindung o.ä.) durch
+      <p data-i18n-html="s4_p2">
+        Es werden keine Zahlungsdaten (Kreditkarte, Bankverbindung o.&auml;.) durch
         den Betreiber dieser Website verarbeitet oder gespeichert.
         Weitere Informationen: <a href="https://www.lemonsqueezy.com/privacy" target="_blank" rel="noopener">lemonsqueezy.com/privacy</a>
       </p>
     </section>
 
     <section>
-      <h2>5. Lizenzverwaltung — Lemon Squeezy API</h2>
-      <p>
-        Bei der Aktivierung einer Lizenz im Holistic Coin Trainer übermittelt
-        die Software den erworbenen Lizenzschlüssel sowie eine pseudonymisierte
-        Geräte-ID (SHA-256-Hash aus MAC-Adresse und Hostname) an die
+      <h2 data-i18n="h_s5">5. Lizenzverwaltung &mdash; Lemon Squeezy API</h2>
+      <p data-i18n="s5_p1">
+        Bei der Aktivierung einer Lizenz im Holistic Coin Trainer &uuml;bermittelt
+        die Software den erworbenen Lizenzschl&uuml;ssel sowie eine pseudonymisierte
+        Ger&auml;te-ID (SHA-256-Hash aus MAC-Adresse und Hostname) an die
         Lemon Squeezy License API zur Validierung. Es werden keine
-        personenbezogenen Daten des Nutzers an den Betreiber übermittelt.
-        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+        personenbezogenen Daten des Nutzers an den Betreiber &uuml;bermittelt.
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf&uuml;llung).
       </p>
     </section>
 
     <section>
-      <h2>6. Datenverarbeitung durch Anthropic (KI-Analyse &amp; Lernmodule)</h2>
+      <h2 data-i18n="h_s6">6. Datenverarbeitung durch Anthropic (KI-Analyse &amp; Lernmodule)</h2>
 
-      <p>
+      <p data-i18n-html="s6_1">
         <strong style="color:var(--gold-dim)">6.1 Allgemeines</strong><br>
         Die Software nutzt die API von Anthropic, PBC (548 Market St, PMB 90375,
-        San Francisco, CA 94104, USA) zur Generierung von KI-gestützten Lernberichten
+        San Francisco, CA 94104, USA) zur Generierung von KI-gest&uuml;tzten Lernberichten
         und zur Bereitstellung interaktiver Lernfunktionen. Anthropic verarbeitet die
-        übermittelten Daten gemäß der eigenen Datenschutzrichtlinie:
+        &uuml;bermittelten Daten gem&auml;&szlig; der eigenen Datenschutzrichtlinie:
         <a href="https://www.anthropic.com/privacy" target="_blank" rel="noopener">anthropic.com/privacy</a>.
-        Der API-Key des Nutzers wird ausschließlich zur Authentifizierung verwendet.
-        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung — die
+        Der API-Key des Nutzers wird ausschlie&szlig;lich zur Authentifizierung verwendet.
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf&uuml;llung &mdash; die
         KI-Analyse ist der Kernzweck der Software).
       </p>
 
-      <p>
-        <strong style="color:var(--gold-dim)">6.2 Datenübermittlung im Tab ANALYSE</strong><br>
-        Bei jeder Coin-Analyse werden folgende Daten an Anthropic-Server in den USA übermittelt:
+      <p data-i18n-html="s6_2_intro">
+        <strong style="color:var(--gold-dim)">6.2 Daten&uuml;bermittlung im Tab ANALYSE</strong><br>
+        Bei jeder Coin-Analyse werden folgende Daten an Anthropic-Server in den USA &uuml;bermittelt:
       </p>
       <ul>
-        <li>System-Prompt (Analyse-Framework)</li>
-        <li>Coin-Symbol (z.&thinsp;B. „BTC") und zugehörige Marktdaten (CoinGecko)</li>
+        <li data-i18n="s6_2_li1">System-Prompt (Analyse-Framework)</li>
+        <li data-i18n="s6_2_li2">Coin-Symbol (z.&thinsp;B. &bdquo;BTC&ldquo;) und zugeh&ouml;rige Marktdaten (CoinGecko)</li>
       </ul>
-      <p>
-        Bei interaktiven Analysen (Lernmodus) werden zusätzlich die Antworten
-        des Nutzers auf Reflexionsfragen (DENKPAUSEN) an Anthropic übermittelt,
-        um eine persönliche Lernauswertung zu erstellen. Der Nutzer wird
-        gebeten, in den Antwortfeldern keine sensiblen persönlichen Daten
+      <p data-i18n="s6_2_p2">
+        Bei interaktiven Analysen (Lernmodus) werden zus&auml;tzlich die Antworten
+        des Nutzers auf Reflexionsfragen (DENKPAUSEN) an Anthropic &uuml;bermittelt,
+        um eine pers&ouml;nliche Lernauswertung zu erstellen. Der Nutzer wird
+        gebeten, in den Antwortfeldern keine sensiblen pers&ouml;nlichen Daten
         einzugeben (insbesondere keine Finanzdaten, Kontodaten oder
-        Vermögensverhältnisse).
+        Verm&ouml;gensverh&auml;ltnisse).
       </p>
-      <p>
-        Es werden im ANALYSE-Tab darüber hinaus keine personenbezogenen Daten
-        des Nutzers (Name, E-Mail, Adresse o.&thinsp;ä.) an Anthropic übermittelt.
+      <p data-i18n="s6_2_p3">
+        Es werden im ANALYSE-Tab dar&uuml;ber hinaus keine personenbezogenen Daten
+        des Nutzers (Name, E-Mail, Adresse o.&thinsp;&auml;.) an Anthropic &uuml;bermittelt.
       </p>
 
-      <p>
-        <strong style="color:var(--gold-dim)">6.3 Datenübermittlung im PRIMER (Lernmodul)</strong><br>
+      <p data-i18n-html="s6_3_intro">
+        <strong style="color:var(--gold-dim)">6.3 Daten&uuml;bermittlung im PRIMER (Lernmodul)</strong><br>
         Im PRIMER-Lernmodul werden bei der Nutzung folgende Daten an
-        Anthropic-Server in den USA übermittelt:
+        Anthropic-Server in den USA &uuml;bermittelt:
       </p>
       <ul>
-        <li>Benutzername (frei gewähltes Pseudonym)</li>
-        <li>Nachrichten und Eingaben des Nutzers im Lernkontext</li>
-        <li>Lernkontext (gewähltes Thema, Schwierigkeitsgrad)</li>
-        <li>Gesprächsverlauf der aktuellen Lernsitzung (Konversationshistorie)</li>
-        <li>Reflexionen und Selbsteinschätzungen des Nutzers</li>
-        <li>Predict-Balance (Fortschritt bei Prognose-Übungen)</li>
-        <li>DCA-Reflexionen und Follow-Up Insights aus früheren Analysen</li>
-        <li>Lernerprofil (Wissenstand, Lernfortschritt, erkannte Tendenzen)</li>
+        <li data-i18n="s6_3_li1">Benutzername (frei gew&auml;hltes Pseudonym)</li>
+        <li data-i18n="s6_3_li2">Nachrichten und Eingaben des Nutzers im Lernkontext</li>
+        <li data-i18n="s6_3_li3">Lernkontext (gew&auml;hltes Thema, Schwierigkeitsgrad)</li>
+        <li data-i18n="s6_3_li4">Gespr&auml;chsverlauf der aktuellen Lernsitzung (Konversationshistorie)</li>
+        <li data-i18n="s6_3_li5">Reflexionen und Selbsteinsch&auml;tzungen des Nutzers</li>
+        <li data-i18n="s6_3_li6">Predict-Balance (Fortschritt bei Prognose-&Uuml;bungen)</li>
+        <li data-i18n="s6_3_li7">DCA-Reflexionen und Follow-Up Insights aus fr&uuml;heren Analysen</li>
+        <li data-i18n="s6_3_li8">Lernerprofil (Wissenstand, Lernfortschritt, erkannte Tendenzen)</li>
       </ul>
-      <p>
+      <p data-i18n="s6_3_p2">
         Zur Personalisierung des Lernerlebnisses erstellt ein Synthese-Agent
         eine pseudonymisierte Zusammenfassung des Lernstands des Nutzers. Diese
-        Zusammenfassung wird ebenfalls an Anthropic zur Verarbeitung übermittelt
-        und dient ausschließlich der Kontextualisierung des aktuellen Lerngesprächs.
+        Zusammenfassung wird ebenfalls an Anthropic zur Verarbeitung &uuml;bermittelt
+        und dient ausschlie&szlig;lich der Kontextualisierung des aktuellen Lerngespr&auml;chs.
       </p>
-      <p>
-        Der Nutzer wird gebeten, auch im PRIMER keine sensiblen persönlichen
+      <p data-i18n="s6_3_p3">
+        Der Nutzer wird gebeten, auch im PRIMER keine sensiblen pers&ouml;nlichen
         Daten einzugeben (insbesondere keine Finanzdaten, Kontodaten oder
-        Vermögensverhältnisse).
+        Verm&ouml;gensverh&auml;ltnisse).
       </p>
-      <p>
-        Diese Daten werden ausschließlich zur Bereitstellung der personalisierten
+      <p data-i18n="s6_3_p4">
+        Diese Daten werden ausschlie&szlig;lich zur Bereitstellung der personalisierten
         Lernfunktion verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO
-        (Vertragserfüllung).
+        (Vertragserf&uuml;llung).
       </p>
 
-      <p>
+      <p data-i18n-html="s6_4">
         <strong style="color:var(--gold-dim)">6.4 Profiling (Lernerprofil)</strong><br>
         Im Rahmen des PRIMER-Moduls wird ein Lernerprofil erstellt, das den
         Wissensstand, den Lernfortschritt und erkannte Tendenzen des Nutzers
-        (z.&thinsp;B. häufig übersehene Risikofaktoren) erfasst. Dieses Profil dient
-        ausschließlich der Optimierung der Lernerfahrung und wird an Anthropic zur
-        Verarbeitung übermittelt.
+        (z.&thinsp;B. h&auml;ufig &uuml;bersehene Risikofaktoren) erfasst. Dieses Profil dient
+        ausschlie&szlig;lich der Optimierung der Lernerfahrung und wird an Anthropic zur
+        Verarbeitung &uuml;bermittelt.
       </p>
-      <p>
+      <p data-i18n="s6_4_p2">
         Es findet <strong>keine automatisierte Entscheidungsfindung</strong> im Sinne des
         Art. 22 DSGVO statt. Das Lernerprofil hat keine rechtlichen oder
-        wirtschaftlichen Auswirkungen für den Nutzer. Es werden keine
-        Kreditwürdigkeits-, Handels- oder Anlageentscheidungen automatisiert getroffen.
+        wirtschaftlichen Auswirkungen f&uuml;r den Nutzer. Es werden keine
+        Kreditw&uuml;rdigkeits-, Handels- oder Anlageentscheidungen automatisiert getroffen.
       </p>
 
-      <p>
+      <p data-i18n-html="s6_5">
         <strong style="color:var(--gold-dim)">6.5 Drittlandtransfer (USA)</strong><br>
-        Die Datenübermittlung an Anthropic, Inc. (USA) erfolgt auf Grundlage
-        des EU-U.S. Data Privacy Framework (DPF), bestätigt durch das Gericht
-        der Europäischen Union am 3. September 2025 (Rechtssache T-553/23).
-        Ergänzend sind Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2
+        Die Daten&uuml;bermittlung an Anthropic, Inc. (USA) erfolgt auf Grundlage
+        des EU-U.S. Data Privacy Framework (DPF), best&auml;tigt durch das Gericht
+        der Europ&auml;ischen Union am 3. September 2025 (Rechtssache T-553/23).
+        Erg&auml;nzend sind Standardvertragsklauseln (SCCs) gem&auml;&szlig; Art. 46 Abs. 2
         lit. c DSGVO Bestandteil des Anthropic Data Processing Addendum (DPA).
         Das DPA ist automatisch Bestandteil der Anthropic Commercial Terms of
         Service und umfasst die Verarbeitung durch Anthropic als
         Auftragsverarbeiter (Processor) nach dokumentierten Weisungen des
         Verantwortlichen (Controller). API-Daten werden laut Anthropic nicht
-        für das Training von KI-Modellen verwendet.
+        f&uuml;r das Training von KI-Modellen verwendet.
       </p>
 
-      <p>
+      <p data-i18n-html="s6_6_intro">
         <strong style="color:var(--gold-dim)">6.6 Lokale Datenspeicherung</strong><br>
-        Folgende Daten werden ausschließlich lokal auf dem Gerät des Nutzers
-        gespeichert und <strong>nicht</strong> an Anthropic oder Dritte übermittelt:
+        Folgende Daten werden ausschlie&szlig;lich lokal auf dem Ger&auml;t des Nutzers
+        gespeichert und <strong>nicht</strong> an Anthropic oder Dritte &uuml;bermittelt:
       </p>
       <ul>
-        <li>SQLite-Datenbank mit Analysehistorie, Lernfortschritt und Einstellungen</li>
-        <li>API-Key des Nutzers (im System-Keychain des Betriebssystems — macOS Keychain, Windows Credential Manager oder Linux Secret Service — verschlüsselt durch das Betriebssystem)</li>
-        <li>Lizenzschlüssel (im System-Keychain des Betriebssystems)</li>
+        <li data-i18n="s6_6_li1">SQLite-Datenbank mit Analysehistorie, Lernfortschritt und Einstellungen</li>
+        <li data-i18n="s6_6_li2">API-Key des Nutzers (im System-Keychain des Betriebssystems &mdash; macOS Keychain, Windows Credential Manager oder Linux Secret Service &mdash; verschl&uuml;sselt durch das Betriebssystem)</li>
+        <li data-i18n="s6_6_li3">Lizenzschl&uuml;ssel (im System-Keychain des Betriebssystems)</li>
       </ul>
 
-      <p>
-        <strong style="color:var(--gold-dim)">6.7 Löschung</strong><br>
+      <p data-i18n-html="s6_7">
+        <strong style="color:var(--gold-dim)">6.7 L&ouml;schung</strong><br>
         Der Nutzer kann jederzeit alle lokal gespeicherten Daten (SQLite-Datenbank,
-        Keychain-Einträge) eigenständig löschen. Daten, die bereits an Anthropic
-        übermittelt wurden, werden gemäß der Anthropic-Datenschutzrichtlinie
-        behandelt. Anthropic speichert über die API übermittelte Daten nach eigener
+        Keychain-Eintr&auml;ge) eigenst&auml;ndig l&ouml;schen. Daten, die bereits an Anthropic
+        &uuml;bermittelt wurden, werden gem&auml;&szlig; der Anthropic-Datenschutzrichtlinie
+        behandelt. Anthropic speichert &uuml;ber die API &uuml;bermittelte Daten nach eigener
         Angabe nicht dauerhaft zu Trainingszwecken.
       </p>
 
-      <p>
+      <p data-i18n-html="s6_8">
         <strong style="color:var(--gold-dim)">6.8 Rechte der betroffenen Person</strong><br>
-        Ihre Rechte als betroffene Person (Auskunft, Berichtigung, Löschung,
-        Einschränkung, Datenübertragbarkeit, Widerspruch, Beschwerderecht)
-        sind in Abschnitt 10 und 11 dieser Datenschutzerklärung aufgeführt.
+        Ihre Rechte als betroffene Person (Auskunft, Berichtigung, L&ouml;schung,
+        Einschr&auml;nkung, Daten&uuml;bertragbarkeit, Widerspruch, Beschwerderecht)
+        sind in Abschnitt 10 und 11 dieser Datenschutzerkl&auml;rung aufgef&uuml;hrt.
       </p>
-      <p>
-        Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:
+      <p data-i18n-html="s6_8_contact">
+        Zur Aus&uuml;bung Ihrer Rechte wenden Sie sich bitte an:
         <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>
       </p>
     </section>
 
     <section>
-      <h2>7. Marktdaten — CoinGecko API</h2>
-      <p>
+      <h2 data-i18n="h_s7">7. Marktdaten &mdash; CoinGecko API</h2>
+      <p data-i18n="s7_p1">
         Die Software ruft aktuelle Marktdaten (Kurs, Marktkapitalisierung,
-        Handelsvolumen, Exchange-Listings) über die API von CoinGecko Pty Ltd
+        Handelsvolumen, Exchange-Listings) &uuml;ber die API von CoinGecko Pty Ltd
         (Melbourne, Australien) ab. Dabei wird die IP-Adresse des Nutzers
-        an CoinGecko-Server übermittelt.
+        an CoinGecko-Server &uuml;bermittelt.
       </p>
-      <p>
-        CoinGecko verarbeitet diese Daten gemäß der eigenen Datenschutzrichtlinie:
+      <p data-i18n-html="s7_p2">
+        CoinGecko verarbeitet diese Daten gem&auml;&szlig; der eigenen Datenschutzrichtlinie:
         <a href="https://www.coingecko.com/en/privacy">coingecko.com/en/privacy</a>
       </p>
-      <p>
-        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung).
+      <p data-i18n="s7_p3">
+        Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf&uuml;llung).
       </p>
     </section>
 
     <section>
-      <h2>8. Lokaler Speicher (localStorage)</h2>
-      <p>
-        Diese Website speichert die gewählte Spracheinstellung im localStorage
-        des Browsers (Schlüssel: <code style="color:var(--gold-dim)">hct_lang</code>).
-        Dabei handelt es sich um eine rein technische Präferenz ohne
+      <h2 data-i18n="h_s8">8. Lokaler Speicher (localStorage)</h2>
+      <p data-i18n-html="s8_p1">
+        Diese Website speichert die gew&auml;hlte Spracheinstellung im localStorage
+        des Browsers (Schl&uuml;ssel: <code style="color:var(--gold-dim)">hct_lang</code>).
+        Dabei handelt es sich um eine rein technische Pr&auml;ferenz ohne
         Personenbezug. Es werden keine Tracking-Cookies oder Drittanbieter-Cookies
         gesetzt.
       </p>
     </section>
 
     <section>
-      <h2>9. Keine Weitergabe an Dritte</h2>
-      <p>
+      <h2 data-i18n="h_s9">9. Keine Weitergabe an Dritte</h2>
+      <p data-i18n="s9_p1">
         Personenbezogene Daten werden nicht an Dritte verkauft, vermietet oder
         zu Werbezwecken weitergegeben. Eine Weitergabe erfolgt nur, soweit dies
-        zur Vertragserfüllung erforderlich ist (Lemon Squeezy als
+        zur Vertragserf&uuml;llung erforderlich ist (Lemon Squeezy als
         Zahlungsdienstleister) oder eine gesetzliche Verpflichtung besteht.
       </p>
     </section>
 
     <section>
-      <h2>10. Ihre Rechte</h2>
-      <p>Sie haben gemäß DSGVO folgende Rechte:</p>
+      <h2 data-i18n="h_s10">10. Ihre Rechte</h2>
+      <p data-i18n="s10_p1">Sie haben gem&auml;&szlig; DSGVO folgende Rechte:</p>
       <ul>
-        <li>Auskunft über gespeicherte Daten (Art. 15 DSGVO)</li>
-        <li>Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
-        <li>Löschung Ihrer Daten (Art. 17 DSGVO)</li>
-        <li>Einschränkung der Verarbeitung (Art. 18 DSGVO)</li>
-        <li>Datenübertragbarkeit (Art. 20 DSGVO)</li>
-        <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
+        <li data-i18n="s10_li1">Auskunft &uuml;ber gespeicherte Daten (Art. 15 DSGVO)</li>
+        <li data-i18n="s10_li2">Berichtigung unrichtiger Daten (Art. 16 DSGVO)</li>
+        <li data-i18n="s10_li3">L&ouml;schung Ihrer Daten (Art. 17 DSGVO)</li>
+        <li data-i18n="s10_li4">Einschr&auml;nkung der Verarbeitung (Art. 18 DSGVO)</li>
+        <li data-i18n="s10_li5">Daten&uuml;bertragbarkeit (Art. 20 DSGVO)</li>
+        <li data-i18n="s10_li6">Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
       </ul>
-      <p>
-        Zur Ausübung Ihrer Rechte wenden Sie sich bitte an:
+      <p data-i18n-html="s10_p2">
+        Zur Aus&uuml;bung Ihrer Rechte wenden Sie sich bitte an:
         <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a>
       </p>
     </section>
 
     <section>
-      <h2>11. Beschwerderecht</h2>
-      <p>
-        Sie haben das Recht, sich bei einer Datenschutzaufsichtsbehörde zu
-        beschweren. Die zuständige Behörde für Berlin ist:
+      <h2 data-i18n="h_s11">11. Beschwerderecht</h2>
+      <p data-i18n="s11_p1">
+        Sie haben das Recht, sich bei einer Datenschutzaufsichtsbeh&ouml;rde zu
+        beschweren. Die zust&auml;ndige Beh&ouml;rde f&uuml;r Berlin ist:
       </p>
-      <p>
-        Berliner Beauftragte für Datenschutz und Informationsfreiheit<br>
+      <p data-i18n-html="s11_p2">
+        Berliner Beauftragte f&uuml;r Datenschutz und Informationsfreiheit<br>
         Friedrichstr. 219, 10969 Berlin<br>
         <a href="https://www.datenschutz-berlin.de" target="_blank" rel="noopener">datenschutz-berlin.de</a>
       </p>
     </section>
 
-    <div class="notice">
-      Stand: März 2026 — Diese Datenschutzerklärung wird bei wesentlichen
-      Änderungen der Datenverarbeitung aktualisiert.
+    <div class="notice" data-i18n="notice">
+      Stand: M&auml;rz 2026 &mdash; Diese Datenschutzerkl&auml;rung wird bei wesentlichen
+      &Auml;nderungen der Datenverarbeitung aktualisiert.
     </div>
   </main>
 
@@ -446,5 +483,558 @@
     &gt; holisticcointrainer.com &nbsp;//&nbsp; 2026
   </footer>
 
+<script>
+const T = {
+  DE: {
+    page_title: "Datenschutzerkl\u00e4rung \u2014 Holistic Coin Trainer",
+    back: "Zur\u00fcck",
+    label: "DSGVO \u00b7 Art. 13 & 14",
+    title: "DATENSCHUTZ\u00adERKL\u00c4RUNG",
+    h_s1: "1. Verantwortlicher",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berlin<br>E-Mail: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. Erhobene Daten beim Websitebesuch",
+    s2_p1: "Beim Aufrufen dieser Website werden durch den Hosting-Anbieter automatisch technische Zugriffsdaten in Server-Logfiles erfasst. Dazu geh\u00f6ren:",
+    s2_li1: "IP-Adresse (anonymisiert)",
+    s2_li2: "Datum und Uhrzeit des Zugriffs",
+    s2_li3: "aufgerufene URL",
+    s2_li4: "\u00fcbertragene Datenmenge",
+    s2_li5: "verwendeter Browser und Betriebssystem",
+    s2_p2: "Diese Daten werden ausschlie\u00dflich zur Sicherstellung des technischen Betriebs verarbeitet und nicht mit anderen Datenquellen zusammengef\u00fchrt. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).",
+    h_s3: "3. Hosting & CDN \u2014 Cloudflare",
+    s3_p1: "Diese Website wird \u00fcber Dienste von Cloudflare, Inc. (101 Townsend St., San Francisco, CA 94107, USA) ausgeliefert. Cloudflare fungiert als Content Delivery Network (CDN) und DNS-Anbieter. Dabei k\u00f6nnen technische Verbindungsdaten an Server von Cloudflare \u00fcbertragen werden.",
+    s3_p2: "Cloudflare ist nach dem EU-U.S. Data Privacy Framework zertifiziert. Weitere Informationen: <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. Zahlungsabwicklung \u2014 Lemon Squeezy",
+    s4_p1: "K\u00e4ufe werden \u00fcber Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, USA) abgewickelt. Lemon Squeezy agiert als Merchant of Record \u2014 das bedeutet, dass Lemon Squeezy der vertragsschlie\u00dfende H\u00e4ndler gegen\u00fcber dem K\u00e4ufer ist und die Zahlungsdaten in eigener datenschutzrechtlicher Verantwortung verarbeitet.",
+    s4_p2: "Es werden keine Zahlungsdaten (Kreditkarte, Bankverbindung o.\u00e4.) durch den Betreiber dieser Website verarbeitet oder gespeichert. Weitere Informationen: <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. Lizenzverwaltung \u2014 Lemon Squeezy API",
+    s5_p1: "Bei der Aktivierung einer Lizenz im Holistic Coin Trainer \u00fcbermittelt die Software den erworbenen Lizenzschl\u00fcssel sowie eine pseudonymisierte Ger\u00e4te-ID (SHA-256-Hash aus MAC-Adresse und Hostname) an die Lemon Squeezy License API zur Validierung. Es werden keine personenbezogenen Daten des Nutzers an den Betreiber \u00fcbermittelt. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf\u00fcllung).",
+    h_s6: "6. Datenverarbeitung durch Anthropic (KI-Analyse & Lernmodule)",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 Allgemeines</strong><br>Die Software nutzt die API von Anthropic, PBC (548 Market St, PMB 90375, San Francisco, CA 94104, USA) zur Generierung von KI-gest\u00fctzten Lernberichten und zur Bereitstellung interaktiver Lernfunktionen. Anthropic verarbeitet die \u00fcbermittelten Daten gem\u00e4\u00df der eigenen Datenschutzrichtlinie: <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>. Der API-Key des Nutzers wird ausschlie\u00dflich zur Authentifizierung verwendet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf\u00fcllung \u2014 die KI-Analyse ist der Kernzweck der Software).",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 Daten\u00fcbermittlung im Tab ANALYSE</strong><br>Bei jeder Coin-Analyse werden folgende Daten an Anthropic-Server in den USA \u00fcbermittelt:",
+    s6_2_li1: "System-Prompt (Analyse-Framework)",
+    s6_2_li2: "Coin-Symbol (z.\u202fB. \u201eBTC\u201c) und zugeh\u00f6rige Marktdaten (CoinGecko)",
+    s6_2_p2: "Bei interaktiven Analysen (Lernmodus) werden zus\u00e4tzlich die Antworten des Nutzers auf Reflexionsfragen (DENKPAUSEN) an Anthropic \u00fcbermittelt, um eine pers\u00f6nliche Lernauswertung zu erstellen. Der Nutzer wird gebeten, in den Antwortfeldern keine sensiblen pers\u00f6nlichen Daten einzugeben (insbesondere keine Finanzdaten, Kontodaten oder Verm\u00f6gensverh\u00e4ltnisse).",
+    s6_2_p3: "Es werden im ANALYSE-Tab dar\u00fcber hinaus keine personenbezogenen Daten des Nutzers (Name, E-Mail, Adresse o.\u202f\u00e4.) an Anthropic \u00fcbermittelt.",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 Daten\u00fcbermittlung im PRIMER (Lernmodul)</strong><br>Im PRIMER-Lernmodul werden bei der Nutzung folgende Daten an Anthropic-Server in den USA \u00fcbermittelt:",
+    s6_3_li1: "Benutzername (frei gew\u00e4hltes Pseudonym)",
+    s6_3_li2: "Nachrichten und Eingaben des Nutzers im Lernkontext",
+    s6_3_li3: "Lernkontext (gew\u00e4hltes Thema, Schwierigkeitsgrad)",
+    s6_3_li4: "Gespr\u00e4chsverlauf der aktuellen Lernsitzung (Konversationshistorie)",
+    s6_3_li5: "Reflexionen und Selbsteinsch\u00e4tzungen des Nutzers",
+    s6_3_li6: "Predict-Balance (Fortschritt bei Prognose-\u00dcbungen)",
+    s6_3_li7: "DCA-Reflexionen und Follow-Up Insights aus fr\u00fcheren Analysen",
+    s6_3_li8: "Lernerprofil (Wissenstand, Lernfortschritt, erkannte Tendenzen)",
+    s6_3_p2: "Zur Personalisierung des Lernerlebnisses erstellt ein Synthese-Agent eine pseudonymisierte Zusammenfassung des Lernstands des Nutzers. Diese Zusammenfassung wird ebenfalls an Anthropic zur Verarbeitung \u00fcbermittelt und dient ausschlie\u00dflich der Kontextualisierung des aktuellen Lerngespr\u00e4chs.",
+    s6_3_p3: "Der Nutzer wird gebeten, auch im PRIMER keine sensiblen pers\u00f6nlichen Daten einzugeben (insbesondere keine Finanzdaten, Kontodaten oder Verm\u00f6gensverh\u00e4ltnisse).",
+    s6_3_p4: "Diese Daten werden ausschlie\u00dflich zur Bereitstellung der personalisierten Lernfunktion verarbeitet. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf\u00fcllung).",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 Profiling (Lernerprofil)</strong><br>Im Rahmen des PRIMER-Moduls wird ein Lernerprofil erstellt, das den Wissensstand, den Lernfortschritt und erkannte Tendenzen des Nutzers (z.\u202fB. h\u00e4ufig \u00fcbersehene Risikofaktoren) erfasst. Dieses Profil dient ausschlie\u00dflich der Optimierung der Lernerfahrung und wird an Anthropic zur Verarbeitung \u00fcbermittelt.",
+    s6_4_p2: "Es findet <strong>keine automatisierte Entscheidungsfindung</strong> im Sinne des Art. 22 DSGVO statt. Das Lernerprofil hat keine rechtlichen oder wirtschaftlichen Auswirkungen f\u00fcr den Nutzer. Es werden keine Kreditw\u00fcrdigkeits-, Handels- oder Anlageentscheidungen automatisiert getroffen.",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 Drittlandtransfer (USA)</strong><br>Die Daten\u00fcbermittlung an Anthropic, Inc. (USA) erfolgt auf Grundlage des EU-U.S. Data Privacy Framework (DPF), best\u00e4tigt durch das Gericht der Europ\u00e4ischen Union am 3. September 2025 (Rechtssache T-553/23). Erg\u00e4nzend sind Standardvertragsklauseln (SCCs) gem\u00e4\u00df Art. 46 Abs. 2 lit. c DSGVO Bestandteil des Anthropic Data Processing Addendum (DPA). Das DPA ist automatisch Bestandteil der Anthropic Commercial Terms of Service und umfasst die Verarbeitung durch Anthropic als Auftragsverarbeiter (Processor) nach dokumentierten Weisungen des Verantwortlichen (Controller). API-Daten werden laut Anthropic nicht f\u00fcr das Training von KI-Modellen verwendet.",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 Lokale Datenspeicherung</strong><br>Folgende Daten werden ausschlie\u00dflich lokal auf dem Ger\u00e4t des Nutzers gespeichert und <strong>nicht</strong> an Anthropic oder Dritte \u00fcbermittelt:",
+    s6_6_li1: "SQLite-Datenbank mit Analysehistorie, Lernfortschritt und Einstellungen",
+    s6_6_li2: "API-Key des Nutzers (im System-Keychain des Betriebssystems \u2014 macOS Keychain, Windows Credential Manager oder Linux Secret Service \u2014 verschl\u00fcsselt durch das Betriebssystem)",
+    s6_6_li3: "Lizenzschl\u00fcssel (im System-Keychain des Betriebssystems)",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 L\u00f6schung</strong><br>Der Nutzer kann jederzeit alle lokal gespeicherten Daten (SQLite-Datenbank, Keychain-Eintr\u00e4ge) eigenst\u00e4ndig l\u00f6schen. Daten, die bereits an Anthropic \u00fcbermittelt wurden, werden gem\u00e4\u00df der Anthropic-Datenschutzrichtlinie behandelt. Anthropic speichert \u00fcber die API \u00fcbermittelte Daten nach eigener Angabe nicht dauerhaft zu Trainingszwecken.",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 Rechte der betroffenen Person</strong><br>Ihre Rechte als betroffene Person (Auskunft, Berichtigung, L\u00f6schung, Einschr\u00e4nkung, Daten\u00fcbertragbarkeit, Widerspruch, Beschwerderecht) sind in Abschnitt 10 und 11 dieser Datenschutzerkl\u00e4rung aufgef\u00fchrt.",
+    s6_8_contact: "Zur Aus\u00fcbung Ihrer Rechte wenden Sie sich bitte an: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. Marktdaten \u2014 CoinGecko API",
+    s7_p1: "Die Software ruft aktuelle Marktdaten (Kurs, Marktkapitalisierung, Handelsvolumen, Exchange-Listings) \u00fcber die API von CoinGecko Pty Ltd (Melbourne, Australien) ab. Dabei wird die IP-Adresse des Nutzers an CoinGecko-Server \u00fcbermittelt.",
+    s7_p2: "CoinGecko verarbeitet diese Daten gem\u00e4\u00df der eigenen Datenschutzrichtlinie: <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserf\u00fcllung).",
+    h_s8: "8. Lokaler Speicher (localStorage)",
+    s8_p1: "Diese Website speichert die gew\u00e4hlte Spracheinstellung im localStorage des Browsers (Schl\u00fcssel: <code style='color:var(--gold-dim)'>hct_lang</code>). Dabei handelt es sich um eine rein technische Pr\u00e4ferenz ohne Personenbezug. Es werden keine Tracking-Cookies oder Drittanbieter-Cookies gesetzt.",
+    h_s9: "9. Keine Weitergabe an Dritte",
+    s9_p1: "Personenbezogene Daten werden nicht an Dritte verkauft, vermietet oder zu Werbezwecken weitergegeben. Eine Weitergabe erfolgt nur, soweit dies zur Vertragserf\u00fcllung erforderlich ist (Lemon Squeezy als Zahlungsdienstleister) oder eine gesetzliche Verpflichtung besteht.",
+    h_s10: "10. Ihre Rechte",
+    s10_p1: "Sie haben gem\u00e4\u00df DSGVO folgende Rechte:",
+    s10_li1: "Auskunft \u00fcber gespeicherte Daten (Art. 15 DSGVO)",
+    s10_li2: "Berichtigung unrichtiger Daten (Art. 16 DSGVO)",
+    s10_li3: "L\u00f6schung Ihrer Daten (Art. 17 DSGVO)",
+    s10_li4: "Einschr\u00e4nkung der Verarbeitung (Art. 18 DSGVO)",
+    s10_li5: "Daten\u00fcbertragbarkeit (Art. 20 DSGVO)",
+    s10_li6: "Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)",
+    s10_p2: "Zur Aus\u00fcbung Ihrer Rechte wenden Sie sich bitte an: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. Beschwerderecht",
+    s11_p1: "Sie haben das Recht, sich bei einer Datenschutzaufsichtsbeh\u00f6rde zu beschweren. Die zust\u00e4ndige Beh\u00f6rde f\u00fcr Berlin ist:",
+    s11_p2: "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "Stand: M\u00e4rz 2026 \u2014 Diese Datenschutzerkl\u00e4rung wird bei wesentlichen \u00c4nderungen der Datenverarbeitung aktualisiert."
+  },
+  EN: {
+    page_title: "Privacy Policy \u2014 Holistic Coin Trainer",
+    back: "Back",
+    label: "GDPR \u00b7 Art. 13 & 14",
+    title: "PRIVACY POLICY",
+    h_s1: "1. Controller",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berlin<br>Email: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. Data Collected When Visiting the Website",
+    s2_p1: "When accessing this website, the hosting provider automatically collects technical access data in server log files. This includes:",
+    s2_li1: "IP address (anonymized)",
+    s2_li2: "Date and time of access",
+    s2_li3: "URL accessed",
+    s2_li4: "Amount of data transferred",
+    s2_li5: "Browser and operating system used",
+    s2_p2: "This data is processed exclusively to ensure technical operation and is not combined with other data sources. Legal basis: Art. 6(1)(f) GDPR (legitimate interest).",
+    h_s3: "3. Hosting & CDN \u2014 Cloudflare",
+    s3_p1: "This website is delivered via services of Cloudflare, Inc. (101 Townsend St., San Francisco, CA 94107, USA). Cloudflare acts as a Content Delivery Network (CDN) and DNS provider. Technical connection data may be transferred to Cloudflare servers.",
+    s3_p2: "Cloudflare is certified under the EU-U.S. Data Privacy Framework. More information: <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. Payment Processing \u2014 Lemon Squeezy",
+    s4_p1: "Purchases are processed through Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, USA). Lemon Squeezy acts as Merchant of Record \u2014 meaning Lemon Squeezy is the contracting merchant vis-\u00e0-vis the buyer and processes payment data under its own data protection responsibility.",
+    s4_p2: "No payment data (credit card, bank details, etc.) is processed or stored by the operator of this website. More information: <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. License Management \u2014 Lemon Squeezy API",
+    s5_p1: "When activating a license in Holistic Coin Trainer, the software transmits the purchased license key and a pseudonymized device ID (SHA-256 hash of MAC address and hostname) to the Lemon Squeezy License API for validation. No personal data of the user is transmitted to the operator. Legal basis: Art. 6(1)(b) GDPR (contract performance).",
+    h_s6: "6. Data Processing by Anthropic (AI Analysis & Learning Modules)",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 General</strong><br>The software uses the API of Anthropic, PBC (548 Market St, PMB 90375, San Francisco, CA 94104, USA) to generate AI-powered learning reports and to provide interactive learning functions. Anthropic processes the transmitted data in accordance with its own privacy policy: <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>. The user's API key is used exclusively for authentication. Legal basis: Art. 6(1)(b) GDPR (contract performance \u2014 AI analysis is the core purpose of the software).",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 Data Transmission in the ANALYSE Tab</strong><br>For each coin analysis, the following data is transmitted to Anthropic servers in the USA:",
+    s6_2_li1: "System prompt (analysis framework)",
+    s6_2_li2: "Coin symbol (e.g. \"BTC\") and associated market data (CoinGecko)",
+    s6_2_p2: "For interactive analyses (learning mode), the user's responses to reflection questions (THINKING PAUSES) are additionally transmitted to Anthropic to create a personal learning evaluation. Users are asked not to enter sensitive personal data in the response fields (in particular no financial data, account data, or asset information).",
+    s6_2_p3: "No further personal data of the user (name, email, address, etc.) is transmitted to Anthropic in the ANALYSE tab.",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 Data Transmission in PRIMER (Learning Module)</strong><br>When using the PRIMER learning module, the following data is transmitted to Anthropic servers in the USA:",
+    s6_3_li1: "Username (freely chosen pseudonym)",
+    s6_3_li2: "Messages and inputs from the user in the learning context",
+    s6_3_li3: "Learning context (selected topic, difficulty level)",
+    s6_3_li4: "Conversation history of the current learning session",
+    s6_3_li5: "Reflections and self-assessments of the user",
+    s6_3_li6: "Predict balance (progress in prediction exercises)",
+    s6_3_li7: "DCA reflections and follow-up insights from previous analyses",
+    s6_3_li8: "Learner profile (knowledge level, learning progress, identified tendencies)",
+    s6_3_p2: "To personalize the learning experience, a synthesis agent creates a pseudonymized summary of the user's learning status. This summary is also transmitted to Anthropic for processing and serves exclusively to contextualize the current learning conversation.",
+    s6_3_p3: "Users are also asked not to enter sensitive personal data in PRIMER (in particular no financial data, account data, or asset information).",
+    s6_3_p4: "This data is processed exclusively to provide the personalized learning function. Legal basis: Art. 6(1)(b) GDPR (contract performance).",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 Profiling (Learner Profile)</strong><br>Within the PRIMER module, a learner profile is created that captures the user's knowledge level, learning progress, and identified tendencies (e.g. frequently overlooked risk factors). This profile serves exclusively to optimize the learning experience and is transmitted to Anthropic for processing.",
+    s6_4_p2: "There is <strong>no automated decision-making</strong> within the meaning of Art. 22 GDPR. The learner profile has no legal or economic effects for the user. No creditworthiness, trading, or investment decisions are made automatically.",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 Third-Country Transfer (USA)</strong><br>Data transfer to Anthropic, Inc. (USA) is based on the EU-U.S. Data Privacy Framework (DPF), confirmed by the Court of the European Union on September 3, 2025 (Case T-553/23). Additionally, Standard Contractual Clauses (SCCs) pursuant to Art. 46(2)(c) GDPR are part of the Anthropic Data Processing Addendum (DPA). The DPA is automatically part of the Anthropic Commercial Terms of Service and covers processing by Anthropic as a processor under documented instructions of the controller. According to Anthropic, API data is not used for training AI models.",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 Local Data Storage</strong><br>The following data is stored exclusively on the user's device and is <strong>not</strong> transmitted to Anthropic or third parties:",
+    s6_6_li1: "SQLite database with analysis history, learning progress, and settings",
+    s6_6_li2: "User's API key (in the system keychain \u2014 macOS Keychain, Windows Credential Manager, or Linux Secret Service \u2014 encrypted by the operating system)",
+    s6_6_li3: "License key (in the system keychain)",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 Deletion</strong><br>The user can independently delete all locally stored data (SQLite database, keychain entries) at any time. Data already transmitted to Anthropic is handled in accordance with Anthropic's privacy policy. According to Anthropic, data transmitted via the API is not permanently stored for training purposes.",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 Rights of the Data Subject</strong><br>Your rights as a data subject (access, rectification, erasure, restriction, data portability, objection, right to complain) are listed in sections 10 and 11 of this privacy policy.",
+    s6_8_contact: "To exercise your rights, please contact: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. Market Data \u2014 CoinGecko API",
+    s7_p1: "The software retrieves current market data (price, market capitalization, trading volume, exchange listings) via the API of CoinGecko Pty Ltd (Melbourne, Australia). The user's IP address is transmitted to CoinGecko servers.",
+    s7_p2: "CoinGecko processes this data in accordance with its own privacy policy: <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "Legal basis: Art. 6(1)(b) GDPR (contract performance).",
+    h_s8: "8. Local Storage (localStorage)",
+    s8_p1: "This website stores the selected language setting in the browser's localStorage (key: <code style='color:var(--gold-dim)'>hct_lang</code>). This is a purely technical preference without personal reference. No tracking cookies or third-party cookies are set.",
+    h_s9: "9. No Disclosure to Third Parties",
+    s9_p1: "Personal data is not sold, rented, or shared for advertising purposes with third parties. Disclosure only occurs insofar as it is necessary for contract performance (Lemon Squeezy as payment service provider) or a legal obligation exists.",
+    h_s10: "10. Your Rights",
+    s10_p1: "Under the GDPR, you have the following rights:",
+    s10_li1: "Access to stored data (Art. 15 GDPR)",
+    s10_li2: "Rectification of inaccurate data (Art. 16 GDPR)",
+    s10_li3: "Erasure of your data (Art. 17 GDPR)",
+    s10_li4: "Restriction of processing (Art. 18 GDPR)",
+    s10_li5: "Data portability (Art. 20 GDPR)",
+    s10_li6: "Objection to processing (Art. 21 GDPR)",
+    s10_p2: "To exercise your rights, please contact: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. Right to Lodge a Complaint",
+    s11_p1: "You have the right to lodge a complaint with a data protection supervisory authority. The competent authority for Berlin is:",
+    s11_p2: "Berlin Commissioner for Data Protection and Freedom of Information<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "As of: March 2026 \u2014 This privacy policy will be updated in the event of material changes to data processing."
+  },
+  FR: {
+    page_title: "Politique de confidentialit\u00e9 \u2014 Holistic Coin Trainer",
+    back: "Retour",
+    label: "RGPD \u00b7 Art. 13 & 14",
+    title: "POLITIQUE DE CONFIDENTIALIT\u00c9",
+    h_s1: "1. Responsable du traitement",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berlin<br>E-mail : <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. Donn\u00e9es collect\u00e9es lors de la visite du site",
+    s2_p1: "Lors de l'acc\u00e8s \u00e0 ce site, l'h\u00e9bergeur collecte automatiquement des donn\u00e9es techniques d'acc\u00e8s dans les fichiers journaux du serveur. Celles-ci comprennent :",
+    s2_li1: "Adresse IP (anonymis\u00e9e)",
+    s2_li2: "Date et heure de l'acc\u00e8s",
+    s2_li3: "URL consult\u00e9e",
+    s2_li4: "Volume de donn\u00e9es transf\u00e9r\u00e9",
+    s2_li5: "Navigateur et syst\u00e8me d'exploitation utilis\u00e9s",
+    s2_p2: "Ces donn\u00e9es sont trait\u00e9es exclusivement pour assurer le fonctionnement technique et ne sont pas combin\u00e9es avec d'autres sources de donn\u00e9es. Base juridique : art. 6, par. 1, point f) du RGPD (int\u00e9r\u00eat l\u00e9gitime).",
+    h_s3: "3. H\u00e9bergement & CDN \u2014 Cloudflare",
+    s3_p1: "Ce site est diffus\u00e9 via les services de Cloudflare, Inc. (101 Townsend St., San Francisco, CA 94107, USA). Cloudflare agit en tant que r\u00e9seau de diffusion de contenu (CDN) et fournisseur DNS. Des donn\u00e9es techniques de connexion peuvent \u00eatre transf\u00e9r\u00e9es aux serveurs de Cloudflare.",
+    s3_p2: "Cloudflare est certifi\u00e9 dans le cadre du EU-U.S. Data Privacy Framework. Plus d'informations : <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. Traitement des paiements \u2014 Lemon Squeezy",
+    s4_p1: "Les achats sont trait\u00e9s par Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, USA). Lemon Squeezy agit en tant que Merchant of Record \u2014 cela signifie que Lemon Squeezy est le commer\u00e7ant contractant vis-\u00e0-vis de l'acheteur et traite les donn\u00e9es de paiement sous sa propre responsabilit\u00e9 en mati\u00e8re de protection des donn\u00e9es.",
+    s4_p2: "Aucune donn\u00e9e de paiement (carte de cr\u00e9dit, coordonn\u00e9es bancaires, etc.) n'est trait\u00e9e ou stock\u00e9e par l'exploitant de ce site. Plus d'informations : <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. Gestion des licences \u2014 Lemon Squeezy API",
+    s5_p1: "Lors de l'activation d'une licence dans Holistic Coin Trainer, le logiciel transmet la cl\u00e9 de licence acquise ainsi qu'un identifiant d'appareil pseudonymis\u00e9 (hachage SHA-256 de l'adresse MAC et du nom d'h\u00f4te) \u00e0 l'API de licence Lemon Squeezy pour validation. Aucune donn\u00e9e personnelle de l'utilisateur n'est transmise \u00e0 l'exploitant. Base juridique : art. 6, par. 1, point b) du RGPD (ex\u00e9cution du contrat).",
+    h_s6: "6. Traitement des donn\u00e9es par Anthropic (analyse IA & modules d'apprentissage)",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 G\u00e9n\u00e9ralit\u00e9s</strong><br>Le logiciel utilise l'API d'Anthropic, PBC (548 Market St, PMB 90375, San Francisco, CA 94104, USA) pour g\u00e9n\u00e9rer des rapports d'apprentissage assist\u00e9s par IA et fournir des fonctions d'apprentissage interactives. Anthropic traite les donn\u00e9es transmises conform\u00e9ment \u00e0 sa propre politique de confidentialit\u00e9 : <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>. La cl\u00e9 API de l'utilisateur est utilis\u00e9e exclusivement pour l'authentification. Base juridique : art. 6, par. 1, point b) du RGPD (ex\u00e9cution du contrat \u2014 l'analyse IA est l'objet principal du logiciel).",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 Transmission de donn\u00e9es dans l'onglet ANALYSE</strong><br>Pour chaque analyse de crypto, les donn\u00e9es suivantes sont transmises aux serveurs d'Anthropic aux USA :",
+    s6_2_li1: "Prompt syst\u00e8me (framework d'analyse)",
+    s6_2_li2: "Symbole de la crypto (p. ex. \u00ab BTC \u00bb) et donn\u00e9es de march\u00e9 associ\u00e9es (CoinGecko)",
+    s6_2_p2: "Pour les analyses interactives (mode apprentissage), les r\u00e9ponses de l'utilisateur aux questions de r\u00e9flexion (PAUSES DE R\u00c9FLEXION) sont \u00e9galement transmises \u00e0 Anthropic pour cr\u00e9er une \u00e9valuation d'apprentissage personnalis\u00e9e. L'utilisateur est pri\u00e9 de ne pas saisir de donn\u00e9es personnelles sensibles dans les champs de r\u00e9ponse (notamment pas de donn\u00e9es financi\u00e8res, de compte ou de patrimoine).",
+    s6_2_p3: "Aucune autre donn\u00e9e personnelle de l'utilisateur (nom, e-mail, adresse, etc.) n'est transmise \u00e0 Anthropic dans l'onglet ANALYSE.",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 Transmission de donn\u00e9es dans le PRIMER (module d'apprentissage)</strong><br>Lors de l'utilisation du module d'apprentissage PRIMER, les donn\u00e9es suivantes sont transmises aux serveurs d'Anthropic aux USA :",
+    s6_3_li1: "Nom d'utilisateur (pseudonyme librement choisi)",
+    s6_3_li2: "Messages et saisies de l'utilisateur dans le contexte d'apprentissage",
+    s6_3_li3: "Contexte d'apprentissage (sujet choisi, niveau de difficult\u00e9)",
+    s6_3_li4: "Historique de conversation de la session d'apprentissage en cours",
+    s6_3_li5: "R\u00e9flexions et auto-\u00e9valuations de l'utilisateur",
+    s6_3_li6: "Solde Predict (progression dans les exercices de pronostic)",
+    s6_3_li7: "R\u00e9flexions DCA et insights de suivi d'analyses ant\u00e9rieures",
+    s6_3_li8: "Profil d'apprentissage (niveau de connaissances, progression, tendances identifi\u00e9es)",
+    s6_3_p2: "Pour personnaliser l'exp\u00e9rience d'apprentissage, un agent de synth\u00e8se cr\u00e9e un r\u00e9sum\u00e9 pseudonymis\u00e9 du niveau d'apprentissage de l'utilisateur. Ce r\u00e9sum\u00e9 est \u00e9galement transmis \u00e0 Anthropic pour traitement et sert exclusivement \u00e0 contextualiser la conversation d'apprentissage en cours.",
+    s6_3_p3: "L'utilisateur est \u00e9galement pri\u00e9 de ne pas saisir de donn\u00e9es personnelles sensibles dans le PRIMER (notamment pas de donn\u00e9es financi\u00e8res, de compte ou de patrimoine).",
+    s6_3_p4: "Ces donn\u00e9es sont trait\u00e9es exclusivement pour fournir la fonction d'apprentissage personnalis\u00e9e. Base juridique : art. 6, par. 1, point b) du RGPD (ex\u00e9cution du contrat).",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 Profilage (profil d'apprentissage)</strong><br>Dans le cadre du module PRIMER, un profil d'apprentissage est cr\u00e9\u00e9 qui enregistre le niveau de connaissances, la progression et les tendances identifi\u00e9es de l'utilisateur (p. ex. facteurs de risque fr\u00e9quemment n\u00e9glig\u00e9s). Ce profil sert exclusivement \u00e0 optimiser l'exp\u00e9rience d'apprentissage et est transmis \u00e0 Anthropic pour traitement.",
+    s6_4_p2: "Il n'y a <strong>pas de prise de d\u00e9cision automatis\u00e9e</strong> au sens de l'art. 22 du RGPD. Le profil d'apprentissage n'a aucun effet juridique ou \u00e9conomique pour l'utilisateur. Aucune d\u00e9cision de solvabilit\u00e9, de n\u00e9goce ou d'investissement n'est prise automatiquement.",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 Transfert vers un pays tiers (USA)</strong><br>Le transfert de donn\u00e9es vers Anthropic, Inc. (USA) est fond\u00e9 sur le EU-U.S. Data Privacy Framework (DPF), confirm\u00e9 par le Tribunal de l'Union europ\u00e9enne le 3 septembre 2025 (affaire T-553/23). En compl\u00e9ment, les clauses contractuelles types (SCCs) conform\u00e9ment \u00e0 l'art. 46, par. 2, point c) du RGPD font partie de l'Anthropic Data Processing Addendum (DPA). Le DPA fait automatiquement partie des Anthropic Commercial Terms of Service et couvre le traitement par Anthropic en tant que sous-traitant (Processor) selon les instructions document\u00e9es du responsable du traitement (Controller). Selon Anthropic, les donn\u00e9es API ne sont pas utilis\u00e9es pour l'entra\u00eenement de mod\u00e8les d'IA.",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 Stockage local des donn\u00e9es</strong><br>Les donn\u00e9es suivantes sont stock\u00e9es exclusivement sur l'appareil de l'utilisateur et ne sont <strong>pas</strong> transmises \u00e0 Anthropic ou \u00e0 des tiers :",
+    s6_6_li1: "Base de donn\u00e9es SQLite avec historique d'analyse, progression d'apprentissage et param\u00e8tres",
+    s6_6_li2: "Cl\u00e9 API de l'utilisateur (dans le trousseau syst\u00e8me \u2014 macOS Keychain, Windows Credential Manager ou Linux Secret Service \u2014 chiffr\u00e9e par le syst\u00e8me d'exploitation)",
+    s6_6_li3: "Cl\u00e9 de licence (dans le trousseau syst\u00e8me)",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 Suppression</strong><br>L'utilisateur peut supprimer \u00e0 tout moment toutes les donn\u00e9es stock\u00e9es localement (base de donn\u00e9es SQLite, entr\u00e9es du trousseau). Les donn\u00e9es d\u00e9j\u00e0 transmises \u00e0 Anthropic sont trait\u00e9es conform\u00e9ment \u00e0 la politique de confidentialit\u00e9 d'Anthropic. Selon Anthropic, les donn\u00e9es transmises via l'API ne sont pas stock\u00e9es de mani\u00e8re permanente \u00e0 des fins d'entra\u00eenement.",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 Droits de la personne concern\u00e9e</strong><br>Vos droits en tant que personne concern\u00e9e (acc\u00e8s, rectification, suppression, limitation, portabilit\u00e9 des donn\u00e9es, opposition, droit de r\u00e9clamation) sont \u00e9num\u00e9r\u00e9s aux sections 10 et 11 de la pr\u00e9sente politique de confidentialit\u00e9.",
+    s6_8_contact: "Pour exercer vos droits, veuillez contacter : <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. Donn\u00e9es de march\u00e9 \u2014 CoinGecko API",
+    s7_p1: "Le logiciel r\u00e9cup\u00e8re les donn\u00e9es de march\u00e9 actuelles (cours, capitalisation boursi\u00e8re, volume d'\u00e9change, cotations) via l'API de CoinGecko Pty Ltd (Melbourne, Australie). L'adresse IP de l'utilisateur est transmise aux serveurs CoinGecko.",
+    s7_p2: "CoinGecko traite ces donn\u00e9es conform\u00e9ment \u00e0 sa propre politique de confidentialit\u00e9 : <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "Base juridique : art. 6, par. 1, point b) du RGPD (ex\u00e9cution du contrat).",
+    h_s8: "8. Stockage local (localStorage)",
+    s8_p1: "Ce site stocke le param\u00e8tre de langue s\u00e9lectionn\u00e9 dans le localStorage du navigateur (cl\u00e9 : <code style='color:var(--gold-dim)'>hct_lang</code>). Il s'agit d'une pr\u00e9f\u00e9rence purement technique sans r\u00e9f\u00e9rence personnelle. Aucun cookie de suivi ou cookie tiers n'est utilis\u00e9.",
+    h_s9: "9. Pas de transmission \u00e0 des tiers",
+    s9_p1: "Les donn\u00e9es personnelles ne sont ni vendues, ni lou\u00e9es, ni partag\u00e9es \u00e0 des fins publicitaires avec des tiers. Une transmission n'a lieu que dans la mesure o\u00f9 elle est n\u00e9cessaire \u00e0 l'ex\u00e9cution du contrat (Lemon Squeezy en tant que prestataire de paiement) ou qu'une obligation l\u00e9gale existe.",
+    h_s10: "10. Vos droits",
+    s10_p1: "En vertu du RGPD, vous disposez des droits suivants :",
+    s10_li1: "Acc\u00e8s aux donn\u00e9es stock\u00e9es (art. 15 RGPD)",
+    s10_li2: "Rectification des donn\u00e9es inexactes (art. 16 RGPD)",
+    s10_li3: "Suppression de vos donn\u00e9es (art. 17 RGPD)",
+    s10_li4: "Limitation du traitement (art. 18 RGPD)",
+    s10_li5: "Portabilit\u00e9 des donn\u00e9es (art. 20 RGPD)",
+    s10_li6: "Opposition au traitement (art. 21 RGPD)",
+    s10_p2: "Pour exercer vos droits, veuillez contacter : <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. Droit de r\u00e9clamation",
+    s11_p1: "Vous avez le droit de d\u00e9poser une r\u00e9clamation aupr\u00e8s d'une autorit\u00e9 de contr\u00f4le de la protection des donn\u00e9es. L'autorit\u00e9 comp\u00e9tente pour Berlin est :",
+    s11_p2: "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "\u00c0 jour : mars 2026 \u2014 Cette politique de confidentialit\u00e9 sera mise \u00e0 jour en cas de modifications substantielles du traitement des donn\u00e9es."
+  },
+  ES: {
+    page_title: "Pol\u00edtica de privacidad \u2014 Holistic Coin Trainer",
+    back: "Volver",
+    label: "RGPD \u00b7 Art. 13 y 14",
+    title: "POL\u00cdTICA DE PRIVACIDAD",
+    h_s1: "1. Responsable",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berl\u00edn<br>Correo electr\u00f3nico: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. Datos recopilados al visitar el sitio web",
+    s2_p1: "Al acceder a este sitio web, el proveedor de alojamiento recopila autom\u00e1ticamente datos t\u00e9cnicos de acceso en archivos de registro del servidor. Estos incluyen:",
+    s2_li1: "Direcci\u00f3n IP (anonimizada)",
+    s2_li2: "Fecha y hora del acceso",
+    s2_li3: "URL consultada",
+    s2_li4: "Volumen de datos transferidos",
+    s2_li5: "Navegador y sistema operativo utilizados",
+    s2_p2: "Estos datos se procesan exclusivamente para garantizar el funcionamiento t\u00e9cnico y no se combinan con otras fuentes de datos. Base jur\u00eddica: art. 6, ap. 1, letra f) del RGPD (inter\u00e9s leg\u00edtimo).",
+    h_s3: "3. Alojamiento y CDN \u2014 Cloudflare",
+    s3_p1: "Este sitio web se distribuye a trav\u00e9s de los servicios de Cloudflare, Inc. (101 Townsend St., San Francisco, CA 94107, EE.UU.). Cloudflare act\u00faa como red de distribuci\u00f3n de contenido (CDN) y proveedor de DNS. Los datos t\u00e9cnicos de conexi\u00f3n pueden transferirse a los servidores de Cloudflare.",
+    s3_p2: "Cloudflare est\u00e1 certificado en el marco del EU-U.S. Data Privacy Framework. M\u00e1s informaci\u00f3n: <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. Procesamiento de pagos \u2014 Lemon Squeezy",
+    s4_p1: "Las compras se procesan a trav\u00e9s de Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, EE.UU.). Lemon Squeezy act\u00faa como Merchant of Record \u2014 esto significa que Lemon Squeezy es el comerciante contratante frente al comprador y procesa los datos de pago bajo su propia responsabilidad en materia de protecci\u00f3n de datos.",
+    s4_p2: "El operador de este sitio web no procesa ni almacena datos de pago (tarjeta de cr\u00e9dito, datos bancarios, etc.). M\u00e1s informaci\u00f3n: <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. Gesti\u00f3n de licencias \u2014 Lemon Squeezy API",
+    s5_p1: "Al activar una licencia en Holistic Coin Trainer, el software transmite la clave de licencia adquirida y un identificador de dispositivo seudonimizado (hash SHA-256 de la direcci\u00f3n MAC y el nombre del host) a la API de licencias de Lemon Squeezy para su validaci\u00f3n. No se transmiten datos personales del usuario al operador. Base jur\u00eddica: art. 6, ap. 1, letra b) del RGPD (ejecuci\u00f3n del contrato).",
+    h_s6: "6. Procesamiento de datos por Anthropic (an\u00e1lisis IA y m\u00f3dulos de aprendizaje)",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 Generalidades</strong><br>El software utiliza la API de Anthropic, PBC (548 Market St, PMB 90375, San Francisco, CA 94104, EE.UU.) para generar informes de aprendizaje asistidos por IA y proporcionar funciones de aprendizaje interactivas. Anthropic procesa los datos transmitidos de acuerdo con su propia pol\u00edtica de privacidad: <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>. La clave API del usuario se utiliza exclusivamente para la autenticaci\u00f3n. Base jur\u00eddica: art. 6, ap. 1, letra b) del RGPD (ejecuci\u00f3n del contrato \u2014 el an\u00e1lisis IA es el prop\u00f3sito principal del software).",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 Transmisi\u00f3n de datos en la pesta\u00f1a AN\u00c1LISIS</strong><br>Para cada an\u00e1lisis de criptomoneda, se transmiten los siguientes datos a los servidores de Anthropic en EE.UU.:",
+    s6_2_li1: "Prompt del sistema (framework de an\u00e1lisis)",
+    s6_2_li2: "S\u00edmbolo de la criptomoneda (p. ej. \u00abBTC\u00bb) y datos de mercado asociados (CoinGecko)",
+    s6_2_p2: "Para an\u00e1lisis interactivos (modo de aprendizaje), las respuestas del usuario a las preguntas de reflexi\u00f3n (PAUSAS DE REFLEXI\u00d3N) tambi\u00e9n se transmiten a Anthropic para crear una evaluaci\u00f3n de aprendizaje personalizada. Se solicita al usuario que no introduzca datos personales sensibles en los campos de respuesta (en particular, datos financieros, datos de cuenta o informaci\u00f3n patrimonial).",
+    s6_2_p3: "No se transmiten a Anthropic otros datos personales del usuario (nombre, correo electr\u00f3nico, direcci\u00f3n, etc.) en la pesta\u00f1a AN\u00c1LISIS.",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 Transmisi\u00f3n de datos en el PRIMER (m\u00f3dulo de aprendizaje)</strong><br>Al utilizar el m\u00f3dulo de aprendizaje PRIMER, se transmiten los siguientes datos a los servidores de Anthropic en EE.UU.:",
+    s6_3_li1: "Nombre de usuario (seud\u00f3nimo elegido libremente)",
+    s6_3_li2: "Mensajes y entradas del usuario en el contexto de aprendizaje",
+    s6_3_li3: "Contexto de aprendizaje (tema elegido, nivel de dificultad)",
+    s6_3_li4: "Historial de conversaci\u00f3n de la sesi\u00f3n de aprendizaje actual",
+    s6_3_li5: "Reflexiones y autoevaluaciones del usuario",
+    s6_3_li6: "Saldo Predict (progreso en ejercicios de pron\u00f3stico)",
+    s6_3_li7: "Reflexiones DCA e insights de seguimiento de an\u00e1lisis anteriores",
+    s6_3_li8: "Perfil de aprendizaje (nivel de conocimientos, progreso, tendencias identificadas)",
+    s6_3_p2: "Para personalizar la experiencia de aprendizaje, un agente de s\u00edntesis crea un resumen seudonimizado del nivel de aprendizaje del usuario. Este resumen tambi\u00e9n se transmite a Anthropic para su procesamiento y sirve exclusivamente para contextualizar la conversaci\u00f3n de aprendizaje actual.",
+    s6_3_p3: "Se solicita al usuario que tampoco introduzca datos personales sensibles en el PRIMER (en particular, datos financieros, datos de cuenta o informaci\u00f3n patrimonial).",
+    s6_3_p4: "Estos datos se procesan exclusivamente para proporcionar la funci\u00f3n de aprendizaje personalizada. Base jur\u00eddica: art. 6, ap. 1, letra b) del RGPD (ejecuci\u00f3n del contrato).",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 Perfilado (perfil de aprendizaje)</strong><br>En el marco del m\u00f3dulo PRIMER, se crea un perfil de aprendizaje que registra el nivel de conocimientos, el progreso y las tendencias identificadas del usuario (p. ej., factores de riesgo frecuentemente pasados por alto). Este perfil sirve exclusivamente para optimizar la experiencia de aprendizaje y se transmite a Anthropic para su procesamiento.",
+    s6_4_p2: "No se produce <strong>ninguna toma de decisiones automatizada</strong> en el sentido del art. 22 del RGPD. El perfil de aprendizaje no tiene efectos jur\u00eddicos ni econ\u00f3micos para el usuario. No se toman autom\u00e1ticamente decisiones de solvencia, negociaci\u00f3n o inversi\u00f3n.",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 Transferencia a tercer pa\u00eds (EE.UU.)</strong><br>La transferencia de datos a Anthropic, Inc. (EE.UU.) se basa en el EU-U.S. Data Privacy Framework (DPF), confirmado por el Tribunal de la Uni\u00f3n Europea el 3 de septiembre de 2025 (asunto T-553/23). Adicionalmente, las cl\u00e1usulas contractuales tipo (SCCs) conforme al art. 46, ap. 2, letra c) del RGPD forman parte del Anthropic Data Processing Addendum (DPA). El DPA forma autom\u00e1ticamente parte de los Anthropic Commercial Terms of Service y abarca el procesamiento por Anthropic como encargado del tratamiento (Processor) seg\u00fan las instrucciones documentadas del responsable (Controller). Seg\u00fan Anthropic, los datos de la API no se utilizan para entrenar modelos de IA.",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 Almacenamiento local de datos</strong><br>Los siguientes datos se almacenan exclusivamente en el dispositivo del usuario y <strong>no</strong> se transmiten a Anthropic ni a terceros:",
+    s6_6_li1: "Base de datos SQLite con historial de an\u00e1lisis, progreso de aprendizaje y configuraci\u00f3n",
+    s6_6_li2: "Clave API del usuario (en el llavero del sistema \u2014 macOS Keychain, Windows Credential Manager o Linux Secret Service \u2014 cifrada por el sistema operativo)",
+    s6_6_li3: "Clave de licencia (en el llavero del sistema)",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 Eliminaci\u00f3n</strong><br>El usuario puede eliminar de forma independiente todos los datos almacenados localmente (base de datos SQLite, entradas del llavero) en cualquier momento. Los datos ya transmitidos a Anthropic se tratan de acuerdo con la pol\u00edtica de privacidad de Anthropic. Seg\u00fan Anthropic, los datos transmitidos a trav\u00e9s de la API no se almacenan permanentemente con fines de entrenamiento.",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 Derechos del interesado</strong><br>Sus derechos como interesado (acceso, rectificaci\u00f3n, supresi\u00f3n, limitaci\u00f3n, portabilidad de datos, oposici\u00f3n, derecho de reclamaci\u00f3n) se enumeran en las secciones 10 y 11 de esta pol\u00edtica de privacidad.",
+    s6_8_contact: "Para ejercer sus derechos, p\u00f3ngase en contacto con: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. Datos de mercado \u2014 CoinGecko API",
+    s7_p1: "El software recupera datos de mercado actuales (precio, capitalizaci\u00f3n de mercado, volumen de negociaci\u00f3n, listados de exchanges) a trav\u00e9s de la API de CoinGecko Pty Ltd (Melbourne, Australia). La direcci\u00f3n IP del usuario se transmite a los servidores de CoinGecko.",
+    s7_p2: "CoinGecko procesa estos datos de acuerdo con su propia pol\u00edtica de privacidad: <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "Base jur\u00eddica: art. 6, ap. 1, letra b) del RGPD (ejecuci\u00f3n del contrato).",
+    h_s8: "8. Almacenamiento local (localStorage)",
+    s8_p1: "Este sitio web almacena la configuraci\u00f3n de idioma seleccionada en el localStorage del navegador (clave: <code style='color:var(--gold-dim)'>hct_lang</code>). Se trata de una preferencia puramente t\u00e9cnica sin referencia personal. No se utilizan cookies de seguimiento ni cookies de terceros.",
+    h_s9: "9. No divulgaci\u00f3n a terceros",
+    s9_p1: "Los datos personales no se venden, alquilan ni comparten con fines publicitarios con terceros. La divulgaci\u00f3n solo se produce en la medida en que sea necesaria para la ejecuci\u00f3n del contrato (Lemon Squeezy como proveedor de servicios de pago) o exista una obligaci\u00f3n legal.",
+    h_s10: "10. Sus derechos",
+    s10_p1: "En virtud del RGPD, tiene los siguientes derechos:",
+    s10_li1: "Acceso a los datos almacenados (art. 15 RGPD)",
+    s10_li2: "Rectificaci\u00f3n de datos inexactos (art. 16 RGPD)",
+    s10_li3: "Supresi\u00f3n de sus datos (art. 17 RGPD)",
+    s10_li4: "Limitaci\u00f3n del tratamiento (art. 18 RGPD)",
+    s10_li5: "Portabilidad de datos (art. 20 RGPD)",
+    s10_li6: "Oposici\u00f3n al tratamiento (art. 21 RGPD)",
+    s10_p2: "Para ejercer sus derechos, p\u00f3ngase en contacto con: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. Derecho de reclamaci\u00f3n",
+    s11_p1: "Tiene derecho a presentar una reclamaci\u00f3n ante una autoridad de control de protecci\u00f3n de datos. La autoridad competente para Berl\u00edn es:",
+    s11_p2: "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "Fecha: marzo 2026 \u2014 Esta pol\u00edtica de privacidad se actualizar\u00e1 en caso de cambios sustanciales en el procesamiento de datos."
+  },
+  IT: {
+    page_title: "Informativa sulla privacy \u2014 Holistic Coin Trainer",
+    back: "Indietro",
+    label: "GDPR \u00b7 Art. 13 e 14",
+    title: "INFORMATIVA SULLA PRIVACY",
+    h_s1: "1. Titolare del trattamento",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berlino<br>E-mail: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. Dati raccolti durante la visita del sito web",
+    s2_p1: "Accedendo a questo sito web, il provider di hosting raccoglie automaticamente dati tecnici di accesso nei file di log del server. Questi includono:",
+    s2_li1: "Indirizzo IP (anonimizzato)",
+    s2_li2: "Data e ora dell'accesso",
+    s2_li3: "URL consultato",
+    s2_li4: "Volume di dati trasferiti",
+    s2_li5: "Browser e sistema operativo utilizzati",
+    s2_p2: "Questi dati vengono trattati esclusivamente per garantire il funzionamento tecnico e non vengono combinati con altre fonti di dati. Base giuridica: art. 6, par. 1, lett. f) GDPR (interesse legittimo).",
+    h_s3: "3. Hosting e CDN \u2014 Cloudflare",
+    s3_p1: "Questo sito web viene distribuito tramite i servizi di Cloudflare, Inc. (101 Townsend St., San Francisco, CA 94107, USA). Cloudflare funge da Content Delivery Network (CDN) e provider DNS. I dati tecnici di connessione possono essere trasferiti ai server di Cloudflare.",
+    s3_p2: "Cloudflare \u00e8 certificato nell'ambito del EU-U.S. Data Privacy Framework. Ulteriori informazioni: <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. Elaborazione dei pagamenti \u2014 Lemon Squeezy",
+    s4_p1: "Gli acquisti vengono elaborati tramite Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, USA). Lemon Squeezy agisce come Merchant of Record \u2014 ci\u00f2 significa che Lemon Squeezy \u00e8 il commerciante contraente nei confronti dell'acquirente e tratta i dati di pagamento sotto la propria responsabilit\u00e0 in materia di protezione dei dati.",
+    s4_p2: "Nessun dato di pagamento (carta di credito, coordinate bancarie, ecc.) viene trattato o conservato dall'operatore di questo sito web. Ulteriori informazioni: <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. Gestione delle licenze \u2014 Lemon Squeezy API",
+    s5_p1: "All'attivazione di una licenza in Holistic Coin Trainer, il software trasmette la chiave di licenza acquistata e un identificativo dispositivo pseudonimizzato (hash SHA-256 dell'indirizzo MAC e del nome host) all'API di licenza Lemon Squeezy per la validazione. Nessun dato personale dell'utente viene trasmesso all'operatore. Base giuridica: art. 6, par. 1, lett. b) GDPR (esecuzione del contratto).",
+    h_s6: "6. Trattamento dei dati da parte di Anthropic (analisi IA e moduli di apprendimento)",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 Generalit\u00e0</strong><br>Il software utilizza l'API di Anthropic, PBC (548 Market St, PMB 90375, San Francisco, CA 94104, USA) per generare report di apprendimento assistiti dall'IA e fornire funzioni di apprendimento interattive. Anthropic tratta i dati trasmessi conformemente alla propria informativa sulla privacy: <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>. La chiave API dell'utente viene utilizzata esclusivamente per l'autenticazione. Base giuridica: art. 6, par. 1, lett. b) GDPR (esecuzione del contratto \u2014 l'analisi IA \u00e8 lo scopo principale del software).",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 Trasmissione dati nella scheda ANALISI</strong><br>Per ogni analisi di criptovaluta, i seguenti dati vengono trasmessi ai server di Anthropic negli USA:",
+    s6_2_li1: "Prompt di sistema (framework di analisi)",
+    s6_2_li2: "Simbolo della criptovaluta (es. \u00abBTC\u00bb) e dati di mercato associati (CoinGecko)",
+    s6_2_p2: "Per le analisi interattive (modalit\u00e0 apprendimento), le risposte dell'utente alle domande di riflessione (PAUSE DI RIFLESSIONE) vengono inoltre trasmesse ad Anthropic per creare una valutazione di apprendimento personalizzata. Si invita l'utente a non inserire dati personali sensibili nei campi di risposta (in particolare dati finanziari, dati del conto o informazioni patrimoniali).",
+    s6_2_p3: "Nessun altro dato personale dell'utente (nome, e-mail, indirizzo, ecc.) viene trasmesso ad Anthropic nella scheda ANALISI.",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 Trasmissione dati nel PRIMER (modulo di apprendimento)</strong><br>Durante l'utilizzo del modulo di apprendimento PRIMER, i seguenti dati vengono trasmessi ai server di Anthropic negli USA:",
+    s6_3_li1: "Nome utente (pseudonimo scelto liberamente)",
+    s6_3_li2: "Messaggi e input dell'utente nel contesto di apprendimento",
+    s6_3_li3: "Contesto di apprendimento (argomento scelto, livello di difficolt\u00e0)",
+    s6_3_li4: "Cronologia della conversazione della sessione di apprendimento corrente",
+    s6_3_li5: "Riflessioni e autovalutazioni dell'utente",
+    s6_3_li6: "Saldo Predict (progresso negli esercizi di previsione)",
+    s6_3_li7: "Riflessioni DCA e approfondimenti di follow-up da analisi precedenti",
+    s6_3_li8: "Profilo di apprendimento (livello di conoscenze, progresso, tendenze identificate)",
+    s6_3_p2: "Per personalizzare l'esperienza di apprendimento, un agente di sintesi crea un riepilogo pseudonimizzato del livello di apprendimento dell'utente. Questo riepilogo viene anch'esso trasmesso ad Anthropic per l'elaborazione e serve esclusivamente a contestualizzare la conversazione di apprendimento in corso.",
+    s6_3_p3: "Si invita l'utente a non inserire dati personali sensibili anche nel PRIMER (in particolare dati finanziari, dati del conto o informazioni patrimoniali).",
+    s6_3_p4: "Questi dati vengono trattati esclusivamente per fornire la funzione di apprendimento personalizzata. Base giuridica: art. 6, par. 1, lett. b) GDPR (esecuzione del contratto).",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 Profilazione (profilo di apprendimento)</strong><br>Nell'ambito del modulo PRIMER, viene creato un profilo di apprendimento che registra il livello di conoscenze, il progresso e le tendenze identificate dell'utente (es. fattori di rischio frequentemente trascurati). Questo profilo serve esclusivamente a ottimizzare l'esperienza di apprendimento e viene trasmesso ad Anthropic per l'elaborazione.",
+    s6_4_p2: "Non vi \u00e8 <strong>alcun processo decisionale automatizzato</strong> ai sensi dell'art. 22 GDPR. Il profilo di apprendimento non ha effetti giuridici o economici per l'utente. Non vengono prese automaticamente decisioni di merito creditizio, negoziazione o investimento.",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 Trasferimento verso un paese terzo (USA)</strong><br>Il trasferimento dei dati ad Anthropic, Inc. (USA) si basa sul EU-U.S. Data Privacy Framework (DPF), confermato dal Tribunale dell'Unione Europea il 3 settembre 2025 (causa T-553/23). In aggiunta, le clausole contrattuali tipo (SCCs) ai sensi dell'art. 46, par. 2, lett. c) GDPR fanno parte dell'Anthropic Data Processing Addendum (DPA). Il DPA \u00e8 automaticamente parte degli Anthropic Commercial Terms of Service e copre il trattamento da parte di Anthropic come responsabile del trattamento (Processor) secondo le istruzioni documentate del titolare (Controller). Secondo Anthropic, i dati API non vengono utilizzati per l'addestramento di modelli di IA.",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 Archiviazione locale dei dati</strong><br>I seguenti dati vengono archiviati esclusivamente sul dispositivo dell'utente e <strong>non</strong> vengono trasmessi ad Anthropic o a terzi:",
+    s6_6_li1: "Database SQLite con cronologia delle analisi, progresso di apprendimento e impostazioni",
+    s6_6_li2: "Chiave API dell'utente (nel portachiavi di sistema \u2014 macOS Keychain, Windows Credential Manager o Linux Secret Service \u2014 crittografata dal sistema operativo)",
+    s6_6_li3: "Chiave di licenza (nel portachiavi di sistema)",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 Cancellazione</strong><br>L'utente pu\u00f2 cancellare autonomamente in qualsiasi momento tutti i dati archiviati localmente (database SQLite, voci del portachiavi). I dati gi\u00e0 trasmessi ad Anthropic vengono trattati conformemente all'informativa sulla privacy di Anthropic. Secondo Anthropic, i dati trasmessi tramite l'API non vengono conservati permanentemente a fini di addestramento.",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 Diritti dell'interessato</strong><br>I Suoi diritti come interessato (accesso, rettifica, cancellazione, limitazione, portabilit\u00e0 dei dati, opposizione, diritto di reclamo) sono elencati nelle sezioni 10 e 11 della presente informativa sulla privacy.",
+    s6_8_contact: "Per esercitare i Suoi diritti, La preghiamo di contattare: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. Dati di mercato \u2014 CoinGecko API",
+    s7_p1: "Il software recupera dati di mercato attuali (prezzo, capitalizzazione di mercato, volume di scambio, quotazioni su exchange) tramite l'API di CoinGecko Pty Ltd (Melbourne, Australia). L'indirizzo IP dell'utente viene trasmesso ai server di CoinGecko.",
+    s7_p2: "CoinGecko tratta questi dati conformemente alla propria informativa sulla privacy: <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "Base giuridica: art. 6, par. 1, lett. b) GDPR (esecuzione del contratto).",
+    h_s8: "8. Archiviazione locale (localStorage)",
+    s8_p1: "Questo sito web memorizza l'impostazione della lingua selezionata nel localStorage del browser (chiave: <code style='color:var(--gold-dim)'>hct_lang</code>). Si tratta di una preferenza puramente tecnica senza riferimento personale. Non vengono utilizzati cookie di tracciamento n\u00e9 cookie di terze parti.",
+    h_s9: "9. Nessuna divulgazione a terzi",
+    s9_p1: "I dati personali non vengono venduti, affittati o condivisi a fini pubblicitari con terzi. La divulgazione avviene solo nella misura in cui sia necessaria per l'esecuzione del contratto (Lemon Squeezy come fornitore di servizi di pagamento) o sussista un obbligo di legge.",
+    h_s10: "10. I Suoi diritti",
+    s10_p1: "Ai sensi del GDPR, Lei ha i seguenti diritti:",
+    s10_li1: "Accesso ai dati archiviati (art. 15 GDPR)",
+    s10_li2: "Rettifica dei dati inesatti (art. 16 GDPR)",
+    s10_li3: "Cancellazione dei Suoi dati (art. 17 GDPR)",
+    s10_li4: "Limitazione del trattamento (art. 18 GDPR)",
+    s10_li5: "Portabilit\u00e0 dei dati (art. 20 GDPR)",
+    s10_li6: "Opposizione al trattamento (art. 21 GDPR)",
+    s10_p2: "Per esercitare i Suoi diritti, La preghiamo di contattare: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. Diritto di reclamo",
+    s11_p1: "Lei ha il diritto di presentare un reclamo presso un'autorit\u00e0 di controllo per la protezione dei dati. L'autorit\u00e0 competente per Berlino \u00e8:",
+    s11_p2: "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "Stato: marzo 2026 \u2014 La presente informativa sulla privacy verr\u00e0 aggiornata in caso di modifiche sostanziali al trattamento dei dati."
+  },
+  PT: {
+    page_title: "Pol\u00edtica de privacidade \u2014 Holistic Coin Trainer",
+    back: "Voltar",
+    label: "RGPD \u00b7 Art. 13.\u00ba e 14.\u00ba",
+    title: "POL\u00cdTICA DE PRIVACIDADE",
+    h_s1: "1. Respons\u00e1vel pelo tratamento",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berlim<br>E-mail: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. Dados recolhidos ao visitar o website",
+    s2_p1: "Ao aceder a este website, o fornecedor de alojamento recolhe automaticamente dados t\u00e9cnicos de acesso nos ficheiros de registo do servidor. Estes incluem:",
+    s2_li1: "Endere\u00e7o IP (anonimizado)",
+    s2_li2: "Data e hora do acesso",
+    s2_li3: "URL consultado",
+    s2_li4: "Volume de dados transferidos",
+    s2_li5: "Navegador e sistema operativo utilizados",
+    s2_p2: "Estes dados s\u00e3o tratados exclusivamente para garantir o funcionamento t\u00e9cnico e n\u00e3o s\u00e3o combinados com outras fontes de dados. Base jur\u00eddica: art. 6.\u00ba, n.\u00ba 1, al\u00ednea f) do RGPD (interesse leg\u00edtimo).",
+    h_s3: "3. Alojamento e CDN \u2014 Cloudflare",
+    s3_p1: "Este website \u00e9 distribu\u00eddo atrav\u00e9s dos servi\u00e7os da Cloudflare, Inc. (101 Townsend St., San Francisco, CA 94107, EUA). A Cloudflare atua como rede de distribui\u00e7\u00e3o de conte\u00fados (CDN) e fornecedor de DNS. Os dados t\u00e9cnicos de conex\u00e3o podem ser transferidos para os servidores da Cloudflare.",
+    s3_p2: "A Cloudflare est\u00e1 certificada ao abrigo do EU-U.S. Data Privacy Framework. Mais informa\u00e7\u00f5es: <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. Processamento de pagamentos \u2014 Lemon Squeezy",
+    s4_p1: "As compras s\u00e3o processadas atrav\u00e9s da Lemon Squeezy (LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, EUA). A Lemon Squeezy atua como Merchant of Record \u2014 isto significa que a Lemon Squeezy \u00e9 o comerciante contratante perante o comprador e processa os dados de pagamento sob a sua pr\u00f3pria responsabilidade em mat\u00e9ria de prote\u00e7\u00e3o de dados.",
+    s4_p2: "Nenhum dado de pagamento (cart\u00e3o de cr\u00e9dito, dados banc\u00e1rios, etc.) \u00e9 processado ou armazenado pelo operador deste website. Mais informa\u00e7\u00f5es: <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. Gest\u00e3o de licen\u00e7as \u2014 Lemon Squeezy API",
+    s5_p1: "Ao ativar uma licen\u00e7a no Holistic Coin Trainer, o software transmite a chave de licen\u00e7a adquirida e um identificador de dispositivo pseudonimizado (hash SHA-256 do endere\u00e7o MAC e do nome do host) para a API de licen\u00e7as da Lemon Squeezy para valida\u00e7\u00e3o. Nenhum dado pessoal do utilizador \u00e9 transmitido ao operador. Base jur\u00eddica: art. 6.\u00ba, n.\u00ba 1, al\u00ednea b) do RGPD (execu\u00e7\u00e3o do contrato).",
+    h_s6: "6. Tratamento de dados pela Anthropic (an\u00e1lise IA e m\u00f3dulos de aprendizagem)",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 Generalidades</strong><br>O software utiliza a API da Anthropic, PBC (548 Market St, PMB 90375, San Francisco, CA 94104, EUA) para gerar relat\u00f3rios de aprendizagem assistidos por IA e fornecer fun\u00e7\u00f5es de aprendizagem interativas. A Anthropic trata os dados transmitidos de acordo com a sua pr\u00f3pria pol\u00edtica de privacidade: <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>. A chave API do utilizador \u00e9 utilizada exclusivamente para autentica\u00e7\u00e3o. Base jur\u00eddica: art. 6.\u00ba, n.\u00ba 1, al\u00ednea b) do RGPD (execu\u00e7\u00e3o do contrato \u2014 a an\u00e1lise IA \u00e9 o objetivo principal do software).",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 Transmiss\u00e3o de dados no separador AN\u00c1LISE</strong><br>Para cada an\u00e1lise de criptomoeda, os seguintes dados s\u00e3o transmitidos para os servidores da Anthropic nos EUA:",
+    s6_2_li1: "Prompt do sistema (framework de an\u00e1lise)",
+    s6_2_li2: "S\u00edmbolo da criptomoeda (p. ex. \u00abBTC\u00bb) e dados de mercado associados (CoinGecko)",
+    s6_2_p2: "Para an\u00e1lises interativas (modo de aprendizagem), as respostas do utilizador \u00e0s perguntas de reflex\u00e3o (PAUSAS DE REFLEX\u00c3O) s\u00e3o igualmente transmitidas \u00e0 Anthropic para criar uma avalia\u00e7\u00e3o de aprendizagem personalizada. Solicita-se ao utilizador que n\u00e3o introduza dados pessoais sens\u00edveis nos campos de resposta (nomeadamente dados financeiros, dados de conta ou informa\u00e7\u00f5es patrimoniais).",
+    s6_2_p3: "Nenhum outro dado pessoal do utilizador (nome, e-mail, morada, etc.) \u00e9 transmitido \u00e0 Anthropic no separador AN\u00c1LISE.",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 Transmiss\u00e3o de dados no PRIMER (m\u00f3dulo de aprendizagem)</strong><br>Ao utilizar o m\u00f3dulo de aprendizagem PRIMER, os seguintes dados s\u00e3o transmitidos para os servidores da Anthropic nos EUA:",
+    s6_3_li1: "Nome de utilizador (pseud\u00f3nimo escolhido livremente)",
+    s6_3_li2: "Mensagens e entradas do utilizador no contexto de aprendizagem",
+    s6_3_li3: "Contexto de aprendizagem (tema escolhido, n\u00edvel de dificuldade)",
+    s6_3_li4: "Hist\u00f3rico de conversa\u00e7\u00e3o da sess\u00e3o de aprendizagem atual",
+    s6_3_li5: "Reflex\u00f5es e autoavalia\u00e7\u00f5es do utilizador",
+    s6_3_li6: "Saldo Predict (progresso em exerc\u00edcios de previs\u00e3o)",
+    s6_3_li7: "Reflex\u00f5es DCA e insights de acompanhamento de an\u00e1lises anteriores",
+    s6_3_li8: "Perfil de aprendizagem (n\u00edvel de conhecimentos, progresso, tend\u00eancias identificadas)",
+    s6_3_p2: "Para personalizar a experi\u00eancia de aprendizagem, um agente de s\u00edntese cria um resumo pseudonimizado do n\u00edvel de aprendizagem do utilizador. Este resumo \u00e9 igualmente transmitido \u00e0 Anthropic para processamento e serve exclusivamente para contextualizar a conversa de aprendizagem em curso.",
+    s6_3_p3: "Solicita-se ao utilizador que tamb\u00e9m n\u00e3o introduza dados pessoais sens\u00edveis no PRIMER (nomeadamente dados financeiros, dados de conta ou informa\u00e7\u00f5es patrimoniais).",
+    s6_3_p4: "Estes dados s\u00e3o tratados exclusivamente para fornecer a fun\u00e7\u00e3o de aprendizagem personalizada. Base jur\u00eddica: art. 6.\u00ba, n.\u00ba 1, al\u00ednea b) do RGPD (execu\u00e7\u00e3o do contrato).",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 Perfis (perfil de aprendizagem)</strong><br>No \u00e2mbito do m\u00f3dulo PRIMER, \u00e9 criado um perfil de aprendizagem que regista o n\u00edvel de conhecimentos, o progresso e as tend\u00eancias identificadas do utilizador (p. ex. fatores de risco frequentemente negligenciados). Este perfil serve exclusivamente para otimizar a experi\u00eancia de aprendizagem e \u00e9 transmitido \u00e0 Anthropic para processamento.",
+    s6_4_p2: "N\u00e3o existe <strong>qualquer tomada de decis\u00e3o automatizada</strong> na ace\u00e7\u00e3o do art. 22.\u00ba do RGPD. O perfil de aprendizagem n\u00e3o tem efeitos jur\u00eddicos ou econ\u00f3micos para o utilizador. N\u00e3o s\u00e3o tomadas automaticamente decis\u00f5es de solvabilidade, negocia\u00e7\u00e3o ou investimento.",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 Transfer\u00eancia para pa\u00eds terceiro (EUA)</strong><br>A transfer\u00eancia de dados para a Anthropic, Inc. (EUA) baseia-se no EU-U.S. Data Privacy Framework (DPF), confirmado pelo Tribunal da Uni\u00e3o Europeia em 3 de setembro de 2025 (processo T-553/23). Adicionalmente, as cl\u00e1usulas contratuais tipo (SCCs) nos termos do art. 46.\u00ba, n.\u00ba 2, al\u00ednea c) do RGPD fazem parte do Anthropic Data Processing Addendum (DPA). O DPA faz automaticamente parte dos Anthropic Commercial Terms of Service e abrange o tratamento pela Anthropic como subcontratante (Processor) segundo as instru\u00e7\u00f5es documentadas do respons\u00e1vel (Controller). Segundo a Anthropic, os dados da API n\u00e3o s\u00e3o utilizados para treinar modelos de IA.",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 Armazenamento local de dados</strong><br>Os seguintes dados s\u00e3o armazenados exclusivamente no dispositivo do utilizador e <strong>n\u00e3o</strong> s\u00e3o transmitidos \u00e0 Anthropic ou a terceiros:",
+    s6_6_li1: "Base de dados SQLite com hist\u00f3rico de an\u00e1lises, progresso de aprendizagem e configura\u00e7\u00f5es",
+    s6_6_li2: "Chave API do utilizador (no porta-chaves do sistema \u2014 macOS Keychain, Windows Credential Manager ou Linux Secret Service \u2014 encriptada pelo sistema operativo)",
+    s6_6_li3: "Chave de licen\u00e7a (no porta-chaves do sistema)",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 Elimina\u00e7\u00e3o</strong><br>O utilizador pode eliminar autonomamente todos os dados armazenados localmente (base de dados SQLite, entradas do porta-chaves) a qualquer momento. Os dados j\u00e1 transmitidos \u00e0 Anthropic s\u00e3o tratados de acordo com a pol\u00edtica de privacidade da Anthropic. Segundo a Anthropic, os dados transmitidos atrav\u00e9s da API n\u00e3o s\u00e3o armazenados permanentemente para fins de treino.",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 Direitos do titular dos dados</strong><br>Os seus direitos como titular dos dados (acesso, retifica\u00e7\u00e3o, apagamento, limita\u00e7\u00e3o, portabilidade dos dados, oposi\u00e7\u00e3o, direito de reclama\u00e7\u00e3o) est\u00e3o enumerados nas sec\u00e7\u00f5es 10 e 11 desta pol\u00edtica de privacidade.",
+    s6_8_contact: "Para exercer os seus direitos, contacte: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. Dados de mercado \u2014 CoinGecko API",
+    s7_p1: "O software obt\u00e9m dados de mercado atuais (pre\u00e7o, capitaliza\u00e7\u00e3o de mercado, volume de negocia\u00e7\u00e3o, listagens em exchanges) atrav\u00e9s da API da CoinGecko Pty Ltd (Melbourne, Austr\u00e1lia). O endere\u00e7o IP do utilizador \u00e9 transmitido para os servidores da CoinGecko.",
+    s7_p2: "A CoinGecko trata estes dados de acordo com a sua pr\u00f3pria pol\u00edtica de privacidade: <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "Base jur\u00eddica: art. 6.\u00ba, n.\u00ba 1, al\u00ednea b) do RGPD (execu\u00e7\u00e3o do contrato).",
+    h_s8: "8. Armazenamento local (localStorage)",
+    s8_p1: "Este website armazena a configura\u00e7\u00e3o de idioma selecionada no localStorage do navegador (chave: <code style='color:var(--gold-dim)'>hct_lang</code>). Trata-se de uma prefer\u00eancia puramente t\u00e9cnica sem refer\u00eancia pessoal. N\u00e3o s\u00e3o utilizados cookies de rastreamento nem cookies de terceiros.",
+    h_s9: "9. N\u00e3o divulga\u00e7\u00e3o a terceiros",
+    s9_p1: "Os dados pessoais n\u00e3o s\u00e3o vendidos, alugados ou partilhados para fins publicit\u00e1rios com terceiros. A divulga\u00e7\u00e3o s\u00f3 ocorre na medida em que seja necess\u00e1ria para a execu\u00e7\u00e3o do contrato (Lemon Squeezy como prestador de servi\u00e7os de pagamento) ou exista uma obriga\u00e7\u00e3o legal.",
+    h_s10: "10. Os seus direitos",
+    s10_p1: "Nos termos do RGPD, tem os seguintes direitos:",
+    s10_li1: "Acesso aos dados armazenados (art. 15.\u00ba RGPD)",
+    s10_li2: "Retifica\u00e7\u00e3o de dados inexatos (art. 16.\u00ba RGPD)",
+    s10_li3: "Apagamento dos seus dados (art. 17.\u00ba RGPD)",
+    s10_li4: "Limita\u00e7\u00e3o do tratamento (art. 18.\u00ba RGPD)",
+    s10_li5: "Portabilidade dos dados (art. 20.\u00ba RGPD)",
+    s10_li6: "Oposi\u00e7\u00e3o ao tratamento (art. 21.\u00ba RGPD)",
+    s10_p2: "Para exercer os seus direitos, contacte: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. Direito de reclama\u00e7\u00e3o",
+    s11_p1: "Tem o direito de apresentar uma reclama\u00e7\u00e3o junto de uma autoridade de controlo de prote\u00e7\u00e3o de dados. A autoridade competente para Berlim \u00e9:",
+    s11_p2: "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "Atualizado: mar\u00e7o 2026 \u2014 Esta pol\u00edtica de privacidade ser\u00e1 atualizada em caso de altera\u00e7\u00f5es substanciais no tratamento de dados."
+  },
+  JA: {
+    page_title: "\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc \u2014 Holistic Coin Trainer",
+    back: "\u623b\u308b",
+    label: "GDPR\uff08\u4e00\u822c\u30c7\u30fc\u30bf\u4fdd\u8b77\u898f\u5247\uff09\u00b7 \u7b2c13\u6761\u30fb\u7b2c14\u6761",
+    title: "\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc",
+    h_s1: "1. \u7ba1\u7406\u8005",
+    s1_p1: "Stefan Laackman<br>Torstra\u00dfe 68, 10119 Berlin<br>\u30e1\u30fc\u30eb: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s2: "2. \u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u8a2a\u554f\u6642\u306b\u53ce\u96c6\u3055\u308c\u308b\u30c7\u30fc\u30bf",
+    s2_p1: "\u672c\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306b\u30a2\u30af\u30bb\u30b9\u3059\u308b\u3068\u3001\u30db\u30b9\u30c6\u30a3\u30f3\u30b0\u30d7\u30ed\u30d0\u30a4\u30c0\u30fc\u306b\u3088\u308a\u30b5\u30fc\u30d0\u30fc\u30ed\u30b0\u30d5\u30a1\u30a4\u30eb\u306b\u6280\u8853\u7684\u30a2\u30af\u30bb\u30b9\u30c7\u30fc\u30bf\u304c\u81ea\u52d5\u7684\u306b\u8a18\u9332\u3055\u308c\u307e\u3059\u3002\u3053\u308c\u306b\u306f\u4ee5\u4e0b\u304c\u542b\u307e\u308c\u307e\u3059:",
+    s2_li1: "IP\u30a2\u30c9\u30ec\u30b9\uff08\u533f\u540d\u5316\uff09",
+    s2_li2: "\u30a2\u30af\u30bb\u30b9\u306e\u65e5\u6642",
+    s2_li3: "\u30a2\u30af\u30bb\u30b9\u3055\u308c\u305fURL",
+    s2_li4: "\u8ee2\u9001\u30c7\u30fc\u30bf\u91cf",
+    s2_li5: "\u4f7f\u7528\u30d6\u30e9\u30a6\u30b6\u304a\u3088\u3073\u30aa\u30da\u30ec\u30fc\u30c6\u30a3\u30f3\u30b0\u30b7\u30b9\u30c6\u30e0",
+    s2_p2: "\u3053\u308c\u3089\u306e\u30c7\u30fc\u30bf\u306f\u6280\u8853\u7684\u904b\u7528\u306e\u78ba\u4fdd\u306e\u305f\u3081\u306b\u306e\u307f\u51e6\u7406\u3055\u308c\u3001\u4ed6\u306e\u30c7\u30fc\u30bf\u30bd\u30fc\u30b9\u3068\u7d71\u5408\u3055\u308c\u308b\u3053\u3068\u306f\u3042\u308a\u307e\u305b\u3093\u3002\u6cd5\u7684\u6839\u62e0: GDPR\u7b2c6\u6761\u7b2c1\u9805(f)\uff08\u6b63\u5f53\u306a\u5229\u76ca\uff09\u3002",
+    h_s3: "3. \u30db\u30b9\u30c6\u30a3\u30f3\u30b0\u3068CDN \u2014 Cloudflare",
+    s3_p1: "\u672c\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306fCloudflare, Inc.\uff08101 Townsend St., San Francisco, CA 94107, USA\uff09\u306e\u30b5\u30fc\u30d3\u30b9\u3092\u901a\u3058\u3066\u914d\u4fe1\u3055\u308c\u3066\u3044\u307e\u3059\u3002Cloudflare\u306f\u30b3\u30f3\u30c6\u30f3\u30c4\u30c7\u30ea\u30d0\u30ea\u30fc\u30cd\u30c3\u30c8\u30ef\u30fc\u30af\uff08CDN\uff09\u304a\u3088\u3073DNS\u30d7\u30ed\u30d0\u30a4\u30c0\u30fc\u3068\u3057\u3066\u6a5f\u80fd\u3057\u307e\u3059\u3002\u6280\u8853\u7684\u306a\u63a5\u7d9a\u30c7\u30fc\u30bf\u304cCloudflare\u306e\u30b5\u30fc\u30d0\u30fc\u306b\u8ee2\u9001\u3055\u308c\u308b\u5834\u5408\u304c\u3042\u308a\u307e\u3059\u3002",
+    s3_p2: "Cloudflare\u306fEU-U.S. Data Privacy Framework\u306e\u8a8d\u8a3c\u3092\u53d7\u3051\u3066\u3044\u307e\u3059\u3002\u8a73\u7d30\u60c5\u5831: <a href='https://www.cloudflare.com/privacypolicy/' target='_blank' rel='noopener'>cloudflare.com/privacypolicy</a>",
+    h_s4: "4. \u6c7a\u6e08\u51e6\u7406 \u2014 Lemon Squeezy",
+    s4_p1: "\u8cfc\u5165\u306fLemon Squeezy\uff08LemonSqueezy LLC, 100 Overlook Center, 2nd Floor, Princeton, NJ 08540, USA\uff09\u3092\u901a\u3058\u3066\u51e6\u7406\u3055\u308c\u307e\u3059\u3002Lemon Squeezy\u306fMerchant of Record\u3068\u3057\u3066\u6a5f\u80fd\u3057\u307e\u3059 \u2014 \u3064\u307e\u308a\u3001Lemon Squeezy\u304c\u8cfc\u5165\u8005\u306b\u5bfe\u3059\u308b\u5951\u7d04\u4e0a\u306e\u8ca9\u58f2\u8005\u3067\u3042\u308a\u3001\u6c7a\u6e08\u30c7\u30fc\u30bf\u3092\u81ea\u3089\u306e\u30c7\u30fc\u30bf\u4fdd\u8b77\u8cac\u4efb\u306e\u4e0b\u3067\u51e6\u7406\u3057\u307e\u3059\u3002",
+    s4_p2: "\u672c\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306e\u904b\u55b6\u8005\u306f\u3001\u6c7a\u6e08\u30c7\u30fc\u30bf\uff08\u30af\u30ec\u30b8\u30c3\u30c8\u30ab\u30fc\u30c9\u3001\u9280\u884c\u53e3\u5ea7\u60c5\u5831\u7b49\uff09\u3092\u51e6\u7406\u307e\u305f\u306f\u4fdd\u5b58\u3057\u307e\u305b\u3093\u3002\u8a73\u7d30\u60c5\u5831: <a href='https://www.lemonsqueezy.com/privacy' target='_blank' rel='noopener'>lemonsqueezy.com/privacy</a>",
+    h_s5: "5. \u30e9\u30a4\u30bb\u30f3\u30b9\u7ba1\u7406 \u2014 Lemon Squeezy API",
+    s5_p1: "Holistic Coin Trainer\u3067\u30e9\u30a4\u30bb\u30f3\u30b9\u3092\u6709\u52b9\u5316\u3059\u308b\u969b\u3001\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306f\u53d6\u5f97\u3057\u305f\u30e9\u30a4\u30bb\u30f3\u30b9\u30ad\u30fc\u3068\u4eee\u540d\u5316\u3055\u308c\u305f\u30c7\u30d0\u30a4\u30b9ID\uff08MAC\u30a2\u30c9\u30ec\u30b9\u3068\u30db\u30b9\u30c8\u540d\u306eSHA-256\u30cf\u30c3\u30b7\u30e5\uff09\u3092Lemon Squeezy\u30e9\u30a4\u30bb\u30f3\u30b9API\u306b\u9001\u4fe1\u3057\u3001\u691c\u8a3c\u3057\u307e\u3059\u3002\u30e6\u30fc\u30b6\u30fc\u306e\u500b\u4eba\u30c7\u30fc\u30bf\u306f\u904b\u55b6\u8005\u306b\u9001\u4fe1\u3055\u308c\u307e\u305b\u3093\u3002\u6cd5\u7684\u6839\u62e0: GDPR\u7b2c6\u6761\u7b2c1\u9805(b)\uff08\u5951\u7d04\u306e\u5c65\u884c\uff09\u3002",
+    h_s6: "6. Anthropic\u306b\u3088\u308b\u30c7\u30fc\u30bf\u51e6\u7406\uff08AI\u5206\u6790\u30fb\u5b66\u7fd2\u30e2\u30b8\u30e5\u30fc\u30eb\uff09",
+    s6_1: "<strong style='color:var(--gold-dim)'>6.1 \u6982\u8981</strong><br>\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306fAnthropic, PBC\uff08548 Market St, PMB 90375, San Francisco, CA 94104, USA\uff09\u306eAPI\u3092\u4f7f\u7528\u3057\u3066\u3001AI\u652f\u63f4\u306b\u3088\u308b\u5b66\u7fd2\u30ec\u30dd\u30fc\u30c8\u306e\u751f\u6210\u3068\u30a4\u30f3\u30bf\u30e9\u30af\u30c6\u30a3\u30d6\u306a\u5b66\u7fd2\u6a5f\u80fd\u306e\u63d0\u4f9b\u3092\u884c\u3044\u307e\u3059\u3002Anthropic\u306f\u9001\u4fe1\u3055\u308c\u305f\u30c7\u30fc\u30bf\u3092\u81ea\u793e\u306e\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306b\u5f93\u3063\u3066\u51e6\u7406\u3057\u307e\u3059: <a href='https://www.anthropic.com/privacy' target='_blank' rel='noopener'>anthropic.com/privacy</a>\u3002\u30e6\u30fc\u30b6\u30fc\u306eAPI\u30ad\u30fc\u306f\u8a8d\u8a3c\u306e\u307f\u306b\u4f7f\u7528\u3055\u308c\u307e\u3059\u3002\u6cd5\u7684\u6839\u62e0: GDPR\u7b2c6\u6761\u7b2c1\u9805(b)\uff08\u5951\u7d04\u306e\u5c65\u884c \u2014 AI\u5206\u6790\u306f\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306e\u4e3b\u76ee\u7684\u3067\u3059\uff09\u3002",
+    s6_2_intro: "<strong style='color:var(--gold-dim)'>6.2 \u5206\u6790\u30bf\u30d6\u3067\u306e\u30c7\u30fc\u30bf\u9001\u4fe1</strong><br>\u5404\u30b3\u30a4\u30f3\u5206\u6790\u6642\u306b\u3001\u4ee5\u4e0b\u306e\u30c7\u30fc\u30bf\u304c\u7c73\u56fd\u306eAnthropic\u30b5\u30fc\u30d0\u30fc\u306b\u9001\u4fe1\u3055\u308c\u307e\u3059:",
+    s6_2_li1: "\u30b7\u30b9\u30c6\u30e0\u30d7\u30ed\u30f3\u30d7\u30c8\uff08\u5206\u6790\u30d5\u30ec\u30fc\u30e0\u30ef\u30fc\u30af\uff09",
+    s6_2_li2: "\u30b3\u30a4\u30f3\u30b7\u30f3\u30dc\u30eb\uff08\u4f8b: \u300cBTC\u300d\uff09\u3068\u95a2\u9023\u5e02\u5834\u30c7\u30fc\u30bf\uff08CoinGecko\uff09",
+    s6_2_p2: "\u30a4\u30f3\u30bf\u30e9\u30af\u30c6\u30a3\u30d6\u5206\u6790\uff08\u5b66\u7fd2\u30e2\u30fc\u30c9\uff09\u3067\u306f\u3001\u30e6\u30fc\u30b6\u30fc\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u8cea\u554f\uff08\u601d\u8003\u30d1\u30a6\u30ba\uff09\u3078\u306e\u56de\u7b54\u3082Anthropic\u306b\u9001\u4fe1\u3055\u308c\u3001\u500b\u4eba\u306e\u5b66\u7fd2\u8a55\u4fa1\u304c\u4f5c\u6210\u3055\u308c\u307e\u3059\u3002\u30e6\u30fc\u30b6\u30fc\u306f\u56de\u7b54\u6b04\u306b\u6a5f\u5bc6\u306a\u500b\u4eba\u30c7\u30fc\u30bf\uff08\u7279\u306b\u8ca1\u52d9\u30c7\u30fc\u30bf\u3001\u53e3\u5ea7\u30c7\u30fc\u30bf\u3001\u8cc7\u7523\u60c5\u5831\uff09\u3092\u5165\u529b\u3057\u306a\u3044\u3088\u3046\u304a\u9858\u3044\u3057\u307e\u3059\u3002",
+    s6_2_p3: "\u5206\u6790\u30bf\u30d6\u3067\u306f\u3001\u305d\u306e\u4ed6\u306e\u30e6\u30fc\u30b6\u30fc\u306e\u500b\u4eba\u30c7\u30fc\u30bf\uff08\u540d\u524d\u3001\u30e1\u30fc\u30eb\u3001\u4f4f\u6240\u7b49\uff09\u306fAnthropic\u306b\u9001\u4fe1\u3055\u308c\u307e\u305b\u3093\u3002",
+    s6_3_intro: "<strong style='color:var(--gold-dim)'>6.3 PRIMER\uff08\u5b66\u7fd2\u30e2\u30b8\u30e5\u30fc\u30eb\uff09\u3067\u306e\u30c7\u30fc\u30bf\u9001\u4fe1</strong><br>PRIMER\u5b66\u7fd2\u30e2\u30b8\u30e5\u30fc\u30eb\u306e\u4f7f\u7528\u6642\u306b\u3001\u4ee5\u4e0b\u306e\u30c7\u30fc\u30bf\u304c\u7c73\u56fd\u306eAnthropic\u30b5\u30fc\u30d0\u30fc\u306b\u9001\u4fe1\u3055\u308c\u307e\u3059:",
+    s6_3_li1: "\u30e6\u30fc\u30b6\u30fc\u540d\uff08\u81ea\u7531\u306b\u9078\u3093\u3060\u30da\u30f3\u30cd\u30fc\u30e0\uff09",
+    s6_3_li2: "\u5b66\u7fd2\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u306b\u304a\u3051\u308b\u30e6\u30fc\u30b6\u30fc\u306e\u30e1\u30c3\u30bb\u30fc\u30b8\u3068\u5165\u529b",
+    s6_3_li3: "\u5b66\u7fd2\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\uff08\u9078\u629e\u3057\u305f\u30c8\u30d4\u30c3\u30af\u3001\u96e3\u6613\u5ea6\uff09",
+    s6_3_li4: "\u73fe\u5728\u306e\u5b66\u7fd2\u30bb\u30c3\u30b7\u30e7\u30f3\u306e\u4f1a\u8a71\u5c65\u6b74",
+    s6_3_li5: "\u30e6\u30fc\u30b6\u30fc\u306e\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3068\u81ea\u5df1\u8a55\u4fa1",
+    s6_3_li6: "Predict\u30d0\u30e9\u30f3\u30b9\uff08\u4e88\u6e2c\u6f14\u7fd2\u306e\u9032\u6357\uff09",
+    s6_3_li7: "DCA\u30ea\u30d5\u30ec\u30af\u30b7\u30e7\u30f3\u3068\u904e\u53bb\u306e\u5206\u6790\u304b\u3089\u306e\u30d5\u30a9\u30ed\u30fc\u30a2\u30c3\u30d7\u30a4\u30f3\u30b5\u30a4\u30c8",
+    s6_3_li8: "\u5b66\u7fd2\u8005\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\uff08\u77e5\u8b58\u30ec\u30d9\u30eb\u3001\u5b66\u7fd2\u9032\u6357\u3001\u8b58\u5225\u3055\u308c\u305f\u50be\u5411\uff09",
+    s6_3_p2: "\u5b66\u7fd2\u4f53\u9a13\u3092\u30d1\u30fc\u30bd\u30ca\u30e9\u30a4\u30ba\u3059\u308b\u305f\u3081\u3001\u7d71\u5408\u30a8\u30fc\u30b8\u30a7\u30f3\u30c8\u304c\u30e6\u30fc\u30b6\u30fc\u306e\u5b66\u7fd2\u72b6\u6cc1\u306e\u4eee\u540d\u5316\u3055\u308c\u305f\u8981\u7d04\u3092\u4f5c\u6210\u3057\u307e\u3059\u3002\u3053\u306e\u8981\u7d04\u3082Anthropic\u306b\u51e6\u7406\u306e\u305f\u3081\u306b\u9001\u4fe1\u3055\u308c\u3001\u73fe\u5728\u306e\u5b66\u7fd2\u4f1a\u8a71\u306e\u30b3\u30f3\u30c6\u30ad\u30b9\u30c8\u5316\u306e\u307f\u306b\u4f7f\u7528\u3055\u308c\u307e\u3059\u3002",
+    s6_3_p3: "\u30e6\u30fc\u30b6\u30fc\u306fPRIMER\u306b\u304a\u3044\u3066\u3082\u3001\u6a5f\u5bc6\u306a\u500b\u4eba\u30c7\u30fc\u30bf\uff08\u7279\u306b\u8ca1\u52d9\u30c7\u30fc\u30bf\u3001\u53e3\u5ea7\u30c7\u30fc\u30bf\u3001\u8cc7\u7523\u60c5\u5831\uff09\u3092\u5165\u529b\u3057\u306a\u3044\u3088\u3046\u304a\u9858\u3044\u3057\u307e\u3059\u3002",
+    s6_3_p4: "\u3053\u308c\u3089\u306e\u30c7\u30fc\u30bf\u306f\u3001\u30d1\u30fc\u30bd\u30ca\u30e9\u30a4\u30ba\u3055\u308c\u305f\u5b66\u7fd2\u6a5f\u80fd\u3092\u63d0\u4f9b\u3059\u308b\u305f\u3081\u306b\u306e\u307f\u51e6\u7406\u3055\u308c\u307e\u3059\u3002\u6cd5\u7684\u6839\u62e0: GDPR\u7b2c6\u6761\u7b2c1\u9805(b)\uff08\u5951\u7d04\u306e\u5c65\u884c\uff09\u3002",
+    s6_4: "<strong style='color:var(--gold-dim)'>6.4 \u30d7\u30ed\u30d5\u30a1\u30a4\u30ea\u30f3\u30b0\uff08\u5b66\u7fd2\u8005\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\uff09</strong><br>PRIMER\u30e2\u30b8\u30e5\u30fc\u30eb\u306e\u67a0\u7d44\u307f\u5185\u3067\u3001\u30e6\u30fc\u30b6\u30fc\u306e\u77e5\u8b58\u30ec\u30d9\u30eb\u3001\u5b66\u7fd2\u9032\u6357\u3001\u8b58\u5225\u3055\u308c\u305f\u50be\u5411\uff08\u4f8b: \u983b\u7e41\u306b\u898b\u843d\u3068\u3055\u308c\u308b\u30ea\u30b9\u30af\u8981\u56e0\uff09\u3092\u8a18\u9332\u3059\u308b\u5b66\u7fd2\u8005\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u304c\u4f5c\u6210\u3055\u308c\u307e\u3059\u3002\u3053\u306e\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u306f\u5b66\u7fd2\u4f53\u9a13\u306e\u6700\u9069\u5316\u306e\u307f\u306b\u4f7f\u7528\u3055\u308c\u3001Anthropic\u306b\u51e6\u7406\u306e\u305f\u3081\u306b\u9001\u4fe1\u3055\u308c\u307e\u3059\u3002",
+    s6_4_p2: "GDPR\u7b2c22\u6761\u306e\u610f\u5473\u3067\u306e<strong>\u81ea\u52d5\u5316\u3055\u308c\u305f\u610f\u601d\u6c7a\u5b9a\u306f\u884c\u308f\u308c\u307e\u305b\u3093</strong>\u3002\u5b66\u7fd2\u8005\u30d7\u30ed\u30d5\u30a1\u30a4\u30eb\u306f\u30e6\u30fc\u30b6\u30fc\u306b\u5bfe\u3057\u3066\u6cd5\u7684\u307e\u305f\u306f\u7d4c\u6e08\u7684\u306a\u5f71\u97ff\u3092\u4e0e\u3048\u307e\u305b\u3093\u3002\u4fe1\u7528\u529b\u3001\u53d6\u5f15\u3001\u307e\u305f\u306f\u6295\u8cc7\u306b\u95a2\u3059\u308b\u6c7a\u5b9a\u306f\u81ea\u52d5\u7684\u306b\u884c\u308f\u308c\u307e\u305b\u3093\u3002",
+    s6_5: "<strong style='color:var(--gold-dim)'>6.5 \u7b2c\u4e09\u56fd\u3078\u306e\u79fb\u8ee2\uff08\u7c73\u56fd\uff09</strong><br>Anthropic, Inc.\uff08\u7c73\u56fd\uff09\u3078\u306e\u30c7\u30fc\u30bf\u79fb\u8ee2\u306f\u3001EU-U.S. Data Privacy Framework\uff08DPF\uff09\u306b\u57fa\u3065\u3044\u3066\u304a\u308a\u3001\u3053\u308c\u306f2025\u5e749\u67083\u65e5\u306bEU\u53f8\u6cd5\u88c1\u5224\u6240\u306b\u3088\u308a\u78ba\u8a8d\u3055\u308c\u3066\u3044\u307e\u3059\uff08\u4e8b\u4ef6T-553/23\uff09\u3002\u3055\u3089\u306b\u3001GDPR\u7b2c46\u6761\u7b2c2\u9805(c)\u306b\u57fa\u3065\u304f\u6a19\u6e96\u5951\u7d04\u6761\u9805\uff08SCCs\uff09\u304cAnthropic Data Processing Addendum\uff08DPA\uff09\u306e\u4e00\u90e8\u3067\u3059\u3002DPA\u306fAnthropic Commercial Terms of Service\u306e\u81ea\u52d5\u7684\u306a\u4e00\u90e8\u3067\u3042\u308a\u3001\u7ba1\u7406\u8005\uff08Controller\uff09\u306e\u6587\u66f8\u5316\u3055\u308c\u305f\u6307\u793a\u306b\u5f93\u3063\u305f\u51e6\u7406\u8005\uff08Processor\uff09\u3068\u3057\u3066\u306eAnthropic\u306b\u3088\u308b\u51e6\u7406\u3092\u30ab\u30d0\u30fc\u3057\u307e\u3059\u3002Anthropic\u306b\u3088\u308b\u3068\u3001API\u30c7\u30fc\u30bf\u306fAI\u30e2\u30c7\u30eb\u306e\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0\u306b\u306f\u4f7f\u7528\u3055\u308c\u307e\u305b\u3093\u3002",
+    s6_6_intro: "<strong style='color:var(--gold-dim)'>6.6 \u30ed\u30fc\u30ab\u30eb\u30c7\u30fc\u30bf\u4fdd\u5b58</strong><br>\u4ee5\u4e0b\u306e\u30c7\u30fc\u30bf\u306f\u30e6\u30fc\u30b6\u30fc\u306e\u30c7\u30d0\u30a4\u30b9\u306b\u306e\u307f\u4fdd\u5b58\u3055\u308c\u3001Anthropic\u307e\u305f\u306f\u7b2c\u4e09\u8005\u306b<strong>\u9001\u4fe1\u3055\u308c\u307e\u305b\u3093</strong>:",
+    s6_6_li1: "\u5206\u6790\u5c65\u6b74\u3001\u5b66\u7fd2\u9032\u6357\u3001\u8a2d\u5b9a\u3092\u542b\u3080SQLite\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9",
+    s6_6_li2: "\u30e6\u30fc\u30b6\u30fc\u306eAPI\u30ad\u30fc\uff08\u30b7\u30b9\u30c6\u30e0Keychain\uff08\u30ad\u30fc\u30c1\u30a7\u30fc\u30f3\uff09\u306b\u4fdd\u5b58 \u2014 macOS Keychain\u3001Windows Credential Manager\u3001\u307e\u305f\u306fLinux Secret Service \u2014 OS\u306b\u3088\u308a\u6697\u53f7\u5316\uff09",
+    s6_6_li3: "\u30e9\u30a4\u30bb\u30f3\u30b9\u30ad\u30fc\uff08\u30b7\u30b9\u30c6\u30e0Keychain\uff08\u30ad\u30fc\u30c1\u30a7\u30fc\u30f3\uff09\u306b\u4fdd\u5b58\uff09",
+    s6_7: "<strong style='color:var(--gold-dim)'>6.7 \u524a\u9664</strong><br>\u30e6\u30fc\u30b6\u30fc\u306f\u3044\u3064\u3067\u3082\u3001\u30ed\u30fc\u30ab\u30eb\u306b\u4fdd\u5b58\u3055\u308c\u305f\u3059\u3079\u3066\u306e\u30c7\u30fc\u30bf\uff08SQLite\u30c7\u30fc\u30bf\u30d9\u30fc\u30b9\u3001Keychain\u30a8\u30f3\u30c8\u30ea\uff09\u3092\u81ea\u5206\u3067\u524a\u9664\u3067\u304d\u307e\u3059\u3002\u65e2\u306bAnthropic\u306b\u9001\u4fe1\u3055\u308c\u305f\u30c7\u30fc\u30bf\u306f\u3001Anthropic\u306e\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306b\u5f93\u3063\u3066\u53d6\u308a\u6271\u308f\u308c\u307e\u3059\u3002Anthropic\u306b\u3088\u308b\u3068\u3001API\u3092\u901a\u3058\u3066\u9001\u4fe1\u3055\u308c\u305f\u30c7\u30fc\u30bf\u306f\u30c8\u30ec\u30fc\u30cb\u30f3\u30b0\u76ee\u7684\u3067\u6c38\u7d9a\u7684\u306b\u4fdd\u5b58\u3055\u308c\u307e\u305b\u3093\u3002",
+    s6_8: "<strong style='color:var(--gold-dim)'>6.8 \u30c7\u30fc\u30bf\u4e3b\u4f53\u306e\u6a29\u5229</strong><br>\u30c7\u30fc\u30bf\u4e3b\u4f53\u3068\u3057\u3066\u306e\u3042\u306a\u305f\u306e\u6a29\u5229\uff08\u30a2\u30af\u30bb\u30b9\u6a29\u3001\u8a02\u6b63\u3001\u524a\u9664\u3001\u5236\u9650\u3001\u30c7\u30fc\u30bf\u30dd\u30fc\u30bf\u30d3\u30ea\u30c6\u30a3\u3001\u7570\u8b70\u7533\u7acb\u6a29\u3001\u82e6\u60c5\u7533\u7acb\u6a29\uff09\u306f\u3001\u672c\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306e\u7b2c10\u7bc0\u304a\u3088\u3073\u7b2c11\u7bc0\u306b\u8a18\u8f09\u3055\u308c\u3066\u3044\u307e\u3059\u3002",
+    s6_8_contact: "\u6a29\u5229\u3092\u884c\u4f7f\u3059\u308b\u306b\u306f\u3001\u4ee5\u4e0b\u306b\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s7: "7. \u5e02\u5834\u30c7\u30fc\u30bf \u2014 CoinGecko API",
+    s7_p1: "\u672c\u30bd\u30d5\u30c8\u30a6\u30a7\u30a2\u306fCoinGecko Pty Ltd\uff08\u30e1\u30eb\u30dc\u30eb\u30f3\u3001\u30aa\u30fc\u30b9\u30c8\u30e9\u30ea\u30a2\uff09\u306eAPI\u3092\u901a\u3058\u3066\u73fe\u5728\u306e\u5e02\u5834\u30c7\u30fc\u30bf\uff08\u4fa1\u683c\u3001\u6642\u4fa1\u7dcf\u984d\u3001\u53d6\u5f15\u91cf\u3001\u53d6\u5f15\u6240\u30ea\u30b9\u30c6\u30a3\u30f3\u30b0\uff09\u3092\u53d6\u5f97\u3057\u307e\u3059\u3002\u30e6\u30fc\u30b6\u30fc\u306eIP\u30a2\u30c9\u30ec\u30b9\u306fCoinGecko\u30b5\u30fc\u30d0\u30fc\u306b\u9001\u4fe1\u3055\u308c\u307e\u3059\u3002",
+    s7_p2: "CoinGecko\u306f\u81ea\u793e\u306e\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306b\u5f93\u3063\u3066\u3053\u308c\u3089\u306e\u30c7\u30fc\u30bf\u3092\u51e6\u7406\u3057\u307e\u3059: <a href='https://www.coingecko.com/en/privacy'>coingecko.com/en/privacy</a>",
+    s7_p3: "\u6cd5\u7684\u6839\u62e0: GDPR\u7b2c6\u6761\u7b2c1\u9805(b)\uff08\u5951\u7d04\u306e\u5c65\u884c\uff09\u3002",
+    h_s8: "8. \u30ed\u30fc\u30ab\u30eb\u30b9\u30c8\u30ec\u30fc\u30b8\uff08localStorage\uff09",
+    s8_p1: "\u672c\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306f\u3001\u30d6\u30e9\u30a6\u30b6\u306elocalStorage\u306b\u9078\u629e\u3055\u308c\u305f\u8a00\u8a9e\u8a2d\u5b9a\u3092\u4fdd\u5b58\u3057\u307e\u3059\uff08\u30ad\u30fc: <code style='color:var(--gold-dim)'>hct_lang</code>\uff09\u3002\u3053\u308c\u306f\u500b\u4eba\u3092\u7279\u5b9a\u3057\u306a\u3044\u7d14\u7c8b\u306b\u6280\u8853\u7684\u306a\u8a2d\u5b9a\u3067\u3059\u3002\u30c8\u30e9\u30c3\u30ad\u30f3\u30b0Cookie\u3084\u30b5\u30fc\u30c9\u30d1\u30fc\u30c6\u30a3Cookie\u306f\u4f7f\u7528\u3055\u308c\u307e\u305b\u3093\u3002",
+    h_s9: "9. \u7b2c\u4e09\u8005\u3078\u306e\u63d0\u4f9b\u306a\u3057",
+    s9_p1: "\u500b\u4eba\u30c7\u30fc\u30bf\u306f\u7b2c\u4e09\u8005\u306b\u58f2\u5374\u3001\u8cc3\u8cb8\u3001\u307e\u305f\u306f\u5e83\u544a\u76ee\u7684\u3067\u5171\u6709\u3055\u308c\u308b\u3053\u3068\u306f\u3042\u308a\u307e\u305b\u3093\u3002\u63d0\u4f9b\u306f\u3001\u5951\u7d04\u306e\u5c65\u884c\u306b\u5fc5\u8981\u306a\u7bc4\u56f2\uff08Lemon Squeezy\u3092\u6c7a\u6e08\u30b5\u30fc\u30d3\u30b9\u30d7\u30ed\u30d0\u30a4\u30c0\u30fc\u3068\u3057\u3066\uff09\u307e\u305f\u306f\u6cd5\u7684\u7fa9\u52d9\u304c\u3042\u308b\u5834\u5408\u306b\u306e\u307f\u884c\u308f\u308c\u307e\u3059\u3002",
+    h_s10: "10. \u3042\u306a\u305f\u306e\u6a29\u5229",
+    s10_p1: "GDPR\u306b\u57fa\u3065\u304d\u3001\u4ee5\u4e0b\u306e\u6a29\u5229\u304c\u3042\u308a\u307e\u3059:",
+    s10_li1: "\u4fdd\u5b58\u3055\u308c\u305f\u30c7\u30fc\u30bf\u3078\u306e\u30a2\u30af\u30bb\u30b9\u6a29\uff08GDPR\u7b2c15\u6761\uff09",
+    s10_li2: "\u4e0d\u6b63\u78ba\u306a\u30c7\u30fc\u30bf\u306e\u8a02\u6b63\uff08GDPR\u7b2c16\u6761\uff09",
+    s10_li3: "\u30c7\u30fc\u30bf\u306e\u524a\u9664\uff08GDPR\u7b2c17\u6761\uff09",
+    s10_li4: "\u51e6\u7406\u306e\u5236\u9650\uff08GDPR\u7b2c18\u6761\uff09",
+    s10_li5: "\u30c7\u30fc\u30bf\u30dd\u30fc\u30bf\u30d3\u30ea\u30c6\u30a3\uff08GDPR\u7b2c20\u6761\uff09",
+    s10_li6: "\u51e6\u7406\u306b\u5bfe\u3059\u308b\u7570\u8b70\u7533\u7acb\u6a29\uff08GDPR\u7b2c21\u6761\uff09",
+    s10_p2: "\u6a29\u5229\u3092\u884c\u4f7f\u3059\u308b\u306b\u306f\u3001\u4ee5\u4e0b\u306b\u304a\u554f\u3044\u5408\u308f\u305b\u304f\u3060\u3055\u3044: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    h_s11: "11. \u82e6\u60c5\u7533\u7acb\u6a29",
+    s11_p1: "\u30c7\u30fc\u30bf\u4fdd\u8b77\u76e3\u7763\u6a5f\u95a2\u306b\u82e6\u60c5\u3092\u7533\u3057\u7acb\u3066\u308b\u6a29\u5229\u304c\u3042\u308a\u307e\u3059\u3002\u30d9\u30eb\u30ea\u30f3\u306e\u7ba1\u8f44\u5f53\u5c40\u306f:",
+    s11_p2: "Berliner Beauftragte f\u00fcr Datenschutz und Informationsfreiheit<br>Friedrichstr. 219, 10969 Berlin<br><a href='https://www.datenschutz-berlin.de' target='_blank' rel='noopener'>datenschutz-berlin.de</a>",
+    notice: "\u66f4\u65b0\u65e5: 2026\u5e743\u6708 \u2014 \u672c\u30d7\u30e9\u30a4\u30d0\u30b7\u30fc\u30dd\u30ea\u30b7\u30fc\u306f\u3001\u30c7\u30fc\u30bf\u51e6\u7406\u306b\u91cd\u5927\u306a\u5909\u66f4\u304c\u3042\u3063\u305f\u5834\u5408\u306b\u66f4\u65b0\u3055\u308c\u307e\u3059\u3002"
+  }
+};
+
+function applyLang(lang) {
+  const tr = T[lang] || T.DE;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (tr[k]) el.textContent = tr[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (tr[k]) el.innerHTML = tr[k];
+  });
+  if (tr.page_title) document.title = tr.page_title;
+  document.documentElement.lang = lang.toLowerCase();
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let lang = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : null;
+  if (!lang) { try { lang = localStorage.getItem('hct_lang'); } catch(e) {} }
+  if (!lang) {
+    const bl = (navigator.language || '').split('-')[0].toUpperCase();
+    lang = T[bl] ? bl : 'DE';
+  }
+  applyLang(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+});
+</script>
 </body>
 </html>

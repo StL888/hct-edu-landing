@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum — Holistic Coin Trainer</title>
+  <title data-i18n="page_title">Impressum — Holistic Coin Trainer</title>
   <meta name="robots" content="noindex, nofollow">
   <style>
     :root {
@@ -48,6 +48,31 @@
     }
     .logo span { color: var(--gold); }
 
+    .header-right {
+      display: flex;
+      align-items: center;
+      gap: 20px;
+    }
+
+    .lang-switcher {
+      display: flex;
+      gap: 4px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: 1px solid transparent;
+      color: var(--gray);
+      font-family: var(--font);
+      font-size: 9px;
+      letter-spacing: 0.1em;
+      padding: 2px 6px;
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+    .lang-btn:hover { color: var(--gold-dim); border-color: var(--border); }
+    .lang-btn.active { color: var(--gold); border-color: var(--gold-dim); background: rgba(255,215,0,0.06); }
+
     .back-link {
       font-size: 10px;
       letter-spacing: 0.15em;
@@ -56,7 +81,7 @@
       transition: color 0.2s;
     }
     .back-link:hover { color: var(--gold-dim); }
-    .back-link::before { content: "← "; }
+    .back-link::before { content: "\2190  "; }
 
     /* ── MAIN ───────────────────────────────────────────────── */
     main {
@@ -131,8 +156,9 @@
     }
 
     @media (max-width: 600px) {
-      header { padding: 16px 20px; }
+      header { padding: 16px 20px; flex-wrap: wrap; gap: 10px; }
       main   { padding: 40px 20px 60px; }
+      .header-right { gap: 12px; }
     }
   </style>
 </head>
@@ -140,74 +166,85 @@
 
   <header>
     <div class="logo"><span>HCT</span> // HOLISTIC COIN TRAINER</div>
-    <a href="../index.html" class="back-link">Zurück</a>
+    <div class="header-right">
+      <div class="lang-switcher">
+        <button class="lang-btn" data-lang="DE">DE</button>
+        <button class="lang-btn" data-lang="EN">EN</button>
+        <button class="lang-btn" data-lang="FR">FR</button>
+        <button class="lang-btn" data-lang="ES">ES</button>
+        <button class="lang-btn" data-lang="IT">IT</button>
+        <button class="lang-btn" data-lang="PT">PT</button>
+        <button class="lang-btn" data-lang="JA">JA</button>
+      </div>
+      <a href="../index.html" class="back-link" data-i18n="back">Zur\u00fcck</a>
+    </div>
   </header>
 
   <main>
-    <div class="page-label">§ 5 DDG</div>
-    <h1>IMPRESSUM</h1>
+    <div class="page-label" data-i18n="label">\u00a7 5 DDG</div>
+    <h1 data-i18n="title">IMPRESSUM</h1>
 
     <section>
-      <h2>Angaben gemäß § 5 DDG (Digitale-Dienste-Gesetz)</h2>
+      <h2 data-i18n="h_info">Angaben gem\u00e4\u00df \u00a7 5 DDG (Digitale-Dienste-Gesetz)</h2>
       <p>Stefan Laackman</p>
-      <p>Torstraße 68</p>
+      <p>Torstra\u00dfe 68</p>
       <p>10119 Berlin</p>
-      <p>Deutschland</p>
+      <p data-i18n="country">Deutschland</p>
     </section>
 
     <section>
-      <h2>Kontakt</h2>
-      <p>E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a></p>
-      <p>Kontaktformular: <a href="https://tally.so/r/aQxKEq" target="_blank" rel="noopener">holisticcointrainer.com/kontakt</a></p>
+      <h2 data-i18n="h_contact">Kontakt</h2>
+      <p data-i18n-html="contact_email">E-Mail: <a href="mailto:hello@holisticcointrainer.com">hello@holisticcointrainer.com</a></p>
+      <p data-i18n-html="contact_form">Kontaktformular: <a href="https://tally.so/r/aQxKEq" target="_blank" rel="noopener">holisticcointrainer.com/kontakt</a></p>
     </section>
 
     <section>
-      <h2>Umsatzsteuer</h2>
-      <p>
-        Umsatzsteuer wird gemäß § 19 UStG nicht erhoben (Kleinunternehmerregelung).
+      <h2 data-i18n="h_vat">Umsatzsteuer</h2>
+      <p data-i18n="vat_text">
+        Umsatzsteuer wird gem\u00e4\u00df \u00a7 19 UStG nicht erhoben (Kleinunternehmerregelung).
       </p>
     </section>
 
     <section>
-      <h2>Verantwortlich für den Inhalt nach § 18 Abs. 2 MStV</h2>
+      <h2 data-i18n="h_responsible">Verantwortlich f\u00fcr den Inhalt nach \u00a7 18 Abs. 2 MStV</h2>
       <p>Stefan Laackman</p>
-      <p>Torstraße 68, 10119 Berlin</p>
+      <p>Torstra\u00dfe 68, 10119 Berlin</p>
     </section>
 
     <section>
-      <h2>Haftungsausschluss</h2>
-      <p>
-        Die Inhalte dieser Website wurden mit größtmöglicher Sorgfalt erstellt.
-        Für die Richtigkeit, Vollständigkeit und Aktualität der Inhalte wird jedoch
-        keine Gewähr übernommen. Als Diensteanbieter bin ich gemäß § 7 Abs. 1 DDG
-        für eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
+      <h2 data-i18n="h_disclaimer">Haftungsausschluss</h2>
+      <p data-i18n="disclaimer_text">
+        Die Inhalte dieser Website wurden mit gr\u00f6\u00dftm\u00f6glicher Sorgfalt erstellt.
+        F\u00fcr die Richtigkeit, Vollst\u00e4ndigkeit und Aktualit\u00e4t der Inhalte wird jedoch
+        keine Gew\u00e4hr \u00fcbernommen. Als Diensteanbieter bin ich gem\u00e4\u00df \u00a7 7 Abs. 1 DDG
+        f\u00fcr eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen
         verantwortlich.
       </p>
     </section>
 
     <section>
-      <h2>Urheberrecht</h2>
-      <p>
+      <h2 data-i18n="h_copyright">Urheberrecht</h2>
+      <p data-i18n="copyright_text">
         Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten
-        unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung,
-        Verbreitung und jede Art der Verwertung außerhalb der Grenzen des
-        Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors
+        unterliegen dem deutschen Urheberrecht. Die Vervielf\u00e4ltigung, Bearbeitung,
+        Verbreitung und jede Art der Verwertung au\u00dferhalb der Grenzen des
+        Urheberrechtes bed\u00fcrfen der schriftlichen Zustimmung des jeweiligen Autors
         bzw. Erstellers.
       </p>
     </section>
 
     <section>
-      <h2>Verbraucherschlichtung</h2>
-      <p>
+      <h2 data-i18n="h_dispute">Verbraucherschlichtung</h2>
+      <p data-i18n="dispute_text">
         Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren
         vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.
       </p>
     </section>
 
-    <div class="notice">
-      Holistic Coin Trainer ist ein Lern- und Bildungswerkzeug für Kryptowährungsanalyse. Die
+    <div class="notice" data-i18n="notice">
+      Holistic Coin Trainer ist ein Lern- und Bildungswerkzeug f\u00fcr Kryptow\u00e4hrungsanalyse. Die
       dargestellten Informationen und Analysen stellen keine Anlageberatung dar
-      und sind nicht als Empfehlung zum Kauf oder Verkauf von Kryptowährungen
+      und sind nicht als Empfehlung zum Kauf oder Verkauf von Kryptow\u00e4hrungen
       zu verstehen.
     </div>
   </main>
@@ -216,5 +253,187 @@
     &gt; holisticcointrainer.com &nbsp;//&nbsp; 2026
   </footer>
 
+<script>
+const T = {
+  DE: {
+    page_title: "Impressum \u2014 Holistic Coin Trainer",
+    back: "Zur\u00fcck",
+    label: "\u00a7 5 DDG",
+    title: "IMPRESSUM",
+    h_info: "Angaben gem\u00e4\u00df \u00a7 5 DDG (Digitale-Dienste-Gesetz)",
+    country: "Deutschland",
+    h_contact: "Kontakt",
+    contact_email: "E-Mail: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "Kontaktformular: <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/kontakt</a>",
+    h_vat: "Umsatzsteuer",
+    vat_text: "Umsatzsteuer wird gem\u00e4\u00df \u00a7 19 UStG nicht erhoben (Kleinunternehmerregelung).",
+    h_responsible: "Verantwortlich f\u00fcr den Inhalt nach \u00a7 18 Abs. 2 MStV",
+    h_disclaimer: "Haftungsausschluss",
+    disclaimer_text: "Die Inhalte dieser Website wurden mit gr\u00f6\u00dftm\u00f6glicher Sorgfalt erstellt. F\u00fcr die Richtigkeit, Vollst\u00e4ndigkeit und Aktualit\u00e4t der Inhalte wird jedoch keine Gew\u00e4hr \u00fcbernommen. Als Diensteanbieter bin ich gem\u00e4\u00df \u00a7 7 Abs. 1 DDG f\u00fcr eigene Inhalte auf diesen Seiten nach den allgemeinen Gesetzen verantwortlich.",
+    h_copyright: "Urheberrecht",
+    copyright_text: "Die durch den Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielf\u00e4ltigung, Bearbeitung, Verbreitung und jede Art der Verwertung au\u00dferhalb der Grenzen des Urheberrechtes bed\u00fcrfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.",
+    h_dispute: "Verbraucherschlichtung",
+    dispute_text: "Der Anbieter ist zur Teilnahme an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle weder verpflichtet noch bereit.",
+    notice: "Holistic Coin Trainer ist ein Lern- und Bildungswerkzeug f\u00fcr Kryptow\u00e4hrungsanalyse. Die dargestellten Informationen und Analysen stellen keine Anlageberatung dar und sind nicht als Empfehlung zum Kauf oder Verkauf von Kryptow\u00e4hrungen zu verstehen."
+  },
+  EN: {
+    page_title: "Legal Notice \u2014 Holistic Coin Trainer",
+    back: "Back",
+    label: "\u00a7 5 DDG",
+    title: "LEGAL NOTICE",
+    h_info: "Information pursuant to \u00a7 5 DDG (German Digital Services Act)",
+    country: "Germany",
+    h_contact: "Contact",
+    contact_email: "Email: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "Contact form: <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/contact</a>",
+    h_vat: "VAT",
+    vat_text: "VAT is not charged pursuant to \u00a7 19 UStG (small business regulation).",
+    h_responsible: "Responsible for content pursuant to \u00a7 18 para. 2 MStV",
+    h_disclaimer: "Disclaimer",
+    disclaimer_text: "The contents of this website have been created with the utmost care. However, no guarantee is given for the accuracy, completeness, or timeliness of the content. As a service provider, I am responsible for my own content on these pages in accordance with general legislation pursuant to \u00a7 7 para. 1 DDG.",
+    h_copyright: "Copyright",
+    copyright_text: "The content and works created by the site operator on these pages are subject to German copyright law. Reproduction, editing, distribution, and any kind of use beyond the limits of copyright law require the written consent of the respective author or creator.",
+    h_dispute: "Consumer Dispute Resolution",
+    dispute_text: "The provider is neither obligated nor willing to participate in dispute resolution proceedings before a consumer arbitration board.",
+    notice: "Holistic Coin Trainer is a learning and educational tool for cryptocurrency analysis. The information and analyses presented do not constitute investment advice and should not be understood as a recommendation to buy or sell cryptocurrencies."
+  },
+  FR: {
+    page_title: "Mentions l\u00e9gales \u2014 Holistic Coin Trainer",
+    back: "Retour",
+    label: "\u00a7 5 DDG",
+    title: "MENTIONS L\u00c9GALES",
+    h_info: "Informations conform\u00e9ment au \u00a7 5 DDG (loi allemande sur les services num\u00e9riques)",
+    country: "Allemagne",
+    h_contact: "Contact",
+    contact_email: "E-mail : <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "Formulaire de contact : <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/contact</a>",
+    h_vat: "TVA",
+    vat_text: "La TVA n'est pas factur\u00e9e conform\u00e9ment au \u00a7 19 UStG (r\u00e9gime des petites entreprises).",
+    h_responsible: "Responsable du contenu conform\u00e9ment au \u00a7 18 al. 2 MStV",
+    h_disclaimer: "Clause de non-responsabilit\u00e9",
+    disclaimer_text: "Le contenu de ce site a \u00e9t\u00e9 cr\u00e9\u00e9 avec le plus grand soin. Toutefois, aucune garantie n'est donn\u00e9e quant \u00e0 l'exactitude, l'exhaustivit\u00e9 ou l'actualit\u00e9 du contenu. En tant que prestataire de services, je suis responsable de mes propres contenus sur ces pages conform\u00e9ment \u00e0 la l\u00e9gislation g\u00e9n\u00e9rale en vertu du \u00a7 7 al. 1 DDG.",
+    h_copyright: "Droit d'auteur",
+    copyright_text: "Les contenus et \u0153uvres cr\u00e9\u00e9s par l'exploitant du site sur ces pages sont soumis au droit d'auteur allemand. La reproduction, le traitement, la diffusion et toute forme d'exploitation au-del\u00e0 des limites du droit d'auteur n\u00e9cessitent le consentement \u00e9crit de l'auteur ou du cr\u00e9ateur concern\u00e9.",
+    h_dispute: "R\u00e8glement des litiges de consommation",
+    dispute_text: "Le prestataire n'est ni oblig\u00e9 ni dispos\u00e9 \u00e0 participer \u00e0 une proc\u00e9dure de r\u00e8glement des litiges devant une commission d'arbitrage des consommateurs.",
+    notice: "Holistic Coin Trainer est un outil d'apprentissage et de formation pour l'analyse des cryptomonnaies. Les informations et analyses pr\u00e9sent\u00e9es ne constituent pas un conseil en investissement et ne doivent pas \u00eatre interpr\u00e9t\u00e9es comme une recommandation d'achat ou de vente de cryptomonnaies."
+  },
+  ES: {
+    page_title: "Aviso legal \u2014 Holistic Coin Trainer",
+    back: "Volver",
+    label: "\u00a7 5 DDG",
+    title: "AVISO LEGAL",
+    h_info: "Informaci\u00f3n conforme al \u00a7 5 DDG (Ley alemana de servicios digitales)",
+    country: "Alemania",
+    h_contact: "Contacto",
+    contact_email: "Correo electr\u00f3nico: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "Formulario de contacto: <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/contacto</a>",
+    h_vat: "IVA",
+    vat_text: "No se cobra IVA conforme al \u00a7 19 UStG (r\u00e9gimen de peque\u00f1as empresas).",
+    h_responsible: "Responsable del contenido conforme al \u00a7 18 ap. 2 MStV",
+    h_disclaimer: "Exenci\u00f3n de responsabilidad",
+    disclaimer_text: "El contenido de este sitio web ha sido creado con el mayor cuidado posible. Sin embargo, no se garantiza la exactitud, integridad o actualidad del contenido. Como proveedor de servicios, soy responsable de mis propios contenidos en estas p\u00e1ginas de acuerdo con la legislaci\u00f3n general conforme al \u00a7 7 ap. 1 DDG.",
+    h_copyright: "Derechos de autor",
+    copyright_text: "Los contenidos y obras creados por el operador del sitio en estas p\u00e1ginas est\u00e1n sujetos a la ley alemana de derechos de autor. La reproducci\u00f3n, edici\u00f3n, distribuci\u00f3n y cualquier tipo de uso fuera de los l\u00edmites del derecho de autor requieren el consentimiento escrito del autor o creador correspondiente.",
+    h_dispute: "Resoluci\u00f3n de conflictos de consumo",
+    dispute_text: "El proveedor no est\u00e1 obligado ni dispuesto a participar en procedimientos de resoluci\u00f3n de conflictos ante una junta de arbitraje de consumidores.",
+    notice: "Holistic Coin Trainer es una herramienta de aprendizaje y formaci\u00f3n para el an\u00e1lisis de criptomonedas. La informaci\u00f3n y los an\u00e1lisis presentados no constituyen asesoramiento de inversi\u00f3n y no deben entenderse como una recomendaci\u00f3n de compra o venta de criptomonedas."
+  },
+  IT: {
+    page_title: "Note legali \u2014 Holistic Coin Trainer",
+    back: "Indietro",
+    label: "\u00a7 5 DDG",
+    title: "NOTE LEGALI",
+    h_info: "Informazioni ai sensi del \u00a7 5 DDG (legge tedesca sui servizi digitali)",
+    country: "Germania",
+    h_contact: "Contatto",
+    contact_email: "E-mail: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "Modulo di contatto: <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/contatto</a>",
+    h_vat: "IVA",
+    vat_text: "L'IVA non viene applicata ai sensi del \u00a7 19 UStG (regime delle piccole imprese).",
+    h_responsible: "Responsabile dei contenuti ai sensi del \u00a7 18 comma 2 MStV",
+    h_disclaimer: "Esclusione di responsabilit\u00e0",
+    disclaimer_text: "I contenuti di questo sito web sono stati creati con la massima cura. Tuttavia, non si garantisce l'accuratezza, la completezza o l'attualit\u00e0 dei contenuti. In qualit\u00e0 di fornitore di servizi, sono responsabile dei propri contenuti su queste pagine in conformit\u00e0 con la legislazione generale ai sensi del \u00a7 7 comma 1 DDG.",
+    h_copyright: "Diritto d'autore",
+    copyright_text: "I contenuti e le opere creati dall'operatore del sito su queste pagine sono soggetti alla legge tedesca sul diritto d'autore. La riproduzione, l'elaborazione, la distribuzione e qualsiasi tipo di utilizzo al di fuori dei limiti del diritto d'autore richiedono il consenso scritto del rispettivo autore o creatore.",
+    h_dispute: "Risoluzione delle controversie dei consumatori",
+    dispute_text: "Il fornitore non \u00e8 n\u00e9 obbligato n\u00e9 disposto a partecipare a procedimenti di risoluzione delle controversie dinanzi a un organismo di conciliazione dei consumatori.",
+    notice: "Holistic Coin Trainer \u00e8 uno strumento di apprendimento e formazione per l'analisi delle criptovalute. Le informazioni e le analisi presentate non costituiscono consulenza in materia di investimenti e non devono essere intese come raccomandazione di acquisto o vendita di criptovalute."
+  },
+  PT: {
+    page_title: "Aviso legal \u2014 Holistic Coin Trainer",
+    back: "Voltar",
+    label: "\u00a7 5 DDG",
+    title: "AVISO LEGAL",
+    h_info: "Informa\u00e7\u00f5es nos termos do \u00a7 5 DDG (Lei alem\u00e3 de servi\u00e7os digitais)",
+    country: "Alemanha",
+    h_contact: "Contacto",
+    contact_email: "E-mail: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "Formul\u00e1rio de contacto: <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/contacto</a>",
+    h_vat: "IVA",
+    vat_text: "N\u00e3o \u00e9 cobrado IVA nos termos do \u00a7 19 UStG (regime de pequenas empresas).",
+    h_responsible: "Respons\u00e1vel pelo conte\u00fado nos termos do \u00a7 18 par\u00e1grafo 2 MStV",
+    h_disclaimer: "Exclus\u00e3o de responsabilidade",
+    disclaimer_text: "O conte\u00fado deste website foi criado com o maior cuidado. No entanto, n\u00e3o \u00e9 garantida a exatid\u00e3o, integridade ou atualidade do conte\u00fado. Enquanto prestador de servi\u00e7os, sou respons\u00e1vel pelos meus pr\u00f3prios conte\u00fados nestas p\u00e1ginas de acordo com a legisla\u00e7\u00e3o geral nos termos do \u00a7 7 par\u00e1grafo 1 DDG.",
+    h_copyright: "Direitos de autor",
+    copyright_text: "Os conte\u00fados e obras criados pelo operador do site nestas p\u00e1ginas est\u00e3o sujeitos \u00e0 lei alem\u00e3 de direitos de autor. A reprodu\u00e7\u00e3o, edi\u00e7\u00e3o, distribui\u00e7\u00e3o e qualquer tipo de utiliza\u00e7\u00e3o fora dos limites do direito de autor requerem o consentimento escrito do respetivo autor ou criador.",
+    h_dispute: "Resolu\u00e7\u00e3o de lit\u00edgios de consumo",
+    dispute_text: "O prestador n\u00e3o \u00e9 obrigado nem est\u00e1 disposto a participar em procedimentos de resolu\u00e7\u00e3o de lit\u00edgios perante uma comiss\u00e3o de arbitragem de consumidores.",
+    notice: "Holistic Coin Trainer \u00e9 uma ferramenta de aprendizagem e forma\u00e7\u00e3o para a an\u00e1lise de criptomoedas. As informa\u00e7\u00f5es e an\u00e1lises apresentadas n\u00e3o constituem aconselhamento de investimento e n\u00e3o devem ser entendidas como recomenda\u00e7\u00e3o de compra ou venda de criptomoedas."
+  },
+  JA: {
+    page_title: "\u7279\u5b9a\u5546\u53d6\u5f15\u6cd5\u306b\u57fa\u3065\u304f\u8868\u8a18 \u2014 Holistic Coin Trainer",
+    back: "\u623b\u308b",
+    label: "\u00a7 5 DDG",
+    title: "\u7279\u5b9a\u5546\u53d6\u5f15\u6cd5\u306b\u57fa\u3065\u304f\u8868\u8a18",
+    h_info: "\u00a7 5 DDG\uff08\u30c9\u30a4\u30c4\u30c7\u30b8\u30bf\u30eb\u30b5\u30fc\u30d3\u30b9\u6cd5\uff09\u306b\u57fa\u3065\u304f\u60c5\u5831",
+    country: "\u30c9\u30a4\u30c4",
+    h_contact: "\u9023\u7d61\u5148",
+    contact_email: "\u30e1\u30fc\u30eb: <a href='mailto:hello@holisticcointrainer.com'>hello@holisticcointrainer.com</a>",
+    contact_form: "\u304a\u554f\u3044\u5408\u308f\u305b\u30d5\u30a9\u30fc\u30e0: <a href='https://tally.so/r/aQxKEq' target='_blank' rel='noopener'>holisticcointrainer.com/contact</a>",
+    h_vat: "\u6d88\u8cbb\u7a0e",
+    vat_text: "\u00a7 19 UStG\uff08\u5c0f\u898f\u6a21\u4e8b\u696d\u8005\u898f\u5b9a\uff09\u306b\u3088\u308a\u3001\u6d88\u8cbb\u7a0e\u306f\u8ab2\u7a0e\u3055\u308c\u307e\u305b\u3093\u3002",
+    h_responsible: "\u00a7 18\u7b2c2\u9805 MStV\u306b\u57fa\u3065\u304f\u30b3\u30f3\u30c6\u30f3\u30c4\u8cac\u4efb\u8005",
+    h_disclaimer: "\u514d\u8cac\u4e8b\u9805",
+    disclaimer_text: "\u672c\u30a6\u30a7\u30d6\u30b5\u30a4\u30c8\u306e\u30b3\u30f3\u30c6\u30f3\u30c4\u306f\u7d30\u5fc3\u306e\u6ce8\u610f\u3092\u6255\u3063\u3066\u4f5c\u6210\u3055\u308c\u3066\u3044\u307e\u3059\u3002\u305f\u3060\u3057\u3001\u30b3\u30f3\u30c6\u30f3\u30c4\u306e\u6b63\u78ba\u6027\u3001\u5b8c\u5168\u6027\u3001\u6700\u65b0\u6027\u306b\u3064\u3044\u3066\u306f\u4fdd\u8a3c\u3044\u305f\u3057\u307e\u305b\u3093\u3002\u30b5\u30fc\u30d3\u30b9\u63d0\u4f9b\u8005\u3068\u3057\u3066\u3001\u00a7 7\u7b2c1\u9805 DDG\u306b\u5f93\u3044\u3001\u672c\u30da\u30fc\u30b8\u4e0a\u306e\u81ea\u5df1\u306e\u30b3\u30f3\u30c6\u30f3\u30c4\u306b\u3064\u3044\u3066\u4e00\u822c\u6cd5\u306b\u57fa\u3065\u304d\u8cac\u4efb\u3092\u8ca0\u3044\u307e\u3059\u3002",
+    h_copyright: "\u8457\u4f5c\u6a29",
+    copyright_text: "\u672c\u30b5\u30a4\u30c8\u904b\u55b6\u8005\u304c\u672c\u30da\u30fc\u30b8\u4e0a\u3067\u4f5c\u6210\u3057\u305f\u30b3\u30f3\u30c6\u30f3\u30c4\u304a\u3088\u3073\u8457\u4f5c\u7269\u306f\u3001\u30c9\u30a4\u30c4\u8457\u4f5c\u6a29\u6cd5\u306b\u57fa\u3065\u304d\u4fdd\u8b77\u3055\u308c\u3066\u3044\u307e\u3059\u3002\u8457\u4f5c\u6a29\u6cd5\u306e\u7bc4\u56f2\u3092\u8d85\u3048\u305f\u8907\u88fd\u3001\u7de8\u96c6\u3001\u914d\u5e03\u3001\u304a\u3088\u3073\u3042\u3089\u3086\u308b\u5229\u7528\u306b\u306f\u3001\u5404\u8457\u4f5c\u8005\u307e\u305f\u306f\u5236\u4f5c\u8005\u306e\u66f8\u9762\u306b\u3088\u308b\u540c\u610f\u304c\u5fc5\u8981\u3067\u3059\u3002",
+    h_dispute: "\u6d88\u8cbb\u8005\u7d1b\u4e89\u89e3\u6c7a",
+    dispute_text: "\u63d0\u4f9b\u8005\u306f\u3001\u6d88\u8cbb\u8005\u4ef2\u88c1\u59d4\u54e1\u4f1a\u306b\u304a\u3051\u308b\u7d1b\u4e89\u89e3\u6c7a\u624b\u7d9a\u304d\u3078\u306e\u53c2\u52a0\u7fa9\u52d9\u306f\u306a\u304f\u3001\u307e\u305f\u53c2\u52a0\u306e\u610f\u601d\u3082\u3042\u308a\u307e\u305b\u3093\u3002",
+    notice: "Holistic Coin Trainer\u306f\u6697\u53f7\u8cc7\u7523\u5206\u6790\u306e\u305f\u3081\u306e\u5b66\u7fd2\u30fb\u6559\u80b2\u30c4\u30fc\u30eb\u3067\u3059\u3002\u63d0\u793a\u3055\u308c\u308b\u60c5\u5831\u304a\u3088\u3073\u5206\u6790\u306f\u6295\u8cc7\u52a9\u8a00\u3067\u306f\u306a\u304f\u3001\u6697\u53f7\u8cc7\u7523\u306e\u8cfc\u5165\u307e\u305f\u306f\u58f2\u5374\u306e\u63a8\u5968\u3068\u3057\u3066\u7406\u89e3\u3055\u308c\u308b\u3079\u304d\u3067\u306f\u3042\u308a\u307e\u305b\u3093\u3002"
+  }
+};
+
+function applyLang(lang) {
+  const tr = T[lang] || T.DE;
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.dataset.i18n;
+    if (tr[k]) el.textContent = tr[k];
+  });
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.dataset.i18nHtml;
+    if (tr[k]) el.innerHTML = tr[k];
+  });
+  if (tr.page_title) document.title = tr.page_title;
+  document.documentElement.lang = lang.toLowerCase();
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.classList.toggle('active', b.dataset.lang === lang));
+  try { localStorage.setItem('hct_lang', lang); } catch(e) {}
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  const urlLang = new URLSearchParams(window.location.search).get('lang');
+  let lang = (urlLang && T[urlLang.toUpperCase()]) ? urlLang.toUpperCase() : null;
+  if (!lang) { try { lang = localStorage.getItem('hct_lang'); } catch(e) {} }
+  if (!lang) {
+    const bl = (navigator.language || '').split('-')[0].toUpperCase();
+    lang = T[bl] ? bl : 'DE';
+  }
+  applyLang(lang);
+
+  document.querySelectorAll('.lang-btn').forEach(b =>
+    b.addEventListener('click', () => applyLang(b.dataset.lang)));
+});
+</script>
 </body>
 </html>
